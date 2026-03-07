@@ -3,7 +3,12 @@
     "id": "game_val",
     "title": "Valorant",
     "tier": "tier_aaa",
-    "tags":["tag_shooter", "tag_multi", "tag_pvp", "tag_scifi"],
+    "tags":[
+      "tag_shooter",
+      "tag_multi",
+      "tag_pvp",
+      "tag_scifi"
+    ],
     "description": "Многопользовательский тактический шутер от первого лица, разработанный Riot Games.",
     "trailer": "https://www.youtube.com/embed/e_E9W2vsRbQ?autoplay=1&mute=1",
     "assets": {
@@ -15,7 +20,13 @@
     "id": "game_bendy",
     "title": "Bendy and the Ink Machine",
     "tier": "tier_indie",
-    "tags":["tag_horror", "tag_puzzle", "tag_single", "tag_story", "tag_retro"],
+    "tags":[
+      "tag_horror",
+      "tag_puzzle",
+      "tag_single",
+      "tag_story",
+      "tag_retro"
+    ],
     "description": "Эпизодическая игра в жанре survival horror. Исследуйте заброшенную студию.",
     "trailer": "https://www.youtube.com/embed/Inl0c25t2d0?autoplay=1&mute=1",
     "assets": {
