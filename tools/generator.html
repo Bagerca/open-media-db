@@ -1,1 +1,145 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>MediaDB Generator</title>
+    <style>
+        body { font-family: system-ui, sans-serif; background: #0a0a0c; color: #fff; margin: 0; padding: 20px; display: flex; gap: 20px; height: 100vh; box-sizing: border-box; }
+        .panel { background: #141416; border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 20px; flex: 1; display: flex; flex-direction: column; overflow-y: auto; }
+        h2 { margin-top: 0; color: #7c3aed; }
+        label { font-size: 14px; color: #aaa; margin-top: 10px; display: block; margin-bottom: 5px; }
+        input[type="text"], select, textarea { width: 100%; background: #1a1a1c; border: 1px solid rgba(255,255,255,0.2); color: #fff; padding: 10px; border-radius: 8px; box-sizing: border-box; }
+        textarea { height: 80px; resize: vertical; }
+        .tags-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 5px; background: #1a1a1c; padding: 10px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2); }
+        .tags-grid label { margin: 0; display: flex; align-items: center; gap: 5px; color: #fff; cursor: pointer; }
+        pre { background: #000; padding: 15px; border-radius: 8px; color: #44bd32; overflow-x: auto; flex: 1; border: 1px solid rgba(255,255,255,0.1); }
+        .instructions { background: rgba(124, 58, 237, 0.1); border-left: 4px solid #7c3aed; padding: 15px; border-radius: 4px; margin-bottom: 20px; }
+        .instructions b { color: #ffd700; }
+    </style>
+</head>
+<body>
 
+    <!-- ЛЕВАЯ ПАНЕЛЬ: Форма -->
+    <div class="panel">
+        <h2>Добавить игру</h2>
+        
+        <label>Название игры</label>
+        <input type="text" id="title" placeholder="Например: The Witcher 3">
+
+        <label>Масштаб (Tier)</label>
+        <select id="tier">
+            <option value="tier_aaa">AAA (Блокбастер)</option>
+            <option value="tier_aa">AA (Средний)</option>
+            <option value="tier_indie">Indie (Инди)</option>
+        </select>
+
+        <label>Трейлер (YouTube Embed URL) - Не обязательно</label>
+        <input type="text" id="trailer" placeholder="https://www.youtube.com/embed/...">
+
+        <label style="display: flex; align-items: center; gap: 10px; cursor: pointer; font-size: 16px; color: #fff; margin: 15px 0;">
+            <input type="checkbox" id="hasBanner" checked> У игры есть широкий баннер?
+        </label>
+
+        <label>Описание</label>
+        <textarea id="desc" placeholder="Короткое описание игры..."></textarea>
+
+        <label>Теги (выбери нужное)</label>
+        <div class="tags-grid" id="tagsContainer">
+            <!-- Теги генерируются через JS -->
+        </div>
+    </div>
+
+    <!-- ПРАВАЯ ПАНЕЛЬ: Результат -->
+    <div class="panel">
+        <h2>Результат</h2>
+        <div class="instructions" id="instructions">
+            Заполни форму, чтобы получить инструкции.
+        </div>
+        <pre id="output">// JSON появится здесь...</pre>
+    </div>
+
+    <script>
+        // Все твои теги из проекта
+        const ALL_TAGS =[
+            { id: "tag_action", label: "Экшен" }, { id: "tag_shooter", label: "Шутер" },
+            { id: "tag_rpg", label: "RPG" }, { id: "tag_strategy", label: "Стратегия" },
+            { id: "tag_adventure", label: "Приключение" }, { id: "tag_puzzle", label: "Головоломка" },
+            { id: "tag_sim", label: "Симулятор" }, { id: "tag_rogue", label: "Рогалик" },
+            { id: "tag_survival", label: "Выживание" }, { id: "tag_horror", label: "Хоррор" },
+            { id: "tag_platform", label: "Платформер" }, { id: "tag_scifi", label: "Sci-Fi" },
+            { id: "tag_cyberpunk", label: "Киберпанк" }, { id: "tag_fantasy", label: "Фэнтези" },
+            { id: "tag_space", label: "Космос" }, { id: "tag_postapoc", label: "Постапокалипсис" },
+            { id: "tag_anime", label: "Аниме" }, { id: "tag_retro", label: "Ретро" },
+            { id: "tag_military", label: "Милитари" }, { id: "tag_single", label: "Одиночная" },
+            { id: "tag_multi", label: "Мультиплеер" }, { id: "tag_coop", label: "Кооператив" },
+            { id: "tag_pvp", label: "PvP" }, { id: "tag_story", label: "Глубокий сюжет" },
+            { id: "tag_openworld", label: "Открытый мир" }, { id: "tag_hardcore", label: "Сложная" },
+            { id: "tag_relax", label: "Расслабляющая" }, { id: "tag_pixel", label: "Пиксельная" }
+        ];
+
+        // Транслитерация для создания красивых ID из русских названий
+        const translitMap = { 'а':'a','б':'b','в':'v','г':'g','д':'d','е':'e','ё':'yo','ж':'zh','з':'z','и':'i','й':'y','к':'k','л':'l','м':'m','н':'n','о':'o','п':'p','р':'r','с':'s','т':'t','у':'u','ф':'f','х':'h','ц':'ts','ч':'ch','ш':'sh','щ':'sch','ь':'','ы':'y','ъ':'','э':'e','ю':'yu','я':'ya'};
+        
+        function transliterate(str) {
+            return str.toLowerCase().split('').map(char => translitMap[char] || char).join('');
+        }
+
+        // Отрисовка чекбоксов тегов
+        const tagsContainer = document.getElementById('tagsContainer');
+        ALL_TAGS.forEach(tag => {
+            tagsContainer.innerHTML += `<label><input type="checkbox" value="${tag.id}"> ${tag.label}</label>`;
+        });
+
+        // Функция генерации
+        function updateOutput() {
+            const title = document.getElementById('title').value.trim();
+            if (!title) {
+                document.getElementById('output').textContent = "// Введи название игры...";
+                document.getElementById('instructions').innerHTML = "Заполни форму, чтобы получить инструкции.";
+                return;
+            }
+
+            // Создаем безопасный ID и имя файлов
+            let safeName = transliterate(title).replace(/[^a-z0-9]/g, '_').replace(/_+/g, '_').replace(/^_|_$/g, '');
+            const id = "game_" + safeName;
+            
+            const hasBanner = document.getElementById('hasBanner').checked;
+            const coverName = safeName + ".jpg";
+            const bannerName = hasBanner ? safeName + "_banner.jpg" : null;
+
+            // Собираем теги
+            const selectedTags = Array.from(document.querySelectorAll('.tags-grid input:checked')).map(cb => cb.value);
+
+            // Формируем объект
+            const gameObj = {
+                id: id,
+                title: title,
+                tier: document.getElementById('tier').value,
+                tags: selectedTags,
+                description: document.getElementById('desc').value.trim(),
+                trailer: document.getElementById('trailer').value.trim(),
+                assets: {
+                    cover: coverName,
+                    banner: bannerName
+                }
+            };
+
+            // Выводим результат
+            document.getElementById('output').textContent = JSON.stringify(gameObj, null, 4) + ",";
+            
+            // Выводим инструкции
+            document.getElementById('instructions').innerHTML = `
+                1. Скопируй код ниже и вставь его в файл <b>db/games.json</b><br><br>
+                2. Переименуй обложку игры (3:4) в: <b>${coverName}</b> и закинь в папку <i>images/games/covers/</i><br>
+                ${hasBanner ? `3. Переименуй фон игры (16:9) в: <b>${bannerName}</b> и закинь в папку <i>images/games/banners/</i>` : '<br><i>Широкий фон (баннер) не требуется.</i>'}
+            `;
+        }
+
+        // Слушаем изменения во всех полях
+        document.querySelectorAll('input, select, textarea').forEach(el => {
+            el.addEventListener('input', updateOutput);
+            el.addEventListener('change', updateOutput);
+        });
+    </script>
+</body>
+</html>
