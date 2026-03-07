@@ -1,57 +1,291 @@
 [
     {
-        "id": "game_buckshot_roulette",
-        "title": "Buckshot Roulette",
+        "id": "game_beholder",
+        "steam_id": 475550,
+        "title": "Beholder",
         "tier": "tier_indie",
-        "developer": "Mike Klubnika",
-        "publisher": "CRITICAL REFLEX",
-        "release_date": "4 апр. 2024 г.",
+        "developer": "Alawar Stargaze (Warm Lamp Games)",
+        "publisher": "Alawar",
+        "release_date": "9 Nov, 2016",
         "tags": [
+            "tag_single",
+            "tag_adventure",
+            "tag_strategy",
             "tag_indie"
         ],
-        "description": "Сыграйте в русскую рулетку с дробовиком 12-го калибра. Играют четверо. Остается один. Поставьте на кон свою жизнь. Удачи.",
+        "description": "You’re a state-installed landlord in a totalitarian country. Place listening devices, steal and sneak into your tenants’ apartments. Use what you uncovered to report anyone capable of plotting against the state. You MUST! But WILL you?",
         "trailer": "",
         "assets": {
-            "cover": "buckshot_roulette.jpg",
-            "banner": "buckshot_roulette_banner.jpg"
+            "cover": "beholder.jpg",
+            "banner": "beholder_banner.jpg",
+            "screenshots": [
+                "beholder_screen_1.jpg",
+                "beholder_screen_2.jpg",
+                "beholder_screen_3.jpg",
+                "beholder_screen_4.jpg",
+                "beholder_screen_5.jpg",
+                "beholder_screen_6.jpg"
+            ]
         }
     },
     {
-        "id": "game_karnaval_illyuziy",
-        "title": "Карнавал Иллюзий",
+        "id": "game_beholder_2",
+        "steam_id": 761620,
+        "title": "Beholder 2",
         "tier": "tier_indie",
-        "developer": "KiZ",
-        "publisher": "KiZ",
-        "release_date": "11 июл. 2024 г.",
+        "developer": "Alawar Stargaze (Warm Lamp Games)",
+        "publisher": "Alawar",
+        "release_date": "4 Dec, 2018",
+        "tags": [
+            "tag_single",
+            "tag_adventure",
+            "tag_strategy",
+            "tag_indie"
+        ],
+        "description": "You are an intern at the central ministry of a totalitarian state with your whole career ahead of you. Work your way up the ladder by scheming against employees, spying on your boss, and completing paperwork. Or do you turn against the state and expose corruption. The choice is still yours to make!",
+        "trailer": "",
+        "assets": {
+            "cover": "beholder_2.jpg",
+            "banner": "beholder_2_banner.jpg",
+            "screenshots": [
+                "beholder_2_screen_1.jpg",
+                "beholder_2_screen_2.jpg",
+                "beholder_2_screen_3.jpg",
+                "beholder_2_screen_4.jpg",
+                "beholder_2_screen_5.jpg",
+                "beholder_2_screen_6.jpg"
+            ]
+        }
+    },
+    {
+        "id": "game_beholder_3",
+        "steam_id": 1570070,
+        "title": "Beholder 3",
+        "tier": "tier_indie",
+        "developer": "Paintbucket Games",
+        "publisher": "Alawar",
+        "release_date": "3 Mar, 2022",
+        "tags": [
+            "tag_single",
+            "tag_adventure",
+            "tag_strategy",
+            "tag_indie"
+        ],
+        "description": "When a high-ranking security officer saves you from prison, you end up a pawn in her schemes. Now you must eliminate anyone standing in the way of her secret plans and try to get your life back while working two jobs. No tenant, employee or superior is safe from your spying.",
+        "trailer": "",
+        "assets": {
+            "cover": "beholder_3.jpg",
+            "banner": "beholder_3_banner.jpg",
+            "screenshots": [
+                "beholder_3_screen_1.jpg",
+                "beholder_3_screen_2.jpg",
+                "beholder_3_screen_3.jpg",
+                "beholder_3_screen_4.jpg",
+                "beholder_3_screen_5.jpg",
+                "beholder_3_screen_6.jpg"
+            ]
+        }
+    },
+    {
+        "id": "game_beholder_conductor",
+        "steam_id": 2825530,
+        "title": "Beholder: Conductor",
+        "tier": "tier_indie",
+        "developer": "Alawar",
+        "publisher": "Alawar",
+        "release_date": "23 Apr, 2025",
+        "tags": [
+            "tag_single",
+            "tag_adventure",
+            "tag_strategy",
+            "tag_indie"
+        ],
+        "description": "A Beholder series spin-off. Become a conductor of the Determination Bringer train: monitor passengers, report incidents, and carry out important Ministry assignments — whose level of secrecy depends only on your loyalty. And remember: mission success is very important to you!",
+        "trailer": "",
+        "assets": {
+            "cover": "beholder_conductor.jpg",
+            "banner": "beholder_conductor_banner.jpg",
+            "screenshots": [
+                "beholder_conductor_screen_1.jpg",
+                "beholder_conductor_screen_2.jpg",
+                "beholder_conductor_screen_3.jpg",
+                "beholder_conductor_screen_4.jpg",
+                "beholder_conductor_screen_5.jpg",
+                "beholder_conductor_screen_6.jpg"
+            ]
+        }
+    },
+    {
+        "id": "game_bendy_and_the_dark_revival",
+        "steam_id": 1063660,
+        "title": "Bendy and the Dark Revival",
+        "tier": "tier_standard",
+        "developer": "Joey Drew Studios",
+        "publisher": "Joey Drew Studios",
+        "release_date": "15 Nov, 2022",
+        "tags": [
+            "tag_single",
+            "tag_action",
+            "tag_adventure"
+        ],
+        "description": "Bendy and the Dark Revival® is a first-person survival horror game set in the creepiest cartoon studio to ever exist. Discover the truth. Escape the studio. Above all, fear the Ink Demon…and survive.",
+        "trailer": "",
+        "assets": {
+            "cover": "bendy_and_the_dark_revival.jpg",
+            "banner": "bendy_and_the_dark_revival_banner.jpg",
+            "screenshots": [
+                "bendy_and_the_dark_revival_screen_1.jpg",
+                "bendy_and_the_dark_revival_screen_2.jpg",
+                "bendy_and_the_dark_revival_screen_3.jpg",
+                "bendy_and_the_dark_revival_screen_4.jpg",
+                "bendy_and_the_dark_revival_screen_5.jpg",
+                "bendy_and_the_dark_revival_screen_6.jpg"
+            ]
+        }
+    },
+    {
+        "id": "game_bendy_and_the_ink_machine",
+        "steam_id": 622650,
+        "title": "Bendy and the Ink Machine",
+        "tier": "tier_indie",
+        "developer": "Joey Drew Studios",
+        "publisher": "Joey Drew Studios",
+        "release_date": "27 Apr, 2017",
+        "tags": [
+            "tag_single",
+            "tag_action",
+            "tag_adventure",
+            "tag_strategy",
+            "tag_indie"
+        ],
+        "description": "Bendy and the Ink Machine® is the first person puzzle action horror game that will forever ruin your childhood love of cartoons.",
+        "trailer": "",
+        "assets": {
+            "cover": "bendy_and_the_ink_machine.jpg",
+            "banner": "bendy_and_the_ink_machine_banner.jpg",
+            "screenshots": [
+                "bendy_and_the_ink_machine_screen_1.jpg",
+                "bendy_and_the_ink_machine_screen_2.jpg",
+                "bendy_and_the_ink_machine_screen_3.jpg",
+                "bendy_and_the_ink_machine_screen_4.jpg",
+                "bendy_and_the_ink_machine_screen_5.jpg",
+                "bendy_and_the_ink_machine_screen_6.jpg"
+            ]
+        }
+    },
+    {
+        "id": "game_bendy_lone_wolf",
+        "steam_id": 3232610,
+        "title": "Bendy: Lone Wolf",
+        "tier": "tier_indie",
+        "developer": "Joey Drew Studios",
+        "publisher": "Joey Drew Studios",
+        "release_date": "15 авг. 2025 г.",
         "tags": [
             "tag_indie"
         ],
-        "description": "Заблудшая душа путешествует по причудливому, жуткому парку аттракционов, в стиле всплывающей книги. Погрузитесь в весёлые игры, встретьте интересных персонажей, попытайтесь избежать эрозии души и узнайте скрытые секреты парка. Это начало чарующего, но мрачного Карнавала Иллюзий.",
+        "description": "Bendy: Lone Wolf™ will tests your ability to survive against ever increasing odds. Monsters and obstacles emerge from every direction as you journey into the rubberhose halls of the world's most evil animation studio. Every day is a challenge.",
         "trailer": "",
         "assets": {
-            "cover": "karnaval_illyuziy.jpg",
-            "banner": "karnaval_illyuziy_banner.jpg"
+            "cover": "bendy_lone_wolf.jpg",
+            "banner": "bendy_lone_wolf_banner.jpg",
+            "screenshots": [
+                "bendy_lone_wolf_screen_1.jpg",
+                "bendy_lone_wolf_screen_2.jpg",
+                "bendy_lone_wolf_screen_3.jpg",
+                "bendy_lone_wolf_screen_4.jpg",
+                "bendy_lone_wolf_screen_5.jpg",
+                "bendy_lone_wolf_screen_6.jpg"
+            ]
+        }
+    },
+    {
+        "id": "game_bendy_secrets_of_the_machine",
+        "steam_id": 622630,
+        "title": "Bendy: Secrets of the Machine",
+        "tier": "tier_indie",
+        "developer": "Gent Corporation",
+        "publisher": "Joey Drew Studios",
+        "release_date": "14 Apr, 2024",
+        "tags": [
+            "tag_single",
+            "tag_action",
+            "tag_adventure",
+            "tag_indie"
+        ],
+        "description": "Some things are better left forgotten.",
+        "trailer": "",
+        "assets": {
+            "cover": "bendy_secrets_of_the_machine.jpg",
+            "banner": "bendy_secrets_of_the_machine_banner.jpg",
+            "screenshots": [
+                "bendy_secrets_of_the_machine_screen_1.jpg",
+                "bendy_secrets_of_the_machine_screen_2.jpg",
+                "bendy_secrets_of_the_machine_screen_3.jpg",
+                "bendy_secrets_of_the_machine_screen_4.jpg",
+                "bendy_secrets_of_the_machine_screen_5.jpg"
+            ]
+        }
+    },
+    {
+        "id": "game_boris_and_the_dark_survival",
+        "steam_id": 1236990,
+        "title": "Boris and the Dark Survival",
+        "tier": "tier_indie",
+        "developer": "Joey Drew Studios",
+        "publisher": "Joey Drew Studios",
+        "release_date": "10 фев. 2020 г.",
+        "tags": [
+            "tag_indie"
+        ],
+        "description": "A lone wolf struggles to survive the inky abyss of Joey Drew Studios in this top-down survival horror.",
+        "trailer": "",
+        "assets": {
+            "cover": "boris_and_the_dark_survival.jpg",
+            "banner": "boris_and_the_dark_survival_banner.jpg",
+            "screenshots": [
+                "boris_and_the_dark_survival_screen_1.jpg",
+                "boris_and_the_dark_survival_screen_2.jpg",
+                "boris_and_the_dark_survival_screen_3.jpg",
+                "boris_and_the_dark_survival_screen_4.jpg",
+                "boris_and_the_dark_survival_screen_5.jpg",
+                "boris_and_the_dark_survival_screen_6.jpg"
+            ]
         }
     },
     {
         "id": "game_wall_world",
+        "steam_id": 2187290,
         "title": "Wall World",
         "tier": "tier_indie",
         "developer": "Alawar",
         "publisher": "Alawar",
-        "release_date": "5 апр. 2023 г.",
+        "release_date": "5 Apr, 2023",
         "tags": [
+            "tag_single",
+            "tag_action",
+            "tag_adventure",
+            "tag_strategy",
             "tag_indie"
         ],
-        "description": "Исследуйте загадочный мир Стены на огромном робо-пауке: копайте шахты в поисках ценных ресурсов, улучшайте снаряжение для борьбы с полчищами монстров и открывайте экзотические биомы в перерывах между атаками. Сможете ли вы выжить и узнать тайны Мировой Стены?",
+        "description": "Explore the mysterious Wall World on your giant robospider: mine for valuable resources, upgrade your equipment to fight off hordes of monsters, and discover exotic biomes in-between attacks. Will you be able to survive and learn the secrets of the Wall World?",
         "trailer": "",
         "assets": {
             "cover": "wall_world.jpg",
-            "banner": "wall_world_banner.jpg"
+            "banner": "wall_world_banner.jpg",
+            "screenshots": [
+                "wall_world_screen_1.jpg",
+                "wall_world_screen_2.jpg",
+                "wall_world_screen_3.jpg",
+                "wall_world_screen_4.jpg",
+                "wall_world_screen_5.jpg",
+                "wall_world_screen_6.jpg"
+            ]
         }
     },
     {
         "id": "game_wall_world_2",
+        "steam_id": 3467710,
         "title": "Wall World 2",
         "tier": "tier_indie",
         "developer": "Alawar",
@@ -68,181 +302,20 @@
         "trailer": "",
         "assets": {
             "cover": "wall_world_2.jpg",
-            "banner": "wall_world_2_banner.jpg"
-        }
-    },
-    {
-        "id": "game_alan_wake",
-        "title": "Alan Wake",
-        "tier": "tier_standard",
-        "developer": "Remedy Entertainment",
-        "publisher": "Remedy Entertainment",
-        "release_date": "16 Feb, 2012",
-        "tags": [
-            "tag_single",
-            "tag_action",
-            "tag_adventure"
-        ],
-        "description": "A Dark Presence stalks the small town of Bright Falls, pushing Alan Wake to the brink of sanity in his fight to unravel the mystery and save his love.",
-        "trailer": "",
-        "assets": {
-            "cover": "alan_wake.jpg",
-            "banner": "alan_wake_banner.jpg"
-        }
-    },
-    {
-        "id": "game_beholder",
-        "title": "Beholder",
-        "tier": "tier_indie",
-        "developer": "Alawar Stargaze (Warm Lamp Games)",
-        "publisher": "Alawar",
-        "release_date": "9 ноя. 2016 г.",
-        "tags": [
-            "tag_indie"
-        ],
-        "description": "Вы назначены на должность смотрителя многоквартирного дома в тоталитарной стране. Подслушивайте разговоры, обыскивайте квартиры и изучайте каждого жильца. Всё, что вы найдёте, вы сможете использовать против граждан. Точнее, вы ОБЯЗАНЫ так поступить. Но поступите ли?",
-        "trailer": "",
-        "assets": {
-            "cover": "beholder.jpg",
-            "banner": "beholder_banner.jpg"
-        }
-    },
-    {
-        "id": "game_beholder_2",
-        "title": "Beholder 2",
-        "tier": "tier_indie",
-        "developer": "Alawar Stargaze (Warm Lamp Games)",
-        "publisher": "Alawar",
-        "release_date": "4 дек. 2018 г.",
-        "tags": [
-            "tag_indie"
-        ],
-        "description": "Вы стажёр Министерства тоталитарного государства. Плетите интриги, шпионьте за начальством и пробирайтесь сквозь бюрократию в погоне за повышением. Или восстаньте против системы и разоблачите правительство. Выбор только за вами!",
-        "trailer": "",
-        "assets": {
-            "cover": "beholder_2.jpg",
-            "banner": "beholder_2_banner.jpg"
-        }
-    },
-    {
-        "id": "game_beholder_3",
-        "title": "Beholder 3",
-        "tier": "tier_indie",
-        "developer": "Paintbucket Games",
-        "publisher": "Alawar",
-        "release_date": "3 мар. 2022 г.",
-        "tags": [
-            "tag_indie"
-        ],
-        "description": "Вас спасла от тюрьмы сотрудница службы безопасности. Взамен избавьтесь от тех, кто стоит на пути её секретных планов и поднимитесь по карьерной лестнице, работая на двух работах и шпионя за арендаторами, служащими и начальством.",
-        "trailer": "",
-        "assets": {
-            "cover": "beholder_3.jpg",
-            "banner": "beholder_3_banner.jpg"
-        }
-    },
-    {
-        "id": "game_beholder_conductor",
-        "title": "Beholder: Conductor",
-        "tier": "tier_indie",
-        "developer": "Alawar",
-        "publisher": "Alawar",
-        "release_date": "23 апр. 2025 г.",
-        "tags": [
-            "tag_indie"
-        ],
-        "description": "Спин-офф серии Beholder. Станьте кондуктором поезда: контролируйте пассажиров, сообщайте об инцидентах и выполняйте важные поручения от Министерства, секретность которых зависит только от вашей лояльности. И помните: успех вашей миссии важен для вас самих!",
-        "trailer": "",
-        "assets": {
-            "cover": "beholder_conductor.jpg",
-            "banner": "beholder_conductor_banner.jpg"
-        }
-    },
-    {
-        "id": "game_bendy_and_the_dark_revival",
-        "title": "Bendy and the Dark Revival",
-        "tier": "tier_standard",
-        "developer": "Joey Drew Studios",
-        "publisher": "Joey Drew Studios",
-        "release_date": "15 ноя. 2022 г.",
-        "tags": [],
-        "description": "Bendy and the Dark Revival® is a first-person survival horror game set in the creepiest cartoon studio to ever exist. Discover the truth. Escape the studio. Above all, fear the Ink Demon…and survive.",
-        "trailer": "",
-        "assets": {
-            "cover": "bendy_and_the_dark_revival.jpg",
-            "banner": "bendy_and_the_dark_revival_banner.jpg"
-        }
-    },
-    {
-        "id": "game_bendy_and_the_ink_machine",
-        "title": "Bendy and the Ink Machine",
-        "tier": "tier_indie",
-        "developer": "Joey Drew Studios",
-        "publisher": "Joey Drew Studios",
-        "release_date": "27 апр. 2017 г.",
-        "tags": [
-            "tag_indie"
-        ],
-        "description": "Bendy and the Ink Machine® is the first person puzzle action horror game that will forever ruin your childhood love of cartoons.",
-        "trailer": "",
-        "assets": {
-            "cover": "bendy_and_the_ink_machine.jpg",
-            "banner": "bendy_and_the_ink_machine_banner.jpg"
-        }
-    },
-    {
-        "id": "game_bendy_lone_wolf",
-        "title": "Bendy: Lone Wolf",
-        "tier": "tier_indie",
-        "developer": "Joey Drew Studios",
-        "publisher": "Joey Drew Studios",
-        "release_date": "15 авг. 2025 г.",
-        "tags": [
-            "tag_indie"
-        ],
-        "description": "Bendy: Lone Wolf™ will tests your ability to survive against ever increasing odds. Monsters and obstacles emerge from every direction as you journey into the rubberhose halls of the world's most evil animation studio. Every day is a challenge.",
-        "trailer": "",
-        "assets": {
-            "cover": "bendy_lone_wolf.jpg",
-            "banner": "bendy_lone_wolf_banner.jpg"
-        }
-    },
-    {
-        "id": "game_bendy_secrets_of_the_machine",
-        "title": "Bendy: Secrets of the Machine",
-        "tier": "tier_indie",
-        "developer": "Gent Corporation",
-        "publisher": "Joey Drew Studios",
-        "release_date": "14 апр. 2024 г.",
-        "tags": [
-            "tag_indie"
-        ],
-        "description": "Some things are better left forgotten.",
-        "trailer": "",
-        "assets": {
-            "cover": "bendy_secrets_of_the_machine.jpg",
-            "banner": "bendy_secrets_of_the_machine_banner.jpg"
-        }
-    },
-    {
-        "id": "game_boris_and_the_dark_survival",
-        "title": "Boris and the Dark Survival",
-        "tier": "tier_indie",
-        "developer": "Joey Drew Studios",
-        "publisher": "Joey Drew Studios",
-        "release_date": "10 фев. 2020 г.",
-        "tags": [
-            "tag_indie"
-        ],
-        "description": "A lone wolf struggles to survive the inky abyss of Joey Drew Studios in this top-down survival horror.",
-        "trailer": "",
-        "assets": {
-            "cover": "boris_and_the_dark_survival.jpg",
-            "banner": "boris_and_the_dark_survival_banner.jpg"
+            "banner": "wall_world_2_banner.jpg",
+            "screenshots": [
+                "wall_world_2_screen_1.jpg",
+                "wall_world_2_screen_2.jpg",
+                "wall_world_2_screen_3.jpg",
+                "wall_world_2_screen_4.jpg",
+                "wall_world_2_screen_5.jpg",
+                "wall_world_2_screen_6.jpg"
+            ]
         }
     },
     {
         "id": "game_awaria",
+        "steam_id": 3274300,
         "title": "Awaria",
         "tier": "tier_indie",
         "developer": "vanripper",
@@ -257,167 +330,70 @@
         "trailer": "",
         "assets": {
             "cover": "awaria.jpg",
-            "banner": "awaria_banner.jpg"
+            "banner": "awaria_banner.jpg",
+            "screenshots": [
+                "awaria_screen_1.jpg",
+                "awaria_screen_2.jpg",
+                "awaria_screen_3.jpg",
+                "awaria_screen_4.jpg",
+                "awaria_screen_5.jpg"
+            ]
         }
     },
     {
         "id": "game_helltaker",
+        "steam_id": 1289310,
         "title": "Helltaker",
         "tier": "tier_indie",
         "developer": "vanripper",
         "publisher": "vanripper",
-        "release_date": "11 May, 2020",
+        "release_date": "11 мая. 2020 г.",
         "tags": [
-            "tag_single",
-            "tag_adventure",
             "tag_indie"
         ],
         "description": "Helltaker is a short game about sharply dressed demon girls.",
         "trailer": "",
         "assets": {
             "cover": "helltaker.jpg",
-            "banner": "helltaker_banner.jpg"
+            "banner": "helltaker_banner.jpg",
+            "screenshots": [
+                "helltaker_screen_1.jpg",
+                "helltaker_screen_2.jpg",
+                "helltaker_screen_3.jpg",
+                "helltaker_screen_4.jpg",
+                "helltaker_screen_5.jpg"
+            ]
         }
     },
     {
-        "id": "game_the_finals",
-        "title": "THE FINALS",
-        "tier": "tier_standard",
-        "developer": "Embark Studios",
-        "publisher": "Embark Studios",
-        "release_date": "7 Dec, 2023",
-        "tags": [
-            "tag_multi",
-            "tag_action"
-        ],
-        "description": "THE FINALS is the world’s first Dynamism Shooter, a free-to-play, fast-paced, physics-driven, first-person shooter set on the stage of the biggest Gameshow of the future! Fight for Fans and fortune in fully-destructible, virtual Arenas that guarantee no two rounds will ever play the same!",
-        "trailer": "",
-        "assets": {
-            "cover": "the_finals.jpg",
-            "banner": "the_finals_banner.jpg"
-        }
-    },
-    {
-        "id": "game_strinova",
-        "title": "Strinova",
+        "id": "game_apex_legends",
+        "steam_id": 1172470,
+        "title": "Apex Legends™",
         "tier": "tier_aaa",
-        "developer": "iDreamSky",
-        "publisher": "iDreamSky",
-        "release_date": "21 Nov, 2024",
-        "tags": [
-            "tag_multi",
-            "tag_action"
-        ],
-        "description": "Strinova is an anime-style third-person tactical competitive shooter. Switch freely between three-dimensional and two-dimensional forms in this one-of-a-kind game that offers a unique tactical shooting system for an unparalleled experience.",
-        "trailer": "",
-        "assets": {
-            "cover": "strinova.jpg",
-            "banner": "strinova_banner.jpg"
-        }
-    },
-    {
-        "id": "game_pubg_battlegrounds",
-        "title": "PUBG: BATTLEGROUNDS",
-        "tier": "tier_standard",
-        "developer": "PUBG Corporation",
-        "publisher": "KRAFTON, Inc.",
-        "release_date": "21 дек. 2017 г.",
-        "tags": [],
-        "description": "PUBG: BATTLEGROUNDS — культовый шутер, пробудивший интерес к жанру «королевская битва», теперь бесплатный! Высаживайтесь на разные карты, добывайте уникальное оружие и припасы и постарайтесь выжить в постоянно сужающейся зоне, где опасность подстерегает вас за каждым углом.",
-        "trailer": "",
-        "assets": {
-            "cover": "pubg_battlegrounds.jpg",
-            "banner": "pubg_battlegrounds_banner.jpg"
-        }
-    },
-    {
-        "id": "game_overwatch",
-        "title": "Overwatch®",
-        "tier": "tier_aaa",
-        "developer": "Blizzard Entertainment, Inc.",
-        "publisher": "Blizzard Entertainment, Inc.",
-        "release_date": "10 авг. 2023 г.",
+        "developer": "Respawn",
+        "publisher": "Electronic Arts",
+        "release_date": "4 ноя. 2020 г.",
         "tags": [
             "tag_multi"
         ],
-        "description": "Overwatch®: БУДУЩЕЕ, ЗА КОТОРОЕ СТОИТ БОРОТЬСЯ! Overwatch® — непрерывно развивающаяся бесплатная динамичная командная игра с постоянной поддержкой в ярком мире будущего, где каждый матч представляет собой поистине потрясающий бой 5 на 5 или 6 на 6.",
+        "description": "Apex Legends — удостоенный наградами бесплатный геройский шутер от Respawn Entertainment. Освойте все тонкости игры за легендарных персонажей, число которых продолжает расти, и используйте их мощные умения в стратегии своего отряда. Это новое слово в геройских шутерах и «королевских битвах».",
         "trailer": "",
         "assets": {
-            "cover": "overwatch.jpg",
-            "banner": "overwatch_banner.jpg"
-        }
-    },
-    {
-        "id": "game_marvel_rivals",
-        "title": "Marvel Rivals",
-        "tier": "tier_aaa",
-        "developer": "NetEase Games",
-        "publisher": "NetEase Games",
-        "release_date": "5 дек. 2024 г.",
-        "tags": [
-            "tag_multi"
-        ],
-        "description": "Marvel Rivals — это командный PVP-шутер, где супергерои сражаются плечом к плечу! Соберите команду мечты из героев Marvel, разработайте уникальные стратегии, объединив силы в невероятные командные навыки, и сразитесь на разрушаемых полях боя в постоянно развивающейся вселенной Marvel!",
-        "trailer": "",
-        "assets": {
-            "cover": "marvel_rivals.jpg",
-            "banner": "marvel_rivals_banner.jpg"
-        }
-    },
-    {
-        "id": "game_fragpunk",
-        "title": "FragPunk",
-        "tier": "tier_aaa",
-        "developer": "Bad Guitar Studio",
-        "publisher": "NetEase Games",
-        "release_date": "6 Mar, 2025",
-        "tags": [
-            "tag_multi",
-            "tag_action"
-        ],
-        "description": "FragPunk is a thrilling 5v5 hero shooter where Shard Cards allow you to break the rules of combat and ensure that no two rounds are ever the same. Get ready to unleash your skills!",
-        "trailer": "",
-        "assets": {
-            "cover": "fragpunk.jpg",
-            "banner": "fragpunk_banner.jpg"
-        }
-    },
-    {
-        "id": "game_farlight_84",
-        "title": "Farlight 84",
-        "tier": "tier_standard",
-        "developer": "Farlight Games",
-        "publisher": "Farlight Games",
-        "release_date": "21 Sep, 2023",
-        "tags": [
-            "tag_multi",
-            "tag_action",
-            "tag_adventure"
-        ],
-        "description": "Hey Lightcatchers! Are you ready for massive 60-player shootouts? Enjoy fast-paced hero shooter action in Farlight 84!",
-        "trailer": "",
-        "assets": {
-            "cover": "farlight_84.jpg",
-            "banner": "farlight_84_banner.jpg"
-        }
-    },
-    {
-        "id": "game_counter_strike_2",
-        "title": "Counter-Strike 2",
-        "tier": "tier_aaa",
-        "developer": "Valve",
-        "publisher": "Valve",
-        "release_date": "21 авг. 2012 г.",
-        "tags": [],
-        "description": "Более двух десятилетий Counter-Strike служит примером первоклассной соревновательной игры, путь развития которой определяют миллионы игроков со всего мира. Теперь пришло время нового этапа — Counter-Strike 2.",
-        "trailer": "",
-        "assets": {
-            "cover": "counter_strike_2.jpg",
-            "banner": "counter_strike_2_banner.jpg"
+            "cover": "apex_legends.jpg",
+            "banner": "apex_legends_banner.jpg",
+            "screenshots": [
+                "apex_legends_screen_1.jpg",
+                "apex_legends_screen_2.jpg",
+                "apex_legends_screen_3.jpg",
+                "apex_legends_screen_4.jpg",
+                "apex_legends_screen_5.jpg",
+                "apex_legends_screen_6.jpg"
+            ]
         }
     },
     {
         "id": "game_battlefield_2042",
+        "steam_id": 1517290,
         "title": "Battlefield™ 2042",
         "tier": "tier_aaa",
         "developer": "DICE",
@@ -432,26 +408,301 @@
         "trailer": "",
         "assets": {
             "cover": "battlefield_2042.jpg",
-            "banner": "battlefield_2042_banner.jpg"
+            "banner": "battlefield_2042_banner.jpg",
+            "screenshots": [
+                "battlefield_2042_screen_1.jpg",
+                "battlefield_2042_screen_2.jpg",
+                "battlefield_2042_screen_3.jpg",
+                "battlefield_2042_screen_4.jpg",
+                "battlefield_2042_screen_5.jpg",
+                "battlefield_2042_screen_6.jpg"
+            ]
         }
     },
     {
-        "id": "game_apex_legends",
-        "title": "Apex Legends™",
+        "id": "game_counter_strike_2",
+        "steam_id": 730,
+        "title": "Counter-Strike 2",
         "tier": "tier_aaa",
-        "developer": "Respawn",
-        "publisher": "Electronic Arts",
-        "release_date": "4 Nov, 2020",
+        "developer": "Valve",
+        "publisher": "Valve",
+        "release_date": "21 Aug, 2012",
+        "tags": [
+            "tag_action"
+        ],
+        "description": "For over two decades, Counter-Strike has offered an elite competitive experience, one shaped by millions of players from across the globe. And now the next chapter in the CS story is about to begin. This is Counter-Strike 2.",
+        "trailer": "",
+        "assets": {
+            "cover": "counter_strike_2.jpg",
+            "banner": "counter_strike_2_banner.jpg",
+            "screenshots": [
+                "counter_strike_2_screen_1.jpg",
+                "counter_strike_2_screen_2.jpg",
+                "counter_strike_2_screen_3.jpg",
+                "counter_strike_2_screen_4.jpg",
+                "counter_strike_2_screen_5.jpg",
+                "counter_strike_2_screen_6.jpg"
+            ]
+        }
+    },
+    {
+        "id": "game_farlight_84",
+        "steam_id": 1928420,
+        "title": "Farlight 84",
+        "tier": "tier_standard",
+        "developer": "Farlight Games",
+        "publisher": "Farlight Games",
+        "release_date": "21 Sep, 2023",
         "tags": [
             "tag_multi",
             "tag_action",
             "tag_adventure"
         ],
-        "description": "Apex Legends is the award-winning, free-to-play Hero Shooter from Respawn Entertainment. Master an ever-growing roster of legendary characters with powerful abilities, and experience strategic squad play and innovative gameplay in the next evolution of Hero Shooter and Battle Royale.",
+        "description": "Hey Lightcatchers! Are you ready for massive 60-player shootouts? Enjoy fast-paced hero shooter action in Farlight 84!",
         "trailer": "",
         "assets": {
-            "cover": "apex_legends.jpg",
-            "banner": "apex_legends_banner.jpg"
+            "cover": "farlight_84.jpg",
+            "banner": "farlight_84_banner.jpg",
+            "screenshots": [
+                "farlight_84_screen_1.jpg",
+                "farlight_84_screen_2.jpg",
+                "farlight_84_screen_3.jpg",
+                "farlight_84_screen_4.jpg",
+                "farlight_84_screen_5.jpg",
+                "farlight_84_screen_6.jpg"
+            ]
+        }
+    },
+    {
+        "id": "game_fragpunk",
+        "steam_id": 2943650,
+        "title": "FragPunk",
+        "tier": "tier_aaa",
+        "developer": "Bad Guitar Studio",
+        "publisher": "NetEase Games",
+        "release_date": "6 мар. 2025 г.",
+        "tags": [
+            "tag_multi"
+        ],
+        "description": "FragPunk — это захватывающий шутер 5 на 5 с уникальной особенностью: специальные фрагмент-карты позволяют на ходу менять правила боя, а потому каждая битва становится по-настоящему неповторимой. Готовьтесь показать свое мастерство!",
+        "trailer": "",
+        "assets": {
+            "cover": "fragpunk.jpg",
+            "banner": "fragpunk_banner.jpg",
+            "screenshots": [
+                "fragpunk_screen_1.jpg",
+                "fragpunk_screen_2.jpg",
+                "fragpunk_screen_3.jpg",
+                "fragpunk_screen_4.jpg",
+                "fragpunk_screen_5.jpg",
+                "fragpunk_screen_6.jpg"
+            ]
+        }
+    },
+    {
+        "id": "game_marvel_rivals",
+        "steam_id": 2767030,
+        "title": "Marvel Rivals",
+        "tier": "tier_aaa",
+        "developer": "NetEase Games",
+        "publisher": "NetEase Games",
+        "release_date": "5 Dec, 2024",
+        "tags": [
+            "tag_multi",
+            "tag_action"
+        ],
+        "description": "Marvel Rivals is a Super Hero Team-Based PVP Shooter! Assemble an all-star Marvel squad, devise countless strategies by combining powers to form unique Team-Up skills and fight in destructible, ever-changing battlefields across the continually evolving Marvel universe!",
+        "trailer": "",
+        "assets": {
+            "cover": "marvel_rivals.jpg",
+            "banner": "marvel_rivals_banner.jpg",
+            "screenshots": [
+                "marvel_rivals_screen_1.jpg",
+                "marvel_rivals_screen_2.jpg",
+                "marvel_rivals_screen_3.jpg",
+                "marvel_rivals_screen_4.jpg",
+                "marvel_rivals_screen_5.jpg",
+                "marvel_rivals_screen_6.jpg"
+            ]
+        }
+    },
+    {
+        "id": "game_overwatch",
+        "steam_id": 2357570,
+        "title": "Overwatch®",
+        "tier": "tier_aaa",
+        "developer": "Blizzard Entertainment, Inc.",
+        "publisher": "Blizzard Entertainment, Inc.",
+        "release_date": "10 авг. 2023 г.",
+        "tags": [
+            "tag_multi"
+        ],
+        "description": "Overwatch®: БУДУЩЕЕ, ЗА КОТОРОЕ СТОИТ БОРОТЬСЯ! Overwatch® — непрерывно развивающаяся бесплатная динамичная командная игра с постоянной поддержкой в ярком мире будущего, где каждый матч представляет собой поистине потрясающий бой 5 на 5 или 6 на 6.",
+        "trailer": "",
+        "assets": {
+            "cover": "overwatch.jpg",
+            "banner": "overwatch_banner.jpg",
+            "screenshots": [
+                "overwatch_screen_1.jpg",
+                "overwatch_screen_2.jpg",
+                "overwatch_screen_3.jpg",
+                "overwatch_screen_4.jpg",
+                "overwatch_screen_5.jpg",
+                "overwatch_screen_6.jpg"
+            ]
+        }
+    },
+    {
+        "id": "game_pubg_battlegrounds",
+        "steam_id": 578080,
+        "title": "PUBG: BATTLEGROUNDS",
+        "tier": "tier_standard",
+        "developer": "PUBG Corporation",
+        "publisher": "KRAFTON, Inc.",
+        "release_date": "21 дек. 2017 г.",
+        "tags": [],
+        "description": "PUBG: BATTLEGROUNDS — культовый шутер, пробудивший интерес к жанру «королевская битва», теперь бесплатный! Высаживайтесь на разные карты, добывайте уникальное оружие и припасы и постарайтесь выжить в постоянно сужающейся зоне, где опасность подстерегает вас за каждым углом.",
+        "trailer": "",
+        "assets": {
+            "cover": "pubg_battlegrounds.jpg",
+            "banner": "pubg_battlegrounds_banner.jpg",
+            "screenshots": [
+                "pubg_battlegrounds_screen_1.jpg",
+                "pubg_battlegrounds_screen_2.jpg",
+                "pubg_battlegrounds_screen_3.jpg",
+                "pubg_battlegrounds_screen_4.jpg",
+                "pubg_battlegrounds_screen_5.jpg",
+                "pubg_battlegrounds_screen_6.jpg"
+            ]
+        }
+    },
+    {
+        "id": "game_strinova",
+        "steam_id": 1282270,
+        "title": "Strinova",
+        "tier": "tier_aaa",
+        "developer": "iDreamSky",
+        "publisher": "iDreamSky",
+        "release_date": "21 Nov, 2024",
+        "tags": [
+            "tag_multi",
+            "tag_action"
+        ],
+        "description": "Strinova is an anime-style third-person tactical competitive shooter. Switch freely between three-dimensional and two-dimensional forms in this one-of-a-kind game that offers a unique tactical shooting system for an unparalleled experience.",
+        "trailer": "",
+        "assets": {
+            "cover": "strinova.jpg",
+            "banner": "strinova_banner.jpg",
+            "screenshots": [
+                "strinova_screen_1.jpg",
+                "strinova_screen_2.jpg",
+                "strinova_screen_3.jpg",
+                "strinova_screen_4.jpg",
+                "strinova_screen_5.jpg",
+                "strinova_screen_6.jpg"
+            ]
+        }
+    },
+    {
+        "id": "game_the_finals",
+        "steam_id": 2073850,
+        "title": "THE FINALS",
+        "tier": "tier_standard",
+        "developer": "Embark Studios",
+        "publisher": "Embark Studios",
+        "release_date": "7 Dec, 2023",
+        "tags": [
+            "tag_multi",
+            "tag_action"
+        ],
+        "description": "THE FINALS is the world’s first Dynamism Shooter, a free-to-play, fast-paced, physics-driven, first-person shooter set on the stage of the biggest Gameshow of the future! Fight for Fans and fortune in fully-destructible, virtual Arenas that guarantee no two rounds will ever play the same!",
+        "trailer": "",
+        "assets": {
+            "cover": "the_finals.jpg",
+            "banner": "the_finals_banner.jpg",
+            "screenshots": [
+                "the_finals_screen_1.jpg",
+                "the_finals_screen_2.jpg",
+                "the_finals_screen_3.jpg",
+                "the_finals_screen_4.jpg",
+                "the_finals_screen_5.jpg"
+            ]
+        }
+    },
+    {
+        "id": "game_karnaval_illyuziy",
+        "steam_id": 2796340,
+        "title": "Карнавал Иллюзий",
+        "tier": "tier_indie",
+        "developer": "KiZ",
+        "publisher": "KiZ",
+        "release_date": "11 июл. 2024 г.",
+        "tags": [
+            "tag_indie"
+        ],
+        "description": "Заблудшая душа путешествует по причудливому, жуткому парку аттракционов, в стиле всплывающей книги. Погрузитесь в весёлые игры, встретьте интересных персонажей, попытайтесь избежать эрозии души и узнайте скрытые секреты парка. Это начало чарующего, но мрачного Карнавала Иллюзий.",
+        "trailer": "",
+        "assets": {
+            "cover": "karnaval_illyuziy.jpg",
+            "banner": "karnaval_illyuziy_banner.jpg",
+            "screenshots": [
+                "karnaval_illyuziy_screen_1.jpg",
+                "karnaval_illyuziy_screen_2.jpg",
+                "karnaval_illyuziy_screen_3.jpg",
+                "karnaval_illyuziy_screen_4.jpg",
+                "karnaval_illyuziy_screen_5.jpg",
+                "karnaval_illyuziy_screen_6.jpg"
+            ]
+        }
+    },
+    {
+        "id": "game_alan_wake",
+        "steam_id": 108710,
+        "title": "Alan Wake",
+        "tier": "tier_standard",
+        "developer": "Remedy Entertainment",
+        "publisher": "Remedy Entertainment",
+        "release_date": "16 фев. 2012 г.",
+        "tags": [],
+        "description": "A Dark Presence stalks the small town of Bright Falls, pushing Alan Wake to the brink of sanity in his fight to unravel the mystery and save his love.",
+        "trailer": "",
+        "assets": {
+            "cover": "alan_wake.jpg",
+            "banner": "alan_wake_banner.jpg",
+            "screenshots": [
+                "alan_wake_screen_1.jpg",
+                "alan_wake_screen_2.jpg",
+                "alan_wake_screen_3.jpg",
+                "alan_wake_screen_4.jpg",
+                "alan_wake_screen_5.jpg",
+                "alan_wake_screen_6.jpg"
+            ]
+        }
+    },
+    {
+        "id": "game_buckshot_roulette",
+        "steam_id": 2835570,
+        "title": "Buckshot Roulette",
+        "tier": "tier_indie",
+        "developer": "Mike Klubnika",
+        "publisher": "CRITICAL REFLEX",
+        "release_date": "4 апр. 2024 г.",
+        "tags": [
+            "tag_indie"
+        ],
+        "description": "Сыграйте в русскую рулетку с дробовиком 12-го калибра. Играют четверо. Остается один. Поставьте на кон свою жизнь. Удачи.",
+        "trailer": "",
+        "assets": {
+            "cover": "buckshot_roulette.jpg",
+            "banner": "buckshot_roulette_banner.jpg",
+            "screenshots": [
+                "buckshot_roulette_screen_1.jpg",
+                "buckshot_roulette_screen_2.jpg",
+                "buckshot_roulette_screen_3.jpg",
+                "buckshot_roulette_screen_4.jpg",
+                "buckshot_roulette_screen_5.jpg",
+                "buckshot_roulette_screen_6.jpg"
+            ]
         }
     }
 ]
