@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cycle MediaDB: Ultimate v4 (Tags Fix)</title>
+    <title>Cycle MediaDB: Ultimate v7 (English Tags)</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
     
@@ -170,10 +170,9 @@
                 <div class="col"><label>Трейлер (YouTube/MP4 URL)</label><input type="text" id="custTrailer" placeholder="https://..."></div>
             </div>
 
-            <!-- ИЗМЕНЕНО: Поле для меток -->
             <div>
                 <label>Метки (через запятую)</label>
-                <textarea id="custTags" style="height: 50px;" placeholder="Экшен, Шутер, Открытый мир..."></textarea>
+                <textarea id="custTags" style="height: 50px;" placeholder="Action, Shooter, Open World..."></textarea>
             </div>
 
             <div style="border-top: 1px solid var(--border); padding-top: 15px;">
@@ -251,8 +250,8 @@
 
         async function fetchApi(url, type = 'json') {
             const proxies =[
-                { url: (u) => `https://api.allorigins.win/raw?url=${encodeURIComponent(u)}` },
                 { url: (u) => `https://corsproxy.io/?${encodeURIComponent(u)}` },
+                { url: (u) => `https://api.allorigins.win/raw?url=${encodeURIComponent(u)}` },
                 { url: (u) => `https://api.codetabs.com/v1/proxy?quest=${u}` }
             ];
 
@@ -316,23 +315,46 @@
         }
 
         async function fetchSteamData(appId) {
+            // 1. Получаем основные данные
             const data = await fetchApi(`https://store.steampowered.com/api/appdetails?appids=${appId}&l=russian`, 'json');
-            if (!data || !data[appId] || !data[appId].success) throw new Error("Игра не найдена в Steam (возможно, удалена)");
+            if (!data || !data[appId] || !data[appId].success) throw new Error("Игра не найдена в Steam");
             
             const g = data[appId].data;
             const sName = safeName(g.name);
             
-            // НОВАЯ ЛОГИКА ТЕГОВ
+            // --- ТЕГИ (АНГЛИЙСКИЙ ЯЗЫК) ---
             let tags = [];
-            try {
-                const storePageHtml = await fetchApi(`https://store.steampowered.com/app/${appId}/?l=russian`, 'text');
-                const tagMatches = storePageHtml.matchAll(/<a[^>]*class="app_tag"[^>]*>([^<]*)<\/a>/g);
-                tags = Array.from(tagMatches).map(m => m[1].trim());
-            } catch (e) {
-                console.warn(`HTML tags parsing failed for ${appId}`, e);
-                tags = (g.genres || []).map(genre => genre.description);
-            }
             
+            // Способ 1: SteamSpy API (В основном на английском)
+            try {
+                const spyUrl = `https://steamspy.com/api.php?request=appdetails&appid=${appId}`;
+                const spyData = await fetchApi(spyUrl, 'json');
+                if (spyData && spyData.tags) {
+                    tags = Object.keys(spyData.tags); 
+                }
+            } catch (e) {
+                console.log("SteamSpy failed, trying HTML fallback", e);
+            }
+
+            // Способ 2: HTML парсинг (Если SteamSpy не сработал)
+            if (tags.length === 0) {
+                try {
+                    // Используем английский язык запроса (?l=english), чтобы теги были на английском
+                    const storePageHtml = await fetchApi(`https://store.steampowered.com/app/${appId}/?l=english`, 'text');
+                    const tagMatches = storePageHtml.matchAll(/<a[^>]*class="app_tag"[^>]*>([^<]*)<\/a>/g);
+                    tags = Array.from(tagMatches).map(m => m[1].trim());
+                } catch (e) {
+                    console.warn(`HTML tags parsing failed for ${appId}`, e);
+                }
+            }
+
+            // Способ 3: Официальные жанры (Всегда есть)
+            const officialGenres = (g.genres || []).map(genre => genre.description);
+            
+            // Объединяем, оставляя уникальные
+            const allTags = new Set([...tags, ...officialGenres]);
+            const finalTags = Array.from(allTags);
+
             const developers = (g.developers ||[]).join(', ');
             const publishers = (g.publishers ||[]).join(', ');
             const releaseDate = g.release_date && g.release_date.date ? g.release_date.date : '';
@@ -349,7 +371,8 @@
 
             const pubsLower = (g.publishers ||[]).map(p => p.toLowerCase());
             let detectedTier = 'tier_standard';
-            const isIndie = tags.map(t=>t.toLowerCase()).includes('инди');
+            const lowerTags = finalTags.map(t=>t.toLowerCase());
+            const isIndie = lowerTags.includes('indie');
             const isAAA = AAA_PUBLISHERS.some(aaa => pubsLower.some(p => p.includes(aaa)));
 
             if (isAAA) detectedTier = 'tier_aaa';
@@ -363,7 +386,7 @@
                 developer: developers,
                 publisher: publishers,
                 release_date: releaseDate,
-                tags: tags,
+                tags: finalTags,
                 description: cleanDesc,
                 trailer: trailerUrl,
                 assets: {
@@ -409,7 +432,6 @@
             const tier = document.getElementById('custTier').value;
             const trailer = document.getElementById('custTrailer').value.trim();
             
-            // Парсим теги из textarea
             const tagsText = document.getElementById('custTags').value;
             const tags = tagsText.split(',').map(t => t.trim()).filter(Boolean);
 
