@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cycle MediaDB: Ultimate v9 (True English Tags)</title>
+    <title>Cycle MediaDB: Ultimate v10 (Decoder Fix)</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
     
@@ -315,7 +315,7 @@
         }
 
         async function fetchSteamData(appId) {
-            // 1. Получаем основные данные об игре
+            // 1. Получаем основные данные
             const data = await fetchApi(`https://store.steampowered.com/api/appdetails?appids=${appId}&l=russian`, 'json');
             if (!data || !data[appId] || !data[appId].success) throw new Error("Игра не найдена в Steam");
             
@@ -330,7 +330,8 @@
                 const storePageHtml = await fetchApi(`https://store.steampowered.com/app/${appId}/?l=english`, 'text');
                 if (!storePageHtml.includes('agegate_birthday_selector')) {
                     const tagMatches = storePageHtml.matchAll(/<a[^>]*class="app_tag"[^>]*>([^<]*)<\/a>/g);
-                    tags = Array.from(tagMatches).map(m => m[1].trim());
+                    // ИСПРАВЛЕНИЕ: Декодируем HTML сущности типа &amp;
+                    tags = Array.from(tagMatches).map(m => decodeHtml(m[1].trim()));
                 } else {
                     console.log(`Age gate for ${appId}, using fallback.`);
                     throw new Error("Age gate page");
@@ -351,6 +352,7 @@
                     console.error("SteamSpy also failed", e);
                 }
             }
+            // ----------------------------------------------------
             
             const developers = (g.developers ||[]).join(', ');
             const publishers = (g.publishers ||[]).join(', ');
