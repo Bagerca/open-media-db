@@ -16,6 +16,35 @@
       "banner": "valorant_banner.jpg"
     }
   },
+    {
+    "id": "game_wuthering_waves",
+    "title": "Wuthering Waves",
+    "tier": "tier_aaa",
+    "tags": [
+        "tag_action"
+    ],
+    "description": "Wuthering Waves is a story-rich open-world action RPG with a high degree of freedom. You wake from your slumber as Rover, joined by a vibrant cast of Resonators on a journey to reclaim your lost memories and change the world.",
+    "trailer": "",
+    "assets": {
+        "cover": "wuthering_waves.jpg",
+        "banner": "wuthering_waves_banner.jpg"
+    }
+},
+    {
+    "id": "game_r_e_p_o",
+    "title": "R.E.P.O.",
+    "tier": "tier_aaa",
+    "tags": [
+        "tag_action",
+        "tag_coop"
+    ],
+    "description": "An online co-op horror game with up to 6 players. Locate valuable, fully physics-based objects and handle them with care as you retrieve and extract to satisfy your creator's desires.",
+    "trailer": "",
+    "assets": {
+        "cover": "r_e_p_o.jpg",
+        "banner": "r_e_p_o_banner.jpg"
+    }
+},
   {
     "id": "game_bendy",
     "title": "Bendy and the Ink Machine",
