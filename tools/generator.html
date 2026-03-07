@@ -240,7 +240,6 @@
                 .replace(/[^a-z0-9]/g, '_').replace(/_+/g, '_').replace(/^_|_$/g, '');
         }
 
-        // Чистим HTML сущности типа &quot; -> "
         function decodeHtml(html) {
             var txt = document.createElement("textarea");
             txt.innerHTML = html;
@@ -255,21 +254,16 @@
             setTimeout(() => t.classList.remove('show'), 3000);
         }
 
-        // Умная функция загрузки (Direct Fetch -> Proxy Fallback)
-        // Для скачивания картинок, чтобы избежать лимитов прокси
         async function fetchImageBlob(url) {
             try {
-                // Пытаемся скачать напрямую (Steam CDN поддерживает CORS!)
                 const res = await fetch(url);
                 if (res.ok) return await res.blob();
             } catch (e) {
-                // Если браузер заблокировал по CORS (обычно кастомные картинки из Гугла) - идем через прокси
                 console.log("Direct fetch blocked, using proxy for:", url);
             }
             return await fetchApi(url, 'blob');
         }
 
-        // Обычная загрузка через прокси (для API Steam)
         async function fetchApi(url, type = 'json') {
             const proxies =[
                 { pre: 'https://corsproxy.io/?', enc: true },
@@ -319,7 +313,7 @@
                     if (idx > -1) { item.status = 'error'; item.title = `ID ${id} (Не найдено)`; }
                     renderAll();
                 });
-                await new Promise(r => setTimeout(r, 200)); // Защита от спама API
+                await new Promise(r => setTimeout(r, 200));
             }
             steamBtn.innerHTML = originalText;
             steamBtn.disabled = false;
@@ -333,26 +327,20 @@
             const sName = safeName(g.name);
             const desc = [...(g.genres||[]), ...(g.categories||[])].map(x => x.description.toLowerCase());
             
-            // Extract Extended Data
             const developers = (g.developers ||[]).join(', ');
             const publishers = (g.publishers ||[]).join(', ');
             const releaseDate = g.release_date && g.release_date.date ? g.release_date.date : '';
             
-            // Очистка описания от тегов и спецсимволов
             let cleanDesc = (g.short_description || "").replace(/<[^>]*>?/gm, '');
             cleanDesc = decodeHtml(cleanDesc);
 
-            // Трейлер (если есть видео)
             let trailerUrl = "";
             if (g.movies && g.movies.length > 0) {
-                // Берем WebM или MP4 максимального качества
                 const mov = g.movies[0];
                 trailerUrl = (mov.mp4 && mov.mp4.max) ? mov.mp4.max : (mov.webm && mov.webm.max ? mov.webm.max : "");
-                // Отрезаем параметры запроса
                 trailerUrl = trailerUrl.split('?')[0]; 
             }
 
-            // Smart Tier
             const pubsLower = (g.publishers ||[]).map(p => p.toLowerCase());
             let detectedTier = 'tier_standard';
             const isIndie = desc.includes('инди') || desc.includes('indie');
@@ -426,7 +414,6 @@
             const cover = document.getElementById('custCover').value.trim();
             const banner = document.getElementById('custBanner').value.trim();
             
-            // Парсинг скриншотов из textarea
             const screenText = document.getElementById('custScreens').value;
             const screenLinks = screenText.split('\n').map(s => s.trim()).filter(s => s.startsWith('http')).slice(0, 6);
             const screenObjects = screenLinks.map((url, i) => ({
@@ -442,7 +429,7 @@
                 publisher: pub, 
                 release_date: date,
                 tags: tags, 
-                description: "", // Можно добавить поле описания при желании
+                description: "",
                 trailer: trailer,
                 assets: {
                     cover: { url: cover || 'https://via.placeholder.com/600x900?text=No+Cover', file: `${sName}.jpg` },
@@ -457,10 +444,10 @@
             showToast('Custom игра добавлена!');
         }
 
-// --- 5. RENDER ---
+        // --- 5. RENDER ---
         function clearQueue() { 
             if(confirm("Точно очистить всю очередь?")) {
-                queue = []; 
+                queue =[]; 
                 renderAll(); 
             }
         }
@@ -508,7 +495,8 @@
                 trailer: g.trailer,
                 assets: { 
                     cover: g.assets.cover.file, 
-                    banner: g.assets.banner.file 
+                    banner: g.assets.banner.file,
+                    screenshots: g.assets.screenshots ? g.assets.screenshots.map(s => s.file) :[]
                 }
             }));
             document.getElementById('jsonOutput').textContent = JSON.stringify(data, null, 4);
@@ -528,11 +516,14 @@
                 
                 grid.innerHTML += createCard(g.assets.cover, 'Обложка', 'cover');
                 grid.innerHTML += createCard(g.assets.banner, 'Баннер', '');
-                g.assets.screenshots.forEach((scr, i) => {
-                    grid.innerHTML += createCard(scr, `Скриншот ${i+1}`, '');
-                });
+                if (g.assets.screenshots) {
+                    g.assets.screenshots.forEach((scr, i) => {
+                        grid.innerHTML += createCard(scr, `Скриншот ${i+1}`, '');
+                    });
+                }
             });
         }
+        
         function copyJson() { 
             navigator.clipboard.writeText(document.getElementById('jsonOutput').textContent); 
             showToast('JSON скопирован в буфер обмена!'); 
@@ -569,7 +560,9 @@
             btn.disabled = true;
             let totalFiles = 0;
             if (type === 'screenshots') {
-                validGames.forEach(g => totalFiles += g.assets.screenshots.length);
+                validGames.forEach(g => {
+                    if (g.assets.screenshots) totalFiles += g.assets.screenshots.length;
+                });
             } else {
                 totalFiles = validGames.length;
             }
@@ -587,7 +580,7 @@
 
             const processFile = async (url, filename) => {
                 try {
-                    const blob = await fetchImageBlob(url); // Используем умную загрузку
+                    const blob = await fetchImageBlob(url); 
                     folder.file(filename, blob);
                 } catch(e) {
                     console.error(`Не удалось скачать: ${filename}`, e);
@@ -600,7 +593,7 @@
             for (const game of validGames) {
                 if (type === 'cover' && game.assets.cover.url) await processFile(game.assets.cover.url, game.assets.cover.file);
                 else if (type === 'banner' && game.assets.banner.url) await processFile(game.assets.banner.url, game.assets.banner.file);
-                else if (type === 'screenshots') {
+                else if (type === 'screenshots' && game.assets.screenshots) {
                     for (const scr of game.assets.screenshots) await processFile(scr.url, scr.file);
                 }
             }
