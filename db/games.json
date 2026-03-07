@@ -1,12 +1,192 @@
 [
     {
-        "id": "game_abyssus",
-        "title": "Abyssus",
+        "id": "game_buckshot_roulette",
+        "title": "Buckshot Roulette",
         "tier": "tier_indie",
         "tags": [
             "tag_single",
             "tag_multi",
-            "tag_coop"
+            "tag_action",
+            "tag_indie"
+        ],
+        "steam_tags": [
+            {
+                "description": "Action",
+                "id": "1"
+            },
+            {
+                "description": "Indie",
+                "id": "23"
+            },
+            {
+                "description": "Simulation",
+                "id": "28"
+            },
+            {
+                "description": "Single-player",
+                "id": 2
+            },
+            {
+                "description": "Multi-player",
+                "id": 1
+            },
+            {
+                "description": "PvP",
+                "id": 49
+            },
+            {
+                "description": "Online PvP",
+                "id": 36
+            },
+            {
+                "description": "Steam Achievements",
+                "id": 22
+            },
+            {
+                "description": "Steam Trading Cards",
+                "id": 29
+            },
+            {
+                "description": "Partial Controller Support",
+                "id": 18
+            },
+            {
+                "description": "Steam Leaderboards",
+                "id": 25
+            },
+            {
+                "description": "Family Sharing",
+                "id": 62
+            }
+        ],
+        "description": "Play Russian roulette with a 12-gauge shotgun. Four enter. One leaves. Roll the dice with your life. Good luck!",
+        "trailer": "",
+        "assets": {
+            "cover": "buckshot_roulette.jpg",
+            "banner": "buckshot_roulette_banner.jpg"
+        }
+    },
+    {
+        "id": "game_illusion_carnival",
+        "title": "Illusion Carnival",
+        "tier": "tier_indie",
+        "tags": [
+            "tag_single",
+            "tag_adventure",
+            "tag_rpg",
+            "tag_indie"
+        ],
+        "steam_tags": [
+            {
+                "description": "Adventure",
+                "id": "25"
+            },
+            {
+                "description": "Indie",
+                "id": "23"
+            },
+            {
+                "description": "RPG",
+                "id": "3"
+            },
+            {
+                "description": "Free To Play",
+                "id": "37"
+            },
+            {
+                "description": "Single-player",
+                "id": 2
+            },
+            {
+                "description": "Steam Achievements",
+                "id": 22
+            },
+            {
+                "description": "Partial Controller Support",
+                "id": 18
+            },
+            {
+                "description": "Steam Cloud",
+                "id": 23
+            }
+        ],
+        "description": "A lost soul wanders through a whimsical, eerie pop-up book like amusement park. Dive into fun-filled stages, encounter unique characters, fend off spirit erosion, and uncover the park's hidden secrets. The enchanting yet dark Illusion Carnival begins now.",
+        "trailer": "",
+        "assets": {
+            "cover": "illusion_carnival.jpg",
+            "banner": "illusion_carnival_banner.jpg"
+        }
+    },
+    {
+        "id": "game_ace_combat_7_skies_unknown",
+        "title": "ACE COMBAT™ 7: SKIES UNKNOWN",
+        "tier": "tier_aaa",
+        "tags": [
+            "tag_single",
+            "tag_multi",
+            "tag_action"
+        ],
+        "steam_tags": [
+            {
+                "description": "Action",
+                "id": "1"
+            },
+            {
+                "description": "Simulation",
+                "id": "28"
+            },
+            {
+                "description": "Single-player",
+                "id": 2
+            },
+            {
+                "description": "Multi-player",
+                "id": 1
+            },
+            {
+                "description": "PvP",
+                "id": 49
+            },
+            {
+                "description": "Online PvP",
+                "id": 36
+            },
+            {
+                "description": "Steam Achievements",
+                "id": 22
+            },
+            {
+                "description": "Full controller support",
+                "id": 28
+            },
+            {
+                "description": "Steam Trading Cards",
+                "id": 29
+            },
+            {
+                "description": "Steam Cloud",
+                "id": 23
+            },
+            {
+                "description": "Family Sharing",
+                "id": 62
+            }
+        ],
+        "description": "Become an ace pilot and soar through photorealistic skies with full 360 degree movement; down enemy aircraft and experience the thrill of engaging in realistic sorties! Aerial combat has never looked or felt better!",
+        "trailer": "",
+        "assets": {
+            "cover": "ace_combat_7_skies_unknown.jpg",
+            "banner": "ace_combat_7_skies_unknown_banner.jpg"
+        }
+    },
+    {
+        "id": "game_alan_wake",
+        "title": "Alan Wake",
+        "tier": "tier_aaa",
+        "tags": [
+            "tag_single",
+            "tag_action",
+            "tag_adventure"
         ],
         "steam_tags": [
             {
@@ -18,281 +198,39 @@
                 "description": "Приключенческие игры"
             },
             {
-                "id": "23",
-                "description": "Инди"
-            },
-            {
                 "id": 2,
                 "description": "Для одного игрока"
-            },
-            {
-                "id": 1,
-                "description": "Для нескольких игроков"
-            },
-            {
-                "id": 9,
-                "description": "Кооператив"
-            },
-            {
-                "id": 38,
-                "description": "Кооператив (по сети)"
             },
             {
                 "id": 22,
                 "description": "Достижения Steam"
             },
             {
-                "id": 68,
-                "description": "Расширенное управление громкостью"
+                "id": 28,
+                "description": "Полная поддержка контроллеров"
+            },
+            {
+                "id": 29,
+                "description": "Коллекционные карточки Steam"
             },
             {
                 "id": 23,
                 "description": "Steam Cloud"
             },
             {
-                "id": 62,
-                "description": "Семейный доступ"
-            }
-        ],
-        "description": "Выбирайте снаряжение и вступайте в бой с порочными обитателями затонувшей цивилизации, чтобы овладеть божественными силами в Abyssus — динамичном шутере от первого лица с элементами roguelite на 1–4 игроков в стиле «брайнпанк».",
-        "trailer": "",
-        "assets": {
-            "cover": "abyssus.jpg",
-            "banner": "abyssus_banner.jpg"
-        }
-    },
-    {
-        "id": "game_boris_and_the_dark_survival",
-        "title": "Boris and the Dark Survival",
-        "tier": "tier_indie",
-        "tags": [
-            "tag_single"
-        ],
-        "steam_tags": [
-            {
-                "id": "1",
-                "description": "Экшены"
-            },
-            {
-                "id": "25",
-                "description": "Приключенческие игры"
-            },
-            {
-                "id": "4",
-                "description": "Казуальные игры"
-            },
-            {
-                "id": "23",
-                "description": "Инди"
-            },
-            {
-                "id": "2",
-                "description": "Стратегии"
-            },
-            {
-                "id": 2,
-                "description": "Для одного игрока"
-            },
-            {
-                "id": 28,
-                "description": "Полная поддержка контроллеров"
+                "id": 43,
+                "description": "Remote Play на телевизоре"
             },
             {
                 "id": 62,
                 "description": "Семейный доступ"
             }
         ],
-        "description": "A lone wolf struggles to survive the inky abyss of Joey Drew Studios in this top-down survival horror.",
+        "description": "A Dark Presence stalks the small town of Bright Falls, pushing Alan Wake to the brink of sanity in his fight to unravel the mystery and save his love.",
         "trailer": "",
         "assets": {
-            "cover": "boris_and_the_dark_survival.jpg",
-            "banner": "boris_and_the_dark_survival_banner.jpg"
-        }
-    },
-    {
-        "id": "game_bendy_secrets_of_the_machine",
-        "title": "Bendy: Secrets of the Machine",
-        "tier": "tier_aaa",
-        "tags": [
-            "tag_action",
-            "tag_adventure",
-            "tag_relax"
-        ],
-        "steam_tags": [
-            {
-                "description": "Action",
-                "id": "1"
-            },
-            {
-                "description": "Adventure",
-                "id": "25"
-            },
-            {
-                "description": "Casual",
-                "id": "4"
-            },
-            {
-                "description": "Indie",
-                "id": "23"
-            },
-            {
-                "description": "Single-player",
-                "id": 2
-            }
-        ],
-        "description": "Some things are better left forgotten.",
-        "trailer": "",
-        "assets": {
-            "cover": "bendy_secrets_of_the_machine.jpg",
-            "banner": "bendy_secrets_of_the_machine_banner.jpg"
-        }
-    },
-    {
-        "id": "game_bendy_lone_wolf",
-        "title": "Bendy: Lone Wolf",
-        "tier": "tier_aaa",
-        "tags": [
-            "tag_action",
-            "tag_adventure"
-        ],
-        "steam_tags": [
-            {
-                "description": "Action",
-                "id": "1"
-            },
-            {
-                "description": "Adventure",
-                "id": "25"
-            },
-            {
-                "description": "Indie",
-                "id": "23"
-            },
-            {
-                "description": "Single-player",
-                "id": 2
-            },
-            {
-                "description": "Steam Achievements",
-                "id": 22
-            },
-            {
-                "description": "Full controller support",
-                "id": 28
-            },
-            {
-                "description": "Remote Play on TV",
-                "id": 43
-            },
-            {
-                "description": "Family Sharing",
-                "id": 62
-            }
-        ],
-        "description": "Bendy: Lone Wolf™ will tests your ability to survive against ever increasing odds. Monsters and obstacles emerge from every direction as you journey into the rubberhose halls of the world's most evil animation studio. Every day is a challenge.",
-        "trailer": "",
-        "assets": {
-            "cover": "bendy_lone_wolf.jpg",
-            "banner": "bendy_lone_wolf_banner.jpg"
-        }
-    },
-    {
-        "id": "game_bendy_and_the_ink_machine",
-        "title": "Bendy and the Ink Machine",
-        "tier": "tier_aaa",
-        "tags": [
-            "tag_action",
-            "tag_strategy",
-            "tag_adventure"
-        ],
-        "steam_tags": [
-            {
-                "description": "Action",
-                "id": "1"
-            },
-            {
-                "description": "Adventure",
-                "id": "25"
-            },
-            {
-                "description": "Indie",
-                "id": "23"
-            },
-            {
-                "description": "Strategy",
-                "id": "2"
-            },
-            {
-                "description": "Single-player",
-                "id": 2
-            },
-            {
-                "description": "Steam Achievements",
-                "id": 22
-            },
-            {
-                "description": "Full controller support",
-                "id": 28
-            },
-            {
-                "description": "Remote Play on TV",
-                "id": 43
-            },
-            {
-                "description": "Family Sharing",
-                "id": 62
-            }
-        ],
-        "description": "Bendy and the Ink Machine® is the first person puzzle action horror game that will forever ruin your childhood love of cartoons.",
-        "trailer": "",
-        "assets": {
-            "cover": "bendy_and_the_ink_machine.jpg",
-            "banner": "bendy_and_the_ink_machine_banner.jpg"
-        }
-    },
-    {
-        "id": "game_bendy_and_the_dark_revival",
-        "title": "Bendy and the Dark Revival",
-        "tier": "tier_aaa",
-        "tags": [
-            "tag_action",
-            "tag_adventure"
-        ],
-        "steam_tags": [
-            {
-                "description": "Action",
-                "id": "1"
-            },
-            {
-                "description": "Adventure",
-                "id": "25"
-            },
-            {
-                "description": "Single-player",
-                "id": 2
-            },
-            {
-                "description": "Steam Achievements",
-                "id": 22
-            },
-            {
-                "description": "Full controller support",
-                "id": 28
-            },
-            {
-                "description": "Remote Play on TV",
-                "id": 43
-            },
-            {
-                "description": "Family Sharing",
-                "id": 62
-            }
-        ],
-        "description": "Bendy and the Dark Revival® is a first-person survival horror game set in the creepiest cartoon studio to ever exist. Discover the truth. Escape the studio. Above all, fear the Ink Demon…and survive.",
-        "trailer": "",
-        "assets": {
-            "cover": "bendy_and_the_dark_revival.jpg",
-            "banner": "bendy_and_the_dark_revival_banner.jpg"
+            "cover": "alan_wake.jpg",
+            "banner": "alan_wake_banner.jpg"
         }
     }
 ]
