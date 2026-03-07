@@ -3,57 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cycle MediaDB: Pro</title>
-    <!-- Библиотеки -->
+    <title>Cycle MediaDB: Ultimate</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
     
     <style>
-        :root {
-            --bg-body: #09090b;
-            --bg-panel: #18181b;
-            --bg-element: #27272a;
-            --border: #3f3f46;
-            --accent: #7c3aed;
-            --accent-hover: #6d28d9;
-            --text-main: #f4f4f5;
-            --text-dim: #a1a1aa;
-            --green: #10b981;
-            --red: #ef4444;
-            --radius: 8px;
-        }
-
+        :root { --bg-body: #09090b; --bg-panel: #18181b; --bg-element: #27272a; --border: #3f3f46; --accent: #7c3aed; --accent-hover: #6d28d9; --text-main: #f4f4f5; --text-dim: #a1a1aa; --green: #10b981; --red: #ef4444; --radius: 8px; }
         * { box-sizing: border-box; margin: 0; padding: 0; outline: none; }
         body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: var(--bg-body); color: var(--text-main); height: 100vh; display: flex; overflow: hidden; }
 
-        /* --- LAYOUT --- */
-        .sidebar { width: 400px; background: var(--bg-panel); border-right: 1px solid var(--border); display: flex; flex-direction: column; flex-shrink: 0; z-index: 2; }
-        .sidebar-header { padding: 20px; border-bottom: 1px solid var(--border); }
+        .sidebar { width: 420px; background: var(--bg-panel); border-right: 1px solid var(--border); display: flex; flex-direction: column; flex-shrink: 0; z-index: 2; }
+        .sidebar-header { padding: 20px; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
         .sidebar-content { flex: 1; overflow-y: auto; padding: 15px; display: flex; flex-direction: column; gap: 15px; }
-        .sidebar-footer { padding: 15px; border-top: 1px solid var(--border); background: var(--bg-panel); }
-
+        
         .main { flex: 1; display: flex; flex-direction: column; overflow: hidden; position: relative; }
         .main-header { padding: 20px; border-bottom: 1px solid var(--border); background: var(--bg-panel); display: flex; justify-content: space-between; align-items: center; }
         .main-content { flex: 1; overflow-y: auto; padding: 30px; }
 
-        /* --- TYPOGRAPHY --- */
-        h1 { font-size: 20px; font-weight: 800; } h1 span { color: var(--accent); }
+        h1 { font-size: 20px; font-weight: 800; margin: 0; } h1 span { color: var(--accent); }
         h2 { font-size: 16px; color: var(--text-dim); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 15px; }
         label { font-size: 12px; font-weight: 600; color: var(--text-dim); display: block; margin-bottom: 6px; }
 
-        /* --- COMPONENTS --- */
-        .btn { background: var(--accent); color: #fff; border: none; padding: 10px 16px; border-radius: var(--radius); cursor: pointer; font-weight: 600; font-size: 13px; transition: 0.2s; display: inline-flex; align-items: center; justify-content: center; gap: 8px; }
+        .btn { background: var(--accent); color: #fff; border: none; padding: 10px 16px; border-radius: var(--radius); cursor: pointer; font-weight: 600; font-size: 13px; transition: 0.2s; display: inline-flex; align-items: center; justify-content: center; gap: 8px; white-space: nowrap; }
         .btn:hover { background: var(--accent-hover); }
-        .btn:disabled { opacity: 0.6; cursor: wait; }
+        .btn:disabled { opacity: 0.7; cursor: not-allowed; background: var(--bg-element); color: var(--text-dim); }
         .btn.secondary { background: var(--bg-element); color: var(--text-main); border: 1px solid var(--border); }
-        .btn.secondary:hover { border-color: var(--text-dim); }
+        .btn.secondary:hover { border-color: var(--text-dim); background: var(--border); }
         .btn.full { width: 100%; }
         .btn.small { padding: 4px 8px; font-size: 11px; height: auto; }
 
         input, textarea, select { width: 100%; background: var(--bg-body); border: 1px solid var(--border); color: var(--text-main); padding: 10px; border-radius: var(--radius); font-size: 13px; transition: 0.2s; }
         input:focus, textarea:focus, select:focus { border-color: var(--accent); }
 
-        /* --- QUEUE LIST --- */
         .queue-list { display: flex; flex-direction: column; gap: 8px; }
         .queue-item { background: var(--bg-element); padding: 10px; border-radius: var(--radius); display: flex; align-items: center; gap: 12px; border: 1px solid transparent; transition: 0.2s; position: relative; overflow: hidden; }
         .queue-item:hover { border-color: var(--border); }
@@ -61,114 +42,105 @@
         .queue-item.error { border-left: 3px solid var(--red); }
         .queue-item.loading { border-left: 3px solid var(--accent); opacity: 0.8; }
         
-        .q-img { width: 30px; height: 45px; background: #000; border-radius: 4px; object-fit: cover; flex-shrink: 0; }
+        .q-img { width: 32px; height: 48px; background: #000; border-radius: 4px; object-fit: cover; flex-shrink: 0; }
         .q-details { flex: 1; min-width: 0; }
-        .q-title { font-weight: 600; font-size: 13px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .q-title { font-weight: 600; font-size: 13px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-bottom: 3px; }
         .q-status { font-size: 11px; color: var(--text-dim); }
-        .q-remove { background: none; border: none; color: var(--text-dim); cursor: pointer; padding: 4px; font-size: 16px; }
-        .q-remove:hover { color: var(--red); }
+        .q-remove { background: none; border: none; color: var(--text-dim); cursor: pointer; padding: 4px; font-size: 16px; transition: 0.2s; }
+        .q-remove:hover { color: var(--red); transform: scale(1.1); }
 
-        /* --- ASSETS GRID --- */
         .assets-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 20px; }
         .asset-card { background: var(--bg-panel); border: 1px solid var(--border); border-radius: var(--radius); padding: 12px; display: flex; flex-direction: column; }
         .asset-preview { aspect-ratio: 16/9; background: #000; border-radius: 6px; overflow: hidden; margin-bottom: 10px; position: relative; }
         .asset-preview.cover { aspect-ratio: 2/3; }
-        .asset-preview img { width: 100%; height: 100%; object-fit: cover; }
+        .asset-preview img { width: 100%; height: 100%; object-fit: cover; transition: 0.3s; }
+        .asset-preview img:hover { transform: scale(1.05); }
         .asset-name { font-family: monospace; font-size: 11px; color: var(--accent); margin-bottom: 8px; word-break: break-all; text-align: center; }
 
-        /* --- JSON BOX --- */
-        .json-box { position: relative; background: #000; border: 1px solid var(--border); border-radius: var(--radius); height: 300px; overflow: hidden; }
-        pre { color: var(--green); font-family: monospace; font-size: 12px; padding: 20px; margin: 0; height: 100%; overflow: auto; }
-        .copy-icon { position: absolute; top: 10px; right: 10px; }
+        .json-box { position: relative; background: #000; border: 1px solid var(--border); border-radius: var(--radius); height: 400px; overflow: hidden; }
+        pre { color: var(--green); font-family: monospace; font-size: 13px; padding: 20px; margin: 0; height: 100%; overflow: auto; }
+        .copy-icon { position: absolute; top: 12px; right: 12px; }
 
-        /* --- MODAL (DIALOG) --- */
         dialog {
             background: var(--bg-panel); color: var(--text-main); border: 1px solid var(--border);
-            border-radius: 12px; padding: 0; width: 500px; max-width: 90vw;
+            border-radius: 12px; padding: 0; width: 600px; max-width: 95vw;
             position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);
             box-shadow: 0 20px 50px rgba(0,0,0,0.5);
         }
-        dialog::backdrop { background: rgba(0,0,0,0.7); backdrop-filter: blur(2px); }
+        dialog::backdrop { background: rgba(0,0,0,0.8); backdrop-filter: blur(3px); }
         .modal-header { padding: 20px; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
-        .modal-body { padding: 20px; max-height: 70vh; overflow-y: auto; display: flex; flex-direction: column; gap: 15px; }
+        .modal-body { padding: 20px; max-height: 75vh; overflow-y: auto; display: flex; flex-direction: column; gap: 15px; }
         .modal-footer { padding: 20px; border-top: 1px solid var(--border); display: flex; justify-content: flex-end; gap: 10px; background: var(--bg-element); }
         
-        .tags-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); gap: 8px; }
-        .tag-pill { background: var(--bg-body); border: 1px solid var(--border); padding: 6px 10px; border-radius: 20px; font-size: 11px; cursor: pointer; text-align: center; user-select: none; transition: 0.2s; }
+        .tags-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); gap: 8px; }
+        .tag-pill { background: var(--bg-body); border: 1px solid var(--border); padding: 8px; border-radius: 6px; font-size: 11px; cursor: pointer; text-align: center; user-select: none; transition: 0.2s; font-weight: 600; }
         .tag-pill.active { background: var(--accent); border-color: var(--accent); color: #fff; }
 
-        /* --- UTILS --- */
-        .spinner { width: 14px; height: 14px; border: 2px solid rgba(255,255,255,0.3); border-top-color: #fff; border-radius: 50%; animation: spin 0.8s linear infinite; display: inline-block; }
+        .row { display: flex; gap: 15px; } .col { flex: 1; }
+
+        .spinner { width: 14px; height: 14px; border: 2px solid rgba(255,255,255,0.3); border-top-color: #fff; border-radius: 50%; animation: spin 0.8s linear infinite; display: inline-block; vertical-align: middle; margin-right: 5px; }
         @keyframes spin { to { transform: rotate(360deg); } }
         
-        /* Toast */
-        #toast { position: fixed; bottom: 30px; right: 30px; background: var(--bg-element); border-left: 4px solid var(--accent); padding: 15px 25px; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); transform: translateY(100px); opacity: 0; transition: 0.3s; z-index: 9999; }
+        #toast { position: fixed; bottom: 30px; right: 30px; background: var(--bg-element); border-left: 4px solid var(--accent); padding: 15px 25px; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); transform: translateY(100px); opacity: 0; transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); z-index: 9999; font-weight: 600; }
         #toast.show { transform: translateY(0); opacity: 1; }
+        .prog-text { font-family: monospace; font-size: 12px; }
     </style>
 </head>
 <body>
 
-    <!-- SIDEBAR: INPUT & QUEUE -->
     <div class="sidebar">
         <div class="sidebar-header">
             <h1>Cycle <span>MediaDB</span></h1>
         </div>
         
         <div class="sidebar-content">
-            <!-- Steam Section -->
-            <div style="background: rgba(124, 58, 237, 0.05); padding: 15px; border-radius: var(--radius); border: 1px solid rgba(124, 58, 237, 0.2);">
+            <div style="background: var(--bg-element); padding: 15px; border-radius: var(--radius); border: 1px solid var(--border);">
                 <label>Добавить из Steam</label>
-                <textarea id="steamInput" placeholder="2825530, https://store... " style="height: 70px; margin-bottom: 10px;"></textarea>
-                <button class="btn full" onclick="addSteamGames()">
-                    <span class="icon">🎮</span> Загрузить данные
+                <textarea id="steamInput" placeholder="Вставь ссылки или ID (2825530, 3232610...)" style="height: 70px; margin-bottom: 10px;"></textarea>
+                <button id="steamBtn" class="btn full" onclick="addSteamGames()">
+                    <span class="btn-text">🎮 Загрузить данные</span>
                 </button>
             </div>
 
-            <!-- Custom Button -->
-            <button class="btn secondary full" onclick="openModal()">
+            <button class="btn secondary full" onclick="openModal()" style="border-style: dashed;">
                 <span>🛠</span> Добавить Свою Игру (Custom)
             </button>
 
-            <div style="border-top: 1px solid var(--border); margin: 10px 0;"></div>
+            <div style="border-top: 1px solid var(--border); margin: 5px 0;"></div>
 
-            <!-- Queue -->
             <div style="display: flex; justify-content: space-between; align-items: center;">
-                <label style="margin:0">Очередь (<span id="queueCount">0</span>)</label>
-                <button class="btn small secondary" onclick="clearQueue()">Очистить</button>
+                <label style="margin:0">Очередь обработки (<span id="queueCount">0</span>)</label>
+                <button class="btn small secondary" onclick="clearQueue()">Очистить всё</button>
             </div>
             <div id="queueList" class="queue-list">
-                <!-- Items will be here -->
-                <div style="text-align: center; padding: 20px; color: var(--text-dim); font-size: 13px;">Список пуст</div>
+                <div style="text-align: center; padding: 30px 20px; color: var(--text-dim); font-size: 13px;">Список пуст</div>
             </div>
         </div>
     </div>
 
-    <!-- MAIN: CONTENT & PREVIEW -->
     <div class="main">
         <div class="main-header">
-            <h2>Генератор & Загрузчик</h2>
+            <h2>Генератор JSON & Загрузчик Ассетов</h2>
             <div style="display: flex; gap: 10px;">
-                <button class="btn secondary" onclick="downloadZip('cover')">💾 Обложки (.zip)</button>
-                <button class="btn secondary" onclick="downloadZip('banner')">💾 Баннеры (.zip)</button>
-                <button class="btn secondary" onclick="downloadZip('screenshots')">🖼 Скриншоты (.zip)</button>
+                <button class="btn secondary" onclick="downloadZip('cover', this)">💾 Обложки</button>
+                <button class="btn secondary" onclick="downloadZip('banner', this)">💾 Баннеры</button>
+                <button class="btn secondary" onclick="downloadZip('screenshots', this)">🖼 Скриншоты</button>
             </div>
         </div>
 
         <div class="main-content">
-            <!-- JSON Output -->
-            <label>1. Результат для games.json</label>
+            <label>1. Готовый код (games.json)</label>
             <div class="json-box">
-                <button class="btn small secondary copy-icon" onclick="copyJson()">Копировать</button>
-                <pre id="jsonOutput">// Добавьте игры, чтобы получить JSON...</pre>
+                <button class="btn small secondary copy-icon" onclick="copyJson()">Копировать JSON</button>
+                <pre id="jsonOutput">// Добавьте игры слева, чтобы получить результат...</pre>
             </div>
 
-            <!-- Visual Preview -->
             <label style="margin-top: 30px;">2. Предпросмотр Ассетов</label>
             <div id="assetsGrid" class="assets-grid"></div>
         </div>
     </div>
 
-    <!-- MODAL: ADD CUSTOM GAME -->
+    <!-- CUSTOM GAME MODAL -->
     <dialog id="customModal">
         <div class="modal-header">
             <h3>Добавление Custom Игры</h3>
@@ -180,74 +152,99 @@
                 <input type="text" id="custTitle" placeholder="Например: Valorant" oninput="generateId()">
             </div>
             
-            <div style="display: flex; gap: 15px;">
-                <div style="flex: 1;">
-                    <label>ID (Авто)</label>
-                    <input type="text" id="custId" readonly style="background: #111; color: var(--text-dim);">
-                </div>
-                <div style="width: 120px;">
-                    <label>Tier</label>
+            <div class="row">
+                <div class="col"><label>Разработчик</label><input type="text" id="custDev" placeholder="Riot Games"></div>
+                <div class="col"><label>Издатель</label><input type="text" id="custPub" placeholder="Riot Games"></div>
+            </div>
+
+            <div class="row">
+                <div class="col"><label>Дата выхода</label><input type="text" id="custDate" placeholder="2 Jun, 2020"></div>
+                <div class="col">
+                    <label>Категория (Tier)</label>
                     <select id="custTier">
-                        <option value="tier_aaa">AAA</option>
+                        <option value="tier_aaa">AAA (Top)</option>
+                        <option value="tier_standard">Standard (AA)</option>
                         <option value="tier_indie">Indie</option>
                     </select>
                 </div>
             </div>
 
+            <div class="row">
+                <div class="col"><label>ID в базе (Авто)</label><input type="text" id="custId" readonly style="background: #111; color: var(--text-dim);"></div>
+                <div class="col"><label>Трейлер (YouTube/MP4 URL)</label><input type="text" id="custTrailer" placeholder="https://..."></div>
+            </div>
+
             <div>
                 <label>Теги</label>
-                <div class="tags-grid" id="tagsGrid">
-                    <!-- Tags Generated via JS -->
-                </div>
+                <div class="tags-grid" id="tagsGrid"></div>
             </div>
 
             <div style="border-top: 1px solid var(--border); padding-top: 15px;">
-                <div style="display:flex; justify-content:space-between; margin-bottom:5px;">
-                    <label>Ссылка на Обложку (600x900)</label>
-                    <a href="#" style="font-size:11px; color:var(--accent)" onclick="searchGoogle('cover')">🔍 Найти в Google</a>
+                <div class="row">
+                    <div class="col">
+                        <div style="display:flex; justify-content:space-between; margin-bottom:5px;">
+                            <label>Обложка (600x900)</label>
+                            <a href="#" style="font-size:11px; color:var(--accent)" onclick="searchGoogle('cover')">🔍 Поиск</a>
+                        </div>
+                        <input type="text" id="custCover" placeholder="URL картинки...">
+                    </div>
+                    <div class="col">
+                        <div style="display:flex; justify-content:space-between; margin-bottom:5px;">
+                            <label>Баннер (1920x1080)</label>
+                            <a href="#" style="font-size:11px; color:var(--accent)" onclick="searchGoogle('banner')">🔍 Поиск</a>
+                        </div>
+                        <input type="text" id="custBanner" placeholder="URL картинки...">
+                    </div>
                 </div>
-                <input type="text" id="custCover" placeholder="https://...">
             </div>
 
             <div>
-                <div style="display:flex; justify-content:space-between; margin-bottom:5px;">
-                    <label>Ссылка на Баннер (1920x1080)</label>
-                    <a href="#" style="font-size:11px; color:var(--accent)" onclick="searchGoogle('banner')">🔍 Найти в Google</a>
-                </div>
-                <input type="text" id="custBanner" placeholder="https://...">
+                <label>Скриншоты (по одной ссылке на строку, до 6 шт)</label>
+                <textarea id="custScreens" style="height: 80px;" placeholder="https://...&#10;https://..."></textarea>
             </div>
         </div>
         <div class="modal-footer">
             <button class="btn secondary" onclick="closeModal()">Отмена</button>
-            <button class="btn" onclick="saveCustomGame()">Добавить в базу</button>
+            <button class="btn" onclick="saveCustomGame()">Сохранить игру</button>
         </div>
     </dialog>
 
-    <!-- TOAST NOTIFICATION -->
     <div id="toast">Уведомление</div>
 
     <script>
-        // --- DATA & CONFIG ---
-        const ALL_TAGS = [
+        // --- 1. CONFIGURATION ---
+        const AAA_PUBLISHERS =[
+            'playstation', 'xbox', 'electronic arts', 'ea', 'ubisoft', 'activision', 'blizzard', 
+            'bethesda', 'rockstar', '2k', 'capcom', 'sega', 'bandai namco', 'square enix', 
+            'konami', 'warner bros', 'take-two', 'cd projekt', 'microsoft', 'sony', 'nintendo', 'valve'
+        ];
+
+        const ALL_TAGS =[
             { id: 'tag_single', name: 'Singleplayer', keys: ['singleplayer', 'single-player'] },
-            { id: 'tag_multi', name: 'Multiplayer', keys: ['multiplayer', 'co-op', 'coop', 'кооператив'] },
-            { id: 'tag_action', name: 'Action', keys: ['action', 'экшен', 'shooter', 'шутер'] },
+            { id: 'tag_multi', name: 'Multiplayer', keys:['multiplayer', 'co-op', 'coop', 'кооператив'] },
+            { id: 'tag_action', name: 'Action', keys:['action', 'экшен', 'shooter', 'шутер'] },
             { id: 'tag_adventure', name: 'Adventure', keys: ['adventure', 'приключение'] },
             { id: 'tag_rpg', name: 'RPG', keys: ['rpg', 'ролевая'] },
             { id: 'tag_strategy', name: 'Strategy', keys: ['strategy', 'стратегия'] },
             { id: 'tag_horror', name: 'Horror', keys: ['horror', 'survival horror'] },
-            { id: 'tag_sport', name: 'Sport', keys: ['sport', 'racing', 'гонки'] },
-            { id: 'tag_indie', name: 'Indie', keys: ['indie', 'инди'] }
+            { id: 'tag_sport', name: 'Sport', keys:['sport', 'racing', 'гонки'] },
+            { id: 'tag_indie', name: 'Indie', keys:['indie', 'инди'] }
         ];
 
-        let queue = [];
-
-        // --- UTILS ---
+        let queue =[];
         const translit = { 'а':'a','б':'b','в':'v','г':'g','д':'d','е':'e','ё':'yo','ж':'zh','з':'z','и':'i','й':'y','к':'k','л':'l','м':'m','н':'n','о':'o','п':'p','р':'r','с':'s','т':'t','у':'u','ф':'f','х':'h','ц':'ts','ч':'ch','ш':'sh','щ':'sch','ь':'','ы':'y','ъ':'','э':'e','ю':'yu','я':'ya' };
-        
+
+        // --- 2. HELPERS ---
         function safeName(str) {
             return str.toLowerCase().split('').map(c => translit[c] || c).join('')
                 .replace(/[^a-z0-9]/g, '_').replace(/_+/g, '_').replace(/^_|_$/g, '');
+        }
+
+        // Чистим HTML сущности типа &quot; -> "
+        function decodeHtml(html) {
+            var txt = document.createElement("textarea");
+            txt.innerHTML = html;
+            return txt.value;
         }
 
         function showToast(msg, type = 'success') {
@@ -258,14 +255,27 @@
             setTimeout(() => t.classList.remove('show'), 3000);
         }
 
-        // --- NETWORK (PROXY) ---
-        async function fetchUrl(url, type = 'json') {
-            const proxies = [
+        // Умная функция загрузки (Direct Fetch -> Proxy Fallback)
+        // Для скачивания картинок, чтобы избежать лимитов прокси
+        async function fetchImageBlob(url) {
+            try {
+                // Пытаемся скачать напрямую (Steam CDN поддерживает CORS!)
+                const res = await fetch(url);
+                if (res.ok) return await res.blob();
+            } catch (e) {
+                // Если браузер заблокировал по CORS (обычно кастомные картинки из Гугла) - идем через прокси
+                console.log("Direct fetch blocked, using proxy for:", url);
+            }
+            return await fetchApi(url, 'blob');
+        }
+
+        // Обычная загрузка через прокси (для API Steam)
+        async function fetchApi(url, type = 'json') {
+            const proxies =[
                 { pre: 'https://corsproxy.io/?', enc: true },
                 { pre: 'https://api.allorigins.win/raw?url=', enc: true },
                 { pre: 'https://api.codetabs.com/v1/proxy?quest=', enc: false }
             ];
-            
             for (let p of proxies) {
                 try {
                     const target = p.enc ? encodeURIComponent(url) : url;
@@ -274,10 +284,10 @@
                     return type === 'json' ? await res.json() : await res.blob();
                 } catch(e) {}
             }
-            throw new Error("Network Failed");
+            throw new Error("Network/Proxy Failed");
         }
 
-        // --- LOGIC: STEAM ---
+        // --- 3. STEAM LOGIC ---
         async function addSteamGames() {
             const input = document.getElementById('steamInput').value;
             const ids = input.split(/[\s,]+/).map(s => {
@@ -286,8 +296,12 @@
             }).filter(Boolean);
 
             if (!ids.length) return showToast('Нет ID для добавления', 'error');
-            
             document.getElementById('steamInput').value = '';
+            
+            const steamBtn = document.getElementById('steamBtn');
+            const originalText = steamBtn.innerHTML;
+            steamBtn.innerHTML = '<span class="spinner"></span> Обработка...';
+            steamBtn.disabled = true;
 
             for (let id of ids) {
                 if (queue.some(g => g.steam_id == id)) continue;
@@ -296,40 +310,72 @@
                 queue.unshift(item);
                 renderQueue();
 
-                // Process in background
                 fetchSteamData(id).then(game => {
                     const idx = queue.indexOf(item);
                     if (idx > -1) queue[idx] = game;
                     renderAll();
                 }).catch(e => {
                     const idx = queue.indexOf(item);
-                    if (idx > -1) { item.status = 'error'; item.title += " (Ошибка)"; }
+                    if (idx > -1) { item.status = 'error'; item.title = `ID ${id} (Не найдено)`; }
                     renderAll();
                 });
-                
-                await new Promise(r => setTimeout(r, 300)); // Delay to be polite
+                await new Promise(r => setTimeout(r, 200)); // Защита от спама API
             }
+            steamBtn.innerHTML = originalText;
+            steamBtn.disabled = false;
         }
 
         async function fetchSteamData(appId) {
-            const data = await fetchUrl(`https://store.steampowered.com/api/appdetails?appids=${appId}&l=russian`, 'json');
+            const data = await fetchApi(`https://store.steampowered.com/api/appdetails?appids=${appId}&l=russian`, 'json');
             if (!data[appId].success) throw new Error("API Fail");
             
             const g = data[appId].data;
             const sName = safeName(g.name);
             const desc = [...(g.genres||[]), ...(g.categories||[])].map(x => x.description.toLowerCase());
             
+            // Extract Extended Data
+            const developers = (g.developers ||[]).join(', ');
+            const publishers = (g.publishers ||[]).join(', ');
+            const releaseDate = g.release_date && g.release_date.date ? g.release_date.date : '';
+            
+            // Очистка описания от тегов и спецсимволов
+            let cleanDesc = (g.short_description || "").replace(/<[^>]*>?/gm, '');
+            cleanDesc = decodeHtml(cleanDesc);
+
+            // Трейлер (если есть видео)
+            let trailerUrl = "";
+            if (g.movies && g.movies.length > 0) {
+                // Берем WebM или MP4 максимального качества
+                const mov = g.movies[0];
+                trailerUrl = (mov.mp4 && mov.mp4.max) ? mov.mp4.max : (mov.webm && mov.webm.max ? mov.webm.max : "");
+                // Отрезаем параметры запроса
+                trailerUrl = trailerUrl.split('?')[0]; 
+            }
+
+            // Smart Tier
+            const pubsLower = (g.publishers ||[]).map(p => p.toLowerCase());
+            let detectedTier = 'tier_standard';
+            const isIndie = desc.includes('инди') || desc.includes('indie');
+            const isAAA = AAA_PUBLISHERS.some(aaa => pubsLower.some(p => p.includes(aaa)));
+
+            if (isAAA) detectedTier = 'tier_aaa';
+            else if (isIndie) detectedTier = 'tier_indie';
+            
             return {
                 steam_id: appId,
                 id: "game_" + sName,
                 title: g.name,
-                tier: desc.includes('инди') || desc.includes('indie') ? 'tier_indie' : 'tier_aaa',
+                tier: detectedTier,
+                developer: developers,
+                publisher: publishers,
+                release_date: releaseDate,
                 tags: ALL_TAGS.filter(t => t.keys.some(k => desc.includes(k))).map(t => t.id),
-                description: (g.short_description || "").replace(/<[^>]*>?/gm, ''),
+                description: cleanDesc,
+                trailer: trailerUrl,
                 assets: {
                     cover: { url: `https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/${appId}/library_600x900_2x.jpg`, file: `${sName}.jpg` },
                     banner: { url: g.header_image, file: `${sName}_banner.jpg` },
-                    screenshots: (g.screenshots || []).slice(0, 4).map((s, i) => ({ 
+                    screenshots: (g.screenshots ||[]).slice(0, 6).map((s, i) => ({ 
                         url: s.path_full.split('?')[0], file: `${sName}_screen_${i+1}.jpg` 
                     }))
                 },
@@ -338,11 +384,9 @@
             };
         }
 
-        // --- LOGIC: CUSTOM ---
+        // --- 4. CUSTOM LOGIC ---
         const modal = document.getElementById('customModal');
         const tagContainer = document.getElementById('tagsGrid');
-
-        // Init Tags
         ALL_TAGS.forEach(t => {
             const el = document.createElement('div');
             el.className = 'tag-pill';
@@ -352,82 +396,95 @@
             tagContainer.appendChild(el);
         });
 
-        function openModal() {
-            // Reset fields
-            document.getElementById('custTitle').value = '';
-            document.getElementById('custId').value = '';
-            document.getElementById('custCover').value = '';
-            document.getElementById('custBanner').value = '';
+        function openModal() {['custTitle','custDev','custPub','custDate','custId','custCover','custBanner','custTrailer','custScreens'].forEach(id => document.getElementById(id).value = '');
             document.querySelectorAll('.tag-pill').forEach(el => el.classList.remove('active'));
             modal.showModal();
         }
-
         function closeModal() { modal.close(); }
-
         function generateId() {
             const t = document.getElementById('custTitle').value;
             document.getElementById('custId').value = "game_" + safeName(t);
         }
-
         function searchGoogle(type) {
             const t = document.getElementById('custTitle').value;
-            if(!t) return showToast('Сначала введите название', 'error');
-            const q = type === 'cover' ? `${t} game box art vertical` : `${t} game wallpaper 1920x1080`;
+            if(!t) return showToast('Сначала введите название игры', 'error');
+            const q = type === 'cover' ? `${t} box art vertical hq` : `${t} game wallpaper 1920x1080`;
             window.open(`https://www.google.com/search?tbm=isch&q=${encodeURIComponent(q)}`, '_blank');
         }
-
         function saveCustomGame() {
             const title = document.getElementById('custTitle').value.trim();
-            if (!title) return showToast('Название обязательно', 'error');
+            if (!title) return showToast('Название игры обязательно', 'error');
             
-            const id = document.getElementById('custId').value;
+            const id = document.getElementById('custId').value || "game_" + safeName(title);
             const sName = safeName(title);
+            const dev = document.getElementById('custDev').value.trim();
+            const pub = document.getElementById('custPub').value.trim();
+            const date = document.getElementById('custDate').value.trim();
             const tier = document.getElementById('custTier').value;
+            const trailer = document.getElementById('custTrailer').value.trim();
             const tags = Array.from(document.querySelectorAll('.tag-pill.active')).map(e => e.dataset.id);
             const cover = document.getElementById('custCover').value.trim();
             const banner = document.getElementById('custBanner').value.trim();
+            
+            // Парсинг скриншотов из textarea
+            const screenText = document.getElementById('custScreens').value;
+            const screenLinks = screenText.split('\n').map(s => s.trim()).filter(s => s.startsWith('http')).slice(0, 6);
+            const screenObjects = screenLinks.map((url, i) => ({
+                url: url, file: `${sName}_screen_${i+1}.jpg`
+            }));
 
-            const game = {
+            queue.unshift({
                 steam_id: 'custom_' + Date.now(),
-                id: id,
-                title: title,
-                tier: tier,
-                tags: tags,
-                description: "Custom entry",
+                id: id, 
+                title: title, 
+                tier: tier, 
+                developer: dev, 
+                publisher: pub, 
+                release_date: date,
+                tags: tags, 
+                description: "", // Можно добавить поле описания при желании
+                trailer: trailer,
                 assets: {
                     cover: { url: cover || 'https://via.placeholder.com/600x900?text=No+Cover', file: `${sName}.jpg` },
                     banner: { url: banner || 'https://via.placeholder.com/1920x1080?text=No+Banner', file: `${sName}_banner.jpg` },
-                    screenshots: []
+                    screenshots: screenObjects
                 },
-                status: 'success',
+                status: 'success', 
                 type: 'custom'
-            };
-
-            queue.unshift(game);
-            renderAll();
-            closeModal();
-            showToast('Игра добавлена вручную');
+            });
+            renderAll(); 
+            closeModal(); 
+            showToast('Custom игра добавлена!');
         }
 
-        // --- RENDER & DOWNLOAD ---
-        function clearQueue() { queue = []; renderAll(); }
-        
+// --- 5. RENDER ---
+        function clearQueue() { 
+            if(confirm("Точно очистить всю очередь?")) {
+                queue = []; 
+                renderAll(); 
+            }
+        }
         function removeGame(sid) {
             queue = queue.filter(g => g.steam_id != sid);
             renderAll();
         }
 
-        function renderAll() { renderQueue(); renderJson(); renderGrid(); }
+        function renderAll() { 
+            renderQueue(); 
+            renderJson(); 
+            renderGrid(); 
+        }
 
         function renderQueue() {
             const list = document.getElementById('queueList');
             document.getElementById('queueCount').innerText = queue.length;
-            
-            if (!queue.length) { list.innerHTML = '<div style="text-align:center; padding:20px; color:#666">Пусто</div>'; return; }
-
+            if (!queue.length) { 
+                list.innerHTML = '<div style="text-align:center; padding:30px 20px; color:var(--text-dim); font-size:13px;">Список пуст</div>'; 
+                return; 
+            }
             list.innerHTML = queue.map(g => `
                 <div class="queue-item ${g.status}">
-                    ${g.assets ? `<img src="${g.assets.cover.url}" class="q-img" onerror="this.style.background='#333'">` : '<div class="q-img"></div>'}
+                    ${g.assets ? `<img src="${g.assets.cover.url}" class="q-img" onerror="this.src='https://via.placeholder.com/32x48?text=err'">` : '<div class="q-img" style="background:var(--bg-body)"></div>'}
                     <div class="q-details">
                         <div class="q-title">${g.title}</div>
                         <div class="q-status">${g.type === 'custom' ? '🛠 Custom' : '🎮 Steam'} • ${g.status}</div>
@@ -440,12 +497,19 @@
         function renderJson() {
             const valid = queue.filter(g => g.status === 'success');
             const data = valid.map(g => ({
-                id: g.id,
-                title: g.title,
-                tier: g.tier,
-                tags: g.tags,
+                id: g.id, 
+                title: g.title, 
+                tier: g.tier, 
+                developer: g.developer,
+                publisher: g.publisher,
+                release_date: g.release_date,
+                tags: g.tags, 
                 description: g.description,
-                assets: { cover: g.assets.cover.file, banner: g.assets.banner.file }
+                trailer: g.trailer,
+                assets: { 
+                    cover: g.assets.cover.file, 
+                    banner: g.assets.banner.file 
+                }
             }));
             document.getElementById('jsonOutput').textContent = JSON.stringify(data, null, 4);
         }
@@ -454,70 +518,105 @@
             const valid = queue.filter(g => g.status === 'success');
             const grid = document.getElementById('assetsGrid');
             grid.innerHTML = '';
-            
             valid.forEach(g => {
-                // Cover
-                grid.innerHTML += `
+                const createCard = (asset, title, typeClass) => `
                     <div class="asset-card">
-                        <div class="asset-preview cover"><img src="${g.assets.cover.url}" loading="lazy"></div>
-                        <div class="asset-name">${g.assets.cover.file}</div>
-                        <button class="btn small secondary" onclick="dlOne('${g.assets.cover.url}', '${g.assets.cover.file}', this)">Скачать</button>
+                        <div class="asset-preview ${typeClass}"><img src="${asset.url}" loading="lazy" onerror="this.src='https://via.placeholder.com/300x160?text=Load+Error'"></div>
+                        <div class="asset-name" title="${asset.file}">${asset.file}</div>
+                        <button class="btn small secondary full" onclick="dlOne('${asset.url}', '${asset.file}', this)">Скачать</button>
                     </div>`;
-                // Banner
-                grid.innerHTML += `
-                    <div class="asset-card">
-                        <div class="asset-preview"><img src="${g.assets.banner.url}" loading="lazy"></div>
-                        <div class="asset-name">${g.assets.banner.file}</div>
-                        <button class="btn small secondary" onclick="dlOne('${g.assets.banner.url}', '${g.assets.banner.file}', this)">Скачать</button>
-                    </div>`;
+                
+                grid.innerHTML += createCard(g.assets.cover, 'Обложка', 'cover');
+                grid.innerHTML += createCard(g.assets.banner, 'Баннер', '');
+                g.assets.screenshots.forEach((scr, i) => {
+                    grid.innerHTML += createCard(scr, `Скриншот ${i+1}`, '');
+                });
             });
         }
-
-        function copyJson() {
-            navigator.clipboard.writeText(document.getElementById('jsonOutput').textContent);
-            showToast('JSON скопирован');
+        function copyJson() { 
+            navigator.clipboard.writeText(document.getElementById('jsonOutput').textContent); 
+            showToast('JSON скопирован в буфер обмена!'); 
         }
 
+        // --- 6. DOWNLOAD LOGIC ---
         async function dlOne(url, name, btn) {
-            const txt = btn.innerText; btn.innerText = '...'; btn.disabled = true;
+            const txt = btn.innerText; btn.innerHTML = '⏳'; btn.disabled = true;
             try {
-                const b = await fetchUrl(url, 'blob');
+                const b = await fetchImageBlob(url);
                 saveAs(b, name);
-                btn.innerText = '✓';
-            } catch(e) { btn.innerText = 'Err'; showToast(e.message, 'error'); }
-            finally { setTimeout(() => { btn.innerText = txt; btn.disabled = false; }, 2000); }
+                btn.innerHTML = '✓ Готово';
+                btn.style.background = 'var(--green)';
+            } catch(e) { 
+                btn.innerHTML = '✗ Ошибка'; 
+                showToast(e.message, 'error'); 
+                btn.style.background = 'var(--red)';
+            }
+            finally { 
+                setTimeout(() => { 
+                    btn.innerHTML = txt; 
+                    btn.disabled = false; 
+                    btn.style.background = '';
+                }, 2000); 
+            }
         }
 
-        async function downloadZip(type) {
-            const valid = queue.filter(g => g.status === 'success');
-            if(!valid.length) return showToast('Нет игр', 'error');
-
-            const zip = new JSZip();
-            let folderName = type === 'cover' ? 'Covers' : (type === 'banner' ? 'Banners' : 'Screenshots');
-            const folder = zip.folder(folderName);
+        async function downloadZip(type, btn) {
+            const originalHtml = btn.innerHTML;
+            const validGames = queue.filter(g => g.status === 'success');
             
-            showToast(`Начато скачивание ${folderName}...`);
+            if (!validGames.length) return showToast('В очереди нет успешно загруженных игр', 'error');
 
-            for (const g of valid) {
-                try {
-                    if (type === 'cover') {
-                        const b = await fetchUrl(g.assets.cover.url, 'blob');
-                        folder.file(g.assets.cover.file, b);
-                    } else if (type === 'banner') {
-                        const b = await fetchUrl(g.assets.banner.url, 'blob');
-                        folder.file(g.assets.banner.file, b);
-                    } else if (type === 'screenshots') {
-                        for (const s of g.assets.screenshots) {
-                            const b = await fetchUrl(s.url, 'blob');
-                            folder.file(s.file, b);
-                        }
-                    }
-                } catch(e) { console.error(e); }
+            btn.disabled = true;
+            let totalFiles = 0;
+            if (type === 'screenshots') {
+                validGames.forEach(g => totalFiles += g.assets.screenshots.length);
+            } else {
+                totalFiles = validGames.length;
+            }
+            
+            if (totalFiles === 0) {
+                showToast('Нет файлов этого типа для скачивания', 'error');
+                btn.disabled = false;
+                return;
             }
 
-            const content = await zip.generateAsync({type:"blob"});
-            saveAs(content, `${folderName}.zip`);
-            showToast('Архив готов');
+            const zip = new JSZip();
+            const folderName = type === 'cover' ? 'Covers' : (type === 'banner' ? 'Banners' : 'Screenshots');
+            const folder = zip.folder(folderName);
+            let processed = 0;
+
+            const processFile = async (url, filename) => {
+                try {
+                    const blob = await fetchImageBlob(url); // Используем умную загрузку
+                    folder.file(filename, blob);
+                } catch(e) {
+                    console.error(`Не удалось скачать: ${filename}`, e);
+                    folder.file(`${filename}.error.txt`, `Download failed: ${e.message}`);
+                }
+                processed++;
+                btn.innerHTML = `<span class="spinner"></span> <span class="prog-text">${processed}/${totalFiles}</span>`;
+            };
+
+            for (const game of validGames) {
+                if (type === 'cover' && game.assets.cover.url) await processFile(game.assets.cover.url, game.assets.cover.file);
+                else if (type === 'banner' && game.assets.banner.url) await processFile(game.assets.banner.url, game.assets.banner.file);
+                else if (type === 'screenshots') {
+                    for (const scr of game.assets.screenshots) await processFile(scr.url, scr.file);
+                }
+            }
+
+            btn.innerHTML = `<span class="spinner"></span> <span class="prog-text">Сжатие...</span>`;
+            
+            try {
+                const content = await zip.generateAsync({type:"blob"});
+                saveAs(content, `${folderName}.zip`);
+                showToast(`Архив "${folderName}.zip" успешно создан!`);
+            } catch(e) {
+                showToast("Ошибка создания ZIP архива", "error");
+            } finally {
+                btn.innerHTML = originalHtml;
+                btn.disabled = false;
+            }
         }
     </script>
 </body>
