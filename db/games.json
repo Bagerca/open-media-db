@@ -1,5 +1,59 @@
 [
     {
+        "id": "game_ace_combat_7_skies_unknown",
+        "steam_id": 502500,
+        "title": "ACE COMBAT™ 7: SKIES UNKNOWN",
+        "tier": "tier_aaa",
+        "developer": "Bandai Namco Studios Inc.",
+        "publisher": "Bandai Namco Entertainment",
+        "release_date": "31 Jan, 2019",
+        "tags": [
+            "tag_single",
+            "tag_action"
+        ],
+        "description": "Become an ace pilot and soar through photorealistic skies with full 360 degree movement; down enemy aircraft and experience the thrill of engaging in realistic sorties! Aerial combat has never looked or felt better!",
+        "trailer": "",
+        "assets": {
+            "cover": "ace_combat_7_skies_unknown.jpg",
+            "banner": "ace_combat_7_skies_unknown_banner.jpg",
+            "screenshots": [
+                "ace_combat_7_skies_unknown_screen_1.jpg",
+                "ace_combat_7_skies_unknown_screen_2.jpg",
+                "ace_combat_7_skies_unknown_screen_3.jpg",
+                "ace_combat_7_skies_unknown_screen_4.jpg",
+                "ace_combat_7_skies_unknown_screen_5.jpg",
+                "ace_combat_7_skies_unknown_screen_6.jpg"
+            ]
+        }
+    },
+    {
+        "id": "game_r_e_p_o",
+        "steam_id": 3241660,
+        "title": "R.E.P.O.",
+        "tier": "tier_standard",
+        "developer": "semiwork",
+        "publisher": "semiwork",
+        "release_date": "26 Feb, 2025",
+        "tags": [
+            "tag_single",
+            "tag_multi",
+            "tag_action"
+        ],
+        "description": "An online co-op horror game with up to 6 players. Locate valuable, fully physics-based objects and handle them with care as you retrieve and extract to satisfy your creator's desires.",
+        "trailer": "",
+        "assets": {
+            "cover": "r_e_p_o.jpg",
+            "banner": "r_e_p_o_banner.jpg",
+            "screenshots": [
+                "r_e_p_o_screen_1.jpg",
+                "r_e_p_o_screen_2.jpg",
+                "r_e_p_o_screen_3.jpg",
+                "r_e_p_o_screen_4.jpg",
+                "r_e_p_o_screen_5.jpg"
+            ]
+        }
+    },
+    {
         "id": "game_beholder",
         "steam_id": 475550,
         "title": "Beholder",
