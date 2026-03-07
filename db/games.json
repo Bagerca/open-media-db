@@ -1,5 +1,614 @@
 [
     {
+        "id": "game_portal_2",
+        "steam_id": 620,
+        "title": "Portal 2",
+        "tier": "tier_aaa",
+        "developer": "Valve",
+        "publisher": "Valve",
+        "release_date": "18 Apr, 2011",
+        "tags": [
+            "tag_single",
+            "tag_multi",
+            "tag_action",
+            "tag_adventure"
+        ],
+        "description": "The \"Perpetual Testing Initiative\" has been expanded to allow you to design co-op puzzles for you and your friends!",
+        "trailer": "",
+        "assets": {
+            "cover": "portal_2.jpg",
+            "banner": "portal_2_banner.jpg",
+            "screenshots": [
+                "portal_2_screen_1.jpg",
+                "portal_2_screen_2.jpg",
+                "portal_2_screen_3.jpg",
+                "portal_2_screen_4.jpg",
+                "portal_2_screen_5.jpg",
+                "portal_2_screen_6.jpg"
+            ]
+        }
+    },
+    {
+        "id": "game_portal",
+        "steam_id": 400,
+        "title": "Portal",
+        "tier": "tier_aaa",
+        "developer": "Valve",
+        "publisher": "Valve",
+        "release_date": "10 окт. 2007 г.",
+        "tags": [],
+        "description": "Portal™ — новая игра от Valve для одного игрока. Portal, действие которого происходит в загадочных лабораториях компании Aperture, был назван одной из самых новаторских игр современности и предлагает вниманию игрока множество часов непохожей ни на что головоломки.",
+        "trailer": "",
+        "assets": {
+            "cover": "portal.jpg",
+            "banner": "portal_banner.jpg",
+            "screenshots": [
+                "portal_screen_1.jpg",
+                "portal_screen_2.jpg",
+                "portal_screen_3.jpg",
+                "portal_screen_4.jpg",
+                "portal_screen_5.jpg",
+                "portal_screen_6.jpg"
+            ]
+        }
+    },
+    {
+        "id": "game_poppy_playtime",
+        "steam_id": 1721470,
+        "title": "Poppy Playtime",
+        "tier": "tier_indie",
+        "developer": "Mob Entertainment",
+        "publisher": "Mob Entertainment",
+        "release_date": "12 Oct, 2021",
+        "tags": [
+            "tag_single",
+            "tag_action",
+            "tag_adventure",
+            "tag_indie"
+        ],
+        "description": "You must stay alive in this horror/puzzle adventure. Try to survive the vengeful toys waiting for you in the abandoned toy factory. Use your GrabPack to hack electrical circuits or nab anything from afar. Explore the mysterious facility... and don't get caught.",
+        "trailer": "",
+        "assets": {
+            "cover": "poppy_playtime.jpg",
+            "banner": "poppy_playtime_banner.jpg",
+            "screenshots": [
+                "poppy_playtime_screen_1.jpg",
+                "poppy_playtime_screen_2.jpg",
+                "poppy_playtime_screen_3.jpg",
+                "poppy_playtime_screen_4.jpg",
+                "poppy_playtime_screen_5.jpg"
+            ]
+        }
+    },
+    {
+        "id": "game_robocop_rogue_city",
+        "steam_id": 1681430,
+        "title": "RoboCop: Rogue City",
+        "tier": "tier_standard",
+        "developer": "Teyon",
+        "publisher": "Nacon",
+        "release_date": "2 ноя. 2023 г.",
+        "tags": [],
+        "description": "На 50% человек, на 50% робот — на 100% герой: окунитесь в мир Старого Детройта в роли легендарного полицейского и вершите правосудие.",
+        "trailer": "",
+        "assets": {
+            "cover": "robocop_rogue_city.jpg",
+            "banner": "robocop_rogue_city_banner.jpg",
+            "screenshots": [
+                "robocop_rogue_city_screen_1.jpg",
+                "robocop_rogue_city_screen_2.jpg",
+                "robocop_rogue_city_screen_3.jpg",
+                "robocop_rogue_city_screen_4.jpg",
+                "robocop_rogue_city_screen_5.jpg",
+                "robocop_rogue_city_screen_6.jpg"
+            ]
+        }
+    },
+    {
+        "id": "game_stalcraft_x",
+        "steam_id": 1818450,
+        "title": "STALCRAFT: X",
+        "tier": "tier_standard",
+        "developer": "EXBO",
+        "publisher": "EXBO",
+        "release_date": "9 дек. 2022 г.",
+        "tags": [
+            "tag_multi"
+        ],
+        "description": "STALCRAFT: X — самая масштабная онлайн-игра в открытом мире Чернобыльской Зоны Отчуждения. Исследуйте наполненный мутантами и аномалиями мир в одиночку или с друзьями — незабываемые эмоции гарантированы.",
+        "trailer": "",
+        "assets": {
+            "cover": "stalcraft_x.jpg",
+            "banner": "stalcraft_x_banner.jpg",
+            "screenshots": [
+                "stalcraft_x_screen_1.jpg",
+                "stalcraft_x_screen_2.jpg",
+                "stalcraft_x_screen_3.jpg",
+                "stalcraft_x_screen_4.jpg",
+                "stalcraft_x_screen_5.jpg",
+                "stalcraft_x_screen_6.jpg"
+            ]
+        }
+    },
+    {
+        "id": "game_subnautica",
+        "steam_id": 264710,
+        "title": "Subnautica",
+        "tier": "tier_indie",
+        "developer": "Unknown Worlds Entertainment",
+        "publisher": "Unknown Worlds Entertainment",
+        "release_date": "23 Jan, 2018",
+        "tags": [
+            "tag_single",
+            "tag_adventure",
+            "tag_indie"
+        ],
+        "description": "Descend into the depths of an alien underwater world filled with wonder and peril. Craft equipment, pilot submarines and out-smart wildlife to explore lush coral reefs, volcanoes, cave systems, and more - all while trying to survive.",
+        "trailer": "",
+        "assets": {
+            "cover": "subnautica.jpg",
+            "banner": "subnautica_banner.jpg",
+            "screenshots": [
+                "subnautica_screen_1.jpg",
+                "subnautica_screen_2.jpg",
+                "subnautica_screen_3.jpg",
+                "subnautica_screen_4.jpg",
+                "subnautica_screen_5.jpg",
+                "subnautica_screen_6.jpg"
+            ]
+        }
+    },
+    {
+        "id": "game_the_farmer_was_replaced",
+        "steam_id": 2060160,
+        "title": "The Farmer Was Replaced",
+        "tier": "tier_indie",
+        "developer": "Timon Herzog",
+        "publisher": "Metaroot, Timon Herzog",
+        "release_date": "10 Oct, 2025",
+        "tags": [
+            "tag_single",
+            "tag_strategy",
+            "tag_indie"
+        ],
+        "description": "Program and optimize a drone to automate a farm and watch it do the work for you. Collect resources to unlock better technology and become the most efficient farmer in the world. Improve your problem solving and coding skills.",
+        "trailer": "",
+        "assets": {
+            "cover": "the_farmer_was_replaced.jpg",
+            "banner": "the_farmer_was_replaced_banner.jpg",
+            "screenshots": [
+                "the_farmer_was_replaced_screen_1.jpg",
+                "the_farmer_was_replaced_screen_2.jpg",
+                "the_farmer_was_replaced_screen_3.jpg",
+                "the_farmer_was_replaced_screen_4.jpg",
+                "the_farmer_was_replaced_screen_5.jpg",
+                "the_farmer_was_replaced_screen_6.jpg"
+            ]
+        }
+    },
+    {
+        "id": "game_the_henry_stickmin_collection",
+        "steam_id": 1089980,
+        "title": "The Henry Stickmin Collection",
+        "tier": "tier_indie",
+        "developer": "PuffballsUnited",
+        "publisher": "Innersloth",
+        "release_date": "7 авг. 2020 г.",
+        "tags": [
+            "tag_indie"
+        ],
+        "description": "A choose-your-own-path where failing is more fun than succeeding.",
+        "trailer": "",
+        "assets": {
+            "cover": "the_henry_stickmin_collection.jpg",
+            "banner": "the_henry_stickmin_collection_banner.jpg",
+            "screenshots": [
+                "the_henry_stickmin_collection_screen_1.jpg",
+                "the_henry_stickmin_collection_screen_2.jpg",
+                "the_henry_stickmin_collection_screen_3.jpg",
+                "the_henry_stickmin_collection_screen_4.jpg",
+                "the_henry_stickmin_collection_screen_5.jpg",
+                "the_henry_stickmin_collection_screen_6.jpg"
+            ]
+        }
+    },
+    {
+        "id": "game_this_war_of_mine",
+        "steam_id": 282070,
+        "title": "This War of Mine",
+        "tier": "tier_indie",
+        "developer": "11 bit studios",
+        "publisher": "11 bit studios",
+        "release_date": "14 ноя. 2014 г.",
+        "tags": [
+            "tag_indie"
+        ],
+        "description": "В «This War of Mine» вы играете не за солдата элитных войск, а за группу мирных жителей, пытающихся выжить в осажденном городе, испытывая нехватку еды, лекарств и постоянную опасность со стороны снайперов и мародеров.",
+        "trailer": "",
+        "assets": {
+            "cover": "this_war_of_mine.jpg",
+            "banner": "this_war_of_mine_banner.jpg",
+            "screenshots": [
+                "this_war_of_mine_screen_1.jpg",
+                "this_war_of_mine_screen_2.jpg",
+                "this_war_of_mine_screen_3.jpg",
+                "this_war_of_mine_screen_4.jpg",
+                "this_war_of_mine_screen_5.jpg",
+                "this_war_of_mine_screen_6.jpg"
+            ]
+        }
+    },
+    {
+        "id": "game_tiny_bunny",
+        "steam_id": 1421250,
+        "title": "Tiny Bunny",
+        "tier": "tier_indie",
+        "developer": "Saikono, Sokar",
+        "publisher": "Serenity Forge",
+        "release_date": "5 дек. 2025 г.",
+        "tags": [
+            "tag_indie"
+        ],
+        "description": "«Зайчик» - нелинейная визуальная новелла в жанре ужасов. Тому, кто услышал голос леса, уже не поможет ничего.",
+        "trailer": "",
+        "assets": {
+            "cover": "tiny_bunny.jpg",
+            "banner": "tiny_bunny_banner.jpg",
+            "screenshots": [
+                "tiny_bunny_screen_1.jpg",
+                "tiny_bunny_screen_2.jpg",
+                "tiny_bunny_screen_3.jpg",
+                "tiny_bunny_screen_4.jpg",
+                "tiny_bunny_screen_5.jpg",
+                "tiny_bunny_screen_6.jpg"
+            ]
+        }
+    },
+    {
+        "id": "game_vrchat",
+        "steam_id": 438100,
+        "title": "VRChat",
+        "tier": "tier_standard",
+        "developer": "VRChat Inc.",
+        "publisher": "VRChat Inc.",
+        "release_date": "1 Feb, 2017",
+        "tags": [
+            "tag_multi",
+            "tag_adventure"
+        ],
+        "description": "Join our growing community as you explore, play, and help craft the future of social VR. Create worlds and custom avatars. Welcome to VRChat.",
+        "trailer": "",
+        "assets": {
+            "cover": "vrchat.jpg",
+            "banner": "vrchat_banner.jpg",
+            "screenshots": [
+                "vrchat_screen_1.jpg",
+                "vrchat_screen_2.jpg",
+                "vrchat_screen_3.jpg",
+                "vrchat_screen_4.jpg",
+                "vrchat_screen_5.jpg",
+                "vrchat_screen_6.jpg"
+            ]
+        }
+    },
+    {
+        "id": "game_war_thunder",
+        "steam_id": 236390,
+        "title": "War Thunder",
+        "tier": "tier_standard",
+        "developer": "Gaijin Entertainment",
+        "publisher": "Gaijin Network Ltd",
+        "release_date": "15 авг. 2013 г.",
+        "tags": [
+            "tag_multi"
+        ],
+        "description": "War Thunder – самая масштабная бесплатная кроссплатформенная многопользовательская онлайн-игра, посвященная боевой технике самых разных войн и конфликтов – с начала XX века и до наших дней. Авиация, наземные силы и флот сражаются вместе в одном бою.",
+        "trailer": "",
+        "assets": {
+            "cover": "war_thunder.jpg",
+            "banner": "war_thunder_banner.jpg",
+            "screenshots": [
+                "war_thunder_screen_1.jpg",
+                "war_thunder_screen_2.jpg",
+                "war_thunder_screen_3.jpg",
+                "war_thunder_screen_4.jpg",
+                "war_thunder_screen_5.jpg",
+                "war_thunder_screen_6.jpg"
+            ]
+        }
+    },
+    {
+        "id": "game_bloons_td_6",
+        "steam_id": 960090,
+        "title": "Bloons TD 6",
+        "tier": "tier_standard",
+        "developer": "Ninja Kiwi",
+        "publisher": "Ninja Kiwi",
+        "release_date": "17 дек. 2018 г.",
+        "tags": [
+            "tag_multi"
+        ],
+        "description": "Игра-боевик в стиле «оборона крепости»",
+        "trailer": "",
+        "assets": {
+            "cover": "bloons_td_6.jpg",
+            "banner": "bloons_td_6_banner.jpg",
+            "screenshots": [
+                "bloons_td_6_screen_1.jpg",
+                "bloons_td_6_screen_2.jpg",
+                "bloons_td_6_screen_3.jpg",
+                "bloons_td_6_screen_4.jpg",
+                "bloons_td_6_screen_5.jpg",
+                "bloons_td_6_screen_6.jpg"
+            ]
+        }
+    },
+    {
+        "id": "game_crossout",
+        "steam_id": 386180,
+        "title": "Crossout",
+        "tier": "tier_standard",
+        "developer": "Targem Games",
+        "publisher": "Gaijin Network Ltd",
+        "release_date": "26 июл. 2017 г.",
+        "tags": [
+            "tag_multi",
+            "tag_sport"
+        ],
+        "description": "CROSSOUT - постапокалиптический MMO-экшн, где вы можете собрать из множества деталей бронемашину уникального дизайна, а затем сразиться на ней в жарких многопользовательских боях в воздухе и на земле.",
+        "trailer": "",
+        "assets": {
+            "cover": "crossout.jpg",
+            "banner": "crossout_banner.jpg",
+            "screenshots": [
+                "crossout_screen_1.jpg",
+                "crossout_screen_2.jpg",
+                "crossout_screen_3.jpg",
+                "crossout_screen_4.jpg",
+                "crossout_screen_5.jpg",
+                "crossout_screen_6.jpg"
+            ]
+        }
+    },
+    {
+        "id": "game_cakey_s_twisted_bakery",
+        "steam_id": 3028500,
+        "title": "Cakey's Twisted Bakery",
+        "tier": "tier_indie",
+        "developer": "TinyMindz",
+        "publisher": "TinyMindz",
+        "release_date": "5 июл. 2024 г.",
+        "tags": [
+            "tag_indie"
+        ],
+        "description": "It's bake or die at Cakey's Bakery, where human children are the secret ingredient to strange monsters' delicious pastries. Find the recipe for survival to escape the bakery and it's sweet and scary staff!",
+        "trailer": "",
+        "assets": {
+            "cover": "cakey_s_twisted_bakery.jpg",
+            "banner": "cakey_s_twisted_bakery_banner.jpg",
+            "screenshots": [
+                "cakey_s_twisted_bakery_screen_1.jpg",
+                "cakey_s_twisted_bakery_screen_2.jpg",
+                "cakey_s_twisted_bakery_screen_3.jpg",
+                "cakey_s_twisted_bakery_screen_4.jpg",
+                "cakey_s_twisted_bakery_screen_5.jpg",
+                "cakey_s_twisted_bakery_screen_6.jpg"
+            ]
+        }
+    },
+    {
+        "id": "game_cat_bait",
+        "steam_id": 2929730,
+        "title": "Cat Bait",
+        "tier": "tier_indie",
+        "developer": "Mayni prod.",
+        "publisher": "Mayni prod.",
+        "release_date": "27 Aug, 2024",
+        "tags": [
+            "tag_single",
+            "tag_action",
+            "tag_indie"
+        ],
+        "description": "Cat Bait is a casual game with cute pixel graphics. Control the Cat Bait, dodge enemies, and use the unique abilities of helper cats.",
+        "trailer": "",
+        "assets": {
+            "cover": "cat_bait.jpg",
+            "banner": "cat_bait_banner.jpg",
+            "screenshots": [
+                "cat_bait_screen_1.jpg",
+                "cat_bait_screen_2.jpg",
+                "cat_bait_screen_3.jpg",
+                "cat_bait_screen_4.jpg",
+                "cat_bait_screen_5.jpg",
+                "cat_bait_screen_6.jpg"
+            ]
+        }
+    },
+    {
+        "id": "game_choo_choo_charles",
+        "steam_id": 1766740,
+        "title": "Choo-Choo Charles",
+        "tier": "tier_indie",
+        "developer": "Two Star Games",
+        "publisher": "Two Star Games",
+        "release_date": "9 дек. 2022 г.",
+        "tags": [
+            "tag_indie"
+        ],
+        "description": "Путешествуйте по острову в старом поезде, периодически улучшайте его и используйте для борьбы со злым пауком по имени Чарльз.",
+        "trailer": "",
+        "assets": {
+            "cover": "choo_choo_charles.jpg",
+            "banner": "choo_choo_charles_banner.jpg",
+            "screenshots": [
+                "choo_choo_charles_screen_1.jpg",
+                "choo_choo_charles_screen_2.jpg",
+                "choo_choo_charles_screen_3.jpg",
+                "choo_choo_charles_screen_4.jpg",
+                "choo_choo_charles_screen_5.jpg",
+                "choo_choo_charles_screen_6.jpg"
+            ]
+        }
+    },
+    {
+        "id": "game_dark_deception",
+        "steam_id": 332950,
+        "title": "Dark Deception",
+        "tier": "tier_indie",
+        "developer": "Glowstick Entertainment",
+        "publisher": "Glowstick Entertainment",
+        "release_date": "26 сен. 2018 г.",
+        "tags": [
+            "tag_indie"
+        ],
+        "description": "Death awaits you in Dark Deception, a story-driven first-person horror maze game. There's nowhere to hide & nowhere to catch your breath. Run or die - it's your choice. Trapped in a realm of nightmarish mazes with a mysterious woman, your only hope of survival is to find a way to escape.",
+        "trailer": "",
+        "assets": {
+            "cover": "dark_deception.jpg",
+            "banner": "dark_deception_banner.jpg",
+            "screenshots": [
+                "dark_deception_screen_1.jpg",
+                "dark_deception_screen_2.jpg",
+                "dark_deception_screen_3.jpg",
+                "dark_deception_screen_4.jpg",
+                "dark_deception_screen_5.jpg",
+                "dark_deception_screen_6.jpg"
+            ]
+        }
+    },
+    {
+        "id": "game_crysis_3_remastered",
+        "steam_id": 2096610,
+        "title": "Crysis 3 Remastered",
+        "tier": "tier_standard",
+        "developer": "Crytek, Saber Interactive",
+        "publisher": "Crytek",
+        "release_date": "17 Nov, 2022",
+        "tags": [
+            "tag_single",
+            "tag_action"
+        ],
+        "description": "Experience the single-player experience from the iconic first-person shooter, Crysis 3, optimized to take advantage of today's hardware in Crysis 3 Remastered.",
+        "trailer": "",
+        "assets": {
+            "cover": "crysis_3_remastered.jpg",
+            "banner": "crysis_3_remastered_banner.jpg",
+            "screenshots": [
+                "crysis_3_remastered_screen_1.jpg",
+                "crysis_3_remastered_screen_2.jpg",
+                "crysis_3_remastered_screen_3.jpg",
+                "crysis_3_remastered_screen_4.jpg",
+                "crysis_3_remastered_screen_5.jpg",
+                "crysis_3_remastered_screen_6.jpg"
+            ]
+        }
+    },
+    {
+        "id": "game_crysis_2_remastered",
+        "steam_id": 2096600,
+        "title": "Crysis 2 Remastered",
+        "tier": "tier_standard",
+        "developer": "Crytek, Saber Interactive",
+        "publisher": "Crytek",
+        "release_date": "17 Nov, 2022",
+        "tags": [
+            "tag_single",
+            "tag_action"
+        ],
+        "description": "Relive the legendary single-player campaign from the classic first-person shooter, Crysis 2, optimized for today's hardware in Crysis 2 Remastered.",
+        "trailer": "",
+        "assets": {
+            "cover": "crysis_2_remastered.jpg",
+            "banner": "crysis_2_remastered_banner.jpg",
+            "screenshots": [
+                "crysis_2_remastered_screen_1.jpg",
+                "crysis_2_remastered_screen_2.jpg",
+                "crysis_2_remastered_screen_3.jpg",
+                "crysis_2_remastered_screen_4.jpg",
+                "crysis_2_remastered_screen_5.jpg",
+                "crysis_2_remastered_screen_6.jpg"
+            ]
+        }
+    },
+    {
+        "id": "game_crysis_remastered",
+        "steam_id": 1715130,
+        "title": "Crysis Remastered",
+        "tier": "tier_standard",
+        "developer": "Crytek",
+        "publisher": "Crytek",
+        "release_date": "17 сен. 2021 г.",
+        "tags": [],
+        "description": "Классический шутер от первого лица от Crytek возвращается с динамическим игровым процессом, режимом \"\"песочницы\"\" и захватывающими эпическими битвами. В игре вас ждет обновленная графика, оптимизированная для оборудования нового поколения.",
+        "trailer": "",
+        "assets": {
+            "cover": "crysis_remastered.jpg",
+            "banner": "crysis_remastered_banner.jpg",
+            "screenshots": [
+                "crysis_remastered_screen_1.jpg",
+                "crysis_remastered_screen_2.jpg",
+                "crysis_remastered_screen_3.jpg",
+                "crysis_remastered_screen_4.jpg",
+                "crysis_remastered_screen_5.jpg",
+                "crysis_remastered_screen_6.jpg"
+            ]
+        }
+    },
+    {
+        "id": "game_doki_doki_literature_club",
+        "steam_id": 698780,
+        "title": "Doki Doki Literature Club!",
+        "tier": "tier_aaa",
+        "developer": "Team Salvato",
+        "publisher": "Team Salvato",
+        "release_date": "6 окт. 2017 г.",
+        "tags": [
+            "tag_indie"
+        ],
+        "description": "The Literature Club is full of cute girls! Will you write the way into their heart? This game is not suitable for children or those who are easily disturbed.",
+        "trailer": "",
+        "assets": {
+            "cover": "doki_doki_literature_club.jpg",
+            "banner": "doki_doki_literature_club_banner.jpg",
+            "screenshots": [
+                "doki_doki_literature_club_screen_1.jpg",
+                "doki_doki_literature_club_screen_2.jpg",
+                "doki_doki_literature_club_screen_3.jpg",
+                "doki_doki_literature_club_screen_4.jpg",
+                "doki_doki_literature_club_screen_5.jpg"
+            ]
+        }
+    },
+    {
+        "id": "game_drift_wav",
+        "steam_id": 2613610,
+        "title": "Drift.Wav",
+        "tier": "tier_indie",
+        "developer": "Matthew Weston",
+        "publisher": "ATR",
+        "release_date": "27 Oct, 2023",
+        "tags": [
+            "tag_single",
+            "tag_multi",
+            "tag_sport",
+            "tag_indie"
+        ],
+        "description": "Drift.Wav is a casual drifting game with a synthwave inspired aesthetic. This game is not meant to replicate / simulate actual drift mechanics, but more serve as a fun & relaxing game where you can slide in a synthwave inspired world. See if you can drift your way to the top of the leaderboard!",
+        "trailer": "",
+        "assets": {
+            "cover": "drift_wav.jpg",
+            "banner": "drift_wav_banner.jpg",
+            "screenshots": [
+                "drift_wav_screen_1.jpg",
+                "drift_wav_screen_2.jpg",
+                "drift_wav_screen_3.jpg",
+                "drift_wav_screen_4.jpg",
+                "drift_wav_screen_5.jpg",
+                "drift_wav_screen_6.jpg"
+            ]
+        }
+    },
+    {
         "id": "game_ace_combat_7_skies_unknown",
         "steam_id": 502500,
         "title": "ACE COMBAT™ 7: SKIES UNKNOWN",
