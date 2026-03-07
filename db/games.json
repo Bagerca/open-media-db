@@ -1,5 +1,691 @@
 [
     {
+        "id": "game_helltaker",
+        "title": "Helltaker",
+        "tier": "tier_indie",
+        "tags": [
+            "tag_single",
+            "tag_adventure",
+            "tag_indie"
+        ],
+        "steam_tags": [
+            {
+                "description": "Adventure",
+                "id": "25"
+            },
+            {
+                "description": "Free To Play",
+                "id": "37"
+            },
+            {
+                "description": "Indie",
+                "id": "23"
+            },
+            {
+                "description": "Single-player",
+                "id": 2
+            },
+            {
+                "description": "Steam Achievements",
+                "id": 22
+            },
+            {
+                "description": "Partial Controller Support",
+                "id": 18
+            }
+        ],
+        "description": "Helltaker is a short game about sharply dressed demon girls.",
+        "trailer": "",
+        "assets": {
+            "cover": "helltaker.jpg",
+            "banner": "helltaker_banner.jpg"
+        }
+    },
+    {
+        "id": "game_awaria",
+        "title": "Awaria",
+        "tier": "tier_indie",
+        "tags": [
+            "tag_single",
+            "tag_action",
+            "tag_indie"
+        ],
+        "steam_tags": [
+            {
+                "id": "1",
+                "description": "Экшены"
+            },
+            {
+                "id": "23",
+                "description": "Инди"
+            },
+            {
+                "id": "37",
+                "description": "Бесплатные"
+            },
+            {
+                "id": 2,
+                "description": "Для одного игрока"
+            },
+            {
+                "id": 22,
+                "description": "Достижения Steam"
+            },
+            {
+                "id": 18,
+                "description": "Частичная поддержка контроллеров"
+            }
+        ],
+        "description": "Awaria is a short game about working in haunted maintenance tunnels.",
+        "trailer": "",
+        "assets": {
+            "cover": "awaria.jpg",
+            "banner": "awaria_banner.jpg"
+        }
+    },
+    {
+        "id": "game_wall_world_2",
+        "title": "Wall World 2",
+        "tier": "tier_indie",
+        "tags": [
+            "tag_single",
+            "tag_action",
+            "tag_adventure",
+            "tag_strategy",
+            "tag_indie"
+        ],
+        "steam_tags": [
+            {
+                "description": "Action",
+                "id": "1"
+            },
+            {
+                "description": "Adventure",
+                "id": "25"
+            },
+            {
+                "description": "Indie",
+                "id": "23"
+            },
+            {
+                "description": "Strategy",
+                "id": "2"
+            },
+            {
+                "description": "Single-player",
+                "id": 2
+            },
+            {
+                "description": "Steam Achievements",
+                "id": 22
+            },
+            {
+                "description": "Full controller support",
+                "id": 28
+            },
+            {
+                "description": "Steam Trading Cards",
+                "id": 29
+            },
+            {
+                "description": "Steam Cloud",
+                "id": 23
+            },
+            {
+                "description": "Family Sharing",
+                "id": 62
+            }
+        ],
+        "description": "The adventure in the mysterious world of the Wall continues! Pilot your robospider into its depths, uncover lost artifacts and technologies, upgrade your exosuit and spider, and battle the horrors lurking in the dark. Unravel the mysteries buried in the depths of the Wall!",
+        "trailer": "",
+        "assets": {
+            "cover": "wall_world_2.jpg",
+            "banner": "wall_world_2_banner.jpg"
+        }
+    },
+    {
+        "id": "game_wall_world",
+        "title": "Wall World",
+        "tier": "tier_indie",
+        "tags": [
+            "tag_single",
+            "tag_action",
+            "tag_adventure",
+            "tag_strategy",
+            "tag_indie"
+        ],
+        "steam_tags": [
+            {
+                "description": "Action",
+                "id": "1"
+            },
+            {
+                "description": "Adventure",
+                "id": "25"
+            },
+            {
+                "description": "Indie",
+                "id": "23"
+            },
+            {
+                "description": "Strategy",
+                "id": "2"
+            },
+            {
+                "description": "Single-player",
+                "id": 2
+            },
+            {
+                "description": "Steam Achievements",
+                "id": 22
+            },
+            {
+                "description": "Steam Trading Cards",
+                "id": 29
+            },
+            {
+                "description": "Partial Controller Support",
+                "id": 18
+            },
+            {
+                "description": "Steam Cloud",
+                "id": 23
+            },
+            {
+                "description": "Family Sharing",
+                "id": 62
+            }
+        ],
+        "description": "Explore the mysterious Wall World on your giant robospider: mine for valuable resources, upgrade your equipment to fight off hordes of monsters, and discover exotic biomes in-between attacks. Will you be able to survive and learn the secrets of the Wall World?",
+        "trailer": "",
+        "assets": {
+            "cover": "wall_world.jpg",
+            "banner": "wall_world_banner.jpg"
+        }
+    },
+    {
+        "id": "game_beholder_conductor",
+        "title": "Beholder: Conductor",
+        "tier": "tier_indie",
+        "tags": [
+            "tag_single",
+            "tag_adventure",
+            "tag_strategy",
+            "tag_indie"
+        ],
+        "steam_tags": [
+            {
+                "description": "Adventure",
+                "id": "25"
+            },
+            {
+                "description": "Indie",
+                "id": "23"
+            },
+            {
+                "description": "Simulation",
+                "id": "28"
+            },
+            {
+                "description": "Strategy",
+                "id": "2"
+            },
+            {
+                "description": "Single-player",
+                "id": 2
+            },
+            {
+                "description": "Steam Achievements",
+                "id": 22
+            },
+            {
+                "description": "Full controller support",
+                "id": 28
+            },
+            {
+                "description": "Steam Trading Cards",
+                "id": 29
+            },
+            {
+                "description": "Steam Cloud",
+                "id": 23
+            },
+            {
+                "description": "Family Sharing",
+                "id": 62
+            }
+        ],
+        "description": "A Beholder series spin-off. Become a conductor of the Determination Bringer train: monitor passengers, report incidents, and carry out important Ministry assignments — whose level of secrecy depends only on your loyalty. And remember: mission success is very important to you!",
+        "trailer": "",
+        "assets": {
+            "cover": "beholder_conductor.jpg",
+            "banner": "beholder_conductor_banner.jpg"
+        }
+    },
+    {
+        "id": "game_beholder_3",
+        "title": "Beholder 3",
+        "tier": "tier_indie",
+        "tags": [
+            "tag_single",
+            "tag_adventure",
+            "tag_strategy",
+            "tag_indie"
+        ],
+        "steam_tags": [
+            {
+                "description": "Adventure",
+                "id": "25"
+            },
+            {
+                "description": "Indie",
+                "id": "23"
+            },
+            {
+                "description": "Simulation",
+                "id": "28"
+            },
+            {
+                "description": "Strategy",
+                "id": "2"
+            },
+            {
+                "description": "Single-player",
+                "id": 2
+            },
+            {
+                "description": "Steam Achievements",
+                "id": 22
+            },
+            {
+                "description": "Steam Trading Cards",
+                "id": 29
+            },
+            {
+                "description": "Partial Controller Support",
+                "id": 18
+            },
+            {
+                "description": "Steam Cloud",
+                "id": 23
+            },
+            {
+                "description": "Family Sharing",
+                "id": 62
+            }
+        ],
+        "description": "When a high-ranking security officer saves you from prison, you end up a pawn in her schemes. Now you must eliminate anyone standing in the way of her secret plans and try to get your life back while working two jobs. No tenant, employee or superior is safe from your spying.",
+        "trailer": "",
+        "assets": {
+            "cover": "beholder_3.jpg",
+            "banner": "beholder_3_banner.jpg"
+        }
+    },
+    {
+        "id": "game_beholder_2",
+        "title": "Beholder 2",
+        "tier": "tier_indie",
+        "tags": [
+            "tag_single",
+            "tag_adventure",
+            "tag_strategy",
+            "tag_indie"
+        ],
+        "steam_tags": [
+            {
+                "id": "25",
+                "description": "Приключенческие игры"
+            },
+            {
+                "id": "23",
+                "description": "Инди"
+            },
+            {
+                "id": "28",
+                "description": "Симуляторы"
+            },
+            {
+                "id": "2",
+                "description": "Стратегии"
+            },
+            {
+                "id": 2,
+                "description": "Для одного игрока"
+            },
+            {
+                "id": 22,
+                "description": "Достижения Steam"
+            },
+            {
+                "id": 29,
+                "description": "Коллекционные карточки Steam"
+            },
+            {
+                "id": 30,
+                "description": "Мастерская Steam"
+            },
+            {
+                "id": 18,
+                "description": "Частичная поддержка контроллеров"
+            },
+            {
+                "id": 23,
+                "description": "Steam Cloud"
+            },
+            {
+                "id": 62,
+                "description": "Семейный доступ"
+            }
+        ],
+        "description": "Вы стажёр Министерства тоталитарного государства. Плетите интриги, шпионьте за начальством и пробирайтесь сквозь бюрократию в погоне за повышением. Или восстаньте против системы и разоблачите правительство. Выбор только за вами!",
+        "trailer": "",
+        "assets": {
+            "cover": "beholder_2.jpg",
+            "banner": "beholder_2_banner.jpg"
+        }
+    },
+    {
+        "id": "game_beholder",
+        "title": "Beholder",
+        "tier": "tier_indie",
+        "tags": [
+            "tag_single",
+            "tag_adventure",
+            "tag_strategy",
+            "tag_indie"
+        ],
+        "steam_tags": [
+            {
+                "id": "25",
+                "description": "Приключенческие игры"
+            },
+            {
+                "id": "23",
+                "description": "Инди"
+            },
+            {
+                "id": "2",
+                "description": "Стратегии"
+            },
+            {
+                "id": 2,
+                "description": "Для одного игрока"
+            },
+            {
+                "id": 22,
+                "description": "Достижения Steam"
+            },
+            {
+                "id": 29,
+                "description": "Коллекционные карточки Steam"
+            },
+            {
+                "id": 18,
+                "description": "Частичная поддержка контроллеров"
+            },
+            {
+                "id": 23,
+                "description": "Steam Cloud"
+            },
+            {
+                "id": 62,
+                "description": "Семейный доступ"
+            }
+        ],
+        "description": "Вы назначены на должность смотрителя многоквартирного дома в тоталитарной стране. Подслушивайте разговоры, обыскивайте квартиры и изучайте каждого жильца. Всё, что вы найдёте, вы сможете использовать против граждан. Точнее, вы ОБЯЗАНЫ так поступить. Но поступите ли?",
+        "trailer": "",
+        "assets": {
+            "cover": "beholder.jpg",
+            "banner": "beholder_banner.jpg"
+        }
+    },
+    {
+        "id": "game_bendy_and_the_dark_revival",
+        "title": "Bendy and the Dark Revival",
+        "tier": "tier_aaa",
+        "tags": [
+            "tag_single",
+            "tag_action",
+            "tag_adventure"
+        ],
+        "steam_tags": [
+            {
+                "description": "Action",
+                "id": "1"
+            },
+            {
+                "description": "Adventure",
+                "id": "25"
+            },
+            {
+                "description": "Single-player",
+                "id": 2
+            },
+            {
+                "description": "Steam Achievements",
+                "id": 22
+            },
+            {
+                "description": "Full controller support",
+                "id": 28
+            },
+            {
+                "description": "Remote Play on TV",
+                "id": 43
+            },
+            {
+                "description": "Family Sharing",
+                "id": 62
+            }
+        ],
+        "description": "Bendy and the Dark Revival® is a first-person survival horror game set in the creepiest cartoon studio to ever exist. Discover the truth. Escape the studio. Above all, fear the Ink Demon…and survive.",
+        "trailer": "",
+        "assets": {
+            "cover": "bendy_and_the_dark_revival.jpg",
+            "banner": "bendy_and_the_dark_revival_banner.jpg"
+        }
+    },
+    {
+        "id": "game_bendy_and_the_ink_machine",
+        "title": "Bendy and the Ink Machine",
+        "tier": "tier_indie",
+        "tags": [
+            "tag_single",
+            "tag_action",
+            "tag_adventure",
+            "tag_strategy",
+            "tag_indie"
+        ],
+        "steam_tags": [
+            {
+                "id": "1",
+                "description": "Экшены"
+            },
+            {
+                "id": "25",
+                "description": "Приключенческие игры"
+            },
+            {
+                "id": "23",
+                "description": "Инди"
+            },
+            {
+                "id": "2",
+                "description": "Стратегии"
+            },
+            {
+                "id": 2,
+                "description": "Для одного игрока"
+            },
+            {
+                "id": 22,
+                "description": "Достижения Steam"
+            },
+            {
+                "id": 28,
+                "description": "Полная поддержка контроллеров"
+            },
+            {
+                "id": 43,
+                "description": "Remote Play на телевизоре"
+            },
+            {
+                "id": 62,
+                "description": "Семейный доступ"
+            }
+        ],
+        "description": "Bendy and the Ink Machine® is the first person puzzle action horror game that will forever ruin your childhood love of cartoons.",
+        "trailer": "",
+        "assets": {
+            "cover": "bendy_and_the_ink_machine.jpg",
+            "banner": "bendy_and_the_ink_machine_banner.jpg"
+        }
+    },
+    {
+        "id": "game_bendy_secrets_of_the_machine",
+        "title": "Bendy: Secrets of the Machine",
+        "tier": "tier_indie",
+        "tags": [
+            "tag_single",
+            "tag_action",
+            "tag_adventure",
+            "tag_relax",
+            "tag_indie"
+        ],
+        "steam_tags": [
+            {
+                "id": "1",
+                "description": "Экшены"
+            },
+            {
+                "id": "25",
+                "description": "Приключенческие игры"
+            },
+            {
+                "id": "4",
+                "description": "Казуальные игры"
+            },
+            {
+                "id": "23",
+                "description": "Инди"
+            },
+            {
+                "id": 2,
+                "description": "Для одного игрока"
+            }
+        ],
+        "description": "Some things are better left forgotten.",
+        "trailer": "",
+        "assets": {
+            "cover": "bendy_secrets_of_the_machine.jpg",
+            "banner": "bendy_secrets_of_the_machine_banner.jpg"
+        }
+    },
+    {
+        "id": "game_bendy_lone_wolf",
+        "title": "Bendy: Lone Wolf",
+        "tier": "tier_indie",
+        "tags": [
+            "tag_single",
+            "tag_action",
+            "tag_adventure",
+            "tag_indie"
+        ],
+        "steam_tags": [
+            {
+                "id": "1",
+                "description": "Экшены"
+            },
+            {
+                "id": "25",
+                "description": "Приключенческие игры"
+            },
+            {
+                "id": "23",
+                "description": "Инди"
+            },
+            {
+                "id": 2,
+                "description": "Для одного игрока"
+            },
+            {
+                "id": 22,
+                "description": "Достижения Steam"
+            },
+            {
+                "id": 28,
+                "description": "Полная поддержка контроллеров"
+            },
+            {
+                "id": 43,
+                "description": "Remote Play на телевизоре"
+            },
+            {
+                "id": 62,
+                "description": "Семейный доступ"
+            }
+        ],
+        "description": "Bendy: Lone Wolf™ will tests your ability to survive against ever increasing odds. Monsters and obstacles emerge from every direction as you journey into the rubberhose halls of the world's most evil animation studio. Every day is a challenge.",
+        "trailer": "",
+        "assets": {
+            "cover": "bendy_lone_wolf.jpg",
+            "banner": "bendy_lone_wolf_banner.jpg"
+        }
+    },
+    {
+        "id": "game_boris_and_the_dark_survival",
+        "title": "Boris and the Dark Survival",
+        "tier": "tier_indie",
+        "tags": [
+            "tag_single",
+            "tag_action",
+            "tag_adventure",
+            "tag_strategy",
+            "tag_relax",
+            "tag_indie"
+        ],
+        "steam_tags": [
+            {
+                "description": "Action",
+                "id": "1"
+            },
+            {
+                "description": "Adventure",
+                "id": "25"
+            },
+            {
+                "description": "Casual",
+                "id": "4"
+            },
+            {
+                "description": "Indie",
+                "id": "23"
+            },
+            {
+                "description": "Strategy",
+                "id": "2"
+            },
+            {
+                "description": "Single-player",
+                "id": 2
+            },
+            {
+                "description": "Full controller support",
+                "id": 28
+            },
+            {
+                "description": "Family Sharing",
+                "id": 62
+            }
+        ],
+        "description": "A lone wolf struggles to survive the inky abyss of Joey Drew Studios in this top-down survival horror.",
+        "trailer": "",
+        "assets": {
+            "cover": "boris_and_the_dark_survival.jpg",
+            "banner": "boris_and_the_dark_survival_banner.jpg"
+        }
+    },
+    {
         "id": "game_buckshot_roulette",
         "title": "Buckshot Roulette",
         "tier": "tier_indie",
