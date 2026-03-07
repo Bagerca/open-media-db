@@ -2,99 +2,179 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>MediaDB Generator + Steam</title>
+    <title>Cycle MediaDB Generator: Ultimate Edition</title>
     <style>
-        body { font-family: system-ui, sans-serif; background: #0a0a0c; color: #fff; margin: 0; padding: 20px; display: flex; gap: 20px; height: 100vh; box-sizing: border-box; }
-        .panel { background: #141416; border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 20px; flex: 1; display: flex; flex-direction: column; overflow-y: auto; }
-        h2 { margin-top: 0; color: #7c3aed; }
-        h3 { margin: 15px 0 5px; color: #aaa; font-size: 14px; text-transform: uppercase; }
-        label { font-size: 13px; color: #666; margin-top: 8px; display: block; margin-bottom: 4px; }
-        input[type="text"], input[type="number"], select, textarea { width: 100%; background: #1a1a1c; border: 1px solid rgba(255,255,255,0.2); color: #fff; padding: 10px; border-radius: 8px; box-sizing: border-box; }
-        textarea { height: 80px; resize: vertical; }
-        .tags-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 5px; background: #1a1a1c; padding: 10px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2); }
-        .tags-grid label { margin: 0; display: flex; align-items: center; gap: 5px; color: #fff; cursor: pointer; font-size: 13px; }
-        pre { background: #000; padding: 15px; border-radius: 8px; color: #44bd32; overflow-x: auto; min-height: 100px; border: 1px solid rgba(255,255,255,0.1); }
+        body { font-family: system-ui, -apple-system, sans-serif; background: #0a0a0c; color: #fff; margin: 0; height: 100vh; display: flex; overflow: hidden; }
         
-        .steam-box { background: rgba(68, 189, 50, 0.1); border: 1px solid #44bd32; padding: 15px; border-radius: 8px; margin-bottom: 20px; }
-        .btn { background: #44bd32; color: #fff; border: none; padding: 10px 15px; border-radius: 6px; cursor: pointer; font-weight: bold; width: 100%; margin-top: 10px; transition: 0.2s; }
-        .btn:hover { background: #4cd137; }
-        .btn:disabled { background: #333; cursor: not-allowed; }
+        /* Layout */
+        .container { display: flex; width: 100%; height: 100%; }
+        .sidebar { width: 400px; background: #141416; border-right: 1px solid rgba(255,255,255,0.1); padding: 20px; overflow-y: auto; display: flex; flex-direction: column; gap: 15px; flex-shrink: 0; }
+        .main { flex: 1; padding: 30px; overflow-y: auto; display: flex; flex-direction: column; gap: 30px; }
 
-        .img-preview { display: flex; gap: 10px; margin-top: 10px; }
-        .img-card { flex: 1; background: #222; padding: 10px; border-radius: 8px; text-align: center; }
-        .img-card img { max-width: 100%; height: auto; display: block; margin-bottom: 5px; border-radius: 4px; }
-        .img-card a { color: #5dade2; font-size: 12px; text-decoration: none; }
+        /* Typography & Inputs */
+        h2, h3 { margin: 0; color: #fff; font-weight: 700; }
+        h2 span { color: #7c3aed; }
+        h3 { font-size: 16px; text-transform: uppercase; letter-spacing: 1px; color: #666; margin-bottom: 10px; border-bottom: 1px solid #333; padding-bottom: 5px; }
         
-        .hidden { display: none; }
+        label { font-size: 12px; color: #aaa; display: block; margin-bottom: 4px; font-weight: 600; }
+        input[type="text"], input[type="number"], select, textarea { 
+            width: 100%; background: #0a0a0c; border: 1px solid #333; color: #fff; 
+            padding: 12px; border-radius: 8px; box-sizing: border-box; font-size: 14px; transition: 0.2s;
+        }
+        input:focus, select:focus, textarea:focus { border-color: #7c3aed; outline: none; }
+        textarea { height: 100px; resize: vertical; line-height: 1.4; }
+
+        /* Steam Box */
+        .steam-box { background: rgba(124, 58, 237, 0.1); border: 1px solid #7c3aed; padding: 15px; border-radius: 12px; }
+        .steam-btn { 
+            background: #7c3aed; color: #fff; border: none; padding: 12px; border-radius: 8px; 
+            cursor: pointer; font-weight: bold; width: 100%; margin-top: 10px; transition: 0.2s; 
+        }
+        .steam-btn:hover { background: #6d28d9; transform: translateY(-2px); }
+        .steam-btn:disabled { background: #333; cursor: wait; transform: none; }
+        .status-msg { font-size: 12px; margin-top: 8px; text-align: center; min-height: 15px; }
+
+        /* Tags */
+        .tags-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; background: #0a0a0c; padding: 10px; border-radius: 8px; border: 1px solid #333; }
+        .tags-grid label { margin: 0; display: flex; align-items: center; gap: 8px; color: #ccc; cursor: pointer; font-size: 12px; font-weight: 400; }
+        input[type="checkbox"] { accent-color: #7c3aed; }
+
+        /* Output JSON */
+        .json-box { background: #000; border: 1px solid #333; border-radius: 12px; position: relative; }
+        pre { color: #44bd32; font-family: monospace; font-size: 13px; padding: 20px; margin: 0; overflow-x: auto; white-space: pre-wrap; }
+        .copy-btn { position: absolute; top: 10px; right: 10px; background: rgba(255,255,255,0.1); color: #fff; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer; font-size: 12px; }
+        .copy-btn:hover { background: rgba(255,255,255,0.2); }
+
+        /* Images Grid */
+        .assets-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
+        .asset-card { background: #141416; border: 1px solid #333; border-radius: 12px; padding: 10px; display: flex; flex-direction: column; transition: 0.2s; }
+        .asset-card:hover { border-color: #555; transform: translateY(-2px); }
+        
+        .img-wrapper { 
+            background: #000; border-radius: 8px; overflow: hidden; margin-bottom: 10px; 
+            display: flex; align-items: center; justify-content: center; position: relative;
+        }
+        /* Высота контейнеров для разных типов */
+        .img-wrapper.cover { aspect-ratio: 2/3; }
+        .img-wrapper.banner, .img-wrapper.screen { aspect-ratio: 16/9; }
+        
+        .asset-card img { width: 100%; height: 100%; object-fit: cover; }
+        
+        .asset-meta { margin-top: auto; }
+        .file-name { font-family: monospace; color: #7c3aed; font-size: 11px; margin-bottom: 8px; word-break: break-all; }
+        .download-btn { 
+            display: block; text-align: center; background: #222; color: #fff; text-decoration: none; 
+            font-size: 12px; padding: 8px; border-radius: 6px; transition: 0.2s; 
+        }
+        .download-btn:hover { background: #7c3aed; }
+
+        .yt-link { float: right; color: #ff453a; font-size: 11px; text-decoration: none; margin-top: -18px; }
+        .yt-link:hover { text-decoration: underline; }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: #0a0a0c; }
+        ::-webkit-scrollbar-thumb { background: #333; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #555; }
     </style>
 </head>
 <body>
 
-    <!-- ЛЕВАЯ ПАНЕЛЬ -->
-    <div class="panel">
-        <h2>Генератор</h2>
-
-        <!-- Блок Steam -->
-        <div class="steam-box">
-            <label style="color: #fff; margin-top:0;">Steam App ID</label>
-            <input type="number" id="steamId" placeholder="Например: 1091500 (Cyberpunk)">
-            <button class="btn" id="fetchSteamBtn" onclick="fetchSteamData()">Заполнить из Steam</button>
-            <div id="steamStatus" style="font-size: 12px; margin-top: 5px; color: #aaa;"></div>
-        </div>
+    <!-- SIDEBAR: INPUTS -->
+    <div class="sidebar">
+        <h2>Cycle <span>MediaDB</span></h2>
         
-        <label>Название игры</label>
-        <input type="text" id="title">
+        <div class="steam-box">
+            <label style="color: #fff;">Steam App ID</label>
+            <input type="number" id="steamId" placeholder="Например: 1091500">
+            <button class="steam-btn" id="fetchBtn" onclick="fetchSteamData()">Загрузить данные</button>
+            <div id="status" class="status-msg"></div>
+        </div>
 
-        <label>Масштаб (Tier)</label>
-        <select id="tier">
-            <option value="tier_aaa">AAA (Блокбастер)</option>
-            <option value="tier_aa">AA (Средний)</option>
-            <option value="tier_indie">Indie (Инди)</option>
-        </select>
+        <div>
+            <label>Название игры</label>
+            <input type="text" id="title" oninput="updateOutput()">
+        </div>
 
-        <label>Трейлер (Embed URL)</label>
-        <input type="text" id="trailer" placeholder="https://www.youtube.com/embed/...">
+        <div>
+            <label>Tier (Масштаб)</label>
+            <select id="tier" onchange="updateOutput()">
+                <option value="tier_aaa">AAA (Блокбастер)</option>
+                <option value="tier_aa">AA (Средний)</option>
+                <option value="tier_indie">Indie (Инди)</option>
+            </select>
+        </div>
 
-        <label style="display: flex; align-items: center; gap: 10px; cursor: pointer; font-size: 14px; color: #fff; margin: 15px 0;">
-            <input type="checkbox" id="hasBanner" checked> Нужен баннер?
-        </label>
+        <div>
+            <label>Трейлер (Embed URL)</label>
+            <a href="https://www.youtube.com" target="_blank" class="yt-link" id="ytSearchLink">Найти на YouTube</a>
+            <input type="text" id="trailer" placeholder="https://www.youtube.com/embed/..." oninput="updateOutput()">
+        </div>
 
-        <label>Описание</label>
-        <textarea id="desc"></textarea>
+        <div>
+            <label>Описание</label>
+            <textarea id="desc" oninput="updateOutput()"></textarea>
+        </div>
 
-        <label>Теги</label>
-        <div class="tags-grid" id="tagsContainer"></div>
+        <div>
+            <label>Теги</label>
+            <div class="tags-grid" id="tagsContainer"></div>
+        </div>
     </div>
 
-    <!-- ПРАВАЯ ПАНЕЛЬ -->
-    <div class="panel">
-        <h2>Результат</h2>
+    <!-- MAIN: PREVIEW & ASSETS -->
+    <div class="main">
         
-        <!-- Превью картинок для скачивания -->
-        <div id="imagesSection" class="hidden">
-            <h3>Скачать картинки</h3>
-            <div style="font-size: 12px; color: #aaa; margin-bottom: 10px;">Сохрани эти картинки в папку репозитория под указанными именами.</div>
-            <div class="img-preview">
-                <div class="img-card">
-                    <span>Обложка</span>
-                    <img id="previewCover" src="">
-                    <a id="linkCover" href="#" target="_blank" download>Скачать</a>
-                    <div id="nameCover" style="font-size: 11px; color: #7c3aed; margin-top: 5px;">cover.jpg</div>
-                </div>
-                <div class="img-card" id="bannerCard">
-                    <span>Баннер</span>
-                    <img id="previewBanner" src="">
-                    <a id="linkBanner" href="#" target="_blank" download>Скачать</a>
-                    <div id="nameBanner" style="font-size: 11px; color: #7c3aed; margin-top: 5px;">banner.jpg</div>
-                </div>
+        <!-- JSON OUTPUT -->
+        <div>
+            <h3>1. JSON Код (для db/games.json)</h3>
+            <div class="json-box">
+                <button class="copy-btn" onclick="copyJSON()">Копировать</button>
+                <pre id="output">// Здесь появится код игры...</pre>
             </div>
         </div>
 
-        <h3>JSON Код</h3>
-        <pre id="output">// Заполни форму или введи Steam ID...</pre>
+        <!-- ASSETS DOWNLOADER -->
+        <div id="assetsSection" style="display:none;">
+            <h3>2. Медиа Центр (Скачать и сохранить)</h3>
+            
+            <div class="assets-grid">
+                <!-- Cover -->
+                <div class="asset-card">
+                    <div style="font-size:12px; color:#aaa; margin-bottom:5px;">Обложка (в JSON)</div>
+                    <div class="img-wrapper cover">
+                        <img id="imgCover" src="">
+                    </div>
+                    <div class="asset-meta">
+                        <div class="file-name" id="nameCover">game.jpg</div>
+                        <a id="dlCover" href="#" target="_blank" download class="download-btn">Скачать в covers/</a>
+                    </div>
+                </div>
+
+                <!-- Banner -->
+                <div class="asset-card">
+                    <div style="font-size:12px; color:#aaa; margin-bottom:5px;">Баннер (в JSON)</div>
+                    <div class="img-wrapper banner">
+                        <img id="imgBanner" src="">
+                    </div>
+                    <div class="asset-meta">
+                        <div class="file-name" id="nameBanner">game_banner.jpg</div>
+                        <a id="dlBanner" href="#" target="_blank" download class="download-btn">Скачать в banners/</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Screenshots Gallery -->
+            <h3 style="margin-top: 30px;">Галерея скриншотов (Дополнительно)</h3>
+            <div class="assets-grid" id="screenshotsGrid">
+                <!-- Сюда JS добавит скриншоты -->
+            </div>
+        </div>
+
     </div>
 
     <script>
+        // --- CONFIG ---
         const ALL_TAGS =[
             { id: "tag_action", label: "Экшен", keys: ["action", "экшен"] },
             { id: "tag_shooter", label: "Шутер", keys: ["shooter", "fps", "шутер"] },
@@ -126,142 +206,161 @@
             { id: "tag_pixel", label: "Пиксельная", keys: ["pixel", "пиксельная"] }
         ];
 
+        // Init Tags
         const tagsContainer = document.getElementById('tagsContainer');
         ALL_TAGS.forEach(tag => {
-            tagsContainer.innerHTML += `<label><input type="checkbox" value="${tag.id}" id="chk_${tag.id}"> ${tag.label}</label>`;
+            const label = document.createElement('label');
+            label.innerHTML = `<input type="checkbox" value="${tag.id}" id="chk_${tag.id}" onchange="updateOutput()"> ${tag.label}`;
+            tagsContainer.appendChild(label);
         });
 
+        // Helpers
         const translitMap = { 'а':'a','б':'b','в':'v','г':'g','д':'d','е':'e','ё':'yo','ж':'zh','з':'z','и':'i','й':'y','к':'k','л':'l','м':'m','н':'n','о':'o','п':'p','р':'r','с':'s','т':'t','у':'u','ф':'f','х':'h','ц':'ts','ч':'ch','ш':'sh','щ':'sch','ь':'','ы':'y','ъ':'','э':'e','ю':'yu','я':'ya'};
-        function transliterate(str) { return str.toLowerCase().split('').map(c => translitMap[c] || c).join(''); }
-        function safeFilename(str) { return transliterate(str).replace(/[^a-z0-9]/g, '_').replace(/_+/g, '_').replace(/^_|_$/g, ''); }
+        function safeFilename(str) { 
+            return str.toLowerCase().split('').map(c => translitMap[c] || c).join('').replace(/[^a-z0-9]/g, '_').replace(/_+/g, '_').replace(/^_|_$/g, ''); 
+        }
 
-        // --- МАГИЯ STEAM (ИСПРАВЛЕННАЯ С ALLORIGINS) ---
+        // --- FETCH LOGIC ---
         async function fetchSteamData() {
             const appId = document.getElementById('steamId').value.trim();
-            const btn = document.getElementById('fetchSteamBtn');
-            const status = document.getElementById('steamStatus');
+            const btn = document.getElementById('fetchBtn');
+            const status = document.getElementById('status');
             
             if (!appId) return;
             
             btn.disabled = true;
-            btn.textContent = "Загрузка...";
-            status.textContent = "Стучимся в Steam...";
+            btn.innerText = "Загрузка...";
+            status.innerText = "Подключение к AllOrigins...";
+            status.style.color = "#aaa";
 
             try {
-                // Используем AllOrigins для обхода CORS
+                // Fetch via AllOrigins to bypass CORS
                 const targetUrl = `https://store.steampowered.com/api/appdetails?appids=${appId}&l=russian`;
                 const proxyUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(targetUrl)}`;
                 
-                const response = await fetch(proxyUrl);
-                const wrapper = await response.json();
-                
-                // AllOrigins возвращает данные как строку в поле contents
+                const res = await fetch(proxyUrl);
+                const wrapper = await res.json();
                 const data = JSON.parse(wrapper.contents);
-                
-                if (!data[appId] || !data[appId].success) {
-                    throw new Error("Игра не найдена или ошибка API Steam");
-                }
 
+                if (!data[appId] || !data[appId].success) throw new Error("Steam API не вернул данные");
+                
                 const game = data[appId].data;
 
-                // 1. Заполняем поля
+                // 1. Fill Text Fields
                 document.getElementById('title').value = game.name;
                 document.getElementById('desc').value = game.short_description;
+                document.getElementById('ytSearchLink').href = `https://www.youtube.com/results?search_query=${encodeURIComponent(game.name + " trailer")}`;
 
-                // 2. Ищем трейлер
-                // Steam API не дает youtube-ссылки, поэтому оставляем пустым, чтобы не ломать iframe
-                document.getElementById('trailer').value = ""; 
+                // 2. Auto Tags
+                document.querySelectorAll('.tags-grid input').forEach(c => c.checked = false);
+                const steamTxt = [...(game.genres||[]), ...(game.categories||[])].map(x => x.description.toLowerCase()).join(" ");
+                ALL_TAGS.forEach(t => { if(t.keys.some(k => steamTxt.includes(k))) document.getElementById(`chk_${t.id}`).checked = true; });
 
-                // 3. Авто-определение тегов по жанрам Steam
-                document.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = false);
-                const steamGenres = game.genres ? game.genres.map(g => g.description.toLowerCase()) : [];
-                const steamCategories = game.categories ? game.categories.map(c => c.description.toLowerCase()) : [];
-                const allSteamTags = [...steamGenres, ...steamCategories].join(" ");
+                // 3. Tier Guess
+                const tierSelect = document.getElementById('tier');
+                if (steamTxt.includes('indie') || steamTxt.includes('инди')) tierSelect.value = 'tier_indie';
+                else tierSelect.value = 'tier_aaa';
 
-                ALL_TAGS.forEach(tag => {
-                    const match = tag.keys.some(k => allSteamTags.includes(k));
-                    if (match) document.getElementById(`chk_${tag.id}`).checked = true;
-                });
-                
-                // Пробуем угадать Tier
-                if (steamGenres.includes("инди") || steamGenres.includes("indie")) {
-                    document.getElementById('tier').value = "tier_indie";
-                } else {
-                    document.getElementById('tier').value = "tier_aaa"; 
-                }
-
-                // 4. Картинки
+                // 4. Generate Images
                 const safeName = safeFilename(game.name);
-                const coverUrl = game.header_image;
-                const bannerUrl = game.screenshots && game.screenshots.length > 0 ? game.screenshots[0].path_full : null;
-
-                // Показываем блок скачивания
-                const imgSection = document.getElementById('imagesSection');
-                imgSection.classList.remove('hidden');
                 
-                document.getElementById('previewCover').src = coverUrl;
-                document.getElementById('linkCover').href = coverUrl;
-                document.getElementById('nameCover').textContent = `${safeName}.jpg`;
+                // Cover (Vertical Library Asset)
+                const coverUrl = `https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/${appId}/library_600x900_2x.jpg`;
+                setupImage('imgCover', 'dlCover', 'nameCover', coverUrl, `${safeName}.jpg`);
 
-                if (bannerUrl) {
-                    document.getElementById('previewBanner').src = bannerUrl;
-                    document.getElementById('linkBanner').href = bannerUrl;
-                    document.getElementById('nameBanner').textContent = `${safeName}_banner.jpg`;
-                    document.getElementById('hasBanner').checked = true;
-                } else {
-                    document.getElementById('hasBanner').checked = false;
+                // Banner (Header)
+                const bannerUrl = game.header_image;
+                setupImage('imgBanner', 'dlBanner', 'nameBanner', bannerUrl, `${safeName}_banner.jpg`);
+
+                // Screenshots (Gallery)
+                const grid = document.getElementById('screenshotsGrid');
+                grid.innerHTML = ''; // Clear previous
+                if (game.screenshots) {
+                    game.screenshots.slice(0, 10).forEach((scr, idx) => {
+                        const filename = `${safeName}_screen_${idx+1}.jpg`;
+                        const card = document.createElement('div');
+                        card.className = 'asset-card';
+                        card.innerHTML = `
+                            <div style="font-size:12px; color:#aaa; margin-bottom:5px;">Скриншот ${idx+1}</div>
+                            <div class="img-wrapper screen"><img src="${scr.path_thumbnail}" loading="lazy"></div>
+                            <div class="asset-meta">
+                                <div class="file-name">${filename}</div>
+                                <a href="${scr.path_full}" target="_blank" download class="download-btn">Открыть оригинал</a>
+                            </div>
+                        `;
+                        grid.appendChild(card);
+                    });
                 }
 
-                status.textContent = "Успешно! Не забудь скачать картинки.";
+                document.getElementById('assetsSection').style.display = 'block';
+                status.innerText = "Успешно загружено!";
                 status.style.color = "#44bd32";
+                
                 updateOutput();
 
             } catch (e) {
                 console.error(e);
-                status.textContent = "Ошибка: " + e.message;
+                status.innerText = "Ошибка: " + e.message;
                 status.style.color = "#ff453a";
             } finally {
                 btn.disabled = false;
-                btn.textContent = "Заполнить из Steam";
+                btn.innerText = "Загрузить данные";
             }
         }
 
+        function setupImage(imgId, linkId, nameId, url, filename) {
+            document.getElementById(imgId).src = url;
+            document.getElementById(linkId).href = url;
+            document.getElementById(nameId).innerText = filename;
+        }
+
+        // --- JSON GENERATION ---
         function updateOutput() {
             const title = document.getElementById('title').value.trim();
             if (!title) return;
 
             const safeName = safeFilename(title);
-            const id = "game_" + safeName;
-            const hasBanner = document.getElementById('hasBanner').checked;
-            const coverName = safeName + ".jpg";
-            const bannerName = hasBanner ? safeName + "_banner.jpg" : null;
             const selectedTags = Array.from(document.querySelectorAll('.tags-grid input:checked')).map(cb => cb.value);
 
-            const gameObj = {
-                id: id,
+            const json = {
+                id: "game_" + safeName,
                 title: title,
                 tier: document.getElementById('tier').value,
                 tags: selectedTags,
                 description: document.getElementById('desc').value.trim(),
                 trailer: document.getElementById('trailer').value.trim(),
                 assets: {
-                    cover: coverName,
-                    banner: bannerName
+                    cover: `${safeName}.jpg`,
+                    banner: `${safeName}_banner.jpg`
                 }
             };
 
-            document.getElementById('output').textContent = JSON.stringify(gameObj, null, 4) + ",";
+            document.getElementById('output').textContent = JSON.stringify(json, null, 4) + ",";
             
-            if (!document.getElementById('imagesSection').classList.contains('hidden')) {
-                document.getElementById('nameCover').textContent = coverName;
-                document.getElementById('nameBanner').textContent = bannerName || "(без баннера)";
+            // Live update filenames if title changes manually
+            if (document.getElementById('assetsSection').style.display !== 'none') {
+                document.getElementById('nameCover').innerText = `${safeName}.jpg`;
+                document.getElementById('nameBanner').innerText = `${safeName}_banner.jpg`;
+                
+                // Update screenshot names
+                document.querySelectorAll('#screenshotsGrid .file-name').forEach((el, idx) => {
+                    el.innerText = `${safeName}_screen_${idx+1}.jpg`;
+                });
             }
         }
 
-        document.querySelectorAll('input, select, textarea').forEach(el => {
-            el.addEventListener('input', updateOutput);
-            el.addEventListener('change', updateOutput);
-        });
+        function copyJSON() {
+            const range = document.createRange();
+            range.selectNode(document.getElementById('output'));
+            window.getSelection().removeAllRanges();
+            window.getSelection().addRange(range);
+            document.execCommand('copy');
+            window.getSelection().removeAllRanges();
+            
+            const btn = document.querySelector('.copy-btn');
+            btn.innerText = "Скопировано!";
+            setTimeout(() => btn.innerText = "Копировать", 2000);
+        }
     </script>
 </body>
 </html>
