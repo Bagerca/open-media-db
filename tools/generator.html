@@ -4,207 +4,226 @@
     <meta charset="UTF-8">
     <title>Cycle MediaDB Generator: Pro</title>
     <style>
-        body { font-family: system-ui, -apple-system, sans-serif; background: #0a0a0c; color: #fff; margin: 0; height: 100vh; display: flex; overflow: hidden; }
-        .sidebar { width: 400px; background: #141416; border-right: 1px solid rgba(255,255,255,0.1); padding: 20px; overflow-y: auto; display: flex; flex-direction: column; gap: 15px; flex-shrink: 0; }
+        :root { --accent: #7c3aed; --bg-dark: #0a0a0c; --bg-mid: #141416; --bg-light: #1a1a1c; --border: #333; --text-light: #fff; --text-dim: #aaa; --green: #44bd32; --red: #ff453a; }
+        body { font-family: system-ui, -apple-system, sans-serif; background: var(--bg-dark); color: var(--text-light); margin: 0; height: 100vh; display: flex; overflow: hidden; }
+        .sidebar { width: 400px; background: var(--bg-mid); border-right: 1px solid var(--border); padding: 20px; overflow-y: auto; display: flex; flex-direction: column; gap: 15px; flex-shrink: 0; }
         .main { flex: 1; padding: 30px; overflow-y: auto; display: flex; flex-direction: column; gap: 30px; }
-        h2, h3 { margin: 0; color: #fff; font-weight: 700; }
-        h2 span { color: #7c3aed; }
-        h3 { font-size: 16px; text-transform: uppercase; letter-spacing: 1px; color: #666; margin-bottom: 10px; border-bottom: 1px solid #333; padding-bottom: 5px; }
-        label { font-size: 12px; color: #aaa; display: block; margin-bottom: 4px; font-weight: 600; }
-        input[type="text"], input[type="number"], select, textarea { width: 100%; background: #0a0a0c; border: 1px solid #333; color: #fff; padding: 12px; border-radius: 8px; box-sizing: border-box; font-size: 14px; transition: 0.2s; }
-        input:focus, select:focus, textarea:focus { border-color: #7c3aed; outline: none; }
+        h2, h3 { margin: 0; color: var(--text-light); font-weight: 700; }
+        h2 span { color: var(--accent); }
+        h3 { font-size: 16px; text-transform: uppercase; letter-spacing: 1px; color: #666; margin-bottom: 10px; border-bottom: 1px solid var(--border); padding-bottom: 5px; }
+        label { font-size: 12px; color: var(--text-dim); display: block; margin-bottom: 4px; font-weight: 600; }
+        input, select, textarea { width: 100%; background: var(--bg-dark); border: 1px solid var(--border); color: var(--text-light); padding: 12px; border-radius: 8px; box-sizing: border-box; font-size: 14px; transition: 0.2s; }
+        input:focus, select:focus, textarea:focus { border-color: var(--accent); outline: none; }
         textarea { height: 100px; resize: vertical; line-height: 1.4; }
-        .steam-box { background: rgba(124, 58, 237, 0.1); border: 1px solid #7c3aed; padding: 15px; border-radius: 12px; }
-        .steam-btn { background: #7c3aed; color: #fff; border: none; padding: 12px; border-radius: 8px; cursor: pointer; font-weight: bold; width: 100%; margin-top: 10px; transition: 0.2s; }
+        .steam-box { background: rgba(124, 58, 237, 0.1); border: 1px solid var(--accent); padding: 15px; border-radius: 12px; }
+        .steam-btn { background: var(--accent); color: var(--text-light); border: none; padding: 12px; border-radius: 8px; cursor: pointer; font-weight: bold; width: 100%; margin-top: 10px; transition: 0.2s; display: flex; align-items: center; justify-content: center; gap: 8px; }
         .steam-btn:hover { background: #6d28d9; transform: translateY(-2px); }
         .steam-btn:disabled { background: #333; cursor: wait; transform: none; }
         .status-msg { font-size: 12px; margin-top: 8px; text-align: center; min-height: 15px; }
-        .tags-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; background: #0a0a0c; padding: 10px; border-radius: 8px; border: 1px solid #333; }
-        .tags-grid label { margin: 0; display: flex; align-items: center; gap: 8px; color: #ccc; cursor: pointer; font-size: 12px; font-weight: 400; }
-        input[type="checkbox"] { accent-color: #7c3aed; }
-        .json-box { background: #000; border: 1px solid #333; border-radius: 12px; position: relative; }
-        pre { color: #44bd32; font-family: monospace; font-size: 13px; padding: 20px; margin: 0; overflow-x: auto; white-space: pre-wrap; }
+        .tags-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; background: var(--bg-dark); padding: 10px; border-radius: 8px; border: 1px solid var(--border); }
+        .tags-grid label { margin: 0; display: flex; align-items: center; gap: 8px; color: #ccc; cursor: pointer; font-size: 12px; }
+        input[type="checkbox"] { accent-color: var(--accent); }
+        .json-box { background: #000; border: 1px solid var(--border); border-radius: 12px; position: relative; }
+        pre { color: var(--green); font-family: monospace; font-size: 13px; padding: 20px; margin: 0; overflow-x: auto; white-space: pre-wrap; max-height: 400px; }
         .copy-btn { position: absolute; top: 10px; right: 10px; background: rgba(255,255,255,0.1); color: #fff; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer; font-size: 12px; }
         .copy-btn:hover { background: rgba(255,255,255,0.2); }
         .assets-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
-        .asset-card { background: #141416; border: 1px solid #333; border-radius: 12px; padding: 10px; display: flex; flex-direction: column; transition: 0.2s; }
+        .asset-card { background: var(--bg-mid); border: 1px solid var(--border); border-radius: 12px; padding: 10px; display: flex; flex-direction: column; transition: 0.2s; }
         .asset-card:hover { border-color: #555; transform: translateY(-2px); }
         .img-wrapper { background: #000; border-radius: 8px; overflow: hidden; margin-bottom: 10px; display: flex; align-items: center; justify-content: center; position: relative; }
         .img-wrapper.cover { aspect-ratio: 2/3; }
         .img-wrapper.banner, .img-wrapper.screen { aspect-ratio: 16/9; }
         .asset-card img { width: 100%; height: 100%; object-fit: cover; }
         .asset-meta { margin-top: auto; }
-        .file-name { font-family: monospace; color: #7c3aed; font-size: 11px; margin-bottom: 8px; word-break: break-all; }
+        .file-name { font-family: monospace; color: var(--accent); font-size: 11px; margin-bottom: 8px; word-break: break-all; }
         .download-btn { display: block; text-align: center; background: #222; color: #fff; text-decoration: none; font-size: 12px; padding: 8px; border-radius: 6px; transition: 0.2s; }
-        .download-btn:hover { background: #7c3aed; }
+        .download-btn:hover { background: var(--accent); }
         .download-btn:disabled { background: #333; color: #888; cursor: wait; }
-        .yt-link { float: right; color: #ff453a; font-size: 11px; text-decoration: none; margin-top: -18px; }
-        .yt-link:hover { text-decoration: underline; }
+        .queue-item { display: flex; align-items: center; gap: 10px; background: var(--bg-light); padding: 8px; border-radius: 8px; border-left: 4px solid var(--border); }
+        .queue-item.success { border-left-color: var(--green); }
+        .queue-item img { width: 30px; height: 40px; object-fit: cover; border-radius: 4px; }
+        .queue-info { flex: 1; font-size: 13px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .remove-btn { background: none; border: none; color: #666; cursor: pointer; padding: 5px; font-size: 14px; }
+        .remove-btn:hover { color: var(--red); }
+        .spinner { width: 14px; height: 14px; border: 2px solid #fff; border-top-color: transparent; border-radius: 50%; display: none; animation: spin 0.6s linear infinite; }
+        .steam-btn:disabled .spinner { display: inline-block; }
+        @keyframes spin { to { transform: rotate(360deg); } }
         ::-webkit-scrollbar { width: 8px; height: 8px; }
-        ::-webkit-scrollbar-track { background: #0a0a0c; }
+        ::-webkit-scrollbar-track { background: var(--bg-dark); }
         ::-webkit-scrollbar-thumb { background: #333; border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: #555; }
     </style>
 </head>
 <body>
-
     <div class="sidebar">
         <h2>Cycle <span>MediaDB</span></h2>
-        
         <div class="steam-box">
-            <label style="color: #fff;">Steam App ID или Ссылка</label>
-            <input type="text" id="steamInput" placeholder="2825530 или https://...">
-            <button class="steam-btn" id="fetchBtn" onclick="fetchSteamData()">Загрузить данные</button>
+            <label style="color: #fff;">1. Добавить игру в очередь</label>
+            <input type="text" id="steamInput" placeholder="ID или ссылка из Steam">
+            <button class="steam-btn" id="fetchBtn" onclick="addGameToQueue()"><span class="spinner"></span>+ Добавить</button>
             <div id="status" class="status-msg"></div>
         </div>
-
-        <div><label>Название игры</label><input type="text" id="title" oninput="updateOutput()"></div>
-        <div><label>Tier (Масштаб)</label><select id="tier" onchange="updateOutput()"><option value="tier_aaa">AAA</option><option value="tier_aa">AA</option><option value="tier_indie">Indie</option></select></div>
-        <div><label>Трейлер (Embed URL)</label><a href="https://www.youtube.com" target="_blank" class="yt-link" id="ytSearchLink">Найти на YouTube</a><input type="text" id="trailer" placeholder="https://www.youtube.com/embed/..." oninput="updateOutput()"></div>
-        <div><label>Описание</label><textarea id="desc" oninput="updateOutput()"></textarea></div>
-        <div><label>Теги для фильтров (авто-выбор)</label><div class="tags-grid" id="tagsContainer"></div></div>
+        <h3>Очередь обработки (<span id="queueCount">0</span>)</h3>
+        <div id="queue" style="display: flex; flex-direction: column; gap: 8px;"></div>
     </div>
-
     <div class="main">
         <div>
-            <h3>1. JSON Код (для db/games.json)</h3>
+            <h3>2. Сгенерировать и скопировать JSON</h3>
             <div class="json-box">
                 <button class="copy-btn" onclick="copyJSON()">Копировать</button>
-                <pre id="output">// Здесь появится код игры...</pre>
+                <pre id="output">// Добавь игры в очередь, чтобы сгенерировать код...</pre>
             </div>
         </div>
-
         <div id="assetsSection" style="display:none;">
-            <h3>2. Медиа Центр</h3>
-            <div class="assets-grid">
-                <div class="asset-card"><div style="font-size:12px; color:#aaa; margin-bottom:5px;">Обложка (в JSON)</div><div class="img-wrapper cover"><img id="imgCover" src=""></div><div class="asset-meta"><div class="file-name" id="nameCover"></div><a id="dlCover" href="#" class="download-btn">Скачать в covers/</a></div></div>
-                <div class="asset-card"><div style="font-size:12px; color:#aaa; margin-bottom:5px;">Баннер (в JSON)</div><div class="img-wrapper banner"><img id="imgBanner" src=""></div><div class="asset-meta"><div class="file-name" id="nameBanner"></div><a id="dlBanner" href="#" class="download-btn">Скачать в banners/</a></div></div>
-            </div>
-            <h3 style="margin-top: 30px;">Галерея скриншотов</h3>
-            <div class="assets-grid" id="screenshotsGrid"></div>
+            <h3>3. Скачать все ассеты</h3>
+            <button class="steam-btn" onclick="downloadAllAssets()" style="width: auto; padding: 10px 20px; margin-bottom: 20px;">Скачать всё (Обложки и баннеры)</button>
+            <div id="assetsGrid"></div>
         </div>
     </div>
-
     <script>
-        const ALL_TAGS =[
-            { id: "tag_action", label: "Экшен", keys: ["action", "экшен"] }, { id: "tag_shooter", label: "Шутер", keys: ["shooter", "fps", "шутер"] }, { id: "tag_rpg", label: "RPG", keys: ["rpg", "role-playing", "ролевая игра"] }, { id: "tag_strategy", label: "Стратегия", keys: ["strategy", "стратегия"] }, { id: "tag_adventure", label: "Приключение", keys: ["adventure", "приключение"] }, { id: "tag_puzzle", label: "Головоломка", keys: ["puzzle", "головоломка"] }, { id: "tag_sim", label: "Симулятор", keys: ["simulation", "симулятор"] }, { id: "tag_rogue", label: "Рогалик", keys: ["rogue", "roguelike", "рогалик"] }, { id: "tag_survival", label: "Выживание", keys: ["survival", "выживание"] }, { id: "tag_horror", label: "Хоррор", keys: ["horror", "хоррор"] }, { id: "tag_platform", label: "Платформер", keys: ["platformer", "платформер"] }, { id: "tag_scifi", label: "Sci-Fi", keys: ["sci-fi", "научная фантастика"] }, { id: "tag_cyberpunk", label: "Киберпанк", keys: ["cyberpunk", "киберпанк"] }, { id: "tag_fantasy", label: "Фэнтези", keys: ["fantasy", "фэнтези"] }, { id: "tag_space", label: "Космос", keys: ["space", "космос"] }, { id: "tag_postapoc", label: "Постапокалипсис", keys: ["post-apocalyptic", "постапокалипсис"] }, { id: "tag_anime", label: "Аниме", keys: ["anime", "аниме"] }, { id: "tag_retro", label: "Ретро", keys: ["retro", "пиксельная графика"] }, { id: "tag_military", label: "Военные действия", keys: ["military", "war", "военные"] }, { id: "tag_single", label: "Для одного игрока", keys: ["singleplayer", "для одного игрока"] }, { id: "tag_multi", label: "Для нескольких игроков", keys: ["multiplayer", "для нескольких игроков"] }, { id: "tag_coop", label: "Кооператив", keys: ["co-op", "coop", "кооператив"] }, { id: "tag_pvp", label: "PvP", keys: ["pvp"] }, { id: "tag_story", label: "Глубокий сюжет", keys: ["story rich", "глубокий сюжет"] }, { id: "tag_openworld", label: "Открытый мир", keys: ["open world", "открытый мир"] }, { id: "tag_hardcore", label: "Сложная", keys: ["difficult", "hardcore", "сложная"] }, { id: "tag_relax", label: "Расслабляющая", keys: ["relaxing", "casual", "казуальная"] }, { id: "tag_pixel", label: "Пиксельная графика", keys: ["pixel graphics", "пиксельная"] }
-        ];
-
-        const tagsContainer = document.getElementById('tagsContainer');
-        ALL_TAGS.forEach(tag => {
-            const label = document.createElement('label');
-            label.innerHTML = `<input type="checkbox" value="${tag.id}" id="chk_${tag.id}" onchange="updateOutput()"> ${tag.label}`;
-            tagsContainer.appendChild(label);
-        });
+        const ALL_TAGS = [ { id: "tag_action", label: "Экшен", keys: ["action", "экшен"] }, { id: "tag_shooter", label: "Шутер", keys: ["shooter", "fps", "шутер"] }, { id: "tag_rpg", label: "RPG", keys: ["rpg", "role-playing", "ролевая игра"] }, { id: "tag_strategy", label: "Стратегия", keys: ["strategy", "стратегия"] }, { id: "tag_adventure", label: "Приключение", keys: ["adventure", "приключение"] }, { id: "tag_puzzle", label: "Головоломка", keys: ["puzzle", "головоломка"] }, { id: "tag_sim", label: "Симулятор", keys: ["simulation", "симулятор"] }, { id: "tag_rogue", label: "Рогалик", keys: ["rogue", "roguelike", "рогалик"] }, { id: "tag_survival", label: "Выживание", keys: ["survival", "выживание"] }, { id: "tag_horror", label: "Хоррор", keys: ["horror", "хоррор"] }, { id: "tag_platform", label: "Платформер", keys: ["platformer", "платформер"] }, { id: "tag_scifi", label: "Sci-Fi", keys: ["sci-fi", "научная фантастика"] }, { id: "tag_cyberpunk", label: "Киберпанк", keys: ["cyberpunk", "киберпанк"] }, { id: "tag_fantasy", label: "Фэнтези", keys: ["fantasy", "фэнтези"] }, { id: "tag_space", label: "Космос", keys: ["space", "космос"] }, { id: "tag_postapoc", label: "Постапокалипсис", keys: ["post-apocalyptic", "постапокалипсис"] }, { id: "tag_anime", label: "Аниме", keys: ["anime", "аниме"] }, { id: "tag_retro", label: "Ретро", keys: ["retro", "пиксельная графика"] }, { id: "tag_military", label: "Военные действия", keys: ["military", "war", "военные"] }, { id: "tag_single", label: "Для одного игрока", keys: ["singleplayer", "для одного игрока"] }, { id: "tag_multi", label: "Для нескольких игроков", keys: ["multiplayer", "для нескольких игроков"] }, { id: "tag_coop", label: "Кооператив", keys: ["co-op", "coop", "кооператив"] }, { id: "tag_pvp", label: "PvP", keys: ["pvp"] }, { id: "tag_story", label: "Глубокий сюжет", keys: ["story rich", "глубокий сюжет"] }, { id: "tag_openworld", label: "Открытый мир", keys: ["open world", "открытый мир"] }, { id: "tag_hardcore", label: "Сложная", keys: ["difficult", "hardcore", "сложная"] }, { id: "tag_relax", label: "Расслабляющая", keys: ["relaxing", "casual", "казуальная"] }, { id: "tag_pixel", label: "Пиксельная графика", keys: ["pixel graphics", "пиксельная"] } ];
+        let gameQueue = [];
 
         const translitMap = { 'а':'a','б':'b','в':'v','г':'g','д':'d','е':'e','ё':'yo','ж':'zh','з':'z','и':'i','й':'y','к':'k','л':'l','м':'m','н':'n','о':'o','п':'p','р':'r','с':'s','т':'t','у':'u','ф':'f','х':'h','ц':'ts','ч':'ch','ш':'sh','щ':'sch','ь':'','ы':'y','ъ':'','э':'e','ю':'yu','я':'ya'};
         function safeFilename(str) { return str.toLowerCase().split('').map(c => translitMap[c] || c).join('').replace(/[^a-z0-9]/g, '_').replace(/_+/g, '_').replace(/^_|_$/g, ''); }
-
-        async function downloadAsset(event, url, filename) {
-            event.preventDefault(); const btn = event.currentTarget; btn.innerText = "Скачивание..."; btn.disabled = true;
-            try { const response = await fetch(url); const blob = await response.blob(); const tempUrl = URL.createObjectURL(blob); const link = document.createElement('a'); link.href = tempUrl; link.download = filename; document.body.appendChild(link); link.click(); document.body.removeChild(link); URL.revokeObjectURL(tempUrl); btn.innerText = "Скачано!"; btn.style.background = '#44bd32'; } catch (e) { btn.innerText = "Ошибка"; btn.style.background = '#ff453a'; } finally { setTimeout(() => { btn.innerText = "Скачать"; btn.style.background = "#222"; btn.disabled = false; }, 3000); }
-        }
         
-        async function fetchWithFallback(url) {
-            try { const r = await fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(url)}`); if (!r.ok) throw new Error(); return JSON.parse((await r.json()).contents); } catch (e) { console.warn("AllOrigins failed, trying CodeTabs..."); }
-            try { return await (await fetch(`https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(url)}`)).json(); } catch (e) { throw new Error("Оба прокси недоступны."); }
+        // НОВОЕ: УМНЫЙ ЗАГРУЗЧИК С ТРЕМЯ ПРОКСИ
+        async function fetchWithFallback(url, statusEl) {
+            const proxies = [
+                { name: "AllOrigins", build: u => `https://api.allorigins.win/get?url=${encodeURIComponent(u)}`, parse: async r => JSON.parse((await r.json()).contents) },
+                { name: "CodeTabs", build: u => `https://api.codetabs.com/v1/proxy?quest=${u}`, parse: r => r.json() },
+                { name: "CORS-Anywhere", build: u => `https://cors-anywhere.herokuapp.com/${u}`, parse: r => r.json() }
+            ];
+
+            for (let i = 0; i < proxies.length; i++) {
+                const proxy = proxies[i];
+                statusEl.innerText = `Пробуем прокси #${i + 1} (${proxy.name})...`;
+                try {
+                    const res = await fetch(proxy.build(url));
+                    if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
+                    return await proxy.parse(res);
+                } catch (e) {
+                    console.warn(`${proxy.name} не сработал.`, e);
+                    if (i === proxies.length - 1) throw new Error("Все прокси недоступны. Попробуйте позже.");
+                }
+            }
         }
 
-        async function fetchSteamData() {
+        async function addGameToQueue() {
             let input = document.getElementById('steamInput').value.trim();
             const btn = document.getElementById('fetchBtn'), status = document.getElementById('status');
             if (!input) return;
-            const appId = (input.match(/\/app\/(\d+)\//) || [])[1] || input;
 
-            btn.disabled = true; btn.innerText = "Загрузка..."; status.innerText = "Подключаемся..."; status.style.color = "#aaa";
+            const appId = (input.match(/\/app\/(\d+)\//) || [])[1] || input;
+            if (gameQueue.some(g => g.steam_id == appId)) { status.innerText = "Эта игра уже в очереди."; status.style.color = "#ffd700"; return; }
+
+            btn.disabled = true; status.style.color = "#aaa";
 
             try {
-                const data = await fetchWithFallback(`https://store.steampowered.com/api/appdetails?appids=${appId}&l=russian`);
+                const data = await fetchWithFallback(`https://store.steampowered.com/api/appdetails?appids=${appId}&l=russian`, status);
                 if (!data || !data[appId] || !data[appId].success) throw new Error("Steam API не вернул данные");
                 
                 const game = data[appId].data;
-
-                // Заполнение полей
-                document.getElementById('title').value = game.name;
-                document.getElementById('desc').value = game.short_description;
-                document.getElementById('ytSearchLink').href = `https://www.youtube.com/results?search_query=${encodeURIComponent(game.name + " trailer")}`;
-                document.getElementById('trailer').value = ""; 
-
-                // Авто-теги
-                document.querySelectorAll('.tags-grid input').forEach(c => c.checked = false);
-                const steamTagsList = [...(game.genres||[]), ...(game.categories||[])];
+                const safeName = safeFilename(game.name);
+                const steamTagsList = [...(game.genres || []), ...(game.categories || [])];
                 const steamTagDescriptions = steamTagsList.map(t => t.description.toLowerCase());
                 
-                ALL_TAGS.forEach(t => { if(t.keys.some(k => steamTagDescriptions.includes(k))) document.getElementById(`chk_${t.id}`).checked = true; });
-                
-                document.getElementById('tier').value = steamTagDescriptions.includes('инди') ? 'tier_indie' : 'tier_aaa';
+                const processedGame = {
+                    steam_id: appId,
+                    id: "game_" + safeName,
+                    title: game.name,
+                    tier: steamTagDescriptions.includes('инди') ? 'tier_indie' : 'tier_aaa',
+                    tags: ALL_TAGS.filter(t => t.keys.some(k => steamTagDescriptions.includes(k))).map(t => t.id),
+                    steam_tags: steamTagsList,
+                    description: game.short_description.replace(/<[^>]*>?/gm, ''), // Чистим HTML
+                    trailer: "",
+                    assets: {
+                        cover: { filename: `${safeName}.jpg`, url: `https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/${appId}/library_600x900_2x.jpg` },
+                        banner: { filename: `${safeName}_banner.jpg`, url: game.header_image },
+                        screenshots: (game.screenshots || []).map((scr, idx) => ({ filename: `${safeName}_screen_${idx+1}.jpg`, url: scr.path_full }))
+                    }
+                };
 
-                // Изображения
-                const safeName = safeFilename(game.name);
-                const coverUrl = `https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/${appId}/library_600x900_2x.jpg`;
-                const bannerUrl = game.header_image;
-                setupImage('imgCover', 'dlCover', 'nameCover', coverUrl, `${safeName}.jpg`);
-                setupImage('imgBanner', 'dlBanner', 'nameBanner', bannerUrl, `${safeName}_banner.jpg`);
-
-                // Галерея
-                const grid = document.getElementById('screenshotsGrid');
-                grid.innerHTML = ''; 
-                if (game.screenshots) {
-                    game.screenshots.slice(0, 10).forEach((scr, idx) => {
-                        const filename = `${safeName}_screen_${idx+1}.jpg`;
-                        const card = document.createElement('div'); card.className = 'asset-card';
-                        card.innerHTML = `<div style="font-size:12px; color:#aaa; margin-bottom:5px;">Скриншот ${idx+1}</div><div class="img-wrapper screen"><img src="${scr.path_thumbnail}" loading="lazy"></div><div class="asset-meta"><div class="file-name">${filename}</div><a href="#" class="download-btn" data-url="${scr.path_full}" data-filename="${filename}">Скачать</a></div>`;
-                        card.querySelector('.download-btn').onclick = (e) => downloadAsset(e, scr.path_full, filename);
-                        grid.appendChild(card);
-                    });
-                }
-
-                document.getElementById('assetsSection').style.display = 'block';
-                status.innerText = "Успешно!"; status.style.color = "#44bd32";
-                updateOutput();
-
-            } catch (e) { console.error(e); status.innerText = "Ошибка: " + e.message; status.style.color = "#ff453a"; } 
-            finally { btn.disabled = false; btn.innerText = "Загрузить данные"; }
+                gameQueue.push(processedGame);
+                status.innerText = `"${game.name}" добавлена!`; status.style.color = "var(--green)";
+            } catch (e) { console.error(e); status.innerText = "Ошибка: " + e.message; status.style.color = "var(--red)"; } 
+            finally {
+                btn.disabled = false;
+                document.getElementById('steamInput').value = '';
+                renderAll();
+            }
         }
+        
+        function removeFromQueue(steamId) { gameQueue = gameQueue.filter(g => g.steam_id != steamId); renderAll(); }
 
-        function setupImage(imgId, linkId, nameId, url, filename) {
-            document.getElementById(imgId).src = url;
-            document.getElementById(nameId).innerText = filename;
-            document.getElementById(linkId).onclick = (e) => downloadAsset(e, url, filename);
+        function renderAll() { renderQueue(); renderAssets(); updateOutput(); }
+
+        function renderQueue() {
+            const queueEl = document.getElementById('queue');
+            document.getElementById('queueCount').innerText = gameQueue.length;
+            if (gameQueue.length === 0) { queueEl.innerHTML = `<div style="font-size:12px; color:#666; text-align:center; padding:10px;">Очередь пуста</div>`; return; }
+            queueEl.innerHTML = gameQueue.map(g => `
+                <div class="queue-item success">
+                    <img src="${g.assets.cover.url}" loading="lazy">
+                    <div class="queue-info">${g.title}</div>
+                    <button class="remove-btn" onclick="removeFromQueue('${g.steam_id}')" title="Удалить">&times;</button>
+                </div>
+            `).join('');
         }
 
         function updateOutput() {
-            const title = document.getElementById('title').value.trim();
-            if (!title) return;
-            const safeName = safeFilename(title);
-            const selectedTags = Array.from(document.querySelectorAll('.tags-grid input:checked')).map(cb => cb.value);
-            
-            // Получаем все теги из Steam (если они были загружены)
-            const steamTags = window.currentSteamTags || [];
+            const outputEl = document.getElementById('output');
+            if (gameQueue.length === 0) { outputEl.textContent = "// Добавьте игры в очередь..."; return; }
+            const cleanQueue = gameQueue.map(g => ({
+                id: g.id, title: g.title, tier: g.tier, tags: g.tags, steam_tags: g.steam_tags,
+                description: g.description, trailer: g.trailer,
+                assets: { cover: g.assets.cover.filename, banner: g.assets.banner.filename }
+            }));
+            outputEl.textContent = JSON.stringify(cleanQueue, null, 4);
+        }
 
-            const json = {
-                id: "game_" + safeName,
-                title: title,
-                tier: document.getElementById('tier').value,
-                tags: selectedTags,
-                steam_tags: steamTags, // Добавляем новое поле
-                description: document.getElementById('desc').value.trim(),
-                trailer: document.getElementById('trailer').value.trim(),
-                assets: {
-                    cover: `${safeName}.jpg`,
-                    banner: `${safeName}_banner.jpg`
-                }
-            };
-
-            document.getElementById('output').textContent = JSON.stringify(json, null, 4) + ",";
+        function renderAssets() {
+            const assetsSection = document.getElementById('assetsSection'), grid = document.getElementById('assetsGrid');
+            assetsSection.style.display = gameQueue.length > 0 ? 'block' : 'none';
+            grid.innerHTML = '';
+            gameQueue.forEach(game => {
+                const title = document.createElement('h3');
+                title.innerText = game.title;
+                title.style.gridColumn = '1 / -1'; title.style.marginTop = '10px';
+                grid.appendChild(title);
+                grid.appendChild(createAssetCard('Обложка', 'cover', game.assets.cover.url, game.assets.cover.filename));
+                grid.appendChild(createAssetCard('Баннер', 'banner', game.assets.banner.url, game.assets.banner.filename));
+                game.assets.screenshots.forEach((scr, idx) => grid.appendChild(createAssetCard(`Скриншот ${idx+1}`, 'screen', scr.url, scr.filename)));
+            });
         }
         
+        function createAssetCard(title, type, url, filename) {
+            const card = document.createElement('div');
+            card.className = 'asset-card';
+            card.innerHTML = `
+                <div style="font-size:12px; color:#aaa; margin-bottom:5px;">${title}</div>
+                <div class="img-wrapper ${type}"><img src="${url}" loading="lazy"></div>
+                <div class="asset-meta">
+                    <div class="file-name">${filename}</div>
+                    <a href="#" class="download-btn">Скачать</a>
+                </div>`;
+            card.querySelector('.download-btn').onclick = (e) => downloadAsset(e, url, filename);
+            return card;
+        }
+
+        async function downloadAllAssets() {
+            for (const game of gameQueue) {
+                await new Promise(resolve => { downloadAsset({ preventDefault: () => {} }, game.assets.cover.url, game.assets.cover.filename); setTimeout(resolve, 300); });
+                await new Promise(resolve => { downloadAsset({ preventDefault: () => {} }, game.assets.banner.url, game.assets.banner.filename); setTimeout(resolve, 300); });
+            }
+        }
+
         function copyJSON() {
-            navigator.clipboard.writeText(document.getElementById('output').textContent).then(() => {
-                const btn = document.querySelector('.copy-btn');
-                btn.innerText = "Скопировано!";
-                setTimeout(() => btn.innerText = "Копировать", 2000);
-            });
+            navigator.clipboard.writeText(document.getElementById('output').textContent)
+                .then(() => {
+                    const btn = document.querySelector('.copy-btn');
+                    btn.innerText = "Скопировано!";
+                    setTimeout(() => btn.innerText = "Копировать", 2000);
+                });
         }
     </script>
 </body>
