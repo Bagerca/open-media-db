@@ -1,48 +1,298 @@
 [
-{
-    "id": "game_val",
-    "title": "Valorant",
-    "tier": "tier_aaa",
-    "tags":[
-      "tag_shooter",
-      "tag_multi",
-      "tag_pvp",
-      "tag_scifi"
-    ],
-    "description": "Многопользовательский тактический шутер от первого лица, разработанный Riot Games.",
-    "trailer": "https://www.youtube.com/embed/e_E9W2vsRbQ?autoplay=1&mute=1",
-    "assets": {
-      "cover": "valorant.jpg",
-      "banner": "valorant_banner.jpg"
-    }
-  },
     {
-    "id": "game_r_e_p_o",
-    "title": "R.E.P.O.",
-    "tier": "tier_aaa",
-    "tags": [
-        "tag_action",
-        "tag_coop"
-    ],
-    "description": "An online co-op horror game with up to 6 players. Locate valuable, fully physics-based objects and handle them with care as you retrieve and extract to satisfy your creator's desires.",
-    "trailer": "",
-    "assets": {
-        "cover": "r_e_p_o.jpg",
-        "banner": "r_e_p_o_banner.jpg"
+        "id": "game_abyssus",
+        "title": "Abyssus",
+        "tier": "tier_indie",
+        "tags": [
+            "tag_single",
+            "tag_multi",
+            "tag_coop"
+        ],
+        "steam_tags": [
+            {
+                "id": "1",
+                "description": "Экшены"
+            },
+            {
+                "id": "25",
+                "description": "Приключенческие игры"
+            },
+            {
+                "id": "23",
+                "description": "Инди"
+            },
+            {
+                "id": 2,
+                "description": "Для одного игрока"
+            },
+            {
+                "id": 1,
+                "description": "Для нескольких игроков"
+            },
+            {
+                "id": 9,
+                "description": "Кооператив"
+            },
+            {
+                "id": 38,
+                "description": "Кооператив (по сети)"
+            },
+            {
+                "id": 22,
+                "description": "Достижения Steam"
+            },
+            {
+                "id": 68,
+                "description": "Расширенное управление громкостью"
+            },
+            {
+                "id": 23,
+                "description": "Steam Cloud"
+            },
+            {
+                "id": 62,
+                "description": "Семейный доступ"
+            }
+        ],
+        "description": "Выбирайте снаряжение и вступайте в бой с порочными обитателями затонувшей цивилизации, чтобы овладеть божественными силами в Abyssus — динамичном шутере от первого лица с элементами roguelite на 1–4 игроков в стиле «брайнпанк».",
+        "trailer": "",
+        "assets": {
+            "cover": "abyssus.jpg",
+            "banner": "abyssus_banner.jpg"
+        }
+    },
+    {
+        "id": "game_boris_and_the_dark_survival",
+        "title": "Boris and the Dark Survival",
+        "tier": "tier_indie",
+        "tags": [
+            "tag_single"
+        ],
+        "steam_tags": [
+            {
+                "id": "1",
+                "description": "Экшены"
+            },
+            {
+                "id": "25",
+                "description": "Приключенческие игры"
+            },
+            {
+                "id": "4",
+                "description": "Казуальные игры"
+            },
+            {
+                "id": "23",
+                "description": "Инди"
+            },
+            {
+                "id": "2",
+                "description": "Стратегии"
+            },
+            {
+                "id": 2,
+                "description": "Для одного игрока"
+            },
+            {
+                "id": 28,
+                "description": "Полная поддержка контроллеров"
+            },
+            {
+                "id": 62,
+                "description": "Семейный доступ"
+            }
+        ],
+        "description": "A lone wolf struggles to survive the inky abyss of Joey Drew Studios in this top-down survival horror.",
+        "trailer": "",
+        "assets": {
+            "cover": "boris_and_the_dark_survival.jpg",
+            "banner": "boris_and_the_dark_survival_banner.jpg"
+        }
+    },
+    {
+        "id": "game_bendy_secrets_of_the_machine",
+        "title": "Bendy: Secrets of the Machine",
+        "tier": "tier_aaa",
+        "tags": [
+            "tag_action",
+            "tag_adventure",
+            "tag_relax"
+        ],
+        "steam_tags": [
+            {
+                "description": "Action",
+                "id": "1"
+            },
+            {
+                "description": "Adventure",
+                "id": "25"
+            },
+            {
+                "description": "Casual",
+                "id": "4"
+            },
+            {
+                "description": "Indie",
+                "id": "23"
+            },
+            {
+                "description": "Single-player",
+                "id": 2
+            }
+        ],
+        "description": "Some things are better left forgotten.",
+        "trailer": "",
+        "assets": {
+            "cover": "bendy_secrets_of_the_machine.jpg",
+            "banner": "bendy_secrets_of_the_machine_banner.jpg"
+        }
+    },
+    {
+        "id": "game_bendy_lone_wolf",
+        "title": "Bendy: Lone Wolf",
+        "tier": "tier_aaa",
+        "tags": [
+            "tag_action",
+            "tag_adventure"
+        ],
+        "steam_tags": [
+            {
+                "description": "Action",
+                "id": "1"
+            },
+            {
+                "description": "Adventure",
+                "id": "25"
+            },
+            {
+                "description": "Indie",
+                "id": "23"
+            },
+            {
+                "description": "Single-player",
+                "id": 2
+            },
+            {
+                "description": "Steam Achievements",
+                "id": 22
+            },
+            {
+                "description": "Full controller support",
+                "id": 28
+            },
+            {
+                "description": "Remote Play on TV",
+                "id": 43
+            },
+            {
+                "description": "Family Sharing",
+                "id": 62
+            }
+        ],
+        "description": "Bendy: Lone Wolf™ will tests your ability to survive against ever increasing odds. Monsters and obstacles emerge from every direction as you journey into the rubberhose halls of the world's most evil animation studio. Every day is a challenge.",
+        "trailer": "",
+        "assets": {
+            "cover": "bendy_lone_wolf.jpg",
+            "banner": "bendy_lone_wolf_banner.jpg"
+        }
+    },
+    {
+        "id": "game_bendy_and_the_ink_machine",
+        "title": "Bendy and the Ink Machine",
+        "tier": "tier_aaa",
+        "tags": [
+            "tag_action",
+            "tag_strategy",
+            "tag_adventure"
+        ],
+        "steam_tags": [
+            {
+                "description": "Action",
+                "id": "1"
+            },
+            {
+                "description": "Adventure",
+                "id": "25"
+            },
+            {
+                "description": "Indie",
+                "id": "23"
+            },
+            {
+                "description": "Strategy",
+                "id": "2"
+            },
+            {
+                "description": "Single-player",
+                "id": 2
+            },
+            {
+                "description": "Steam Achievements",
+                "id": 22
+            },
+            {
+                "description": "Full controller support",
+                "id": 28
+            },
+            {
+                "description": "Remote Play on TV",
+                "id": 43
+            },
+            {
+                "description": "Family Sharing",
+                "id": 62
+            }
+        ],
+        "description": "Bendy and the Ink Machine® is the first person puzzle action horror game that will forever ruin your childhood love of cartoons.",
+        "trailer": "",
+        "assets": {
+            "cover": "bendy_and_the_ink_machine.jpg",
+            "banner": "bendy_and_the_ink_machine_banner.jpg"
+        }
+    },
+    {
+        "id": "game_bendy_and_the_dark_revival",
+        "title": "Bendy and the Dark Revival",
+        "tier": "tier_aaa",
+        "tags": [
+            "tag_action",
+            "tag_adventure"
+        ],
+        "steam_tags": [
+            {
+                "description": "Action",
+                "id": "1"
+            },
+            {
+                "description": "Adventure",
+                "id": "25"
+            },
+            {
+                "description": "Single-player",
+                "id": 2
+            },
+            {
+                "description": "Steam Achievements",
+                "id": 22
+            },
+            {
+                "description": "Full controller support",
+                "id": 28
+            },
+            {
+                "description": "Remote Play on TV",
+                "id": 43
+            },
+            {
+                "description": "Family Sharing",
+                "id": 62
+            }
+        ],
+        "description": "Bendy and the Dark Revival® is a first-person survival horror game set in the creepiest cartoon studio to ever exist. Discover the truth. Escape the studio. Above all, fear the Ink Demon…and survive.",
+        "trailer": "",
+        "assets": {
+            "cover": "bendy_and_the_dark_revival.jpg",
+            "banner": "bendy_and_the_dark_revival_banner.jpg"
+        }
     }
-},
-  {
-    "id": "game_bendy_and_the_ink_machine",
-    "title": "Bendy and the Ink Machine",
-    "tier": "tier_indie",
-    "tags": [
-        "tag_action"
-    ],
-    "description": "Bendy and the Ink Machine® is the first person puzzle action horror game that will forever ruin your childhood love of cartoons.",
-    "trailer": "https://youtu.be/kU4w0WgUh18?si=Ner_QMGeiMrqan3h",
-    "assets": {
-        "cover": "bendy_and_the_ink_machine.jpg",
-        "banner": "bendy_and_the_ink_machine_banner.jpg"
-    }
-}
 ]
