@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cycle MediaDB Generator: Ultra</title>
+    <title>Cycle MediaDB Generator: Pro Split</title>
     <!-- Библиотеки -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
@@ -22,9 +22,11 @@
         textarea.steam-input { width: 100%; height: 80px; background: var(--bg-dark); border: 1px solid var(--border); color: var(--text-light); padding: 12px; border-radius: var(--radius); resize: none; }
         textarea.steam-input:focus { border-color: var(--accent); outline: none; }
         
-        .btn { background: var(--accent); color: #fff; border: none; padding: 12px; border-radius: var(--radius); cursor: pointer; font-weight: 600; display: flex; align-items: center; justify-content: center; gap: 8px; transition: 0.2s; }
-        .btn:hover { background: var(--accent-hover); } .btn:disabled { background: var(--bg-light); cursor: not-allowed; }
+        .btn { background: var(--accent); color: #fff; border: none; padding: 12px; border-radius: var(--radius); cursor: pointer; font-weight: 600; display: flex; align-items: center; justify-content: center; gap: 8px; transition: 0.2s; white-space: nowrap; }
+        .btn:hover { background: var(--accent-hover); } .btn:disabled { background: var(--bg-light); cursor: wait; opacity: 0.7; }
         .btn.secondary { background: var(--bg-light); border: 1px solid var(--border); } .btn.secondary:hover { background: var(--border); }
+        .btn-group { display: flex; gap: 10px; margin-top: 10px; flex-wrap: wrap; }
+        .btn-group .btn { flex: 1; min-width: 140px; font-size: 13px; }
 
         .queue-container { flex: 1; overflow-y: auto; display: flex; flex-direction: column; gap: 8px; }
         .queue-item { display: flex; align-items: center; gap: 12px; background: var(--bg-dark); padding: 10px; border-radius: 10px; border: 1px solid var(--border); }
@@ -88,7 +90,20 @@
         </div>
 
         <div id="assetsSection" style="display:none;">
-            <h3>3. Медиа Ассеты <button class="btn" id="downloadZipBtn" onclick="downloadAllAsZip()" style="padding: 6px 16px;">Скачать ZIP-архив</button></h3>
+            <h3>3. Скачать Ассеты (ZIP)</h3>
+            <div class="btn-group">
+                <button class="btn secondary" id="btnDlCover" onclick="downloadAssets('cover')">
+                    💾 Скачать Обложки
+                </button>
+                <button class="btn secondary" id="btnDlBanner" onclick="downloadAssets('banner')">
+                    💾 Скачать Баннеры
+                </button>
+                <button class="btn secondary" id="btnDlScreens" onclick="downloadAssets('screenshots')">
+                    🖼 Скачать Скриншоты
+                </button>
+            </div>
+            
+            <h3 style="margin-top: 30px; border:none; opacity: 0.5;">Предпросмотр иллюстраций</h3>
             <div id="assetsContainer" class="assets-grid"></div>
         </div>
     </div>
@@ -117,20 +132,14 @@
         }
 
         // ================= NETWORK (UPDATED) =================
-        // Новая функция с ротацией прокси
         async function fetchWithFallback(url, type = 'json') {
-            // Список прокси по приоритету
             const proxyList = [
-                // 1. CorsProxy.io (Самый надежный для файлов)
                 { prefix: 'https://corsproxy.io/?', encode: true },
-                // 2. AllOrigins Raw (Резерв)
                 { prefix: 'https://api.allorigins.win/raw?url=', encode: true },
-                // 3. CodeTabs (Резерв 2)
                 { prefix: 'https://api.codetabs.com/v1/proxy?quest=', encode: false }
             ];
 
             let lastErr = "";
-            
             for (let proxy of proxyList) {
                 try {
                     const targetUrl = proxy.encode ? encodeURIComponent(url) : url;
@@ -138,14 +147,13 @@
                     
                     const res = await fetch(fullUrl);
                     if (!res.ok) throw new Error(`HTTP ${res.status}`);
-                    
                     return type === 'json' ? await res.json() : await res.blob();
                 } catch (e) {
                     console.warn(`Прокси не сработал (${proxy.prefix}):`, e);
                     lastErr = e.message;
                 }
             }
-            throw new Error(`Все прокси недоступны. Проверьте интернет или повторите позже.`);
+            throw new Error(`Все прокси недоступны.`);
         }
 
         // ================= LOGIC =================
@@ -179,7 +187,7 @@
                 try {
                     const data = await fetchWithFallback(`https://store.steampowered.com/api/appdetails?appids=${appId}&l=russian`, 'json');
                     
-                    if (!data || !data[appId] || !data[appId].success) throw new Error("Steam API Error (возможно блок региона)");
+                    if (!data || !data[appId] || !data[appId].success) throw new Error("API Error");
                     
                     const game = data[appId].data;
                     const safeName = safeFilename(game.name);
@@ -227,48 +235,74 @@
             document.getElementById('steamInput').value = '';
         }
 
-        async function downloadAllAsZip() {
+        // ================= DOWNLOAD LOGIC (NEW SPLIT) =================
+        async function downloadAssets(type) {
             const successGames = gameQueue.filter(g => g.status === 'success');
-            if(successGames.length === 0) return;
+            if(successGames.length === 0) return showToast("Нет игр для скачивания", "error");
 
-            const btn = document.getElementById('downloadZipBtn');
-            const originalText = btn.innerHTML;
-            btn.innerHTML = `<span class="spinner"></span> Упаковка...`;
+            // Настройка кнопок и имен
+            let btnId, zipName, folderName;
+            if (type === 'cover') { btnId = 'btnDlCover'; zipName = 'Covers.zip'; folderName = 'Covers'; }
+            else if (type === 'banner') { btnId = 'btnDlBanner'; zipName = 'Banners.zip'; folderName = 'Banners'; }
+            else { btnId = 'btnDlScreens'; zipName = 'Screenshots.zip'; folderName = 'Screenshots'; }
+
+            const btn = document.getElementById(btnId);
+            const originalText = btn.innerText;
+            btn.innerHTML = `<span class="spinner"></span> Скачивание...`;
             btn.disabled = true;
 
             try {
                 const zip = new JSZip();
-                const folder = zip.folder("MediaDB_Assets");
+                const folder = zip.folder(folderName);
                 
-                for (const game of successGames) {
-                    const gameFolder = folder.folder(game.id);
-                    
-                    // Вспомогательная функция для попытки скачать и добавить файл
-                    const fetchAndAdd = async (url, filename) => {
-                        try {
-                            const blob = await fetchWithFallback(url, 'blob');
-                            gameFolder.file(filename, blob);
-                        } catch(e) { 
-                            console.error(`Не удалось скачать ${filename}:`, e); 
-                            // Создаем пустой текстовый файл с ошибкой, чтобы процесс не падал
-                            gameFolder.file(filename + ".error.txt", "Download failed: " + e.message);
-                        }
-                    };
+                let totalItems = 0;
+                let processed = 0;
 
-                    await fetchAndAdd(game.assets.cover.url, game.assets.cover.filename);
-                    await fetchAndAdd(game.assets.banner.url, game.assets.banner.filename);
-                    for (const scr of game.assets.screenshots) await fetchAndAdd(scr.url, scr.filename);
+                // Подсчет
+                if (type === 'screenshots') {
+                    successGames.forEach(g => totalItems += g.assets.screenshots.length);
+                } else {
+                    totalItems = successGames.length;
                 }
 
-                btn.innerHTML = `<span class="spinner"></span> Генерация ZIP...`;
+                // Вспомогательная функция
+                const addToZip = async (url, filename) => {
+                    try {
+                        const blob = await fetchWithFallback(url, 'blob');
+                        folder.file(filename, blob);
+                    } catch(e) { 
+                        console.error(`Fail ${filename}`, e);
+                        folder.file(filename + ".error.txt", "Failed: " + e.message);
+                    }
+                    processed++;
+                    btn.innerHTML = `<span class="spinner"></span> ${processed}/${totalItems}`;
+                };
+
+                // Перебор игр
+                for (const game of successGames) {
+                    if (type === 'cover') {
+                        await addToZip(game.assets.cover.url, game.assets.cover.filename);
+                    } 
+                    else if (type === 'banner') {
+                        await addToZip(game.assets.banner.url, game.assets.banner.filename);
+                    } 
+                    else if (type === 'screenshots') {
+                        for (const scr of game.assets.screenshots) {
+                            await addToZip(scr.url, scr.filename);
+                        }
+                    }
+                }
+
+                btn.innerHTML = `<span class="spinner"></span> Сжатие...`;
                 const content = await zip.generateAsync({ type: "blob" });
-                saveAs(content, "MediaDB_Assets.zip");
-                showToast("Архив готов!", "success");
+                saveAs(content, zipName);
+                showToast(`${zipName} скачан!`, "success");
+
             } catch(e) {
                 console.error(e);
-                showToast("Ошибка создания ZIP", "error");
+                showToast("Ошибка при создании архива", "error");
             } finally {
-                btn.innerHTML = originalText;
+                btn.innerText = originalText;
                 btn.disabled = false;
             }
         }
@@ -330,6 +364,10 @@
             successfulGames.forEach(game => {
                 container.innerHTML += createAssetCard(game.title, 'Обложка', 'cover', game.assets.cover.url, game.assets.cover.filename);
                 container.innerHTML += createAssetCard(game.title, 'Баннер', 'banner', game.assets.banner.url, game.assets.banner.filename);
+                // Показываем по 1 скриншоту для примера
+                if (game.assets.screenshots.length > 0) {
+                   container.innerHTML += createAssetCard(game.title, 'Скриншот 1', 'screen', game.assets.screenshots[0].url, game.assets.screenshots[0].filename);
+                }
             });
         }
 
