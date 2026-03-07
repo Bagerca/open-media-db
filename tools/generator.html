@@ -54,7 +54,6 @@
             background: #000; border-radius: 8px; overflow: hidden; margin-bottom: 10px; 
             display: flex; align-items: center; justify-content: center; position: relative;
         }
-        /* Высота контейнеров для разных типов */
         .img-wrapper.cover { aspect-ratio: 2/3; }
         .img-wrapper.banner, .img-wrapper.screen { aspect-ratio: 16/9; }
         
@@ -67,6 +66,7 @@
             font-size: 12px; padding: 8px; border-radius: 6px; transition: 0.2s; 
         }
         .download-btn:hover { background: #7c3aed; }
+        .download-btn:disabled { background: #333; color: #888; cursor: wait; }
 
         .yt-link { float: right; color: #ff453a; font-size: 11px; text-decoration: none; margin-top: -18px; }
         .yt-link:hover { text-decoration: underline; }
@@ -85,8 +85,8 @@
         <h2>Cycle <span>MediaDB</span></h2>
         
         <div class="steam-box">
-            <label style="color: #fff;">Steam App ID</label>
-            <input type="number" id="steamId" placeholder="Например: 1091500">
+            <label style="color: #fff;">Steam App ID или Ссылка</label>
+            <input type="text" id="steamInput" placeholder="2825530 или https://...">
             <button class="steam-btn" id="fetchBtn" onclick="fetchSteamData()">Загрузить данные</button>
             <div id="status" class="status-msg"></div>
         </div>
@@ -147,7 +147,7 @@
                     </div>
                     <div class="asset-meta">
                         <div class="file-name" id="nameCover">game.jpg</div>
-                        <a id="dlCover" href="#" target="_blank" download class="download-btn">Скачать в covers/</a>
+                        <a id="dlCover" href="#" class="download-btn">Скачать в covers/</a>
                     </div>
                 </div>
 
@@ -159,7 +159,7 @@
                     </div>
                     <div class="asset-meta">
                         <div class="file-name" id="nameBanner">game_banner.jpg</div>
-                        <a id="dlBanner" href="#" target="_blank" download class="download-btn">Скачать в banners/</a>
+                        <a id="dlBanner" href="#" class="download-btn">Скачать в banners/</a>
                     </div>
                 </div>
             </div>
@@ -174,7 +174,6 @@
     </div>
 
     <script>
-        // --- CONFIG ---
         const ALL_TAGS =[
             { id: "tag_action", label: "Экшен", keys: ["action", "экшен"] },
             { id: "tag_shooter", label: "Шутер", keys: ["shooter", "fps", "шутер"] },
@@ -206,7 +205,6 @@
             { id: "tag_pixel", label: "Пиксельная", keys: ["pixel", "пиксельная"] }
         ];
 
-        // Init Tags
         const tagsContainer = document.getElementById('tagsContainer');
         ALL_TAGS.forEach(tag => {
             const label = document.createElement('label');
@@ -214,67 +212,105 @@
             tagsContainer.appendChild(label);
         });
 
-        // Helpers
         const translitMap = { 'а':'a','б':'b','в':'v','г':'g','д':'d','е':'e','ё':'yo','ж':'zh','з':'z','и':'i','й':'y','к':'k','л':'l','м':'m','н':'n','о':'o','п':'p','р':'r','с':'s','т':'t','у':'u','ф':'f','х':'h','ц':'ts','ч':'ch','ш':'sh','щ':'sch','ь':'','ы':'y','ъ':'','э':'e','ю':'yu','я':'ya'};
         function safeFilename(str) { 
             return str.toLowerCase().split('').map(c => translitMap[c] || c).join('').replace(/[^a-z0-9]/g, '_').replace(/_+/g, '_').replace(/^_|_$/g, ''); 
         }
 
-        // --- FETCH LOGIC ---
+        async function downloadAsset(event, url, filename) {
+            event.preventDefault();
+            const btn = event.currentTarget;
+            btn.innerText = "Скачивание...";
+            btn.disabled = true;
+
+            try {
+                const response = await fetch(url);
+                const blob = await response.blob();
+                const tempUrl = URL.createObjectURL(blob);
+                const link = document.createElement('a');
+                link.href = tempUrl;
+                link.download = filename;
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+                URL.revokeObjectURL(tempUrl);
+                btn.innerText = "Скачано!";
+                btn.style.background = '#44bd32';
+            } catch (e) {
+                console.error("Ошибка скачивания:", e);
+                btn.innerText = "Ошибка";
+                btn.style.background = '#ff453a';
+            } finally {
+                setTimeout(() => {
+                    btn.innerText = "Скачать в ...";
+                    btn.style.background = "#222";
+                    btn.disabled = false;
+                }, 3000);
+            }
+        }
+        
+        async function fetchWithFallback(url) {
+            try {
+                const proxy1 = `https://api.allorigins.win/get?url=${encodeURIComponent(url)}`;
+                const res = await fetch(proxy1);
+                if (!res.ok) throw new Error('Network error');
+                const json = await res.json();
+                return JSON.parse(json.contents);
+            } catch (e) { console.warn("AllOrigins failed, trying CodeTabs...", e); }
+
+            try {
+                const proxy2 = `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(url)}`;
+                const res = await fetch(proxy2);
+                if (!res.ok) throw new Error('CodeTabs error');
+                return await res.json(); 
+            } catch (e) { throw new Error("Оба прокси недоступны."); }
+        }
+
         async function fetchSteamData() {
-            const appId = document.getElementById('steamId').value.trim();
+            let input = document.getElementById('steamInput').value.trim();
             const btn = document.getElementById('fetchBtn');
             const status = document.getElementById('status');
             
-            if (!appId) return;
+            if (!input) return;
             
-            btn.disabled = true;
-            btn.innerText = "Загрузка...";
-            status.innerText = "Подключение к AllOrigins...";
-            status.style.color = "#aaa";
+            // НОВОЕ: Парсим ID из ссылки
+            const match = input.match(/\/app\/(\d+)\//);
+            const appId = match ? match[1] : input;
+
+            btn.disabled = true; btn.innerText = "Загрузка..."; status.innerText = "Подключаемся к Steam..."; status.style.color = "#aaa";
 
             try {
-                // Fetch via AllOrigins to bypass CORS
                 const targetUrl = `https://store.steampowered.com/api/appdetails?appids=${appId}&l=russian`;
-                const proxyUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(targetUrl)}`;
-                
-                const res = await fetch(proxyUrl);
-                const wrapper = await res.json();
-                const data = JSON.parse(wrapper.contents);
+                const data = await fetchWithFallback(targetUrl);
 
-                if (!data[appId] || !data[appId].success) throw new Error("Steam API не вернул данные");
+                if (!data || !data[appId] || !data[appId].success) throw new Error("Steam API не вернул данные");
                 
                 const game = data[appId].data;
 
-                // 1. Fill Text Fields
+                // Заполняем поля
                 document.getElementById('title').value = game.name;
                 document.getElementById('desc').value = game.short_description;
                 document.getElementById('ytSearchLink').href = `https://www.youtube.com/results?search_query=${encodeURIComponent(game.name + " trailer")}`;
+                document.getElementById('trailer').value = ""; 
 
-                // 2. Auto Tags
+                // Авто-теги
                 document.querySelectorAll('.tags-grid input').forEach(c => c.checked = false);
                 const steamTxt = [...(game.genres||[]), ...(game.categories||[])].map(x => x.description.toLowerCase()).join(" ");
                 ALL_TAGS.forEach(t => { if(t.keys.some(k => steamTxt.includes(k))) document.getElementById(`chk_${t.id}`).checked = true; });
 
-                // 3. Tier Guess
-                const tierSelect = document.getElementById('tier');
-                if (steamTxt.includes('indie') || steamTxt.includes('инди')) tierSelect.value = 'tier_indie';
-                else tierSelect.value = 'tier_aaa';
+                // Tier
+                document.getElementById('tier').value = (steamTxt.includes('indie') || steamTxt.includes('инди')) ? 'tier_indie' : 'tier_aaa';
 
-                // 4. Generate Images
+                // Изображения
                 const safeName = safeFilename(game.name);
-                
-                // Cover (Vertical Library Asset)
                 const coverUrl = `https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/${appId}/library_600x900_2x.jpg`;
-                setupImage('imgCover', 'dlCover', 'nameCover', coverUrl, `${safeName}.jpg`);
-
-                // Banner (Header)
                 const bannerUrl = game.header_image;
+                setupImage('imgCover', 'dlCover', 'nameCover', coverUrl, `${safeName}.jpg`);
                 setupImage('imgBanner', 'dlBanner', 'nameBanner', bannerUrl, `${safeName}_banner.jpg`);
 
-                // Screenshots (Gallery)
+                // Галерея скриншотов
                 const grid = document.getElementById('screenshotsGrid');
-                grid.innerHTML = ''; // Clear previous
+                grid.innerHTML = ''; 
                 if (game.screenshots) {
                     game.screenshots.slice(0, 10).forEach((scr, idx) => {
                         const filename = `${safeName}_screen_${idx+1}.jpg`;
@@ -285,7 +321,7 @@
                             <div class="img-wrapper screen"><img src="${scr.path_thumbnail}" loading="lazy"></div>
                             <div class="asset-meta">
                                 <div class="file-name">${filename}</div>
-                                <a href="${scr.path_full}" target="_blank" download class="download-btn">Открыть оригинал</a>
+                                <a href="#" class="download-btn" data-url="${scr.path_full}" data-filename="${filename}">Скачать оригинал</a>
                             </div>
                         `;
                         grid.appendChild(card);
@@ -293,7 +329,7 @@
                 }
 
                 document.getElementById('assetsSection').style.display = 'block';
-                status.innerText = "Успешно загружено!";
+                status.innerText = "Готово!";
                 status.style.color = "#44bd32";
                 
                 updateOutput();
@@ -310,56 +346,26 @@
 
         function setupImage(imgId, linkId, nameId, url, filename) {
             document.getElementById(imgId).src = url;
-            document.getElementById(linkId).href = url;
             document.getElementById(nameId).innerText = filename;
+            const link = document.getElementById(linkId);
+            link.onclick = (e) => downloadAsset(e, url, filename);
         }
 
-        // --- JSON GENERATION ---
         function updateOutput() {
             const title = document.getElementById('title').value.trim();
             if (!title) return;
-
             const safeName = safeFilename(title);
             const selectedTags = Array.from(document.querySelectorAll('.tags-grid input:checked')).map(cb => cb.value);
-
-            const json = {
-                id: "game_" + safeName,
-                title: title,
-                tier: document.getElementById('tier').value,
-                tags: selectedTags,
-                description: document.getElementById('desc').value.trim(),
-                trailer: document.getElementById('trailer').value.trim(),
-                assets: {
-                    cover: `${safeName}.jpg`,
-                    banner: `${safeName}_banner.jpg`
-                }
-            };
-
+            const json = { id: "game_" + safeName, title: title, tier: document.getElementById('tier').value, tags: selectedTags, description: document.getElementById('desc').value.trim(), trailer: document.getElementById('trailer').value.trim(), assets: { cover: `${safeName}.jpg`, banner: `${safeName}_banner.jpg` } };
             document.getElementById('output').textContent = JSON.stringify(json, null, 4) + ",";
-            
-            // Live update filenames if title changes manually
-            if (document.getElementById('assetsSection').style.display !== 'none') {
-                document.getElementById('nameCover').innerText = `${safeName}.jpg`;
-                document.getElementById('nameBanner').innerText = `${safeName}_banner.jpg`;
-                
-                // Update screenshot names
-                document.querySelectorAll('#screenshotsGrid .file-name').forEach((el, idx) => {
-                    el.innerText = `${safeName}_screen_${idx+1}.jpg`;
-                });
-            }
         }
-
+        
         function copyJSON() {
-            const range = document.createRange();
-            range.selectNode(document.getElementById('output'));
-            window.getSelection().removeAllRanges();
-            window.getSelection().addRange(range);
-            document.execCommand('copy');
-            window.getSelection().removeAllRanges();
-            
-            const btn = document.querySelector('.copy-btn');
-            btn.innerText = "Скопировано!";
-            setTimeout(() => btn.innerText = "Копировать", 2000);
+            navigator.clipboard.writeText(document.getElementById('output').textContent).then(() => {
+                const btn = document.querySelector('.copy-btn');
+                btn.innerText = "Скопировано!";
+                setTimeout(() => btn.innerText = "Копировать", 2000);
+            });
         }
     </script>
 </body>
