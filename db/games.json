@@ -1,5 +1,50 @@
 [
     {
+        "id": "game_illusion_carnival",
+        "steam_id": 2796340,
+        "title": "Illusion Carnival",
+        "tier": "tier_standard",
+        "developer": "KiZ",
+        "publisher": "KiZ",
+        "release_date": "11 Jul, 2024",
+        "tags": [
+            "Психологический хоррор",
+            "2.5D",
+            "Милая",
+            "Стилизация",
+            "Ролевая игра",
+            "Головоломка",
+            "Исследования",
+            "Глубокий сюжет",
+            "Бесплатная игра",
+            "Рисованная графика",
+            "Визуальная новелла",
+            "Аниме",
+            "Приключение",
+            "Японская ролевая игра",
+            "Цветастая",
+            "2D",
+            "Фэнтези",
+            "Вид сверху",
+            "Драма",
+            "Юмор"
+        ],
+        "description": "A lost soul wanders through a whimsical, eerie pop-up book like amusement park. Dive into fun-filled stages, encounter unique characters, fend off spirit erosion, and uncover the park's hidden secrets. The enchanting yet dark Illusion Carnival begins now.",
+        "trailer": "",
+        "assets": {
+            "cover": "illusion_carnival.jpg",
+            "banner": "illusion_carnival_banner.jpg",
+            "screenshots": [
+                "illusion_carnival_screen_1.jpg",
+                "illusion_carnival_screen_2.jpg",
+                "illusion_carnival_screen_3.jpg",
+                "illusion_carnival_screen_4.jpg",
+                "illusion_carnival_screen_5.jpg",
+                "illusion_carnival_screen_6.jpg"
+            ]
+        }
+    },
+    {
         "id": "game_sky_children_of_the_light",
         "steam_id": 2325290,
         "title": "Sky: Children of the Light",
