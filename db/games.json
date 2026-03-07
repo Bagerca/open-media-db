@@ -1,5 +1,142 @@
 [
     {
+        "id": "game_counter_strike_2",
+        "title": "Counter-Strike 2",
+        "tier": "tier_aaa",
+        "tags": [
+            "tag_action"
+        ],
+        "description": "For over two decades, Counter-Strike has offered an elite competitive experience, one shaped by millions of players from across the globe. And now the next chapter in the CS story is about to begin. This is Counter-Strike 2.",
+        "assets": {
+            "cover": "counter_strike_2.jpg",
+            "banner": "counter_strike_2_banner.jpg"
+        }
+    },
+    {
+        "id": "game_strinova",
+        "title": "Strinova",
+        "tier": "tier_aaa",
+        "tags": [
+            "tag_multi",
+            "tag_action"
+        ],
+        "description": "Strinova is an anime-style third-person tactical competitive shooter. Switch freely between three-dimensional and two-dimensional forms in this one-of-a-kind game that offers a unique tactical shooting system for an unparalleled experience.",
+        "assets": {
+            "cover": "strinova.jpg",
+            "banner": "strinova_banner.jpg"
+        }
+    },
+    {
+        "id": "game_apex_legends",
+        "title": "Apex Legends™",
+        "tier": "tier_aaa",
+        "tags": [
+            "tag_multi"
+        ],
+        "description": "Apex Legends — удостоенный наградами бесплатный геройский шутер от Respawn Entertainment. Освойте все тонкости игры за легендарных персонажей, число которых продолжает расти, и используйте их мощные умения в стратегии своего отряда. Это новое слово в геройских шутерах и «королевских битвах».",
+        "assets": {
+            "cover": "apex_legends.jpg",
+            "banner": "apex_legends_banner.jpg"
+        }
+    },
+    {
+        "id": "game_battlefield_2042",
+        "title": "Battlefield™ 2042",
+        "tier": "tier_aaa",
+        "tags": [
+            "tag_multi",
+            "tag_action",
+            "tag_adventure"
+        ],
+        "description": "Battlefield™ 2042 is a first-person shooter that marks the return to the iconic all-out warfare of the franchise.",
+        "assets": {
+            "cover": "battlefield_2042.jpg",
+            "banner": "battlefield_2042_banner.jpg"
+        }
+    },
+    {
+        "id": "game_farlight_84",
+        "title": "Farlight 84",
+        "tier": "tier_aaa",
+        "tags": [
+            "tag_multi",
+            "tag_action",
+            "tag_adventure"
+        ],
+        "description": "Hey Lightcatchers! Are you ready for massive 60-player shootouts? Enjoy fast-paced hero shooter action in Farlight 84!",
+        "assets": {
+            "cover": "farlight_84.jpg",
+            "banner": "farlight_84_banner.jpg"
+        }
+    },
+    {
+        "id": "game_fragpunk",
+        "title": "FragPunk",
+        "tier": "tier_aaa",
+        "tags": [
+            "tag_multi",
+            "tag_action"
+        ],
+        "description": "FragPunk is a thrilling 5v5 hero shooter where Shard Cards allow you to break the rules of combat and ensure that no two rounds are ever the same. Get ready to unleash your skills!",
+        "assets": {
+            "cover": "fragpunk.jpg",
+            "banner": "fragpunk_banner.jpg"
+        }
+    },
+    {
+        "id": "game_marvel_rivals",
+        "title": "Marvel Rivals",
+        "tier": "tier_aaa",
+        "tags": [
+            "tag_multi"
+        ],
+        "description": "Marvel Rivals — это командный PVP-шутер, где супергерои сражаются плечом к плечу! Соберите команду мечты из героев Marvel, разработайте уникальные стратегии, объединив силы в невероятные командные навыки, и сразитесь на разрушаемых полях боя в постоянно развивающейся вселенной Marvel!",
+        "assets": {
+            "cover": "marvel_rivals.jpg",
+            "banner": "marvel_rivals_banner.jpg"
+        }
+    },
+    {
+        "id": "game_overwatch",
+        "title": "Overwatch®",
+        "tier": "tier_aaa",
+        "tags": [
+            "tag_multi"
+        ],
+        "description": "Overwatch®: БУДУЩЕЕ, ЗА КОТОРОЕ СТОИТ БОРОТЬСЯ! Overwatch® — непрерывно развивающаяся бесплатная динамичная командная игра с постоянной поддержкой в ярком мире будущего, где каждый матч представляет собой поистине потрясающий бой 5 на 5 или 6 на 6.",
+        "assets": {
+            "cover": "overwatch.jpg",
+            "banner": "overwatch_banner.jpg"
+        }
+    },
+    {
+        "id": "game_pubg_battlegrounds",
+        "title": "PUBG: BATTLEGROUNDS",
+        "tier": "tier_aaa",
+        "tags": [
+            "tag_action",
+            "tag_adventure"
+        ],
+        "description": "PUBG: BATTLEGROUNDS, the high-stakes winner-take-all shooter that started the Battle Royale craze, is free-to-play! Drop into diverse maps, loot unique weapons and supplies, and survive in an ever-shrinking zone where every turn could be your last.",
+        "assets": {
+            "cover": "pubg_battlegrounds.jpg",
+            "banner": "pubg_battlegrounds_banner.jpg"
+        }
+    },
+    {
+        "id": "game_the_finals",
+        "title": "THE FINALS",
+        "tier": "tier_aaa",
+        "tags": [
+            "tag_multi"
+        ],
+        "description": "Играйте в THE FINALS, знаменитую бесплатную шоу-игру! Сражайтесь вместе с товарищами по команде на виртуальных аренах, меняйте их и уничтожайте! Разработайте собственный стиль игры в этом боевике от первого лица, победите во всех турнирах и увенчайте себя славой!",
+        "assets": {
+            "cover": "the_finals.jpg",
+            "banner": "the_finals_banner.jpg"
+        }
+    },
+    {
         "id": "game_helltaker",
         "title": "Helltaker",
         "tier": "tier_indie",
