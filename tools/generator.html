@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cycle MediaDB Generator: Ultra</title>
-    <!-- Библиотеки для создания ZIP архивов -->
+    <!-- Библиотеки -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
     
@@ -116,27 +116,36 @@
             return str.toLowerCase().split('').map(c => translitMap[c] || c).join('').replace(/[^a-z0-9]/g, '_').replace(/_+/g, '_').replace(/^_|_$/g, ''); 
         }
 
-        // ================= NETWORK =================
+        // ================= NETWORK (UPDATED) =================
+        // Новая функция с ротацией прокси
         async function fetchWithFallback(url, type = 'json') {
-            const encodedUrl = encodeURIComponent(url);
-            // Используем публичные прокси для обхода CORS
-            const proxies = [
-                { name: "AllOrigins", url: `https://api.allorigins.win/raw?url=${encodedUrl}` },
-                { name: "CodeTabs", url: `https://api.codetabs.com/v1/proxy?quest=${url}` }
+            // Список прокси по приоритету
+            const proxyList = [
+                // 1. CorsProxy.io (Самый надежный для файлов)
+                { prefix: 'https://corsproxy.io/?', encode: true },
+                // 2. AllOrigins Raw (Резерв)
+                { prefix: 'https://api.allorigins.win/raw?url=', encode: true },
+                // 3. CodeTabs (Резерв 2)
+                { prefix: 'https://api.codetabs.com/v1/proxy?quest=', encode: false }
             ];
-            
+
             let lastErr = "";
-            for (let proxy of proxies) {
-                try { 
-                    const res = await fetch(proxy.url); 
-                    if (!res.ok) throw new Error(`HTTP ${res.status}`); 
-                    return type === 'json' ? await res.json() : await res.blob(); 
-                } catch (e) { 
-                    console.warn(`Proxy ${proxy.name} fail:`, e);
+            
+            for (let proxy of proxyList) {
+                try {
+                    const targetUrl = proxy.encode ? encodeURIComponent(url) : url;
+                    const fullUrl = proxy.prefix + targetUrl;
+                    
+                    const res = await fetch(fullUrl);
+                    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+                    
+                    return type === 'json' ? await res.json() : await res.blob();
+                } catch (e) {
+                    console.warn(`Прокси не сработал (${proxy.prefix}):`, e);
                     lastErr = e.message;
                 }
             }
-            throw new Error(`Все прокси недоступны. (${lastErr})`);
+            throw new Error(`Все прокси недоступны. Проверьте интернет или повторите позже.`);
         }
 
         // ================= LOGIC =================
@@ -233,11 +242,17 @@
                 
                 for (const game of successGames) {
                     const gameFolder = folder.folder(game.id);
+                    
+                    // Вспомогательная функция для попытки скачать и добавить файл
                     const fetchAndAdd = async (url, filename) => {
                         try {
                             const blob = await fetchWithFallback(url, 'blob');
                             gameFolder.file(filename, blob);
-                        } catch(e) { console.error(`Ошибка файла ${filename}`, e); }
+                        } catch(e) { 
+                            console.error(`Не удалось скачать ${filename}:`, e); 
+                            // Создаем пустой текстовый файл с ошибкой, чтобы процесс не падал
+                            gameFolder.file(filename + ".error.txt", "Download failed: " + e.message);
+                        }
                     };
 
                     await fetchAndAdd(game.assets.cover.url, game.assets.cover.filename);
@@ -245,13 +260,13 @@
                     for (const scr of game.assets.screenshots) await fetchAndAdd(scr.url, scr.filename);
                 }
 
-                btn.innerHTML = `<span class="spinner"></span> Генерация BLOB...`;
+                btn.innerHTML = `<span class="spinner"></span> Генерация ZIP...`;
                 const content = await zip.generateAsync({ type: "blob" });
                 saveAs(content, "MediaDB_Assets.zip");
                 showToast("Архив готов!", "success");
             } catch(e) {
                 console.error(e);
-                showToast("Ошибка ZIP", "error");
+                showToast("Ошибка создания ZIP", "error");
             } finally {
                 btn.innerHTML = originalText;
                 btn.disabled = false;
