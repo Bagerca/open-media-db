@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cycle MediaDB: Ultimate</title>
+    <title>Cycle MediaDB: Ultimate v4 (Tags Fix)</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
     
@@ -45,7 +45,7 @@
         .q-img { width: 32px; height: 48px; background: #000; border-radius: 4px; object-fit: cover; flex-shrink: 0; }
         .q-details { flex: 1; min-width: 0; }
         .q-title { font-weight: 600; font-size: 13px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-bottom: 3px; }
-        .q-status { font-size: 11px; color: var(--text-dim); }
+        .q-status { font-size: 11px; color: var(--text-dim); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;}
         .q-remove { background: none; border: none; color: var(--text-dim); cursor: pointer; padding: 4px; font-size: 16px; transition: 0.2s; }
         .q-remove:hover { color: var(--red); transform: scale(1.1); }
 
@@ -72,10 +72,6 @@
         .modal-body { padding: 20px; max-height: 75vh; overflow-y: auto; display: flex; flex-direction: column; gap: 15px; }
         .modal-footer { padding: 20px; border-top: 1px solid var(--border); display: flex; justify-content: flex-end; gap: 10px; background: var(--bg-element); }
         
-        .tags-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); gap: 8px; }
-        .tag-pill { background: var(--bg-body); border: 1px solid var(--border); padding: 8px; border-radius: 6px; font-size: 11px; cursor: pointer; text-align: center; user-select: none; transition: 0.2s; font-weight: 600; }
-        .tag-pill.active { background: var(--accent); border-color: var(--accent); color: #fff; }
-
         .row { display: flex; gap: 15px; } .col { flex: 1; }
 
         .spinner { width: 14px; height: 14px; border: 2px solid rgba(255,255,255,0.3); border-top-color: #fff; border-radius: 50%; animation: spin 0.8s linear infinite; display: inline-block; vertical-align: middle; margin-right: 5px; }
@@ -174,9 +170,10 @@
                 <div class="col"><label>Трейлер (YouTube/MP4 URL)</label><input type="text" id="custTrailer" placeholder="https://..."></div>
             </div>
 
+            <!-- ИЗМЕНЕНО: Поле для меток -->
             <div>
-                <label>Теги</label>
-                <div class="tags-grid" id="tagsGrid"></div>
+                <label>Метки (через запятую)</label>
+                <textarea id="custTags" style="height: 50px;" placeholder="Экшен, Шутер, Открытый мир..."></textarea>
             </div>
 
             <div style="border-top: 1px solid var(--border); padding-top: 15px;">
@@ -219,18 +216,6 @@
             'konami', 'warner bros', 'take-two', 'cd projekt', 'microsoft', 'sony', 'nintendo', 'valve'
         ];
 
-        const ALL_TAGS =[
-            { id: 'tag_single', name: 'Singleplayer', keys: ['singleplayer', 'single-player'] },
-            { id: 'tag_multi', name: 'Multiplayer', keys:['multiplayer', 'co-op', 'coop', 'кооператив'] },
-            { id: 'tag_action', name: 'Action', keys:['action', 'экшен', 'shooter', 'шутер'] },
-            { id: 'tag_adventure', name: 'Adventure', keys: ['adventure', 'приключение'] },
-            { id: 'tag_rpg', name: 'RPG', keys: ['rpg', 'ролевая'] },
-            { id: 'tag_strategy', name: 'Strategy', keys: ['strategy', 'стратегия'] },
-            { id: 'tag_horror', name: 'Horror', keys: ['horror', 'survival horror'] },
-            { id: 'tag_sport', name: 'Sport', keys:['sport', 'racing', 'гонки'] },
-            { id: 'tag_indie', name: 'Indie', keys:['indie', 'инди'] }
-        ];
-
         let queue =[];
         const translit = { 'а':'a','б':'b','в':'v','г':'g','д':'d','е':'e','ё':'yo','ж':'zh','з':'z','и':'i','й':'y','к':'k','л':'l','м':'m','н':'n','о':'o','п':'p','р':'r','с':'s','т':'t','у':'u','ф':'f','х':'h','ц':'ts','ч':'ch','ш':'sh','щ':'sch','ь':'','ы':'y','ъ':'','э':'e','ю':'yu','я':'ya' };
 
@@ -266,19 +251,26 @@
 
         async function fetchApi(url, type = 'json') {
             const proxies =[
-                { pre: 'https://corsproxy.io/?', enc: true },
-                { pre: 'https://api.allorigins.win/raw?url=', enc: true },
-                { pre: 'https://api.codetabs.com/v1/proxy?quest=', enc: false }
+                { url: (u) => `https://api.allorigins.win/raw?url=${encodeURIComponent(u)}` },
+                { url: (u) => `https://corsproxy.io/?${encodeURIComponent(u)}` },
+                { url: (u) => `https://api.codetabs.com/v1/proxy?quest=${u}` }
             ];
+
+            let lastErr = "";
             for (let p of proxies) {
                 try {
-                    const target = p.enc ? encodeURIComponent(url) : url;
-                    const res = await fetch(p.pre + target);
-                    if (!res.ok) throw new Error(res.status);
-                    return type === 'json' ? await res.json() : await res.blob();
-                } catch(e) {}
+                    const reqUrl = p.url(url);
+                    const res = await fetch(reqUrl, { cache: 'no-store' });
+                    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+                    
+                    if (type === 'json') return await res.json();
+                    if (type === 'text') return await res.text();
+                    if (type === 'blob') return await res.blob();
+                } catch(e) {
+                    lastErr = e.message;
+                }
             }
-            throw new Error("Network/Proxy Failed");
+            throw new Error(`Proxy unavailable (${lastErr})`);
         }
 
         // --- 3. STEAM LOGIC ---
@@ -300,7 +292,7 @@
             for (let id of ids) {
                 if (queue.some(g => g.steam_id == id)) continue;
                 
-                const item = { steam_id: id, title: `Steam ID: ${id}`, status: 'loading', type: 'steam' };
+                const item = { steam_id: id, title: `ID: ${id}`, status: 'loading', type: 'steam', errorMsg: '' };
                 queue.unshift(item);
                 renderQueue();
 
@@ -310,10 +302,14 @@
                     renderAll();
                 }).catch(e => {
                     const idx = queue.indexOf(item);
-                    if (idx > -1) { item.status = 'error'; item.title = `ID ${id} (Не найдено)`; }
+                    if (idx > -1) { 
+                        item.status = 'error'; 
+                        item.errorMsg = e.message;
+                        item.title = `ID: ${id} (Ошибка)`; 
+                    }
                     renderAll();
                 });
-                await new Promise(r => setTimeout(r, 200));
+                await new Promise(r => setTimeout(r, 400));
             }
             steamBtn.innerHTML = originalText;
             steamBtn.disabled = false;
@@ -321,11 +317,21 @@
 
         async function fetchSteamData(appId) {
             const data = await fetchApi(`https://store.steampowered.com/api/appdetails?appids=${appId}&l=russian`, 'json');
-            if (!data[appId].success) throw new Error("API Fail");
+            if (!data || !data[appId] || !data[appId].success) throw new Error("Игра не найдена в Steam (возможно, удалена)");
             
             const g = data[appId].data;
             const sName = safeName(g.name);
-            const desc = [...(g.genres||[]), ...(g.categories||[])].map(x => x.description.toLowerCase());
+            
+            // НОВАЯ ЛОГИКА ТЕГОВ
+            let tags = [];
+            try {
+                const storePageHtml = await fetchApi(`https://store.steampowered.com/app/${appId}/?l=russian`, 'text');
+                const tagMatches = storePageHtml.matchAll(/<a[^>]*class="app_tag"[^>]*>([^<]*)<\/a>/g);
+                tags = Array.from(tagMatches).map(m => m[1].trim());
+            } catch (e) {
+                console.warn(`HTML tags parsing failed for ${appId}`, e);
+                tags = (g.genres || []).map(genre => genre.description);
+            }
             
             const developers = (g.developers ||[]).join(', ');
             const publishers = (g.publishers ||[]).join(', ');
@@ -343,7 +349,7 @@
 
             const pubsLower = (g.publishers ||[]).map(p => p.toLowerCase());
             let detectedTier = 'tier_standard';
-            const isIndie = desc.includes('инди') || desc.includes('indie');
+            const isIndie = tags.map(t=>t.toLowerCase()).includes('инди');
             const isAAA = AAA_PUBLISHERS.some(aaa => pubsLower.some(p => p.includes(aaa)));
 
             if (isAAA) detectedTier = 'tier_aaa';
@@ -357,7 +363,7 @@
                 developer: developers,
                 publisher: publishers,
                 release_date: releaseDate,
-                tags: ALL_TAGS.filter(t => t.keys.some(k => desc.includes(k))).map(t => t.id),
+                tags: tags,
                 description: cleanDesc,
                 trailer: trailerUrl,
                 assets: {
@@ -368,24 +374,16 @@
                     }))
                 },
                 status: 'success',
-                type: 'steam'
+                type: 'steam',
+                errorMsg: ''
             };
         }
 
         // --- 4. CUSTOM LOGIC ---
         const modal = document.getElementById('customModal');
-        const tagContainer = document.getElementById('tagsGrid');
-        ALL_TAGS.forEach(t => {
-            const el = document.createElement('div');
-            el.className = 'tag-pill';
-            el.innerText = t.name;
-            el.dataset.id = t.id;
-            el.onclick = () => el.classList.toggle('active');
-            tagContainer.appendChild(el);
-        });
-
-        function openModal() {['custTitle','custDev','custPub','custDate','custId','custCover','custBanner','custTrailer','custScreens'].forEach(id => document.getElementById(id).value = '');
-            document.querySelectorAll('.tag-pill').forEach(el => el.classList.remove('active'));
+        
+        function openModal() {
+            ['custTitle','custDev','custPub','custDate','custId','custCover','custBanner','custTrailer','custScreens','custTags'].forEach(id => document.getElementById(id).value = '');
             modal.showModal();
         }
         function closeModal() { modal.close(); }
@@ -410,7 +408,11 @@
             const date = document.getElementById('custDate').value.trim();
             const tier = document.getElementById('custTier').value;
             const trailer = document.getElementById('custTrailer').value.trim();
-            const tags = Array.from(document.querySelectorAll('.tag-pill.active')).map(e => e.dataset.id);
+            
+            // Парсим теги из textarea
+            const tagsText = document.getElementById('custTags').value;
+            const tags = tagsText.split(',').map(t => t.trim()).filter(Boolean);
+
             const cover = document.getElementById('custCover').value.trim();
             const banner = document.getElementById('custBanner').value.trim();
             
@@ -437,7 +439,8 @@
                     screenshots: screenObjects
                 },
                 status: 'success', 
-                type: 'custom'
+                type: 'custom',
+                errorMsg: ''
             });
             renderAll(); 
             closeModal(); 
@@ -446,21 +449,13 @@
 
         // --- 5. RENDER ---
         function clearQueue() { 
-            if(confirm("Точно очистить всю очередь?")) {
-                queue =[]; 
-                renderAll(); 
-            }
+            if(confirm("Точно очистить всю очередь?")) { queue =[]; renderAll(); }
         }
         function removeGame(sid) {
-            queue = queue.filter(g => g.steam_id != sid);
-            renderAll();
+            queue = queue.filter(g => g.steam_id != sid); renderAll();
         }
 
-        function renderAll() { 
-            renderQueue(); 
-            renderJson(); 
-            renderGrid(); 
-        }
+        function renderAll() { renderQueue(); renderJson(); renderGrid(); }
 
         function renderQueue() {
             const list = document.getElementById('queueList');
@@ -470,11 +465,11 @@
                 return; 
             }
             list.innerHTML = queue.map(g => `
-                <div class="queue-item ${g.status}">
+                <div class="queue-item ${g.status}" title="${g.errorMsg || ''}">
                     ${g.assets ? `<img src="${g.assets.cover.url}" class="q-img" onerror="this.src='https://via.placeholder.com/32x48?text=err'">` : '<div class="q-img" style="background:var(--bg-body)"></div>'}
                     <div class="q-details">
                         <div class="q-title">${g.title}</div>
-                        <div class="q-status">${g.type === 'custom' ? '🛠 Custom' : '🎮 Steam'} • ${g.status}</div>
+                        <div class="q-status">${g.type === 'custom' ? '🛠️ Custom' : '🎮 Steam'} • ${g.status === 'error' ? `<span style="color:var(--red)">${g.errorMsg}</span>` : g.status}</div>
                     </div>
                     <button class="q-remove" onclick="removeGame('${g.steam_id}')">✕</button>
                 </div>
