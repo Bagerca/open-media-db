@@ -485,6 +485,7 @@
             const valid = queue.filter(g => g.status === 'success');
             const data = valid.map(g => ({
                 id: g.id, 
+                steam_id: g.type === 'steam' ? parseInt(g.steam_id) : null,
                 title: g.title, 
                 tier: g.tier, 
                 developer: g.developer,
@@ -496,7 +497,7 @@
                 assets: { 
                     cover: g.assets.cover.file, 
                     banner: g.assets.banner.file,
-                    screenshots: g.assets.screenshots ? g.assets.screenshots.map(s => s.file) :[]
+                    screenshots: g.assets.screenshots ? g.assets.screenshots.map(s => s.file) : []
                 }
             }));
             document.getElementById('jsonOutput').textContent = JSON.stringify(data, null, 4);
