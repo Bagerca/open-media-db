@@ -6,7 +6,7 @@
         "tier": "tier_aaa",
         "developer": "Valve",
         "publisher": "Valve",
-        "release_date": "18 Apr, 2011",
+        "release_date": "18 апр. 2011 г.",
         "tags": [
             "Singleplayer",
             "Platformer",
@@ -29,7 +29,7 @@
             "Comedy",
             "Atmospheric"
         ],
-        "description": "The \"Perpetual Testing Initiative\" has been expanded to allow you to design co-op puzzles for you and your friends!",
+        "description": "Программа вечного тестирования расширена: создавайте совместные головоломки для себя и друзей!",
         "trailer": "",
         "assets": {
             "cover": "portal_2.jpg",
@@ -140,7 +140,7 @@
         "tier": "tier_standard",
         "developer": "Teyon",
         "publisher": "Nacon",
-        "release_date": "2 ноя. 2023 г.",
+        "release_date": "2 Nov, 2023",
         "tags": [
             "Action",
             "Co-op",
@@ -163,7 +163,7 @@
             "War",
             "e-sports"
         ],
-        "description": "На 50% человек, на 50% робот — на 100% герой: окунитесь в мир Старого Детройта в роли легендарного полицейского и вершите правосудие.",
+        "description": "Become the legendary part man, part machine, all cop hero and deliver justice in Old Detroit.",
         "trailer": "",
         "assets": {
             "cover": "robocop_rogue_city.jpg",
@@ -185,7 +185,7 @@
         "tier": "tier_standard",
         "developer": "EXBO",
         "publisher": "EXBO",
-        "release_date": "9 дек. 2022 г.",
+        "release_date": "9 Dec, 2022",
         "tags": [
             "Free to Play",
             "Multiplayer",
@@ -208,7 +208,7 @@
             "Team-Based",
             "Alternate History"
         ],
-        "description": "STALCRAFT: X — самая масштабная онлайн-игра в открытом мире Чернобыльской Зоны Отчуждения. Исследуйте наполненный мутантами и аномалиями мир в одиночку или с друзьями — незабываемые эмоции гарантированы.",
+        "description": "STALCRAFT: X is the largest open-world online game in the Chernobyl Exclusion Zone. Explore the world full of mutants and anomalies alone or with friends — unforgettable emotions guaranteed.",
         "trailer": "",
         "assets": {
             "cover": "stalcraft_x.jpg",
@@ -230,7 +230,7 @@
         "tier": "tier_indie",
         "developer": "Unknown Worlds Entertainment",
         "publisher": "Unknown Worlds Entertainment",
-        "release_date": "23 янв. 2018 г.",
+        "release_date": "23 Jan, 2018",
         "tags": [
             "Open World Survival Craft",
             "Survival",
@@ -275,7 +275,7 @@
         "tier": "tier_indie",
         "developer": "Timon Herzog",
         "publisher": "Metaroot, Timon Herzog",
-        "release_date": "10 окт. 2025 г.",
+        "release_date": "10 Oct, 2025",
         "tags": [
             "Programming",
             "Automation",
@@ -298,7 +298,7 @@
             "Economy",
             "Indie"
         ],
-        "description": "Запрограммируйте дрон, чтобы автоматизировать работу на ферме, и смотрите, как он делает все за вас. Собирайте ресурсы и разблокируйте новые технологии. Станьте самым успешным фермером в мире. В процессе вы разовьете навыки решения задач и написания кода.",
+        "description": "Program and optimize a drone to automate a farm and watch it do the work for you. Collect resources to unlock better technology and become the most efficient farmer in the world. Improve your problem solving and coding skills.",
         "trailer": "",
         "assets": {
             "cover": "the_farmer_was_replaced.jpg",
@@ -330,7 +330,7 @@
             "Singleplayer",
             "Choices Matter",
             "Classic",
-            "Point &amp; Click",
+            "Point & Click",
             "2D",
             "Epic",
             "Hand-drawn",
@@ -426,7 +426,7 @@
             "Mature",
             "Adventure",
             "Interactive Fiction",
-            "Point &amp; Click",
+            "Point & Click",
             "Great Soundtrack",
             "Cute",
             "Anime",
@@ -545,7 +545,7 @@
         "tier": "tier_standard",
         "developer": "Ninja Kiwi",
         "publisher": "Ninja Kiwi",
-        "release_date": "17 Dec, 2018",
+        "release_date": "17 дек. 2018 г.",
         "tags": [
             "Tower Defense",
             "Strategy",
@@ -568,7 +568,7 @@
             "Survival",
             "Action"
         ],
-        "description": "The Bloons are back and better than ever! Get ready for a massive 3D tower defense game designed to give you hours and hours of the best strategy gaming available.",
+        "description": "Игра-боевик в стиле «оборона крепости»",
         "trailer": "",
         "assets": {
             "cover": "bloons_td_6.jpg",
@@ -680,7 +680,7 @@
         "tier": "tier_indie",
         "developer": "Mayni prod.",
         "publisher": "Mayni prod.",
-        "release_date": "27 авг. 2024 г.",
+        "release_date": "27 Aug, 2024",
         "tags": [
             "Indie",
             "Cats",
@@ -699,7 +699,7 @@
             "Survival",
             "Early Access"
         ],
-        "description": "Cat Bait — казуальная игра с милой пиксельной графикой. Управляйте Котом Приманкой, уклоняйтесь от врагов и используйте уникальные способности котов-помощников.",
+        "description": "Cat Bait is a casual game with cute pixel graphics. Control the Cat Bait, dodge enemies, and use the unique abilities of helper cats.",
         "trailer": "",
         "assets": {
             "cover": "cat_bait.jpg",
@@ -721,7 +721,7 @@
         "tier": "tier_indie",
         "developer": "Two Star Games",
         "publisher": "Two Star Games",
-        "release_date": "9 дек. 2022 г.",
+        "release_date": "Dec 9, 2022",
         "tags": [
             "Survival Horror",
             "Horror",
@@ -744,7 +744,7 @@
             "Hand-drawn",
             "Sexual Content"
         ],
-        "description": "Путешествуйте по острову в старом поезде, периодически улучшайте его и используйте для борьбы со злым пауком по имени Чарльз.",
+        "description": "Navigate an open-world island in an old train, upgrade it over time, and use it to fight an evil spider train named Charles.",
         "trailer": "",
         "assets": {
             "cover": "choo_choo_charles.jpg",
@@ -811,7 +811,7 @@
         "tier": "tier_standard",
         "developer": "Crytek, Saber Interactive",
         "publisher": "Crytek",
-        "release_date": "17 ноя. 2022 г.",
+        "release_date": "17 Nov, 2022",
         "tags": [
             "Action",
             "FPS",
@@ -834,7 +834,7 @@
             "Story Rich",
             "Violent"
         ],
-        "description": "В Crysis 3 Remastered вы сможете вновь пережить события классического боевика Crysis 3, оптимизированного для современных систем.",
+        "description": "Experience the single-player experience from the iconic first-person shooter, Crysis 3, optimized to take advantage of today's hardware in Crysis 3 Remastered.",
         "trailer": "",
         "assets": {
             "cover": "crysis_3_remastered.jpg",
@@ -856,7 +856,7 @@
         "tier": "tier_standard",
         "developer": "Crytek, Saber Interactive",
         "publisher": "Crytek",
-        "release_date": "17 ноя. 2022 г.",
+        "release_date": "17 Nov, 2022",
         "tags": [
             "Action",
             "FPS",
@@ -879,7 +879,7 @@
             "Multiplayer",
             "Stealth"
         ],
-        "description": "В Crysis 2 Remastered вы сможете вновь окунуться в мир легендарного боевика Crysis 2, оптимизированный для современных систем.",
+        "description": "Relive the legendary single-player campaign from the classic first-person shooter, Crysis 2, optimized for today's hardware in Crysis 2 Remastered.",
         "trailer": "",
         "assets": {
             "cover": "crysis_2_remastered.jpg",
@@ -1167,7 +1167,7 @@
         "tier": "tier_indie",
         "developer": "Alawar Stargaze (Warm Lamp Games)",
         "publisher": "Alawar",
-        "release_date": "4 Dec, 2018",
+        "release_date": "4 дек. 2018 г.",
         "tags": [
             "Dystopian",
             "Strategy",
@@ -1182,7 +1182,7 @@
             "Dark",
             "Politics",
             "Addictive",
-            "Point &amp; Click",
+            "Point & Click",
             "2D",
             "Lore-Rich",
             "Indie",
@@ -1190,7 +1190,7 @@
             "Violent",
             "Psychological Horror"
         ],
-        "description": "You are an intern at the central ministry of a totalitarian state with your whole career ahead of you. Work your way up the ladder by scheming against employees, spying on your boss, and completing paperwork. Or do you turn against the state and expose corruption. The choice is still yours to make!",
+        "description": "Вы стажёр Министерства тоталитарного государства. Плетите интриги, шпионьте за начальством и пробирайтесь сквозь бюрократию в погоне за повышением. Или восстаньте против системы и разоблачите правительство. Выбор только за вами!",
         "trailer": "",
         "assets": {
             "cover": "beholder_2.jpg",
@@ -1218,7 +1218,7 @@
             "Simulation",
             "Dystopian",
             "Strategy",
-            "Point &amp; Click",
+            "Point & Click",
             "Choose Your Own Adventure",
             "2D",
             "Atmospheric",
@@ -1265,7 +1265,7 @@
             "Singleplayer",
             "Indie",
             "Story Rich",
-            "Point &amp; Click",
+            "Point & Click",
             "Simulation",
             "Strategy",
             "Political",
@@ -1616,7 +1616,7 @@
         "tier": "tier_indie",
         "developer": "vanripper",
         "publisher": "vanripper",
-        "release_date": "16 дек. 2024 г.",
+        "release_date": "16 Dec, 2024",
         "tags": [
             "Cute",
             "Free to Play",
@@ -1839,7 +1839,7 @@
         "tier": "tier_standard",
         "developer": "Farlight Games",
         "publisher": "Farlight Games",
-        "release_date": "21 Sep, 2023",
+        "release_date": "21 сен. 2023 г.",
         "tags": [
             "Free to Play",
             "Battle Royale",
@@ -1884,7 +1884,7 @@
         "tier": "tier_aaa",
         "developer": "Bad Guitar Studio",
         "publisher": "NetEase Games",
-        "release_date": "6 Mar, 2025",
+        "release_date": "6 мар. 2025 г.",
         "tags": [
             "Free to Play",
             "FPS",
@@ -1907,7 +1907,7 @@
             "Co-op",
             "Hentai"
         ],
-        "description": "FragPunk is a thrilling 5v5 hero shooter where Shard Cards allow you to break the rules of combat and ensure that no two rounds are ever the same. Get ready to unleash your skills!",
+        "description": "FragPunk — это захватывающий шутер 5 на 5 с уникальной особенностью: специальные фрагмент-карты позволяют на ходу менять правила боя, а потому каждая битва становится по-настоящему неповторимой. Готовьтесь показать свое мастерство!",
         "trailer": "",
         "assets": {
             "cover": "fragpunk.jpg",
@@ -1929,7 +1929,7 @@
         "tier": "tier_aaa",
         "developer": "NetEase Games",
         "publisher": "NetEase Games",
-        "release_date": "5 Dec, 2024",
+        "release_date": "5 дек. 2024 г.",
         "tags": [
             "Free to Play",
             "Multiplayer",
@@ -1952,7 +1952,7 @@
             "Psychological Horror",
             "MOBA"
         ],
-        "description": "Marvel Rivals is a Super Hero Team-Based PVP Shooter! Assemble an all-star Marvel squad, devise countless strategies by combining powers to form unique Team-Up skills and fight in destructible, ever-changing battlefields across the continually evolving Marvel universe!",
+        "description": "Marvel Rivals — это командный PVP-шутер, где супергерои сражаются плечом к плечу! Соберите команду мечты из героев Marvel, разработайте уникальные стратегии, объединив силы в невероятные командные навыки, и сразитесь на разрушаемых полях боя в постоянно развивающейся вселенной Marvel!",
         "trailer": "",
         "assets": {
             "cover": "marvel_rivals.jpg",
@@ -2064,7 +2064,7 @@
         "tier": "tier_aaa",
         "developer": "iDreamSky",
         "publisher": "iDreamSky",
-        "release_date": "21 Nov, 2024",
+        "release_date": "21 ноя. 2024 г.",
         "tags": [
             "Free to Play",
             "Anime",
@@ -2087,7 +2087,7 @@
             "Casual",
             "2D"
         ],
-        "description": "Strinova is an anime-style third-person tactical competitive shooter. Switch freely between three-dimensional and two-dimensional forms in this one-of-a-kind game that offers a unique tactical shooting system for an unparalleled experience.",
+        "description": "Strinova — тактический соревновательный шутер от третьего лица в стиле аниме. Переключайтесь между трехмерной и двухмерной формами и наслаждайтесь необычной игрой с уникальной тактической системой стрельбы.",
         "trailer": "",
         "assets": {
             "cover": "strinova.jpg",
@@ -2247,8 +2247,8 @@
         "tags": [
             "Early Access",
             "Multiplayer",
-            "Cozy",
             "Open World",
+            "Cozy",
             "Adventure",
             "Exploration",
             "Cute",
@@ -2335,26 +2335,26 @@
         "publisher": "Focus Entertainment, 4Divinity",
         "release_date": "20 фев. 2023 г.",
         "tags": [
-            "Action",
-            "Co-op",
-            "Competitive",
-            "Difficult",
+            "Sexual Content",
             "FPS",
-            "Fast-Paced",
-            "First-Person",
-            "Military",
-            "Moddable",
-            "Multiplayer",
-            "Online Co-Op",
-            "PvP",
-            "Realistic",
+            "Horror",
+            "Singleplayer",
+            "Puzzle",
+            "Robots",
+            "Mystery",
+            "Action",
             "Shooter",
-            "Strategy",
-            "Tactical",
-            "Team-Based",
-            "Trading",
-            "War",
-            "e-sports"
+            "Sci-fi",
+            "First-Person",
+            "Open World",
+            "Action-Adventure",
+            "Alternate History",
+            "Exploration",
+            "Atmospheric",
+            "Gore",
+            "Cyberpunk",
+            "Action RPG",
+            "RPG"
         ],
         "description": "Погрузитесь в безумную и прекрасную техноутопию, где вас на каждом шагу поджидает смерть. Выполните порученное вам задание, подстраиваясь под необычных противников, используя элементы окружения и улучшая свой арсенал. Узнайте правду — любой ценой!",
         "trailer": "",
