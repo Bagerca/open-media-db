@@ -3,631 +3,627 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cycle MediaDB: Ultimate v10 (Decoder Fix)</title>
+    <title>Cycle MediaDB Ultimate</title>
+    <!-- Подключаем нужные библиотеки -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.15.2/Sortable.min.js"></script>
     
     <style>
-        :root { --bg-body: #09090b; --bg-panel: #18181b; --bg-element: #27272a; --border: #3f3f46; --accent: #7c3aed; --accent-hover: #6d28d9; --text-main: #f4f4f5; --text-dim: #a1a1aa; --green: #10b981; --red: #ef4444; --radius: 8px; }
-        * { box-sizing: border-box; margin: 0; padding: 0; outline: none; }
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: var(--bg-body); color: var(--text-main); height: 100vh; display: flex; overflow: hidden; }
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
 
-        .sidebar { width: 420px; background: var(--bg-panel); border-right: 1px solid var(--border); display: flex; flex-direction: column; flex-shrink: 0; z-index: 2; }
-        .sidebar-header { padding: 20px; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
-        .sidebar-content { flex: 1; overflow-y: auto; padding: 15px; display: flex; flex-direction: column; gap: 15px; }
-        
-        .main { flex: 1; display: flex; flex-direction: column; overflow: hidden; position: relative; }
-        .main-header { padding: 20px; border-bottom: 1px solid var(--border); background: var(--bg-panel); display: flex; justify-content: space-between; align-items: center; }
-        .main-content { flex: 1; overflow-y: auto; padding: 30px; }
+        /* --- CYCLE DESIGN SYSTEM --- */
+        :root {
+            --bg-base: #060606;
+            --bg-panel: #121212;
+            --bg-input: #1a1a1a;
+            --bg-hover: #222222;
+            --border-subtle: #262626;
+            --border-focus: #3f3f46;
+            
+            --text-main: #ffffff;
+            --text-muted: #888888;
+            
+            --accent: #8b5cf6;
+            --accent-hover: #7c3aed;
+            
+            --status-success: #10b981;
+            --status-process: #f59e0b;
+            --status-error: #ef4444;
 
-        h1 { font-size: 20px; font-weight: 800; margin: 0; } h1 span { color: var(--accent); }
-        h2 { font-size: 16px; color: var(--text-dim); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 15px; }
-        label { font-size: 12px; font-weight: 600; color: var(--text-dim); display: block; margin-bottom: 6px; }
-
-        .btn { background: var(--accent); color: #fff; border: none; padding: 10px 16px; border-radius: var(--radius); cursor: pointer; font-weight: 600; font-size: 13px; transition: 0.2s; display: inline-flex; align-items: center; justify-content: center; gap: 8px; white-space: nowrap; }
-        .btn:hover { background: var(--accent-hover); }
-        .btn:disabled { opacity: 0.7; cursor: not-allowed; background: var(--bg-element); color: var(--text-dim); }
-        .btn.secondary { background: var(--bg-element); color: var(--text-main); border: 1px solid var(--border); }
-        .btn.secondary:hover { border-color: var(--text-dim); background: var(--border); }
-        .btn.full { width: 100%; }
-        .btn.small { padding: 4px 8px; font-size: 11px; height: auto; }
-
-        input, textarea, select { width: 100%; background: var(--bg-body); border: 1px solid var(--border); color: var(--text-main); padding: 10px; border-radius: var(--radius); font-size: 13px; transition: 0.2s; }
-        input:focus, textarea:focus, select:focus { border-color: var(--accent); }
-
-        .queue-list { display: flex; flex-direction: column; gap: 8px; }
-        .queue-item { background: var(--bg-element); padding: 10px; border-radius: var(--radius); display: flex; align-items: center; gap: 12px; border: 1px solid transparent; transition: 0.2s; position: relative; overflow: hidden; }
-        .queue-item:hover { border-color: var(--border); }
-        .queue-item.success { border-left: 3px solid var(--green); }
-        .queue-item.error { border-left: 3px solid var(--red); }
-        .queue-item.loading { border-left: 3px solid var(--accent); opacity: 0.8; }
-        
-        .q-img { width: 32px; height: 48px; background: #000; border-radius: 4px; object-fit: cover; flex-shrink: 0; }
-        .q-details { flex: 1; min-width: 0; }
-        .q-title { font-weight: 600; font-size: 13px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-bottom: 3px; }
-        .q-status { font-size: 11px; color: var(--text-dim); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;}
-        .q-remove { background: none; border: none; color: var(--text-dim); cursor: pointer; padding: 4px; font-size: 16px; transition: 0.2s; }
-        .q-remove:hover { color: var(--red); transform: scale(1.1); }
-
-        .assets-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 20px; }
-        .asset-card { background: var(--bg-panel); border: 1px solid var(--border); border-radius: var(--radius); padding: 12px; display: flex; flex-direction: column; }
-        .asset-preview { aspect-ratio: 16/9; background: #000; border-radius: 6px; overflow: hidden; margin-bottom: 10px; position: relative; }
-        .asset-preview.cover { aspect-ratio: 2/3; }
-        .asset-preview img { width: 100%; height: 100%; object-fit: cover; transition: 0.3s; }
-        .asset-preview img:hover { transform: scale(1.05); }
-        .asset-name { font-family: monospace; font-size: 11px; color: var(--accent); margin-bottom: 8px; word-break: break-all; text-align: center; }
-
-        .json-box { position: relative; background: #000; border: 1px solid var(--border); border-radius: var(--radius); height: 400px; overflow: hidden; }
-        pre { color: var(--green); font-family: monospace; font-size: 13px; padding: 20px; margin: 0; height: 100%; overflow: auto; }
-        .copy-icon { position: absolute; top: 12px; right: 12px; }
-
-        dialog {
-            background: var(--bg-panel); color: var(--text-main); border: 1px solid var(--border);
-            border-radius: 12px; padding: 0; width: 600px; max-width: 95vw;
-            position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            --radius-sm: 8px;
+            --radius-md: 16px;
+            --radius-pill: 9999px;
+            
+            --font-sans: 'Inter', -apple-system, sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
         }
-        dialog::backdrop { background: rgba(0,0,0,0.8); backdrop-filter: blur(3px); }
-        .modal-header { padding: 20px; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
-        .modal-body { padding: 20px; max-height: 75vh; overflow-y: auto; display: flex; flex-direction: column; gap: 15px; }
-        .modal-footer { padding: 20px; border-top: 1px solid var(--border); display: flex; justify-content: flex-end; gap: 10px; background: var(--bg-element); }
-        
-        .row { display: flex; gap: 15px; } .col { flex: 1; }
 
-        .spinner { width: 14px; height: 14px; border: 2px solid rgba(255,255,255,0.3); border-top-color: #fff; border-radius: 50%; animation: spin 0.8s linear infinite; display: inline-block; vertical-align: middle; margin-right: 5px; }
-        @keyframes spin { to { transform: rotate(360deg); } }
+        * { box-sizing: border-box; margin: 0; padding: 0; outline: none; }
+
+        body {
+            font-family: var(--font-sans); background-color: var(--bg-base);
+            color: var(--text-main); height: 100vh; display: flex; overflow: hidden; font-size: 14px;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* --- SCROLLBARS --- */
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #333; border-radius: var(--radius-pill); }
+        ::-webkit-scrollbar-thumb:hover { background: #555; }
+
+        /* --- LAYOUT --- */
+        .sidebar { width: 440px; background: var(--bg-base); border-right: 1px solid var(--border-subtle); display: flex; flex-direction: column; flex-shrink: 0; z-index: 10; }
+        .main { flex: 1; display: flex; flex-direction: column; overflow: hidden; background: var(--bg-base); }
+
+        /* --- TYPOGRAPHY & HEADERS --- */
+        .header-panel { padding: 24px 32px; display: flex; justify-content: space-between; align-items: center; }
+        .sidebar .header-panel { padding: 24px; border-bottom: 1px solid var(--border-subtle); gap: 10px; }
+        h1 { font-size: 20px; font-weight: 800; letter-spacing: -0.5px; } h1 span { color: var(--accent); }
+        h2 { font-size: 16px; font-weight: 700; color: var(--text-main); margin-bottom: 16px; }
+
+        /* --- BUTTONS --- */
+        .btn { background: var(--text-main); color: var(--bg-base); border: none; padding: 10px 20px; border-radius: var(--radius-pill); font-size: 13px; font-weight: 600; cursor: pointer; transition: 0.1s; display: inline-flex; align-items: center; justify-content: center; gap: 8px; }
+        .btn:hover:not(:disabled) { opacity: 0.9; transform: scale(0.98); } .btn:disabled { opacity: 0.5; cursor: not-allowed; }
+        .btn-secondary { background: var(--bg-panel); color: var(--text-main); border: 1px solid var(--border-subtle); }
+        .btn-secondary:hover:not(:disabled) { background: var(--bg-hover); border-color: var(--border-focus); }
+        .btn-ghost { background: transparent; color: var(--text-muted); padding: 8px 16px; border-radius: var(--radius-pill); font-weight: 500; cursor: pointer; border: none; transition: 0.2s; font-size: 13px;}
+        .btn-ghost:hover { color: var(--text-main); background: var(--bg-panel); }
+        .btn-icon { background: var(--bg-input); border: none; color: var(--text-muted); width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: 0.2s; font-size: 14px; }
+        .btn-icon:hover { background: var(--border-subtle); color: var(--text-main); }
+        .btn-icon.danger:hover { background: rgba(239, 68, 68, 0.2); color: var(--status-error); }
+        .btn-icon.retry:hover { background: rgba(16, 185, 129, 0.2); color: var(--status-success); }
+
+        /* --- INPUTS --- */
+        textarea, input, select { width: 100%; background: var(--bg-input); border: 1px solid transparent; color: var(--text-main); padding: 12px 16px; border-radius: var(--radius-sm); font-family: var(--font-sans); font-size: 13px; transition: 0.2s ease; resize: vertical; }
+        textarea:focus, input:focus, select:focus { background: var(--bg-hover); border-color: var(--border-subtle); }
+        textarea::placeholder, input::placeholder { color: #555; }
+        label { display: block; font-size: 12px; font-weight: 600; color: var(--text-muted); margin-bottom: 6px; }
+
+        /* --- TOOLBAR --- */
+        .toolbar { padding: 16px 24px; background: var(--bg-panel); border-bottom: 1px solid var(--border-subtle); display: flex; flex-direction: column; gap: 12px; }
+        .toolbar-row { display: flex; gap: 12px; align-items: center; }
         
-        #toast { position: fixed; bottom: 30px; right: 30px; background: var(--bg-element); border-left: 4px solid var(--accent); padding: 15px 25px; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); transform: translateY(100px); opacity: 0; transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); z-index: 9999; font-weight: 600; }
-        #toast.show { transform: translateY(0); opacity: 1; }
-        .prog-text { font-family: monospace; font-size: 12px; }
+        .bulk-errors-panel { display: none; padding: 10px 16px; background: rgba(239, 68, 68, 0.1); border: 1px solid rgba(239, 68, 68, 0.2); border-radius: var(--radius-sm); justify-content: space-between; align-items: center; }
+        .bulk-errors-panel.show { display: flex; }
+        .bulk-errors-title { color: var(--status-error); font-weight: 600; font-size: 12px; display: flex; align-items: center; gap: 6px; }
+
+        /* --- QUEUE LIST --- */
+        .queue-container { flex: 1; overflow-y: auto; padding: 16px 24px; display: flex; flex-direction: column; gap: 10px; position: relative; }
+        
+        .queue-item { display: flex; gap: 14px; padding: 12px; background: var(--bg-base); border-radius: var(--radius-md); align-items: center; border: 1px solid var(--border-subtle); transition: border 0.2s, background 0.2s; position: relative; }
+        .queue-item:hover { border-color: var(--border-focus); background: var(--bg-panel); }
+        
+        /* Drag Handle Icon */
+        .drag-handle { color: #444; font-size: 18px; cursor: grab; display: flex; align-items: center; padding: 0 4px; transition: color 0.2s; }
+        .queue-item:hover .drag-handle { color: var(--text-muted); }
+        .drag-handle:active { cursor: grabbing; }
+
+        /* --- СТИЛИ SORTABLEJS (DRAG & DROP) --- */
+        
+        /* 1. Силуэт-призрак (Куда упадет карточка) */
+        .sortable-ghost {
+            background: rgba(139, 92, 246, 0.08) !important; /* Легкая фиолетовая заливка */
+            border: 2px dashed var(--accent) !important; /* Пунктирная граница */
+            border-radius: var(--radius-md) !important;
+            box-shadow: none !important;
+        }
+        /* Делаем всё содержимое внутри силуэта невидимым, чтобы была просто рамка */
+        .sortable-ghost > * {
+            opacity: 0 !important;
+        }
+
+        /* 2. Сама карточка, которую мы тащим мышкой */
+        .sortable-drag {
+            background: var(--bg-hover) !important;
+            border: 1px solid var(--border-focus) !important;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.9) !important; /* Глубокая тень */
+            opacity: 1 !important;
+            cursor: grabbing !important;
+        }
+
+        .q-thumb { width: 40px; height: 56px; background: var(--bg-input); border-radius: var(--radius-sm); object-fit: cover; flex-shrink: 0; }
+        .q-info { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 6px; }
+        .q-header-row { display: flex; align-items: center; gap: 8px; }
+        .q-title { font-weight: 600; font-size: 14px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: var(--text-main); }
+        
+        .dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+        .dot.success { background: var(--status-success); box-shadow: 0 0 8px var(--status-success); }
+        .dot.error { background: var(--status-error); box-shadow: 0 0 8px var(--status-error); }
+        .dot.processing { background: var(--status-process); box-shadow: 0 0 10px var(--status-process); animation: pulse 1s infinite alternate; }
+        @keyframes pulse { from { opacity: 0.4; box-shadow: 0 0 2px var(--status-process); } to { opacity: 1; box-shadow: 0 0 12px var(--status-process); } }
+
+        .badges-row { display: flex; gap: 6px; flex-wrap: wrap; }
+        .q-id-badge { display: inline-flex; align-items: center; background: var(--bg-input); border: 1px solid var(--border-subtle); color: var(--text-muted); font-family: var(--font-mono); font-size: 10px; padding: 4px 6px; border-radius: 4px; cursor: pointer; transition: all 0.2s; }
+        .q-id-badge:hover { background: #2a2a2a; color: #fff; border-color: var(--border-focus); }
+
+        /* --- MAIN AREA --- */
+        .main-content { flex: 1; overflow-y: auto; padding: 0 32px 32px 32px; display: flex; flex-direction: column; gap: 40px; }
+        .json-section { display: flex; flex-direction: column; }
+        .json-box { background: var(--bg-panel); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); position: relative; height: 350px; overflow: hidden; }
+        .json-box pre { margin: 0; padding: 24px; color: #a5b4fc; font-family: var(--font-mono); font-size: 13px; height: 100%; overflow: auto; line-height: 1.6; }
+        .copy-json-btn { position: absolute; top: 16px; right: 16px; display: flex; gap: 8px; }
+
+        .game-asset-group { background: var(--bg-panel); border-radius: var(--radius-md); padding: 24px; margin-bottom: 24px; }
+        .game-asset-header { font-size: 16px; font-weight: 700; margin-bottom: 20px; display: flex; align-items: center; gap: 12px; }
+        .game-asset-header .badge { font-family: var(--font-mono); font-size: 12px; font-weight: 400; color: var(--text-muted); background: var(--bg-base); padding: 4px 8px; border-radius: 6px; }
+        
+        .asset-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 20px; }
+        .asset-card { display: flex; flex-direction: column; gap: 10px; }
+        .asset-img-wrap { width: 100%; aspect-ratio: 16/9; background: var(--bg-input); border-radius: var(--radius-sm); overflow: hidden; border: 1px solid var(--border-subtle); display: flex; align-items: center; justify-content: center; position: relative; }
+        .asset-img-wrap.is-cover { aspect-ratio: 2/3; }
+        .asset-img-wrap.is-logo { background: #1a1a1a; }
+        .asset-img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: 0.3s; }
+        .asset-img-wrap.is-logo img { object-fit: contain; padding: 15px; }
+        .asset-img-wrap:hover img { transform: scale(1.03); }
+        
+        .asset-info { display: flex; flex-direction: column; gap: 4px; }
+        .asset-type { font-size: 12px; font-weight: 700; color: var(--text-main); }
+        .asset-name { font-family: var(--font-mono); font-size: 11px; color: var(--text-muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .asset-actions { display: flex; gap: 8px; }
+
+        /* --- LIGHTBOX --- */
+        #lightbox { display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0, 0, 0, 0.85); backdrop-filter: blur(8px); z-index: 9999; justify-content: center; align-items: center; cursor: zoom-out; opacity: 0; transition: opacity 0.3s; }
+        #lightbox.show { display: flex; opacity: 1; }
+        #lightbox img { max-width: 90%; max-height: 90vh; border-radius: var(--radius-md); box-shadow: 0 20px 50px rgba(0,0,0,0.8); object-fit: contain; }
+
+        /* --- TOAST --- */
+        #toast { position: fixed; bottom: 32px; left: 50%; transform: translateX(-50%) translateY(100px); background: var(--text-main); color: var(--bg-base); padding: 14px 24px; border-radius: var(--radius-pill); box-shadow: 0 10px 40px rgba(0,0,0,0.5); font-size: 14px; font-weight: 600; opacity: 0; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); z-index: 1000; display: flex; align-items: center; gap: 10px; }
+        #toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
+        #toast.error { background: var(--status-error); color: #fff; }
+
+        /* --- MODAL --- */
+        dialog { margin: auto; background: var(--bg-panel); color: var(--text-main); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); width: 700px; max-width: 95vw; padding: 32px; box-shadow: 0 20px 50px rgba(0,0,0,0.8); max-height: 90vh; overflow-y: auto; }
+        dialog::backdrop { background: rgba(0,0,0,0.8); backdrop-filter: blur(4px); }
+        .modal-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+        .modal-col-full { grid-column: span 2; }
     </style>
 </head>
 <body>
 
+    <div id="lightbox" onclick="closeLightbox()"><img id="lightboxImg" src="" alt="Zoom"></div>
+
+    <input type="file" id="importFile" accept=".json" style="display: none;" onchange="handleImport(event)">
+
+    <!-- SIDEBAR -->
     <div class="sidebar">
-        <div class="sidebar-header">
+        <div class="header-panel">
             <h1>Cycle <span>MediaDB</span></h1>
+            <div style="display:flex; gap:8px;">
+                <button class="btn btn-secondary" title="Импорт JSON базы" style="padding: 8px; border-radius: 50%; width: 36px; height: 36px;" onclick="document.getElementById('importFile').click()">📥</button>
+                <button class="btn btn-secondary" style="padding: 8px 16px;" onclick="document.getElementById('customModal').showModal()">+ Custom</button>
+            </div>
         </div>
         
-        <div class="sidebar-content">
-            <div style="background: var(--bg-element); padding: 15px; border-radius: var(--radius); border: 1px solid var(--border);">
-                <label>Добавить из Steam</label>
-                <textarea id="steamInput" placeholder="Вставь ссылки или ID (2825530, 3232610...)" style="height: 70px; margin-bottom: 10px;"></textarea>
-                <button id="steamBtn" class="btn full" onclick="addSteamGames()">
-                    <span class="btn-text">🎮 Загрузить данные</span>
-                </button>
+        <div style="padding: 24px; padding-bottom: 16px;">
+            <label>STEAM ID (Массовый ввод)</label>
+            <div style="display: flex; gap: 8px;">
+                <textarea id="steamInput" placeholder="1089980 400..." rows="2" style="flex: 1;"></textarea>
+                <button class="btn" style="padding: 0 20px;" onclick="addToQueue()">Парсинг</button>
+            </div>
+        </div>
+
+        <!-- TOOLBAR (Search, Sort, Bulk actions) -->
+        <div class="toolbar">
+            <div class="toolbar-row">
+                <input type="text" id="searchInput" placeholder="🔍 Поиск по названию или ID..." oninput="filterQueue()" style="flex: 2;">
+                <select id="sortSelect" onchange="sortQueue()" style="flex: 1; cursor: pointer;">
+                    <option value="newest">Порядок</option>
+                    <option value="az">А-Я</option>
+                    <option value="za">Я-А</option>
+                </select>
             </div>
 
-            <button class="btn secondary full" onclick="openModal()" style="border-style: dashed;">
-                <span>🛠</span> Добавить Свою Игру (Custom)
-            </button>
-
-            <div style="border-top: 1px solid var(--border); margin: 5px 0;"></div>
-
-            <div style="display: flex; justify-content: space-between; align-items: center;">
-                <label style="margin:0">Очередь обработки (<span id="queueCount">0</span>)</label>
-                <button class="btn small secondary" onclick="clearQueue()">Очистить всё</button>
+            <!-- Panel for Bulk Errors -->
+            <div class="bulk-errors-panel" id="bulkErrorsPanel">
+                <div class="bulk-errors-title">
+                    <span class="dot error"></span> Найдено ошибок: <span id="errCountText">0</span>
+                </div>
+                <div style="display: flex; gap: 8px;">
+                    <button class="btn-ghost" style="padding: 4px 8px; font-size: 11px; background: rgba(239,68,68,0.2); color: #fff;" onclick="retryAllErrors()">↻ Повторить</button>
+                    <button class="btn-ghost" style="padding: 4px 8px; font-size: 11px;" onclick="clearAllErrors()">✕ Удалить</button>
+                </div>
             </div>
-            <div id="queueList" class="queue-list">
-                <div style="text-align: center; padding: 30px 20px; color: var(--text-dim); font-size: 13px;">Список пуст</div>
-            </div>
+        </div>
+
+        <div style="padding: 16px 24px 0 24px; display: flex; justify-content: space-between; align-items: center;">
+            <span style="font-size: 13px; font-weight: 700; color: var(--text-muted);">ОЧЕРЕДЬ (<span id="queueCount" style="color: #fff;">0</span>)</span>
+            <button class="btn-ghost" style="padding: 4px 8px; font-size: 11px;" onclick="clearQueue()">Очистить всё</button>
+        </div>
+
+        <div id="queueList" class="queue-container">
+            <!-- Queue items -->
         </div>
     </div>
 
+    <!-- MAIN AREA -->
     <div class="main">
-        <div class="main-header">
-            <h2>Генератор JSON & Загрузчик Ассетов</h2>
-            <div style="display: flex; gap: 10px;">
-                <button class="btn secondary" onclick="downloadZip('cover', this)">💾 Обложки</button>
-                <button class="btn secondary" onclick="downloadZip('banner', this)">💾 Баннеры</button>
-                <button class="btn secondary" onclick="downloadZip('screenshots', this)">🖼 Скриншоты</button>
+        <div class="header-panel">
+            <div style="display: flex; align-items: center; gap: 16px;">
+                <h1 style="font-size: 18px;">База данных</h1>
+                <div id="globalSpinner" style="display: none; align-items: center; gap: 8px; color: var(--status-process); font-weight: 600; font-size: 13px;">
+                    <div class="dot processing"></div> Загрузка...
+                </div>
+            </div>
+            <div style="display: flex; gap: 12px;">
+                <button class="btn btn-secondary" onclick="downloadZip('logo', this)">ZIP Лого</button>
+                <button class="btn btn-secondary" onclick="downloadZip('cover', this)">ZIP Обложки</button>
+                <button class="btn btn-secondary" onclick="downloadZip('banner', this)">ZIP Баннеры</button>
+                <button class="btn btn-secondary" onclick="downloadZip('screenshots', this)">ZIP Скрины</button>
             </div>
         </div>
 
         <div class="main-content">
-            <label>1. Готовый код (games.json)</label>
-            <div class="json-box">
-                <button class="btn small secondary copy-icon" onclick="copyJson()">Копировать JSON</button>
-                <pre id="jsonOutput">// Добавьте игры слева, чтобы получить результат...</pre>
+            <!-- JSON BLOCK -->
+            <div class="json-section">
+                <h2>Код (JSON)</h2>
+                <div class="json-box">
+                    <div class="copy-json-btn">
+                        <button class="btn btn-secondary" onclick="copyJson()">📋 Копировать</button>
+                        <button class="btn" style="background: var(--text-main); color: var(--bg-base);" onclick="downloadJsonFile()">💾 Скачать .json</button>
+                    </div>
+                    <pre id="jsonOutput">// Игры появятся здесь...</pre>
+                </div>
             </div>
 
-            <label style="margin-top: 30px;">2. Предпросмотр Ассетов</label>
-            <div id="assetsGrid" class="assets-grid"></div>
+            <!-- ASSETS BLOCK -->
+            <div class="json-section" style="padding-bottom: 40px;">
+                <h2>Медиафайлы</h2>
+                <div id="assetsManager">
+                    <div style="color: var(--text-muted); font-size: 14px; background: var(--bg-panel); padding: 24px; border-radius: var(--radius-md);">
+                        Ассеты появятся после успешной обработки игр.
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
-    <!-- CUSTOM GAME MODAL -->
+    <!-- CUSTOM MODAL -->
     <dialog id="customModal">
-        <div class="modal-header">
-            <h3>Добавление Custom Игры</h3>
-            <button class="q-remove" onclick="closeModal()">✕</button>
+        <h2 style="margin-bottom: 24px; font-size: 20px;">Новая Custom Игра</h2>
+        <div class="modal-grid">
+            <div><label>Название игры</label><input type="text" id="cTitle" oninput="document.getElementById('cId').value = 'game_' + safeName(this.value)"></div>
+            <div><label>ID (Автогенерация)</label><input type="text" id="cId" readonly style="color: var(--text-muted);"></div>
+            <div class="modal-col-full"><label>Описание</label><textarea id="cDesc" rows="2"></textarea></div>
+            <div class="modal-col-full"><label>Теги (через запятую)</label><input type="text" id="cTags"></div>
+            <div><label>URL Логотипа (PNG)</label><input type="text" id="cLogo"></div>
+            <div><label>URL Вертикальной обложки</label><input type="text" id="cCover"></div>
+            <div class="modal-col-full"><label>URL Горизонтального баннера</label><input type="text" id="cBanner"></div>
+            <div class="modal-col-full"><label>URL Скриншотов (с новой строки)</label><textarea id="cScreens" rows="3"></textarea></div>
         </div>
-        <div class="modal-body">
-            <div>
-                <label>Название игры *</label>
-                <input type="text" id="custTitle" placeholder="Например: Valorant" oninput="generateId()">
-            </div>
-            
-            <div class="row">
-                <div class="col"><label>Разработчик</label><input type="text" id="custDev" placeholder="Riot Games"></div>
-                <div class="col"><label>Издатель</label><input type="text" id="custPub" placeholder="Riot Games"></div>
-            </div>
-
-            <div class="row">
-                <div class="col"><label>Дата выхода</label><input type="text" id="custDate" placeholder="2 Jun, 2020"></div>
-                <div class="col">
-                    <label>Категория (Tier)</label>
-                    <select id="custTier">
-                        <option value="tier_aaa">AAA (Top)</option>
-                        <option value="tier_standard">Standard (AA)</option>
-                        <option value="tier_indie">Indie</option>
-                    </select>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col"><label>ID в базе (Авто)</label><input type="text" id="custId" readonly style="background: #111; color: var(--text-dim);"></div>
-                <div class="col"><label>Трейлер (YouTube/MP4 URL)</label><input type="text" id="custTrailer" placeholder="https://..."></div>
-            </div>
-
-            <div>
-                <label>Метки (через запятую)</label>
-                <textarea id="custTags" style="height: 50px;" placeholder="Action, Shooter, Open World..."></textarea>
-            </div>
-
-            <div style="border-top: 1px solid var(--border); padding-top: 15px;">
-                <div class="row">
-                    <div class="col">
-                        <div style="display:flex; justify-content:space-between; margin-bottom:5px;">
-                            <label>Обложка (600x900)</label>
-                            <a href="#" style="font-size:11px; color:var(--accent)" onclick="searchGoogle('cover')">🔍 Поиск</a>
-                        </div>
-                        <input type="text" id="custCover" placeholder="URL картинки...">
-                    </div>
-                    <div class="col">
-                        <div style="display:flex; justify-content:space-between; margin-bottom:5px;">
-                            <label>Баннер (1920x1080)</label>
-                            <a href="#" style="font-size:11px; color:var(--accent)" onclick="searchGoogle('banner')">🔍 Поиск</a>
-                        </div>
-                        <input type="text" id="custBanner" placeholder="URL картинки...">
-                    </div>
-                </div>
-            </div>
-
-            <div>
-                <label>Скриншоты (по одной ссылке на строку, до 6 шт)</label>
-                <textarea id="custScreens" style="height: 80px;" placeholder="https://...&#10;https://..."></textarea>
-            </div>
-        </div>
-        <div class="modal-footer">
-            <button class="btn secondary" onclick="closeModal()">Отмена</button>
+        <div style="display:flex; justify-content:flex-end; gap:12px; margin-top:16px;">
+            <button class="btn btn-ghost" onclick="document.getElementById('customModal').close()">Отмена</button>
             <button class="btn" onclick="saveCustomGame()">Сохранить игру</button>
         </div>
     </dialog>
 
-    <div id="toast">Уведомление</div>
+    <div id="toast"></div>
 
     <script>
-        // --- 1. CONFIGURATION ---
-        const AAA_PUBLISHERS =[
-            'playstation', 'xbox', 'electronic arts', 'ea', 'ubisoft', 'activision', 'blizzard', 
-            'bethesda', 'rockstar', '2k', 'capcom', 'sega', 'bandai namco', 'square enix', 
-            'konami', 'warner bros', 'take-two', 'cd projekt', 'microsoft', 'sony', 'nintendo', 'valve'
-        ];
-
-        let queue =[];
+        const AAA_PUBLISHERS =['playstation', 'xbox', 'electronic arts', 'ea', 'ubisoft', 'activision', 'blizzard', 'bethesda', 'rockstar', '2k', 'capcom', 'sega', 'bandai namco', 'square enix', 'konami', 'warner bros', 'take-two', 'cd projekt', 'microsoft', 'sony', 'nintendo', 'valve', 'riot games', 'epic games', 'bungie', 'netease', 'tencent', 'amazon games', 'focus entertainment', 'thq nordic', 'paradox interactive', 'remedy', '505 games', 'deep silver', 'private division'];
         const translit = { 'а':'a','б':'b','в':'v','г':'g','д':'d','е':'e','ё':'yo','ж':'zh','з':'z','и':'i','й':'y','к':'k','л':'l','м':'m','н':'n','о':'o','п':'p','р':'r','с':'s','т':'t','у':'u','ф':'f','х':'h','ц':'ts','ч':'ch','ш':'sh','щ':'sch','ь':'','ы':'y','ъ':'','э':'e','ю':'yu','я':'ya' };
 
-        // --- 2. HELPERS ---
-        function safeName(str) {
-            return str.toLowerCase().split('').map(c => translit[c] || c).join('')
-                .replace(/[^a-z0-9]/g, '_').replace(/_+/g, '_').replace(/^_|_$/g, '');
+        let queue =[];
+        let isProcessing = false;
+        let searchQuery = "";
+        let sortableInstance = null; // Инстанс библиотеки Drag & Drop
+
+        // --- LOCAL STORAGE ---
+        function saveState() { localStorage.setItem('cycle_mediadb_queue_v3', JSON.stringify(queue)); }
+        function loadState() {
+            const saved = localStorage.getItem('cycle_mediadb_queue_v3');
+            if (saved) { try { queue = JSON.parse(saved); renderQueue(); renderOutputs(); } catch(e) {} }
         }
 
-        function decodeHtml(html) {
-            var txt = document.createElement("textarea");
-            txt.innerHTML = html;
-            return txt.value;
-        }
-
-        function showToast(msg, type = 'success') {
+        // --- UTILS ---
+        function safeName(str) { return str.toLowerCase().replace(/[™®©]/g, '').split('').map(c => translit[c] || c).join('').replace(/[^a-z0-9]/g, '_').replace(/_+/g, '_').replace(/^_|_$/g, ''); }
+        function decodeHtml(html) { const t = document.createElement("textarea"); t.innerHTML = html; return t.value; }
+        function cleanText(str) { return decodeHtml((str || "").replace(/<[^>]*>?/gm, ' ').replace(/\s+/g, ' ').trim()); }
+        
+        function showToast(msg, isError = false) {
             const t = document.getElementById('toast');
-            t.innerText = msg;
-            t.style.borderColor = type === 'error' ? 'var(--red)' : 'var(--green)';
-            t.classList.add('show');
+            if(isError) t.classList.add('error'); else t.classList.remove('error');
+            t.innerHTML = msg; t.classList.add('show');
             setTimeout(() => t.classList.remove('show'), 3000);
         }
+        function copyToClip(text, label = "Текст") { navigator.clipboard.writeText(text); showToast(`${label} скопирован!`); }
+        function formatDate(str) { if (!str || /soon|tba/i.test(str)) return "TBA"; const d = new Date(str); return isNaN(d.getTime()) ? str : d.toISOString().split('T')[0]; }
 
-        async function fetchImageBlob(url) {
-            try {
-                const res = await fetch(url);
-                if (res.ok) return await res.blob();
-            } catch (e) {
-                console.log("Direct fetch blocked, using proxy for:", url);
-            }
-            return await fetchApi(url, 'blob');
-        }
+        function openLightbox(url) { document.getElementById('lightboxImg').src = url; document.getElementById('lightbox').classList.add('show'); }
+        function closeLightbox() { document.getElementById('lightbox').classList.remove('show'); setTimeout(() => { document.getElementById('lightboxImg').src = ''; }, 300); }
 
-        async function fetchApi(url, type = 'json') {
-            const proxies =[
-                { url: (u) => `https://corsproxy.io/?${encodeURIComponent(u)}` },
-                { url: (u) => `https://api.allorigins.win/raw?url=${encodeURIComponent(u)}` },
-                { url: (u) => `https://api.codetabs.com/v1/proxy?quest=${u}` }
-            ];
-
-            let lastErr = "";
-            for (let p of proxies) {
+        // --- IMPORT JSON ---
+        function handleImport(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onload = function(e) {
                 try {
-                    const reqUrl = p.url(url);
-                    const res = await fetch(reqUrl, { cache: 'no-store' });
-                    if (!res.ok) throw new Error(`HTTP ${res.status}`);
-                    
-                    if (type === 'json') return await res.json();
-                    if (type === 'text') return await res.text();
-                    if (type === 'blob') return await res.blob();
-                } catch(e) {
-                    lastErr = e.message;
-                }
-            }
-            throw new Error(`Proxy unavailable (${lastErr})`);
+                    const data = JSON.parse(e.target.result);
+                    let added = 0;
+                    data.reverse().forEach(g => {
+                        if (!queue.some(q => q.id === g.id)) {
+                            queue.unshift({
+                                steam_id: g.steam_id || 'custom_' + Math.random().toString(36).substr(2,9),
+                                id: g.id, title: g.title, tier: g.tier,
+                                developer: g.developer, publisher: g.publisher, release_date: g.release_date, tags: g.tags,
+                                description: g.description, specs: g.specs || {minimum:'', recommended:''}, trailer: g.trailer,
+                                assets: {
+                                    logo: g.assets.logo ? { url: `https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/${g.steam_id}/logo.png`, file: g.assets.logo } : null,
+                                    cover: { url: `https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/${g.steam_id}/library_600x900_2x.jpg`, file: g.assets.cover },
+                                    banner: { url: `https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/${g.steam_id}/header.jpg`, file: g.assets.banner },
+                                    screenshots: g.assets.screenshots ? g.assets.screenshots.map(s => ({ url: '', file: s })) :[]
+                                },
+                                status: 'success', type: g.steam_id ? 'steam' : 'custom'
+                            });
+                            added++;
+                        }
+                    });
+                    saveState(); renderQueue(); renderOutputs();
+                    showToast(`✅ Успешно импортировано: ${added} игр`);
+                } catch(err) { showToast('❌ Ошибка чтения файла JSON', true); }
+                event.target.value = ''; 
+            };
+            reader.readAsText(file);
         }
 
-        // --- 3. STEAM LOGIC ---
-        async function addSteamGames() {
-            const input = document.getElementById('steamInput').value;
-            const ids = input.split(/[\s,]+/).map(s => {
-                const m = s.match(/\/app\/(\d+)/);
-                return m ? m[1] : ( /^\d+$/.test(s) ? s : null );
-            }).filter(Boolean);
-
-            if (!ids.length) return showToast('Нет ID для добавления', 'error');
-            document.getElementById('steamInput').value = '';
-            
-            const steamBtn = document.getElementById('steamBtn');
-            const originalText = steamBtn.innerHTML;
-            steamBtn.innerHTML = '<span class="spinner"></span> Обработка...';
-            steamBtn.disabled = true;
-
-            for (let id of ids) {
-                if (queue.some(g => g.steam_id == id)) continue;
-                
-                const item = { steam_id: id, title: `ID: ${id}`, status: 'loading', type: 'steam', errorMsg: '' };
-                queue.unshift(item);
-                renderQueue();
-
-                fetchSteamData(id).then(game => {
-                    const idx = queue.indexOf(item);
-                    if (idx > -1) queue[idx] = game;
-                    renderAll();
-                }).catch(e => {
-                    const idx = queue.indexOf(item);
-                    if (idx > -1) { 
-                        item.status = 'error'; 
-                        item.errorMsg = e.message;
-                        item.title = `ID: ${id} (Ошибка)`; 
-                    }
-                    renderAll();
-                });
-                await new Promise(r => setTimeout(r, 400));
+        // --- NETWORKING ---
+        async function fetchApi(url, type = 'json') {
+            const proxies =[ u => `https://corsproxy.io/?${encodeURIComponent(u)}`, u => `https://api.allorigins.win/raw?url=${encodeURIComponent(u)}`, u => `https://api.codetabs.com/v1/proxy?quest=${u}` ];
+            for (const p of proxies) {
+                try {
+                    const res = await fetch(p(url)); if (!res.ok) throw new Error(res.status);
+                    return type === 'json' ? await res.json() : (type === 'blob' ? await res.blob() : await res.text());
+                } catch (e) { continue; }
             }
-            steamBtn.innerHTML = originalText;
-            steamBtn.disabled = false;
+            throw new Error('Proxy fail');
+        }
+        async function fetchBlobSafe(url, fallback) { try { return await fetchApi(url, 'blob'); } catch (e) { if (fallback) return await fetchApi(fallback, 'blob'); throw e; } }
+
+        function parseRequirements(pcReqs) {
+            let specs = { minimum: "", recommended: "" };
+            if (!pcReqs || Array.isArray(pcReqs)) return specs;
+            const cleanReq = (html) => html ? html.replace(/<br>/g, '\n').replace(/<[^>]+>/g, '').replace(/Minimum:|Recommended:/i, '').split('\n').map(l=>l.trim()).filter(l=>l.length>2).join(' | ') : "";
+            if (pcReqs.minimum) specs.minimum = cleanReq(pcReqs.minimum);
+            if (pcReqs.recommended) specs.recommended = cleanReq(pcReqs.recommended);
+            return specs;
         }
 
         async function fetchSteamData(appId) {
-            // 1. Получаем основные данные
-            const data = await fetchApi(`https://store.steampowered.com/api/appdetails?appids=${appId}&l=russian`, 'json');
-            if (!data || !data[appId] || !data[appId].success) throw new Error("Игра не найдена в Steam");
+            const ruData = await fetchApi(`https://store.steampowered.com/api/appdetails?appids=${appId}&l=russian`, 'json');
+            if (!ruData || !ruData[appId] || !ruData[appId].success) throw new Error("Not found");
             
-            const g = data[appId].data;
-            const sName = safeName(g.name);
-            
-            // --- НОВАЯ ЛОГИКА ТЕГОВ (АНГЛИЙСКИЙ В ПРИОРИТЕТЕ) ---
-            let tags = [];
-            
-            // Способ 1 (Основной): Пытаемся парсить АНГЛИЙСКУЮ HTML страницу
+            const g = ruData[appId].data;
+            let englishName = g.name, tags =[];
             try {
-                const storePageHtml = await fetchApi(`https://store.steampowered.com/app/${appId}/?l=english`, 'text');
-                if (!storePageHtml.includes('agegate_birthday_selector')) {
-                    const tagMatches = storePageHtml.matchAll(/<a[^>]*class="app_tag"[^>]*>([^<]*)<\/a>/g);
-                    // ИСПРАВЛЕНИЕ: Декодируем HTML сущности типа &amp;
-                    tags = Array.from(tagMatches).map(m => decodeHtml(m[1].trim()));
-                } else {
-                    console.log(`Age gate for ${appId}, using fallback.`);
-                    throw new Error("Age gate page");
-                }
-            } catch (e) {
-                console.warn(`HTML parsing failed, falling back to SteamSpy`, e);
-            }
+                const html = await fetchApi(`https://store.steampowered.com/app/${appId}/?l=english`, 'text');
+                const nameM = html.match(/<div class="apphub_AppName">([^<]+)<\/div>/);
+                if (nameM) englishName = decodeHtml(nameM[1].trim());
+                const glanceM = html.match(/<div class="glance_tags popular_tags">([\s\S]*?)<\/div>/);
+                const tagM = (glanceM ? glanceM[1] : html).matchAll(/<a[^>]*class="app_tag"[^>]*>([^<]*)<\/a>/g);
+                tags = Array.from(tagM).map(m => decodeHtml(m[1].trim()));
+            } catch (e) {}
 
-            // Способ 2 (Запасной): Если тегов нет (из-за age gate), идем в SteamSpy
-            if (tags.length === 0) {
-                try {
-                    const spyUrl = `https://steamspy.com/api.php?request=appdetails&appid=${appId}`;
-                    const spyData = await fetchApi(spyUrl, 'json');
-                    if (spyData && spyData.tags) {
-                        tags = Object.keys(spyData.tags); // Получаем английские теги
-                    }
-                } catch (e) {
-                    console.error("SteamSpy also failed", e);
-                }
-            }
-            // ----------------------------------------------------
-            
-            const developers = (g.developers ||[]).join(', ');
-            const publishers = (g.publishers ||[]).join(', ');
-            const releaseDate = g.release_date && g.release_date.date ? g.release_date.date : '';
-            
-            let cleanDesc = (g.short_description || "").replace(/<[^>]*>?/gm, '');
-            cleanDesc = decodeHtml(cleanDesc);
+            if (!tags.length) { try { const spy = await fetchApi(`https://steamspy.com/api.php?request=appdetails&appid=${appId}`, 'json'); if (spy && spy.tags) tags = Object.keys(spy.tags); } catch(e) {} }
 
-            let trailerUrl = "";
-            if (g.movies && g.movies.length > 0) {
-                const mov = g.movies[0];
-                trailerUrl = (mov.mp4 && mov.mp4.max) ? mov.mp4.max : (mov.webm && mov.webm.max ? mov.webm.max : "");
-                trailerUrl = trailerUrl.split('?')[0]; 
-            }
+            const sName = safeName(englishName);
+            const pubs = (g.publishers||[]).join(', ').toLowerCase();
+            const tier = AAA_PUBLISHERS.some(p => pubs.includes(p)) ? 'tier_aaa' : (tags.some(t => t.toLowerCase() === 'indie') ? 'tier_indie' : 'tier_standard');
 
-            const pubsLower = (g.publishers ||[]).map(p => p.toLowerCase());
-            let detectedTier = 'tier_standard';
-            const lowerTags = tags.map(t=>t.toLowerCase());
-            const isIndie = lowerTags.includes('indie');
-            const isAAA = AAA_PUBLISHERS.some(aaa => pubsLower.some(p => p.includes(aaa)));
-
-            if (isAAA) detectedTier = 'tier_aaa';
-            else if (isIndie) detectedTier = 'tier_indie';
-            
             return {
-                steam_id: appId,
-                id: "game_" + sName,
-                title: g.name,
-                tier: detectedTier,
-                developer: developers,
-                publisher: publishers,
-                release_date: releaseDate,
-                tags: tags,
-                description: cleanDesc,
-                trailer: trailerUrl,
+                steam_id: appId, id: "game_" + sName, title: g.name, tier: tier,
+                developer: (g.developers||[]).join(', '), publisher: (g.publishers||[]).join(', '),
+                release_date: formatDate(g.release_date?.date), tags: tags, description: cleanText(g.short_description),
+                specs: parseRequirements(g.pc_requirements), trailer: (g.movies?.[0]?.mp4?.max || "").split('?')[0],
                 assets: {
-                    cover: { url: `https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/${appId}/library_600x900_2x.jpg`, file: `${sName}.jpg` },
+                    logo: { url: `https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/${appId}/logo.png`, file: `${sName}_logo.png` },
+                    cover: { url: `https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/${appId}/library_600x900_2x.jpg`, file: `${sName}.jpg`, fallback: g.header_image },
                     banner: { url: g.header_image, file: `${sName}_banner.jpg` },
-                    screenshots: (g.screenshots ||[]).slice(0, 6).map((s, i) => ({ 
-                        url: s.path_full.split('?')[0], file: `${sName}_screen_${i+1}.jpg` 
-                    }))
+                    screenshots: (g.screenshots||[]).slice(0, 6).map((s,i) => ({ url: s.path_full.split('?')[0], file: `${sName}_screen_${i+1}.jpg` }))
                 },
-                status: 'success',
-                type: 'steam',
-                errorMsg: ''
+                status: 'success', type: 'steam'
             };
         }
 
-        // --- 4. CUSTOM LOGIC ---
-        const modal = document.getElementById('customModal');
-        
-        function openModal() {
-            ['custTitle','custDev','custPub','custDate','custId','custCover','custBanner','custTrailer','custScreens','custTags'].forEach(id => document.getElementById(id).value = '');
-            modal.showModal();
-        }
-        function closeModal() { modal.close(); }
-        function generateId() {
-            const t = document.getElementById('custTitle').value;
-            document.getElementById('custId').value = "game_" + safeName(t);
-        }
-        function searchGoogle(type) {
-            const t = document.getElementById('custTitle').value;
-            if(!t) return showToast('Сначала введите название игры', 'error');
-            const q = type === 'cover' ? `${t} box art vertical hq` : `${t} game wallpaper 1920x1080`;
-            window.open(`https://www.google.com/search?tbm=isch&q=${encodeURIComponent(q)}`, '_blank');
-        }
-        function saveCustomGame() {
-            const title = document.getElementById('custTitle').value.trim();
-            if (!title) return showToast('Название игры обязательно', 'error');
+        // --- QUEUE ENGINE ---
+        function addToQueue() {
+            const ids = document.getElementById('steamInput').value.match(/(\d{3,})/g);
+            if (!ids) return showToast('ID не найдены', true);
             
-            const id = document.getElementById('custId').value || "game_" + safeName(title);
-            const sName = safeName(title);
-            const dev = document.getElementById('custDev').value.trim();
-            const pub = document.getElementById('custPub').value.trim();
-            const date = document.getElementById('custDate').value.trim();
-            const tier = document.getElementById('custTier').value;
-            const trailer = document.getElementById('custTrailer').value.trim();
-            
-            const tagsText = document.getElementById('custTags').value;
-            const tags = tagsText.split(',').map(t => t.trim()).filter(Boolean);
-
-            const cover = document.getElementById('custCover').value.trim();
-            const banner = document.getElementById('custBanner').value.trim();
-            
-            const screenText = document.getElementById('custScreens').value;
-            const screenLinks = screenText.split('\n').map(s => s.trim()).filter(s => s.startsWith('http')).slice(0, 6);
-            const screenObjects = screenLinks.map((url, i) => ({
-                url: url, file: `${sName}_screen_${i+1}.jpg`
-            }));
-
-            queue.unshift({
-                steam_id: 'custom_' + Date.now(),
-                id: id, 
-                title: title, 
-                tier: tier, 
-                developer: dev, 
-                publisher: pub, 
-                release_date: date,
-                tags: tags, 
-                description: "",
-                trailer: trailer,
-                assets: {
-                    cover: { url: cover || 'https://via.placeholder.com/600x900?text=No+Cover', file: `${sName}.jpg` },
-                    banner: { url: banner || 'https://via.placeholder.com/1920x1080?text=No+Banner', file: `${sName}_banner.jpg` },
-                    screenshots: screenObjects
-                },
-                status: 'success', 
-                type: 'custom',
-                errorMsg: ''
+            ids.reverse().forEach(id => {
+                if (!queue.some(x => x.steam_id == id)) queue.unshift({ steam_id: id, title: `ID: ${id}`, status: 'pending' });
             });
-            renderAll(); 
-            closeModal(); 
-            showToast('Custom игра добавлена!');
+            
+            document.getElementById('steamInput').value = '';
+            saveState(); renderQueue(); processQueue();
         }
 
-        // --- 5. RENDER ---
-        function clearQueue() { 
-            if(confirm("Точно очистить всю очередь?")) { queue =[]; renderAll(); }
-        }
-        function removeGame(sid) {
-            queue = queue.filter(g => g.steam_id != sid); renderAll();
+        async function processQueue() {
+            if (isProcessing) return;
+            isProcessing = true; document.getElementById('globalSpinner').style.display = 'flex';
+
+            while (true) {
+                const item = queue.find(i => i.status === 'pending');
+                if (!item) break;
+                item.status = 'processing'; renderQueue();
+
+                try {
+                    await new Promise(r => setTimeout(r, 600 + Math.random()*800)); 
+                    const data = await fetchSteamData(item.steam_id);
+                    Object.assign(item, data);
+                    item.status = 'success';
+                } catch (e) { item.status = 'error'; item.error = e.message; }
+                saveState(); renderQueue(); renderOutputs();
+            }
+
+            isProcessing = false; document.getElementById('globalSpinner').style.display = 'none';
         }
 
-        function renderAll() { renderQueue(); renderJson(); renderGrid(); }
+        function removeGame(sid) { queue = queue.filter(x => x.steam_id != sid); saveState(); renderQueue(); renderOutputs(); }
+        function clearQueue() { if(confirm('Очистить базу?')) { queue =[]; saveState(); renderQueue(); renderOutputs(); } }
 
+        // --- BULK ERRORS ---
+        function checkBulkErrors() {
+            const errCount = queue.filter(q => q.status === 'error').length;
+            const panel = document.getElementById('bulkErrorsPanel');
+            if (errCount > 0) { panel.classList.add('show'); document.getElementById('errCountText').innerText = errCount; } 
+            else { panel.classList.remove('show'); }
+        }
+        function retryAllErrors() { queue.forEach(q => { if(q.status === 'error') { q.status = 'pending'; delete q.error; } }); saveState(); renderQueue(); processQueue(); }
+        function clearAllErrors() { queue = queue.filter(q => q.status !== 'error'); saveState(); renderQueue(); renderOutputs(); }
+        function retryGame(sid) { const item = queue.find(x => x.steam_id == sid); if (item) { item.status = 'pending'; delete item.error; saveState(); renderQueue(); processQueue(); } }
+
+        // --- FILTER & SORT ---
+        function filterQueue() { searchQuery = document.getElementById('searchInput').value.toLowerCase(); renderQueue(); }
+        function sortQueue() {
+            const type = document.getElementById('sortSelect').value;
+            if (type === 'az') queue.sort((a,b) => a.title.localeCompare(b.title));
+            if (type === 'za') queue.sort((a,b) => b.title.localeCompare(a.title));
+            saveState(); renderQueue(); renderOutputs();
+        }
+
+        // --- RENDERING (WITH SORTABLE JS DRAG AND DROP) ---
         function renderQueue() {
-            const list = document.getElementById('queueList');
+            const el = document.getElementById('queueList');
             document.getElementById('queueCount').innerText = queue.length;
-            if (!queue.length) { 
-                list.innerHTML = '<div style="text-align:center; padding:30px 20px; color:var(--text-dim); font-size:13px;">Список пуст</div>'; 
-                return; 
+            checkBulkErrors();
+            
+            const isSearching = searchQuery.length > 0;
+            const filtered = queue.filter(i => i.title.toLowerCase().includes(searchQuery) || i.steam_id.toString().includes(searchQuery));
+            
+            if (!filtered.length) {
+                if (sortableInstance) sortableInstance.destroy(); // Убиваем Drag&Drop если список пуст
+                return el.innerHTML = '<div style="text-align:center; color:var(--text-muted); font-size:13px; margin-top:40px;">Ничего не найдено</div>';
             }
-            list.innerHTML = queue.map(g => `
-                <div class="queue-item ${g.status}" title="${g.errorMsg || ''}">
-                    ${g.assets ? `<img src="${g.assets.cover.url}" class="q-img" onerror="this.src='https://via.placeholder.com/32x48?text=err'">` : '<div class="q-img" style="background:var(--bg-body)"></div>'}
-                    <div class="q-details">
-                        <div class="q-title">${g.title}</div>
-                        <div class="q-status">${g.type === 'custom' ? '🛠️ Custom' : '🎮 Steam'} • ${g.status === 'error' ? `<span style="color:var(--red)">${g.errorMsg}</span>` : g.status}</div>
+
+            el.innerHTML = filtered.map(i => {
+                let dotClass = 'processing'; if(i.status === 'success') dotClass = 'success'; if(i.status === 'error') dotClass = 'error'; if(i.status === 'pending') dotClass = ''; 
+                const isCustom = i.steam_id.toString().startsWith('custom');
+
+                return `
+                <div class="queue-item" data-id="${i.steam_id}">
+                    ${!isSearching ? `<div class="drag-handle" title="Перетащить">⠿</div>` : ''}
+                    ${i.assets ? `<img src="${i.assets.cover.url}" class="q-thumb" onerror="this.src='https://via.placeholder.com/40x56/1a1a1a/555'">` : '<div class="q-thumb"></div>'}
+                    <div class="q-info">
+                        <div class="q-header-row"><div class="dot ${dotClass}" ${i.status==='pending'?'style="background:#555"':''}></div><div class="q-title" title="${i.title}">${i.title}</div></div>
+                        <div class="badges-row">
+                            ${!isCustom ? `<div class="q-id-badge" onclick="copyToClip('${i.steam_id}', 'Steam ID')">#${i.steam_id}</div>` : ''}
+                            ${i.id ? `<div class="q-id-badge" onclick="copyToClip('${i.id}', 'ID')">${i.id}</div>` : ''}
+                        </div>
+                        ${i.error ? `<div style="color: var(--status-error); font-size: 11px;">${i.error}</div>` : ''}
                     </div>
-                    <button class="q-remove" onclick="removeGame('${g.steam_id}')">✕</button>
-                </div>
-            `).join('');
+                    <div style="display: flex; gap: 4px; flex-shrink:0;">
+                        ${i.status === 'error' ? `<button class="btn-icon retry" title="Повторить" onclick="retryGame('${i.steam_id}')">↻</button>` : ''}
+                        <button class="btn-icon danger" onclick="removeGame('${i.steam_id}')">✕</button>
+                    </div>
+                </div>`;
+            }).join('');
+
+            // --- Инициализация плавного Drag & Drop ---
+            if (sortableInstance) sortableInstance.destroy(); // Сбрасываем старый инстанс
+            
+            if (!isSearching) {
+                sortableInstance = new Sortable(el, {
+                    animation: 250, // Плавность разъезжания элементов (мс)
+                    easing: "cubic-bezier(0.25, 1, 0.5, 1)", // Кривая анимации
+                    handle: '.drag-handle', // За что тянуть
+                    ghostClass: 'sortable-ghost', // Класс для "силуэта" ячейки
+                    dragClass: 'sortable-drag', // Класс для карточки, которая висит на курсоре
+                    onEnd: function (evt) {
+                        if (evt.oldIndex === evt.newIndex) return; // Если не сдвинули
+                        
+                        // Меняем порядок в массиве queue
+                        const item = queue.splice(evt.oldIndex, 1)[0];
+                        queue.splice(evt.newIndex, 0, item);
+                        
+                        saveState();
+                        renderOutputs(); // Обновляем JSON без ререндера списка, т.к. Sortable уже сдвинул DOM
+                    }
+                });
+            }
         }
 
-        function renderJson() {
-            const valid = queue.filter(g => g.status === 'success');
-            const data = valid.map(g => ({
-                id: g.id, 
-                steam_id: g.type === 'steam' ? parseInt(g.steam_id) : null,
-                title: g.title, 
-                tier: g.tier, 
-                developer: g.developer,
-                publisher: g.publisher,
-                release_date: g.release_date,
-                tags: g.tags, 
-                description: g.description,
-                trailer: g.trailer,
-                assets: { 
-                    cover: g.assets.cover.file, 
-                    banner: g.assets.banner.file,
-                    screenshots: g.assets.screenshots ? g.assets.screenshots.map(s => s.file) : []
-                }
+        function renderOutputs() {
+            const success = queue.filter(i => i.status === 'success');
+            
+            const json = success.map(g => ({
+                id: g.id, steam_id: parseInt(g.steam_id) || null, title: g.title, tier: g.tier,
+                developer: g.developer, publisher: g.publisher, release_date: g.release_date, tags: g.tags,
+                description: g.description, specs: g.specs, trailer: g.trailer,
+                assets: { logo: g.assets.logo?.file || null, cover: g.assets.cover.file, banner: g.assets.banner.file, screenshots: g.assets.screenshots.map(s => s.file) }
             }));
-            document.getElementById('jsonOutput').textContent = JSON.stringify(data, null, 4);
-        }
+            document.getElementById('jsonOutput').textContent = success.length ? JSON.stringify(json, null, 4) : '// Игры появятся здесь...';
 
-        function renderGrid() {
-            const valid = queue.filter(g => g.status === 'success');
-            const grid = document.getElementById('assetsGrid');
-            grid.innerHTML = '';
-            valid.forEach(g => {
-                const createCard = (asset, title, typeClass) => `
-                    <div class="asset-card">
-                        <div class="asset-preview ${typeClass}"><img src="${asset.url}" loading="lazy" onerror="this.src='https://via.placeholder.com/300x160?text=Load+Error'"></div>
-                        <div class="asset-name" title="${asset.file}">${asset.file}</div>
-                        <button class="btn small secondary full" onclick="dlOne('${asset.url}', '${asset.file}', this)">Скачать</button>
-                    </div>`;
-                
-                grid.innerHTML += createCard(g.assets.cover, 'Обложка', 'cover');
-                grid.innerHTML += createCard(g.assets.banner, 'Баннер', '');
-                if (g.assets.screenshots) {
-                    g.assets.screenshots.forEach((scr, i) => {
-                        grid.innerHTML += createCard(scr, `Скриншот ${i+1}`, '');
-                    });
-                }
+            const am = document.getElementById('assetsManager');
+            if(!success.length) { am.innerHTML = '<div style="color: var(--text-muted); font-size: 14px; background: var(--bg-panel); padding: 24px; border-radius: var(--radius-md);">Ассеты появятся после успешной обработки игр.</div>'; return; }
+
+            let amHtml = '';
+            success.forEach(g => {
+                amHtml += `
+                <div class="game-asset-group">
+                    <div class="game-asset-header">${g.title} <span class="badge">${g.id}</span></div>
+                    <div class="asset-grid">
+                        ${g.assets.logo ? buildCard(g.assets.logo.url, g.assets.logo.file, 'Логотип', false, null, true) : ''}
+                        ${buildCard(g.assets.cover.url, g.assets.cover.file, 'Обложка', true, g.assets.cover.fallback)}
+                        ${buildCard(g.assets.banner.url, g.assets.banner.file, 'Баннер', false)}
+                        ${g.assets.screenshots.map((s, i) => buildCard(s.url, s.file, `Скриншот ${i+1}`, false)).join('')}
+                    </div>
+                </div>`;
             });
-        }
-        
-        function copyJson() { 
-            navigator.clipboard.writeText(document.getElementById('jsonOutput').textContent); 
-            showToast('JSON скопирован в буфер обмена!'); 
+            am.innerHTML = amHtml;
         }
 
-        // --- 6. DOWNLOAD LOGIC ---
-        async function dlOne(url, name, btn) {
-            const txt = btn.innerText; btn.innerHTML = '⏳'; btn.disabled = true;
-            try {
-                const b = await fetchImageBlob(url);
-                saveAs(b, name);
-                btn.innerHTML = '✓ Готово';
-                btn.style.background = 'var(--green)';
-            } catch(e) { 
-                btn.innerHTML = '✗ Ошибка'; 
-                showToast(e.message, 'error'); 
-                btn.style.background = 'var(--red)';
-            }
-            finally { 
-                setTimeout(() => { 
-                    btn.innerHTML = txt; 
-                    btn.disabled = false; 
-                    btn.style.background = '';
-                }, 2000); 
-            }
+        function buildCard(url, file, type, isCover=false, fallback=null, isLogo=false) {
+            if(!url) return ''; 
+            const fbStr = fallback ? `,'${fallback}'` : ',null';
+            return `
+            <div class="asset-card">
+                <div class="asset-img-wrap ${isCover ? 'is-cover' : ''} ${isLogo ? 'is-logo' : ''}"><img src="${url}" loading="lazy" onerror="this.src='https://via.placeholder.com/300/1a1a1a/555?text=NO+IMAGE'"></div>
+                <div class="asset-info"><span class="asset-type">${type}</span><span class="asset-name" title="${file}">${file}</span></div>
+                <div class="asset-actions">
+                    <button class="btn btn-secondary" style="flex: 1; padding: 6px; font-size: 12px;" onclick="dlSingleFile('${url}', '${file}', this ${fbStr})">Скачать</button>
+                    <button class="btn btn-secondary" style="padding: 6px 12px; font-size: 14px;" title="Развернуть" onclick="openLightbox('${url}')">👁</button>
+                </div>
+            </div>`;
+        }
+
+        // --- DOWNLOAD ACTIONS ---
+        function copyJson() { copyToClip(document.getElementById('jsonOutput').textContent, 'JSON'); }
+        function downloadJsonFile() {
+            const content = document.getElementById('jsonOutput').textContent;
+            if(content.includes('// Игры появятся здесь')) return showToast('Нет данных', true);
+            saveAs(new Blob([content], { type: "application/json;charset=utf-8" }), "games.json"); showToast('✅ Файл сохранен');
+        }
+
+        async function dlSingleFile(url, filename, btn, fallback) {
+            const oldHtml = btn.innerHTML; btn.innerHTML = '...'; btn.disabled = true;
+            try { saveAs(await fetchBlobSafe(url, fallback), filename); btn.innerHTML = '✓'; } 
+            catch (e) { btn.innerHTML = '✕'; showToast(`Ошибка: ${filename}`, true); }
+            setTimeout(() => { btn.innerHTML = oldHtml; btn.disabled = false; }, 2000);
         }
 
         async function downloadZip(type, btn) {
-            const originalHtml = btn.innerHTML;
-            const validGames = queue.filter(g => g.status === 'success');
-            
-            if (!validGames.length) return showToast('В очереди нет успешно загруженных игр', 'error');
+            const items = queue.filter(i => i.status === 'success');
+            if (!items.length) return showToast('Нет данных', true);
+            const oldText = btn.innerHTML; btn.innerHTML = 'Упаковка...'; btn.disabled = true;
 
-            btn.disabled = true;
-            let totalFiles = 0;
-            if (type === 'screenshots') {
-                validGames.forEach(g => {
-                    if (g.assets.screenshots) totalFiles += g.assets.screenshots.length;
-                });
-            } else {
-                totalFiles = validGames.length;
+            const zip = new JSZip(); const folder = zip.folder(type);
+            for (const g of items) {
+                if(!g.assets) continue;
+                if (type === 'logo' && g.assets.logo?.url) { try { folder.file(g.assets.logo.file, await fetchBlobSafe(g.assets.logo.url)); } catch(e){} } 
+                else if (type === 'cover' && g.assets.cover?.url) { try { folder.file(g.assets.cover.file, await fetchBlobSafe(g.assets.cover.url, g.assets.cover.fallback)); } catch(e){} } 
+                else if (type === 'banner' && g.assets.banner?.url) { try { folder.file(g.assets.banner.file, await fetchBlobSafe(g.assets.banner.url)); } catch(e){} } 
+                else if (type === 'screenshots' && g.assets.screenshots) { for (const s of g.assets.screenshots) { if(s.url) try { folder.file(s.file, await fetchBlobSafe(s.url)); } catch(e){} } }
             }
-            
-            if (totalFiles === 0) {
-                showToast('Нет файлов этого типа для скачивания', 'error');
-                btn.disabled = false;
-                return;
-            }
-
-            const zip = new JSZip();
-            const folderName = type === 'cover' ? 'Covers' : (type === 'banner' ? 'Banners' : 'Screenshots');
-            const folder = zip.folder(folderName);
-            let processed = 0;
-
-            const processFile = async (url, filename) => {
-                try {
-                    const blob = await fetchImageBlob(url); 
-                    folder.file(filename, blob);
-                } catch(e) {
-                    console.error(`Не удалось скачать: ${filename}`, e);
-                    folder.file(`${filename}.error.txt`, `Download failed: ${e.message}`);
-                }
-                processed++;
-                btn.innerHTML = `<span class="spinner"></span> <span class="prog-text">${processed}/${totalFiles}</span>`;
-            };
-
-            for (const game of validGames) {
-                if (type === 'cover' && game.assets.cover.url) await processFile(game.assets.cover.url, game.assets.cover.file);
-                else if (type === 'banner' && game.assets.banner.url) await processFile(game.assets.banner.url, game.assets.banner.file);
-                else if (type === 'screenshots' && game.assets.screenshots) {
-                    for (const scr of game.assets.screenshots) await processFile(scr.url, scr.file);
-                }
-            }
-
-            btn.innerHTML = `<span class="spinner"></span> <span class="prog-text">Сжатие...</span>`;
-            
-            try {
-                const content = await zip.generateAsync({type:"blob"});
-                saveAs(content, `${folderName}.zip`);
-                showToast(`Архив "${folderName}.zip" успешно создан!`);
-            } catch(e) {
-                showToast("Ошибка создания ZIP архива", "error");
-            } finally {
-                btn.innerHTML = originalHtml;
-                btn.disabled = false;
-            }
+            btn.innerHTML = 'Сохранение...';
+            try { saveAs(await zip.generateAsync({type:"blob"}), `${type}_assets.zip`); showToast('Архив сохранён'); } 
+            catch(e) { showToast('Ошибка создания ZIP', true); }
+            btn.innerHTML = oldText; btn.disabled = false;
         }
+
+        // Init
+        window.onload = loadState;
     </script>
 </body>
 </html>
