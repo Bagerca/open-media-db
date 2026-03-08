@@ -1,0 +1,2719 @@
+[
+    {
+        "id": "game_subnautica_2",
+        "steam_id": 1962700,
+        "title": "Subnautica 2",
+        "tier": "tier_standard",
+        "developer": "Unknown Worlds Entertainment",
+        "publisher": "KRAFTON, Inc.",
+        "release_date": "2026-01-01",
+        "tags": [
+            "Multiplayer",
+            "Underwater",
+            "Survival",
+            "Horror",
+            "Exploration",
+            "Co-op",
+            "Open World",
+            "Survival Horror",
+            "First-Person",
+            "Adventure",
+            "Atmospheric",
+            "Psychological Horror",
+            "Early Access",
+            "Sci-fi",
+            "Sandbox",
+            "Singleplayer",
+            "Action",
+            "3D",
+            "Casual",
+            "Choices Matter"
+        ],
+        "description": "Immerse yourself in a new adventure with Subnautica 2, an open-water survival game from the creators of the Subnautica series. Play alone or with friends as you explore alluring biomes and discover fascinating creatures. Craft vehicles, tools, and bases to survive this mysterious alien world.",
+        "specs": {
+            "minimum": "Минимальные: | ОС: Windows 10/11 | Процессор: Intel Core i5-8400 / AMD Ryzen 5 2600 | Оперативная память: 12 GB ОЗУ | Видеокарта: GeForce GTX 1660 6GB / RX 5500 XT 6GB | DirectX: версии 12 | Сеть: Широкополосное подключение к интернету | Место на диске: 50 GB | Дополнительно: Requires a 64-bit processor and operating system",
+            "recommended": "Рекомендованные: | ОС: Windows 11 | Процессор: Intel Core i7-13700 / AMD Ryzen 7 7700X | Оперативная память: 16 GB ОЗУ | Видеокарта: Geforce RTX 3070 8GB / RX 6700 XT 8GB | DirectX: версии 12 | Сеть: Широкополосное подключение к интернету | Место на диске: 50 GB | Дополнительно: Requires a 64-bit processor and operating system"
+        },
+        "trailer": "",
+        "assets": {
+            "logo": "subnautica_2_logo.png",
+            "cover": "subnautica_2.jpg",
+            "banner": "subnautica_2_banner.jpg",
+            "screenshots": [
+                "subnautica_2_screen_1.jpg",
+                "subnautica_2_screen_2.jpg",
+                "subnautica_2_screen_3.jpg",
+                "subnautica_2_screen_4.jpg",
+                "subnautica_2_screen_5.jpg"
+            ]
+        }
+    },
+    {
+        "id": "game_ill",
+        "steam_id": 1757350,
+        "title": "ILL",
+        "tier": "tier_aaa",
+        "developer": "Team Clout inc.",
+        "publisher": "Team Clout inc.",
+        "release_date": "Ещё не объявлена",
+        "tags": [
+            "Horror",
+            "Action",
+            "Shooter",
+            "First-Person",
+            "Survival Horror",
+            "Cinematic",
+            "Singleplayer",
+            "Survival",
+            "Psychological Horror",
+            "Story Rich",
+            "Violent",
+            "Gore",
+            "Adventure",
+            "Realistic",
+            "3D",
+            "Dark",
+            "Action-Adventure",
+            "FPS",
+            "Zombies",
+            "Lore-Rich"
+        ],
+        "description": "Реалистичный экшен-хоррор от первого лица, где вы окажетесь в мрачном форте, захваченном таинственной сущностью. Непредсказуемые монстры, правдоподобная система расчленения и реалистичная физика создадут атмосферу бесконечного ужаса.",
+        "specs": {
+            "minimum": "Минимальные: | ОС: TBA | Процессор: TBA | Видеокарта: TBA",
+            "recommended": ""
+        },
+        "trailer": "",
+        "assets": {
+            "logo": "ill_logo.png",
+            "cover": "ill.jpg",
+            "banner": "ill_banner.jpg",
+            "screenshots": [
+                "ill_screen_1.jpg",
+                "ill_screen_2.jpg",
+                "ill_screen_3.jpg",
+                "ill_screen_4.jpg",
+                "ill_screen_5.jpg",
+                "ill_screen_6.jpg"
+            ]
+        }
+    },
+    {
+        "id": "game_portal_2",
+        "steam_id": 620,
+        "title": "Portal 2",
+        "tier": "tier_aaa",
+        "developer": "Valve",
+        "publisher": "Valve",
+        "release_date": "18 апр. 2011 г.",
+        "tags": [
+            "Singleplayer",
+            "Platformer",
+            "Puzzle",
+            "First-Person",
+            "Dark Humor",
+            "Story Rich",
+            "Puzzle Platformer",
+            "Funny",
+            "Female Protagonist",
+            "3D Platformer",
+            "Action-Adventure",
+            "FPS",
+            "Action",
+            "Co-op",
+            "Physics",
+            "Sci-fi",
+            "Level Editor",
+            "Science",
+            "Comedy",
+            "Atmospheric"
+        ],
+        "description": "Программа вечного тестирования расширена: создавайте совместные головоломки для себя и друзей!",
+        "specs": {
+            "minimum": "Минимальные: | ОС *: Windows 7/Vista/XP | Процессор: Pentium 4 с тактовой частотой 3 ГГц, Dual Core 2.0 (или выше) или AMD64X2 (или выше) | Оперативная память: 2 GB ОЗУ | Видеокарта: Видеокарта должна иметь не менее 128 МБ видеопамяти и поддерживать пиксельные шейдеры 2.0b (ATI Radeon X800 или выше/ NVIDIA GeForce 7600 или выше/ Intel HD Graphics 2000 или выше). | DirectX: версии 9.0c | Место на диске: 8 GB | Звуковая карта: Совместимая с DirectX 9.0c",
+            "recommended": ""
+        },
+        "trailer": "",
+        "assets": {
+            "logo": "portal_2_logo.png",
+            "cover": "portal_2.jpg",
+            "banner": "portal_2_banner.jpg",
+            "screenshots": [
+                "portal_2_screen_1.jpg",
+                "portal_2_screen_2.jpg",
+                "portal_2_screen_3.jpg",
+                "portal_2_screen_4.jpg",
+                "portal_2_screen_5.jpg",
+                "portal_2_screen_6.jpg"
+            ]
+        }
+    },
+    {
+        "id": "game_portal",
+        "steam_id": 400,
+        "title": "Portal",
+        "tier": "tier_aaa",
+        "developer": "Valve",
+        "publisher": "Valve",
+        "release_date": "10 окт. 2007 г.",
+        "tags": [
+            "Puzzle",
+            "Puzzle Platformer",
+            "First-Person",
+            "3D Platformer",
+            "Singleplayer",
+            "Sci-fi",
+            "Comedy",
+            "Female Protagonist",
+            "Physics",
+            "Funny",
+            "Action",
+            "Classic",
+            "Story Rich",
+            "Platformer",
+            "Science",
+            "Atmospheric",
+            "Dark Humor",
+            "Short",
+            "FPS",
+            "Adventure"
+        ],
+        "description": "Portal™ — новая игра от Valve для одного игрока. Portal, действие которого происходит в загадочных лабораториях компании Aperture, был назван одной из самых новаторских игр современности и предлагает вниманию игрока множество часов непохожей ни на что головоломки.",
+        "specs": {
+            "minimum": "Минимальные: Процессор 1,7 ГГц, 512 МБ оперативной памяти, видеокарта с поддержкой DirectX&reg; 8.1 (требуется поддержка SSE), Windows&reg; 7 (32/64-разрядная)/Vista/XP, мышь, клавиатура, подключение к Интернету | Рекомендуемые: Процессор Pentium 4 (3 ГГц или лучше), 1 ГБ оперативной памяти, видеокарта с поддержкой DirectX&reg; 9, Windows&reg; 7 (32/64-разрядная)/Vista/XP, мышь, клавиатура, подключение к Интернету",
+            "recommended": ""
+        },
+        "trailer": "",
+        "assets": {
+            "logo": "portal_logo.png",
+            "cover": "portal.jpg",
+            "banner": "portal_banner.jpg",
+            "screenshots": [
+                "portal_screen_1.jpg",
+                "portal_screen_2.jpg",
+                "portal_screen_3.jpg",
+                "portal_screen_4.jpg",
+                "portal_screen_5.jpg",
+                "portal_screen_6.jpg"
+            ]
+        }
+    },
+    {
+        "id": "game_poppy_playtime",
+        "steam_id": 1721470,
+        "title": "Poppy Playtime",
+        "tier": "tier_indie",
+        "developer": "Mob Entertainment",
+        "publisher": "Mob Entertainment",
+        "release_date": "12 окт. 2021 г.",
+        "tags": [
+            "Horror",
+            "Singleplayer",
+            "Free to Play",
+            "Puzzle",
+            "First-Person",
+            "Survival Horror",
+            "Dark",
+            "Mystery",
+            "Psychological Horror",
+            "Survival",
+            "Indie",
+            "Adventure",
+            "Thriller",
+            "Atmospheric",
+            "1980s",
+            "Lore-Rich",
+            "Action",
+            "Cartoony",
+            "Action-Adventure",
+            "Physics"
+        ],
+        "description": "В этом хоррор-приключении целей две — решить все головоломки и выжить. За вами будут охотиться кровожадные игрушки, обитающие на заброшенной фабрике. Используйте хвататель, чтобы манипулировать проводами и доставать до дальних предметов. Исследуйте территорию и избегайте лап монстров.",
+        "specs": {
+            "minimum": "Минимальные: | 64-разрядные процессор и операционная система | ОС: Windows 10 | Процессор: Intel Core i5 | Оперативная память: 8 GB ОЗУ | Видеокарта: Nvidia GeForce GTX 1060 / Radeon RX 580 | Место на диске: 20 GB",
+            "recommended": "Рекомендованные: | 64-разрядные процессор и операционная система | ОС: Windows 10 | Процессор: Intel Core i5 | Оперативная память: 8 GB ОЗУ | Видеокарта: Nvidia GeForce GTX 1060 / Radeon RX 580 | Место на диске: 20 GB"
+        },
+        "trailer": "",
+        "assets": {
+            "logo": "poppy_playtime_logo.png",
+            "cover": "poppy_playtime.jpg",
+            "banner": "poppy_playtime_banner.jpg",
+            "screenshots": [
+                "poppy_playtime_screen_1.jpg",
+                "poppy_playtime_screen_2.jpg",
+                "poppy_playtime_screen_3.jpg",
+                "poppy_playtime_screen_4.jpg",
+                "poppy_playtime_screen_5.jpg"
+            ]
+        }
+    },
+    {
+        "id": "game_robocop_rogue_city",
+        "steam_id": 1681430,
+        "title": "RoboCop: Rogue City",
+        "tier": "tier_standard",
+        "developer": "Teyon",
+        "publisher": "Nacon",
+        "release_date": "2 ноя. 2023 г.",
+        "tags": [
+            "FPS",
+            "Action",
+            "First-Person",
+            "Singleplayer",
+            "Shooter",
+            "Gore",
+            "Story Rich",
+            "Cyberpunk",
+            "Sci-fi",
+            "Adventure",
+            "Atmospheric",
+            "Violent",
+            "Soundtrack",
+            "RPG",
+            "Robots",
+            "Dystopian ",
+            "Action RPG",
+            "Crime",
+            "Futuristic",
+            "Mature"
+        ],
+        "description": "На 50% человек, на 50% робот — на 100% герой: окунитесь в мир Старого Детройта в роли легендарного полицейского и вершите правосудие.",
+        "specs": {
+            "minimum": "Минимальные: | 64-разрядные процессор и операционная система | ОС: Windows 10 | Процессор: Intel Core i7-4790 or Ryzen 5 2600 | Оперативная память: 16 GB ОЗУ | Видеокарта: Intel Arc A380 or NVIDIA GeForce GTX 1650, 4 GB or AMD Radeon RX 480, 4 GB | Место на диске: 51 GB | Дополнительно: Requires a 64-bit processor and operating system",
+            "recommended": "Рекомендованные: | 64-разрядные процессор и операционная система | ОС: Windows 10 | Процессор: Intel Core i7-10700K or AMD Ryzen 7 3800XT | Оперативная память: 16 GB ОЗУ | Видеокарта: Intel Arc A770 or NVIDIA GeForce RTX 3070, 8 GB or AMD Radeon RX 6800, 16 GB | Место на диске: 51 GB | Дополнительно: Requires a 64-bit processor and operating system"
+        },
+        "trailer": "",
+        "assets": {
+            "logo": "robocop_rogue_city_logo.png",
+            "cover": "robocop_rogue_city.jpg",
+            "banner": "robocop_rogue_city_banner.jpg",
+            "screenshots": [
+                "robocop_rogue_city_screen_1.jpg",
+                "robocop_rogue_city_screen_2.jpg",
+                "robocop_rogue_city_screen_3.jpg",
+                "robocop_rogue_city_screen_4.jpg",
+                "robocop_rogue_city_screen_5.jpg",
+                "robocop_rogue_city_screen_6.jpg"
+            ]
+        }
+    },
+    {
+        "id": "game_stalcraft_x",
+        "steam_id": 1818450,
+        "title": "STALCRAFT: X",
+        "tier": "tier_standard",
+        "developer": "EXBO",
+        "publisher": "EXBO",
+        "release_date": "9 дек. 2022 г.",
+        "tags": [
+            "Free to Play",
+            "Multiplayer",
+            "MMORPG",
+            "FPS",
+            "Shooter",
+            "Action",
+            "Adventure",
+            "First-Person",
+            "Looter Shooter",
+            "Horror",
+            "Atmospheric",
+            "Massively Multiplayer",
+            "PvP",
+            "Combat",
+            "RPG",
+            "Story Rich",
+            "PvE",
+            "Tactical",
+            "Team-Based",
+            "Alternate History"
+        ],
+        "description": "STALCRAFT: X — самая масштабная онлайн-игра в открытом мире Чернобыльской Зоны Отчуждения. Исследуйте наполненный мутантами и аномалиями мир в одиночку или с друзьями — незабываемые эмоции гарантированы.",
+        "specs": {
+            "minimum": "Минимальные: | 64-разрядные процессор и операционная система | ОС: Windows 10 64-bit / Windows 11 64-bit | Процессор: Intel Core i5 3470 / AMD FX-6300 | Оперативная память: 4 GB ОЗУ | Видеокарта: NVIDIA GeForce GTX 750 Ti / AMD Radeon RX 560 | Сеть: Широкополосное подключение к интернету | Место на диске: 50 GB | Дополнительно: рекомендуется SSD",
+            "recommended": "Рекомендованные: | 64-разрядные процессор и операционная система | ОС: Windows 10 64-bit / Windows 11 64-bit | Процессор: Intel Core i5-6400 / AMD Ryzen 3 1200 | Оперативная память: 8 GB ОЗУ | Видеокарта: NVIDIA GeForce GTX 1050 Ti / AMD Radeon RX 570 | Сеть: Широкополосное подключение к интернету | Место на диске: 50 GB | Дополнительно: рекомендуется SSD"
+        },
+        "trailer": "",
+        "assets": {
+            "logo": "stalcraft_x_logo.png",
+            "cover": "stalcraft_x.jpg",
+            "banner": "stalcraft_x_banner.jpg",
+            "screenshots": [
+                "stalcraft_x_screen_1.jpg",
+                "stalcraft_x_screen_2.jpg",
+                "stalcraft_x_screen_3.jpg",
+                "stalcraft_x_screen_4.jpg",
+                "stalcraft_x_screen_5.jpg",
+                "stalcraft_x_screen_6.jpg"
+            ]
+        }
+    },
+    {
+        "id": "game_subnautica",
+        "steam_id": 264710,
+        "title": "Subnautica",
+        "tier": "tier_indie",
+        "developer": "Unknown Worlds Entertainment",
+        "publisher": "Unknown Worlds Entertainment",
+        "release_date": "23 янв. 2018 г.",
+        "tags": [
+            "Open World Survival Craft",
+            "Survival",
+            "Horror",
+            "Underwater",
+            "Open World",
+            "Exploration",
+            "Crafting",
+            "Base Building",
+            "Singleplayer",
+            "Adventure",
+            "First-Person",
+            "Sci-fi",
+            "Multiplayer",
+            "Atmospheric",
+            "Sandbox",
+            "Aliens",
+            "Survival Horror",
+            "VR",
+            "Indie",
+            "Action"
+        ],
+        "description": "Descend into the depths of an alien underwater world filled with wonder and peril. Craft equipment, pilot submarines and out-smart wildlife to explore lush coral reefs, volcanoes, cave systems, and more - all while trying to survive.",
+        "specs": {
+            "minimum": "Минимальные: | 64-разрядные процессор и операционная система | ОС *: Windows Vista SP2 or newer, 64-bit | Процессор: Intel Haswell 2 cores / 4 threads @ 2.5Ghz or equivalent | Оперативная память: 4 GB ОЗУ | Видеокарта: Intel HD 4600 or equivalent - This includes most GPUs scoring greater than 950 points in the 3DMark Fire Strike benchmark | DirectX: версии 11 | Место на диске: 20 GB | Поддержка VR: SteamVR. Keyboard or gamepad required",
+            "recommended": "Рекомендованные: | 64-разрядные процессор и операционная система | ОС *: Windows Vista SP2 or newer, 64-bit | Процессор: Intel Haswell 4 cores / 4 threads @ 3.2Ghz or equivalent | Оперативная память: 8 GB ОЗУ | Видеокарта: Nvidia GTX 550 Ti or equivalent, 2GB VRAM | DirectX: версии 11 | Место на диске: 20 GB"
+        },
+        "trailer": "",
+        "assets": {
+            "logo": "subnautica_logo.png",
+            "cover": "subnautica.jpg",
+            "banner": "subnautica_banner.jpg",
+            "screenshots": [
+                "subnautica_screen_1.jpg",
+                "subnautica_screen_2.jpg",
+                "subnautica_screen_3.jpg",
+                "subnautica_screen_4.jpg",
+                "subnautica_screen_5.jpg",
+                "subnautica_screen_6.jpg"
+            ]
+        }
+    },
+    {
+        "id": "game_the_farmer_was_replaced",
+        "steam_id": 2060160,
+        "title": "The Farmer Was Replaced",
+        "tier": "tier_indie",
+        "developer": "Timon Herzog",
+        "publisher": "Metaroot, Timon Herzog",
+        "release_date": "10 окт. 2025 г.",
+        "tags": [
+            "Programming",
+            "Automation",
+            "Idler",
+            "Education",
+            "Logic",
+            "Puzzle",
+            "Text-Based",
+            "Farming Sim",
+            "Minimalist",
+            "Artificial Intelligence",
+            "Farming",
+            "Resource Management",
+            "Simulation",
+            "Sandbox",
+            "Strategy",
+            "3D",
+            "Singleplayer",
+            "Colorful",
+            "Economy",
+            "Indie"
+        ],
+        "description": "Запрограммируйте дрон, чтобы автоматизировать работу на ферме, и смотрите, как он делает все за вас. Собирайте ресурсы и разблокируйте новые технологии. Станьте самым успешным фермером в мире. В процессе вы разовьете навыки решения задач и написания кода.",
+        "specs": {
+            "minimum": "Минимальные: | 64-разрядные процессор и операционная система | ОС *: Windows 7 (64-bit) | Процессор: Intel Core i3 | Оперативная память: 4 GB ОЗУ | Видеокарта: Nvidia Geforce GTX 550/equivalent or higher* | DirectX: версии 11 | Место на диске: 1 GB | Дополнительно: May run on weaker systems",
+            "recommended": "Рекомендованные: | 64-разрядные процессор и операционная система"
+        },
+        "trailer": "",
+        "assets": {
+            "logo": "the_farmer_was_replaced_logo.png",
+            "cover": "the_farmer_was_replaced.jpg",
+            "banner": "the_farmer_was_replaced_banner.jpg",
+            "screenshots": [
+                "the_farmer_was_replaced_screen_1.jpg",
+                "the_farmer_was_replaced_screen_2.jpg",
+                "the_farmer_was_replaced_screen_3.jpg",
+                "the_farmer_was_replaced_screen_4.jpg",
+                "the_farmer_was_replaced_screen_5.jpg",
+                "the_farmer_was_replaced_screen_6.jpg"
+            ]
+        }
+    },
+    {
+        "id": "game_the_henry_stickmin_collection",
+        "steam_id": 1089980,
+        "title": "The Henry Stickmin Collection",
+        "tier": "tier_indie",
+        "developer": "PuffballsUnited",
+        "publisher": "Innersloth",
+        "release_date": "7 авг. 2020 г.",
+        "tags": [
+            "Funny",
+            "Multiple Endings",
+            "Choose Your Own Adventure",
+            "Memes",
+            "Comedy",
+            "Singleplayer",
+            "Choices Matter",
+            "Classic",
+            "Point & Click",
+            "2D",
+            "Epic",
+            "Hand-drawn",
+            "Indie",
+            "Adventure",
+            "Family Friendly",
+            "Action",
+            "Interactive Fiction",
+            "Casual",
+            "Old School",
+            "Parody"
+        ],
+        "description": "A choose-your-own-path where failing is more fun than succeeding.",
+        "specs": {
+            "minimum": "Минимальные: | 64-разрядные процессор и операционная система | ОС *: Windows 7 SP1+ | Процессор: 2.3 GHz Dual Core | Оперативная память: 4 GB ОЗУ | Видеокарта: Intel HD 4000 | Место на диске: 1 GB",
+            "recommended": "Рекомендованные: | 64-разрядные процессор и операционная система | ОС: Windows 10 | Процессор: 2.3 GHz Dual Core | Оперативная память: 8 GB ОЗУ | Видеокарта: Dedicated Graphics | Место на диске: 1 GB"
+        },
+        "trailer": "",
+        "assets": {
+            "logo": "the_henry_stickmin_collection_logo.png",
+            "cover": "the_henry_stickmin_collection.jpg",
+            "banner": "the_henry_stickmin_collection_banner.jpg",
+            "screenshots": [
+                "the_henry_stickmin_collection_screen_1.jpg",
+                "the_henry_stickmin_collection_screen_2.jpg",
+                "the_henry_stickmin_collection_screen_3.jpg",
+                "the_henry_stickmin_collection_screen_4.jpg",
+                "the_henry_stickmin_collection_screen_5.jpg",
+                "the_henry_stickmin_collection_screen_6.jpg"
+            ]
+        }
+    },
+    {
+        "id": "game_this_war_of_mine",
+        "steam_id": 282070,
+        "title": "This War of Mine",
+        "tier": "tier_indie",
+        "developer": "11 bit studios",
+        "publisher": "11 bit studios",
+        "release_date": "14 ноя. 2014 г.",
+        "tags": [
+            "Survival",
+            "War",
+            "Atmospheric",
+            "Singleplayer",
+            "Strategy",
+            "Choices Matter",
+            "Simulation",
+            "Base Building",
+            "Crafting",
+            "Resource Management",
+            "Post-apocalyptic",
+            "Management",
+            "Story Rich",
+            "Indie",
+            "Emotional",
+            "Realistic",
+            "2.5D",
+            "Psychological",
+            "Drama",
+            "Stealth"
+        ],
+        "description": "В «This War of Mine» вы играете не за солдата элитных войск, а за группу мирных жителей, пытающихся выжить в осажденном городе, испытывая нехватку еды, лекарств и постоянную опасность со стороны снайперов и мародеров.",
+        "specs": {
+            "minimum": "Минимальные: | 64-разрядные процессор и операционная система | ОС *: Windows 7/8/10 | Процессор: 2.4 GHz Dual Core | Оперативная память: 2 GB ОЗУ | Видеокарта: GeForce GTX 260, Radeon HD 5770, 1024 MB, Shader Model 3.0 | Звуковая карта: DirectX compatible",
+            "recommended": "Рекомендованные: | 64-разрядные процессор и операционная система | ОС *: Windows 7/8/10 | Процессор: 2.5+ GHz Quad Core | Оперативная память: 4 GB ОЗУ | Видеокарта: NVIDIA GTX 660 or better, Radeon HD 7950 or better, Shader Model 3.0 | DirectX: версии 9.0c | Звуковая карта: DirectX compatible"
+        },
+        "trailer": "",
+        "assets": {
+            "logo": "this_war_of_mine_logo.png",
+            "cover": "this_war_of_mine.jpg",
+            "banner": "this_war_of_mine_banner.jpg",
+            "screenshots": [
+                "this_war_of_mine_screen_1.jpg",
+                "this_war_of_mine_screen_2.jpg",
+                "this_war_of_mine_screen_3.jpg",
+                "this_war_of_mine_screen_4.jpg",
+                "this_war_of_mine_screen_5.jpg",
+                "this_war_of_mine_screen_6.jpg"
+            ]
+        }
+    },
+    {
+        "id": "game_tiny_bunny",
+        "steam_id": 1421250,
+        "title": "Tiny Bunny",
+        "tier": "tier_indie",
+        "developer": "Saikono, Sokar",
+        "publisher": "Serenity Forge",
+        "release_date": "5 дек. 2025 г.",
+        "tags": [
+            "Visual Novel",
+            "Horror",
+            "Story Rich",
+            "Atmospheric",
+            "Dark",
+            "Psychological Horror",
+            "Choices Matter",
+            "Singleplayer",
+            "Gore",
+            "2D",
+            "Violent",
+            "Mature",
+            "Adventure",
+            "Interactive Fiction",
+            "Point & Click",
+            "Great Soundtrack",
+            "Cute",
+            "Anime",
+            "Indie",
+            "Early Access"
+        ],
+        "description": "«Зайчик» - нелинейная визуальная новелла в жанре ужасов. Тому, кто услышал голос леса, уже не поможет ничего.",
+        "specs": {
+            "minimum": "Минимальные: | 64-разрядные процессор и операционная система | ОС: Windows 10 на х64 | Процессор: 1.2 GHz or faster processor | Оперативная память: 2 GB ОЗУ | Видеокарта: 512 MB display memory | DirectX: версии 9.0 | Место на диске: 5 GB",
+            "recommended": "Рекомендованные: | 64-разрядные процессор и операционная система"
+        },
+        "trailer": "",
+        "assets": {
+            "logo": "tiny_bunny_logo.png",
+            "cover": "tiny_bunny.jpg",
+            "banner": "tiny_bunny_banner.jpg",
+            "screenshots": [
+                "tiny_bunny_screen_1.jpg",
+                "tiny_bunny_screen_2.jpg",
+                "tiny_bunny_screen_3.jpg",
+                "tiny_bunny_screen_4.jpg",
+                "tiny_bunny_screen_5.jpg",
+                "tiny_bunny_screen_6.jpg"
+            ]
+        }
+    },
+    {
+        "id": "game_vrchat",
+        "steam_id": 438100,
+        "title": "VRChat",
+        "tier": "tier_standard",
+        "developer": "VRChat Inc.",
+        "publisher": "VRChat Inc.",
+        "release_date": "1 фев. 2017 г.",
+        "tags": [
+            "VR",
+            "Free to Play",
+            "Multiplayer",
+            "Anime",
+            "Memes",
+            "Funny",
+            "Massively Multiplayer",
+            "First-Person",
+            "Open World",
+            "Early Access",
+            "Simulation",
+            "Casual",
+            "Adventure",
+            "MMORPG",
+            "Comedy",
+            "Sandbox",
+            "Dating Sim",
+            "Survival Horror",
+            "Action",
+            "Atmospheric"
+        ],
+        "description": "Join our growing community as you explore, play, and help craft the future of social VR. Create worlds and custom avatars. Welcome to VRChat.",
+        "specs": {
+            "minimum": "Минимальные: | 64-разрядные процессор и операционная система | ОС: Windows 10/11 | Процессор: Intel® i5-4590 / AMD FX 8350 equivalent or greater | Оперативная память: 4 GB ОЗУ | Видеокарта: NVIDIA GeForce® GTX 970 / AMD Radeon™ R9 290 equivalent or greater | DirectX: версии 11 | Сеть: Широкополосное подключение к интернету | Место на диске: 1 GB | Поддержка VR: SteamVR",
+            "recommended": "Рекомендованные: | 64-разрядные процессор и операционная система"
+        },
+        "trailer": "",
+        "assets": {
+            "logo": "vrchat_logo.png",
+            "cover": "vrchat.jpg",
+            "banner": "vrchat_banner.jpg",
+            "screenshots": [
+                "vrchat_screen_1.jpg",
+                "vrchat_screen_2.jpg",
+                "vrchat_screen_3.jpg",
+                "vrchat_screen_4.jpg",
+                "vrchat_screen_5.jpg",
+                "vrchat_screen_6.jpg"
+            ]
+        }
+    },
+    {
+        "id": "game_war_thunder",
+        "steam_id": 236390,
+        "title": "War Thunder",
+        "tier": "tier_standard",
+        "developer": "Gaijin Entertainment",
+        "publisher": "Gaijin Network Ltd",
+        "release_date": "15 авг. 2013 г.",
+        "tags": [
+            "Free to Play",
+            "Simulation",
+            "Vehicular Combat",
+            "Combat",
+            "Flight",
+            "VR",
+            "World War II",
+            "War",
+            "Military",
+            "Tanks",
+            "Multiplayer",
+            "Naval Combat",
+            "Massively Multiplayer",
+            "Modern",
+            "Cold War",
+            "Shooter",
+            "Realistic",
+            "Action",
+            "Third Person",
+            "Third-Person Shooter"
+        ],
+        "description": "War Thunder – самая масштабная бесплатная кроссплатформенная многопользовательская онлайн-игра, посвященная боевой технике самых разных войн и конфликтов – с начала XX века и до наших дней. Авиация, наземные силы и флот сражаются вместе в одном бою.",
+        "specs": {
+            "minimum": "Минимальные: | ОС: Windows 10 (64bit) | Процессор: Dual-Core 2.2 GHz | Оперативная память: 4 GB ОЗУ | Видеокарта: DirectX 11 level video card: AMD Radeon 77XX / NVIDIA GeForce GTX 660. The minimum supported resolution for the game is 720p. | DirectX: версии 11 | Сеть: Широкополосное подключение к интернету | Место на диске: 70 GB | Поддержка VR: SteamVR. Keyboard or gamepad required",
+            "recommended": "Рекомендованные: | ОС: Windows 10/11 (64bit) | Процессор: Intel Core i5 or Ryzen 5 3600 or better | Оперативная память: 16 GB ОЗУ | Видеокарта: DirectX 11 level video card or higher and drivers: Nvidia GeForce 1060 and higher, Radeon RX 570 and higher | DirectX: версии 12 | Сеть: Широкополосное подключение к интернету | Место на диске: 95 GB"
+        },
+        "trailer": "",
+        "assets": {
+            "logo": "war_thunder_logo.png",
+            "cover": "war_thunder.jpg",
+            "banner": "war_thunder_banner.jpg",
+            "screenshots": [
+                "war_thunder_screen_1.jpg",
+                "war_thunder_screen_2.jpg",
+                "war_thunder_screen_3.jpg",
+                "war_thunder_screen_4.jpg",
+                "war_thunder_screen_5.jpg",
+                "war_thunder_screen_6.jpg"
+            ]
+        }
+    },
+    {
+        "id": "game_bloons_td_6",
+        "steam_id": 960090,
+        "title": "Bloons TD 6",
+        "tier": "tier_standard",
+        "developer": "Ninja Kiwi",
+        "publisher": "Ninja Kiwi",
+        "release_date": "17 дек. 2018 г.",
+        "tags": [
+            "Tower Defense",
+            "Strategy",
+            "Multiplayer",
+            "Singleplayer",
+            "Online Co-Op",
+            "Co-op",
+            "Family Friendly",
+            "Casual",
+            "3D",
+            "Cartoony",
+            "Sandbox",
+            "2D",
+            "Great Soundtrack",
+            "Difficult",
+            "Touch-Friendly",
+            "Cute",
+            "Funny",
+            "Addictive",
+            "Survival",
+            "Action"
+        ],
+        "description": "Игра-боевик в стиле «оборона крепости»",
+        "specs": {
+            "minimum": "Минимальные: | 64-разрядные процессор и операционная система | ОС: Windows 10 (64bit) | Процессор: 1.5Ghz or better (x86-64) | Оперативная память: 4096 MB ОЗУ | Видеокарта: OpenGL 2.0 compatible, ATI, Nvidia or Intel HD | Место на диске: 2048 MB | Звуковая карта: Windows compatible sound card",
+            "recommended": "Рекомендованные: | 64-разрядные процессор и операционная система | ОС: Windows 10 (64bit) | Процессор: 2Ghz or better (x86-64) | Оперативная память: 8192 MB ОЗУ | Видеокарта: OpenGL 2.0 compatible, ATI, Nvidia or Intel HD | Место на диске: 4096 MB | Звуковая карта: Windows compatible sound card"
+        },
+        "trailer": "",
+        "assets": {
+            "logo": "bloons_td_6_logo.png",
+            "cover": "bloons_td_6.jpg",
+            "banner": "bloons_td_6_banner.jpg",
+            "screenshots": [
+                "bloons_td_6_screen_1.jpg",
+                "bloons_td_6_screen_2.jpg",
+                "bloons_td_6_screen_3.jpg",
+                "bloons_td_6_screen_4.jpg",
+                "bloons_td_6_screen_5.jpg",
+                "bloons_td_6_screen_6.jpg"
+            ]
+        }
+    },
+    {
+        "id": "game_crossout",
+        "steam_id": 386180,
+        "title": "Crossout",
+        "tier": "tier_standard",
+        "developer": "Targem Games",
+        "publisher": "Gaijin Network Ltd",
+        "release_date": "26 июл. 2017 г.",
+        "tags": [
+            "Third Person",
+            "Gun Customization",
+            "Vehicular Combat",
+            "Free to Play",
+            "Crafting",
+            "Post-apocalyptic",
+            "Action",
+            "Sandbox",
+            "PvP",
+            "Multiplayer",
+            "PvE",
+            "Trading",
+            "Shooter",
+            "Online Co-Op",
+            "Co-op",
+            "Building",
+            "Combat",
+            "Adventure",
+            "Loot",
+            "Economy"
+        ],
+        "description": "CROSSOUT - постапокалиптический MMO-экшн, где вы можете собрать из множества деталей бронемашину уникального дизайна, а затем сразиться на ней в жарких многопользовательских боях в воздухе и на земле.",
+        "specs": {
+            "minimum": "Минимальные: | 64-разрядные процессор и операционная система | ОС: Windows® 10/11 64 bit | Процессор: 4-х ядерный процессор Intel Core™ i5-2310 или AMD FX-4100 | Оперативная память: 4 GB ОЗУ | Видеокарта: AMD Radeon HD 7000 серия, Nvidia GeForce 500 серия | Сеть: Широкополосное подключение к интернету | Место на диске: 18 GB",
+            "recommended": "Рекомендованные: | 64-разрядные процессор и операционная система | ОС: Windows® 10/11 64 bit | Процессор: Intel Core™ i5-7600 или AMD Ryzen 7 2700 и выше | Оперативная память: 16 GB ОЗУ | Видеокарта: Nvidia GeForce GTX 970 или Radeon RX 570 и выше | Сеть: Широкополосное подключение к интернету | Место на диске: 18 GB"
+        },
+        "trailer": "",
+        "assets": {
+            "logo": "crossout_logo.png",
+            "cover": "crossout.jpg",
+            "banner": "crossout_banner.jpg",
+            "screenshots": [
+                "crossout_screen_1.jpg",
+                "crossout_screen_2.jpg",
+                "crossout_screen_3.jpg",
+                "crossout_screen_4.jpg",
+                "crossout_screen_5.jpg",
+                "crossout_screen_6.jpg"
+            ]
+        }
+    },
+    {
+        "id": "game_cakey_s_twisted_bakery",
+        "steam_id": 3028500,
+        "title": "Cakey's Twisted Bakery",
+        "tier": "tier_standard",
+        "developer": "TinyMindz",
+        "publisher": "TinyMindz",
+        "release_date": "5 июл. 2024 г.",
+        "tags": [
+            "Action",
+            "Adventure",
+            "Action-Adventure",
+            "Arcade",
+            "Interactive Fiction",
+            "Puzzle",
+            "FPS",
+            "3D",
+            "Cartoon",
+            "Cartoony",
+            "Colorful",
+            "First-Person",
+            "Stylized",
+            "Atmospheric",
+            "Dark",
+            "Cooking",
+            "Fantasy",
+            "Mystery",
+            "Old School",
+            "Horror"
+        ],
+        "description": "It's bake or die at Cakey's Bakery, where human children are the secret ingredient to strange monsters' delicious pastries. Find the recipe for survival to escape the bakery and it's sweet and scary staff!",
+        "specs": {
+            "minimum": "Минимальные: | 64-разрядные процессор и операционная система | ОС: 64-bit Windows 10 | Оперативная память: 8 GB ОЗУ | Видеокарта: GeForce GT 1030 | RX 550 | DirectX: версии 12 | Место на диске: 1200 MB",
+            "recommended": "Рекомендованные: | 64-разрядные процессор и операционная система"
+        },
+        "trailer": "",
+        "assets": {
+            "logo": "cakey_s_twisted_bakery_logo.png",
+            "cover": "cakey_s_twisted_bakery.jpg",
+            "banner": "cakey_s_twisted_bakery_banner.jpg",
+            "screenshots": [
+                "cakey_s_twisted_bakery_screen_1.jpg",
+                "cakey_s_twisted_bakery_screen_2.jpg",
+                "cakey_s_twisted_bakery_screen_3.jpg",
+                "cakey_s_twisted_bakery_screen_4.jpg",
+                "cakey_s_twisted_bakery_screen_5.jpg",
+                "cakey_s_twisted_bakery_screen_6.jpg"
+            ]
+        }
+    },
+    {
+        "id": "game_cat_bait",
+        "steam_id": 2929730,
+        "title": "Cat Bait",
+        "tier": "tier_indie",
+        "developer": "Mayni prod.",
+        "publisher": "Mayni prod.",
+        "release_date": "27 авг. 2024 г.",
+        "tags": [
+            "Indie",
+            "Cats",
+            "Cute",
+            "Pixel Graphics",
+            "2D",
+            "Bullet Hell",
+            "Action Roguelike",
+            "Action",
+            "Roguelite",
+            "Casual",
+            "Singleplayer",
+            "Fantasy",
+            "Psychological Horror",
+            "Roguelike",
+            "Survival",
+            "Early Access"
+        ],
+        "description": "Cat Bait — казуальная игра с милой пиксельной графикой. Управляйте Котом Приманкой, уклоняйтесь от врагов и используйте уникальные способности котов-помощников.",
+        "specs": {
+            "minimum": "Минимальные: | ОС *: Windows 7+ | Процессор: 2 Ghz | Оперативная память: 4 GB ОЗУ | Видеокарта: Vulkan or OpenGL support | Место на диске: 200 MB",
+            "recommended": ""
+        },
+        "trailer": "",
+        "assets": {
+            "logo": "cat_bait_logo.png",
+            "cover": "cat_bait.jpg",
+            "banner": "cat_bait_banner.jpg",
+            "screenshots": [
+                "cat_bait_screen_1.jpg",
+                "cat_bait_screen_2.jpg",
+                "cat_bait_screen_3.jpg",
+                "cat_bait_screen_4.jpg",
+                "cat_bait_screen_5.jpg",
+                "cat_bait_screen_6.jpg"
+            ]
+        }
+    },
+    {
+        "id": "game_choo_choo_charles",
+        "steam_id": 1766740,
+        "title": "Choo-Choo Charles",
+        "tier": "tier_indie",
+        "developer": "Two Star Games",
+        "publisher": "Two Star Games",
+        "release_date": "9 дек. 2022 г.",
+        "tags": [
+            "Survival Horror",
+            "Horror",
+            "Open World",
+            "First-Person",
+            "Trains",
+            "Singleplayer",
+            "Shooter",
+            "Dark",
+            "3D",
+            "Action-Adventure",
+            "FPS",
+            "Adventure",
+            "Atmospheric",
+            "Indie",
+            "Psychological Horror",
+            "Action",
+            "Choices Matter",
+            "Thriller",
+            "Hand-drawn",
+            "Sexual Content"
+        ],
+        "description": "Путешествуйте по острову в старом поезде, периодически улучшайте его и используйте для борьбы со злым пауком по имени Чарльз.",
+        "specs": {
+            "minimum": "Минимальные: | ОС *: Windows 7 64-bit | Процессор: 2.5 GHz Quad-core Intel or AMD processor | Оперативная память: 4 GB ОЗУ | Видеокарта: NVIDIA GeForce 470 GTX or AMD Radeon 6870 HD | Место на диске: 3 GB | Дополнительно: The game includes graphics settings to aid lower end devices.",
+            "recommended": ""
+        },
+        "trailer": "",
+        "assets": {
+            "logo": "choo_choo_charles_logo.png",
+            "cover": "choo_choo_charles.jpg",
+            "banner": "choo_choo_charles_banner.jpg",
+            "screenshots": [
+                "choo_choo_charles_screen_1.jpg",
+                "choo_choo_charles_screen_2.jpg",
+                "choo_choo_charles_screen_3.jpg",
+                "choo_choo_charles_screen_4.jpg",
+                "choo_choo_charles_screen_5.jpg",
+                "choo_choo_charles_screen_6.jpg"
+            ]
+        }
+    },
+    {
+        "id": "game_dark_deception",
+        "steam_id": 332950,
+        "title": "Dark Deception",
+        "tier": "tier_indie",
+        "developer": "Glowstick Entertainment",
+        "publisher": "Glowstick Entertainment",
+        "release_date": "26 сен. 2018 г.",
+        "tags": [
+            "Horror",
+            "Free to Play",
+            "Multiplayer",
+            "Singleplayer",
+            "First-Person",
+            "Psychological Horror",
+            "Runner",
+            "Survival Horror",
+            "Indie",
+            "Action",
+            "Survival",
+            "Dark Humor",
+            "Adventure",
+            "Story Rich",
+            "Arcade",
+            "RPG",
+            "Multiple Endings",
+            "Cinematic",
+            "Dark",
+            "Difficult"
+        ],
+        "description": "Death awaits you in Dark Deception, a story-driven first-person horror maze game. There's nowhere to hide & nowhere to catch your breath. Run or die - it's your choice. Trapped in a realm of nightmarish mazes with a mysterious woman, your only hope of survival is to find a way to escape.",
+        "specs": {
+            "minimum": "Минимальные: | 64-разрядные процессор и операционная система | ОС *: Windows 7 64-bit, Windows 8.1, Windows 10 | Процессор: Intel Core i5-4330/AMD FX-6300 | Оперативная память: 16 GB ОЗУ | Видеокарта: NVIDIA GeForce GTX 1060 3GB/ AMD Radeon R7 370 2GB | DirectX: версии 11 | Место на диске: 1 GB | Дополнительно: 60fps low settings at 1080p",
+            "recommended": "Рекомендованные: | 64-разрядные процессор и операционная система | ОС *: 64-bit Windows 7, Windows 8.1, or Windows 10 | Процессор: Intel Corei5-6600K/ AMD Ryzen 5 1600 | Оперативная память: 16 GB ОЗУ | Видеокарта: Nvidia GeForce GTX 2070 8GB/ AMD Radeon RX 5700 XT 8GB | DirectX: версии 11 | Место на диске: 1 GB | Дополнительно: 60fps high settings at 1080p"
+        },
+        "trailer": "",
+        "assets": {
+            "logo": "dark_deception_logo.png",
+            "cover": "dark_deception.jpg",
+            "banner": "dark_deception_banner.jpg",
+            "screenshots": [
+                "dark_deception_screen_1.jpg",
+                "dark_deception_screen_2.jpg",
+                "dark_deception_screen_3.jpg",
+                "dark_deception_screen_4.jpg",
+                "dark_deception_screen_5.jpg",
+                "dark_deception_screen_6.jpg"
+            ]
+        }
+    },
+    {
+        "id": "game_crysis_3_remastered",
+        "steam_id": 2096610,
+        "title": "Crysis 3 Remastered",
+        "tier": "tier_standard",
+        "developer": "Crytek, Saber Interactive",
+        "publisher": "Crytek",
+        "release_date": "17 ноя. 2022 г.",
+        "tags": [
+            "Action",
+            "FPS",
+            "Shooter",
+            "Aliens",
+            "Sci-fi",
+            "Post-apocalyptic",
+            "Hero Shooter",
+            "First-Person",
+            "Dystopian",
+            "Sandbox",
+            "Futuristic",
+            "War",
+            "Combat",
+            "Shoot 'Em Up",
+            "Physics",
+            "PvE",
+            "Singleplayer",
+            "Stealth",
+            "Story Rich",
+            "Violent"
+        ],
+        "description": "В Crysis 3 Remastered вы сможете вновь пережить события классического боевика Crysis 3, оптимизированного для современных систем.",
+        "specs": {
+            "minimum": "Минимальные: | ОС: Windows 10 64 bit | Процессор: Intel(R) Core(TM) i5-3470 | Оперативная память: 8 GB ОЗУ | Видеокарта: NVIDIA GeForce GTX 1060 | DirectX: версии 11 | Место на диске: 18 GB",
+            "recommended": "Рекомендованные: | ОС: Windows 10 64-Bit latest update | Процессор: Intel(R) Core(TM) i5-8600 | Оперативная память: 16 GB ОЗУ | Видеокарта: NVIDIA GeForce GTX 1660 TI | DirectX: версии 11 | Место на диске: 18 GB"
+        },
+        "trailer": "",
+        "assets": {
+            "logo": "crysis_3_remastered_logo.png",
+            "cover": "crysis_3_remastered.jpg",
+            "banner": "crysis_3_remastered_banner.jpg",
+            "screenshots": [
+                "crysis_3_remastered_screen_1.jpg",
+                "crysis_3_remastered_screen_2.jpg",
+                "crysis_3_remastered_screen_3.jpg",
+                "crysis_3_remastered_screen_4.jpg",
+                "crysis_3_remastered_screen_5.jpg",
+                "crysis_3_remastered_screen_6.jpg"
+            ]
+        }
+    },
+    {
+        "id": "game_crysis_2_remastered",
+        "steam_id": 2096600,
+        "title": "Crysis 2 Remastered",
+        "tier": "tier_standard",
+        "developer": "Crytek, Saber Interactive",
+        "publisher": "Crytek",
+        "release_date": "17 ноя. 2022 г.",
+        "tags": [
+            "Action",
+            "FPS",
+            "Shooter",
+            "Sandbox",
+            "First-Person",
+            "Aliens",
+            "Hero Shooter",
+            "Futuristic",
+            "Dystopian",
+            "Shoot 'Em Up",
+            "Dark Humor",
+            "Post-apocalyptic",
+            "Sci-fi",
+            "Tactical",
+            "Singleplayer",
+            "Combat",
+            "PvE",
+            "Violent",
+            "Multiplayer",
+            "Stealth"
+        ],
+        "description": "В Crysis 2 Remastered вы сможете вновь окунуться в мир легендарного боевика Crysis 2, оптимизированный для современных систем.",
+        "specs": {
+            "minimum": "Минимальные: | ОС: Windows 10 64 bit | Процессор: Intel(R) Core(TM) i5-3470 | Оперативная память: 8 GB ОЗУ | Видеокарта: NVIDIA GeForce GTX 1060 | DirectX: версии 11 | Место на диске: 54 GB | Звуковая карта: DirectX compatible audio card",
+            "recommended": "Рекомендованные: | ОС: Windows 10 64-Bit latest update | Процессор: Intel(R) Core(TM) i5-8600 or higher | Оперативная память: 16 GB ОЗУ | Видеокарта: NVIDIA GeForce GTX 1660 TI | DirectX: версии 11 | Место на диске: 54 GB | Звуковая карта: DirectX compatible audio card"
+        },
+        "trailer": "",
+        "assets": {
+            "logo": "crysis_2_remastered_logo.png",
+            "cover": "crysis_2_remastered.jpg",
+            "banner": "crysis_2_remastered_banner.jpg",
+            "screenshots": [
+                "crysis_2_remastered_screen_1.jpg",
+                "crysis_2_remastered_screen_2.jpg",
+                "crysis_2_remastered_screen_3.jpg",
+                "crysis_2_remastered_screen_4.jpg",
+                "crysis_2_remastered_screen_5.jpg",
+                "crysis_2_remastered_screen_6.jpg"
+            ]
+        }
+    },
+    {
+        "id": "game_crysis_remastered",
+        "steam_id": 1715130,
+        "title": "Crysis Remastered",
+        "tier": "tier_standard",
+        "developer": "Crytek",
+        "publisher": "Crytek",
+        "release_date": "17 сен. 2021 г.",
+        "tags": [
+            "Action",
+            "FPS",
+            "Shooter",
+            "Sci-fi",
+            "Stealth",
+            "Singleplayer",
+            "Sandbox",
+            "Aliens",
+            "Atmospheric",
+            "Futuristic",
+            "Cinematic",
+            "Adventure",
+            "Realistic",
+            "Tactical",
+            "America",
+            "First-Person",
+            "Violent",
+            "Multiplayer",
+            "Survival",
+            "Open World"
+        ],
+        "description": "Классический шутер от первого лица от Crytek возвращается с динамическим игровым процессом, режимом \"\"песочницы\"\" и захватывающими эпическими битвами. В игре вас ждет обновленная графика, оптимизированная для оборудования нового поколения.",
+        "specs": {
+            "minimum": "Минимальные: | ОС: Windows 10 64 bit | Процессор: Intel(R) Core(TM) i5-3450 / AMD Ryzen 3 | Оперативная память: 8 GB ОЗУ | Видеокарта: NVIDIA GeForce GTX 1050 TI /AMD Radeon 470 | Сеть: Широкополосное подключение к интернету | Место на диске: 20 GB",
+            "recommended": "Рекомендованные: | ОС: Windows 10 64-Bit latest update | Процессор: Intel(R) Core(TM) i5-7600k or higher / AMD Ryzen 5 or higher | Оперативная память: 12 GB ОЗУ | Видеокарта: NVIDIA GeForce GTX 1660 TI / AMD Radeon Vega 56 | Сеть: Широкополосное подключение к интернету | Место на диске: 20 GB"
+        },
+        "trailer": "",
+        "assets": {
+            "logo": "crysis_remastered_logo.png",
+            "cover": "crysis_remastered.jpg",
+            "banner": "crysis_remastered_banner.jpg",
+            "screenshots": [
+                "crysis_remastered_screen_1.jpg",
+                "crysis_remastered_screen_2.jpg",
+                "crysis_remastered_screen_3.jpg",
+                "crysis_remastered_screen_4.jpg",
+                "crysis_remastered_screen_5.jpg",
+                "crysis_remastered_screen_6.jpg"
+            ]
+        }
+    },
+    {
+        "id": "game_doki_doki_literature_club",
+        "steam_id": 698780,
+        "title": "Doki Doki Literature Club!",
+        "tier": "tier_aaa",
+        "developer": "Team Salvato",
+        "publisher": "Team Salvato",
+        "release_date": "6 окт. 2017 г.",
+        "tags": [
+            "Psychological Horror",
+            "Visual Novel",
+            "Anime",
+            "Free to Play",
+            "Dating Sim",
+            "Cute",
+            "Horror",
+            "Dark",
+            "Story Rich",
+            "Romance",
+            "Singleplayer",
+            "Great Soundtrack",
+            "Gore",
+            "Violent",
+            "Indie",
+            "Sexual Content",
+            "First-Person",
+            "Memes",
+            "Casual",
+            "Adventure"
+        ],
+        "description": "The Literature Club is full of cute girls! Will you write the way into their heart? This game is not suitable for children or those who are easily disturbed.",
+        "specs": {
+            "minimum": "Минимальные: | ОС *: Windows 7 | Процессор: 1.8GHz Dual-Core CPU | Оперативная память: 4 GB ОЗУ | Видеокарта: Integrated graphics | Место на диске: 350 MB",
+            "recommended": ""
+        },
+        "trailer": "",
+        "assets": {
+            "logo": "doki_doki_literature_club_logo.png",
+            "cover": "doki_doki_literature_club.jpg",
+            "banner": "doki_doki_literature_club_banner.jpg",
+            "screenshots": [
+                "doki_doki_literature_club_screen_1.jpg",
+                "doki_doki_literature_club_screen_2.jpg",
+                "doki_doki_literature_club_screen_3.jpg",
+                "doki_doki_literature_club_screen_4.jpg",
+                "doki_doki_literature_club_screen_5.jpg"
+            ]
+        }
+    },
+    {
+        "id": "game_drift_wav",
+        "steam_id": 2613610,
+        "title": "Drift.Wav",
+        "tier": "tier_indie",
+        "developer": "Matthew Weston",
+        "publisher": "ATR",
+        "release_date": "27 окт. 2023 г.",
+        "tags": [
+            "Racing",
+            "Driving",
+            "Arcade",
+            "3D",
+            "Relaxing",
+            "Procedural Generation",
+            "Controller",
+            "Casual",
+            "Colorful",
+            "Minimalist",
+            "Space",
+            "Physics",
+            "1980s",
+            "Free to Play",
+            "Singleplayer",
+            "Multiplayer",
+            "Indie",
+            "Sports"
+        ],
+        "description": "Drift.Wav is a casual drifting game with a synthwave inspired aesthetic. This game is not meant to replicate / simulate actual drift mechanics, but more serve as a fun & relaxing game where you can slide in a synthwave inspired world. See if you can drift your way to the top of the leaderboard!",
+        "specs": {
+            "minimum": "Минимальные: | ОС *: Windows 7 | Процессор: Windows 7 | Оперативная память: 2 GB ОЗУ | Видеокарта: Intel HD 520 | DirectX: версии 11 | Место на диске: 2 GB",
+            "recommended": "Рекомендованные: | ОС: Windows 10, 11 | Процессор: Intel Core I5-4440 3,10 GHz | Оперативная память: 4 GB ОЗУ | Видеокарта: Intel Core I5-4440 3,10 GHz | DirectX: версии 11 | Место на диске: 4 GB"
+        },
+        "trailer": "",
+        "assets": {
+            "logo": "drift_wav_logo.png",
+            "cover": "drift_wav.jpg",
+            "banner": "drift_wav_banner.jpg",
+            "screenshots": [
+                "drift_wav_screen_1.jpg",
+                "drift_wav_screen_2.jpg",
+                "drift_wav_screen_3.jpg",
+                "drift_wav_screen_4.jpg",
+                "drift_wav_screen_5.jpg",
+                "drift_wav_screen_6.jpg"
+            ]
+        }
+    },
+    {
+        "id": "game_ace_combat_7_skies_unknown",
+        "steam_id": 502500,
+        "title": "ACE COMBAT™ 7: SKIES UNKNOWN",
+        "tier": "tier_aaa",
+        "developer": "Bandai Namco Studios Inc.",
+        "publisher": "Bandai Namco Entertainment",
+        "release_date": "31 янв. 2019 г.",
+        "tags": [
+            "Flight",
+            "Jet",
+            "Military",
+            "War",
+            "Arcade",
+            "Shooter",
+            "Cinematic",
+            "3D",
+            "PvP",
+            "Multiplayer",
+            "Action",
+            "Simulation",
+            "First-Person",
+            "Story Rich",
+            "Third Person",
+            "Great Soundtrack",
+            "Singleplayer",
+            "Silent Protagonist",
+            "Sci-fi",
+            "Realistic"
+        ],
+        "description": "Станьте летчиком-асом, покорите фотореалистичные небеса и сбивайте противников в напряженных воздушных боях! Таких беспощадных схваток между пилотами вы еще не видели.",
+        "specs": {
+            "minimum": "Минимальные: | 64-разрядные процессор и операционная система | ОС *: Windows 7 / 8 / 8.1 / 10 (64-bit OS required) | Процессор: Intel Core i3-7100 | Оперативная память: 4 GB ОЗУ | Видеокарта: NVIDIA GeForce GTX 750Ti(2GB) | DirectX: версии 11 | Сеть: Широкополосное подключение к интернету | Место на диске: 50 GB | Звуковая карта: DirectX 11 sound card | Дополнительно: Estimated performance: 1080p/60fps with graphics settings at &quot;Low&quot;. Framerate might drop in graphics-intensive scenes.  - 64-bit processor and operating system are required.",
+            "recommended": "Рекомендованные: | 64-разрядные процессор и операционная система | ОС *: Windows 7 / 8 / 8.1 / 10 (64-bit OS required) | Процессор: Intel Core i5-7500 | Оперативная память: 8 GB ОЗУ | Видеокарта: NVIDIA GeForce GTX 1060 (3GB) | DirectX: версии 11 | Сеть: Широкополосное подключение к интернету | Место на диске: 50 GB | Звуковая карта: DirectX 11 sound card | Дополнительно: Estimated performance: 1080p/60fps with graphics settings at &quot;High&quot;.  Framerate might drop in graphics-intensive scenes.  - 64-bit processor and operating system are required. - Windows 10 (Version 1809 or later) and a 4GB VRAM GPU (graphics board or video card) are required for DirectX 12 API."
+        },
+        "trailer": "",
+        "assets": {
+            "logo": "ace_combat_7_skies_unknown_logo.png",
+            "cover": "ace_combat_7_skies_unknown.jpg",
+            "banner": "ace_combat_7_skies_unknown_banner.jpg",
+            "screenshots": [
+                "ace_combat_7_skies_unknown_screen_1.jpg",
+                "ace_combat_7_skies_unknown_screen_2.jpg",
+                "ace_combat_7_skies_unknown_screen_3.jpg",
+                "ace_combat_7_skies_unknown_screen_4.jpg",
+                "ace_combat_7_skies_unknown_screen_5.jpg",
+                "ace_combat_7_skies_unknown_screen_6.jpg"
+            ]
+        }
+    },
+    {
+        "id": "game_r_e_p_o",
+        "steam_id": 3241660,
+        "title": "R.E.P.O.",
+        "tier": "tier_standard",
+        "developer": "semiwork",
+        "publisher": "semiwork",
+        "release_date": "26 фев. 2025 г.",
+        "tags": [
+            "Horror",
+            "Online Co-Op",
+            "Multiplayer",
+            "Comedy",
+            "Co-op",
+            "Physics",
+            "First-Person",
+            "3D",
+            "Stealth",
+            "Survival",
+            "Robots",
+            "Action",
+            "Exploration",
+            "Funny",
+            "Procedural Generation",
+            "Action Roguelike",
+            "Post-apocalyptic",
+            "Sci-fi",
+            "Perma Death",
+            "Early Access"
+        ],
+        "description": "An online co-op horror game with up to 6 players. Locate valuable, fully physics-based objects and handle them with care as you retrieve and extract to satisfy your creator's desires.",
+        "specs": {
+            "minimum": "Минимальные: | ОС: Windows 10 | Процессор: Core i5 6600 | Оперативная память: 8 GB ОЗУ | Видеокарта: GTX 970 | DirectX: версии 10 | Сеть: Широкополосное подключение к интернету | Место на диске: 1 GB",
+            "recommended": "Рекомендованные: | ОС: Windows 11 | Процессор: Intel Core i7 8700 | Оперативная память: 8 GB ОЗУ | Видеокарта: GTX 1070 | DirectX: версии 12 | Сеть: Широкополосное подключение к интернету | Место на диске: 1 GB"
+        },
+        "trailer": "",
+        "assets": {
+            "logo": "r_e_p_o_logo.png",
+            "cover": "r_e_p_o.jpg",
+            "banner": "r_e_p_o_banner.jpg",
+            "screenshots": [
+                "r_e_p_o_screen_1.jpg",
+                "r_e_p_o_screen_2.jpg",
+                "r_e_p_o_screen_3.jpg",
+                "r_e_p_o_screen_4.jpg",
+                "r_e_p_o_screen_5.jpg"
+            ]
+        }
+    },
+    {
+        "id": "game_beholder",
+        "steam_id": 475550,
+        "title": "Beholder",
+        "tier": "tier_standard",
+        "developer": "Alawar Stargaze (Warm Lamp Games)",
+        "publisher": "Alawar",
+        "release_date": "9 ноя. 2016 г.",
+        "tags": [
+            "Violent"
+        ],
+        "description": "Вы назначены на должность смотрителя многоквартирного дома в тоталитарной стране. Подслушивайте разговоры, обыскивайте квартиры и изучайте каждого жильца. Всё, что вы найдёте, вы сможете использовать против граждан. Точнее, вы ОБЯЗАНЫ так поступить. Но поступите ли?",
+        "specs": {
+            "minimum": "Минимальные: | ОС *: Windows 7/8/10 | Процессор: Intel Pentium Dual CPU E2180 2.00GHz | Оперативная память: 2 GB ОЗУ | Видеокарта: GeForce 600M / ATI Radeon HD 5450 (1GB) | DirectX: версии 9.0c | Место на диске: 1600 MB",
+            "recommended": "Рекомендованные: | ОС *: Windows 7/8/10 | Процессор: Intel Core i5 – 2.4 GHz | Оперативная память: 3 GB ОЗУ | Видеокарта: GeForce GT 730 (1Gb) / Radeon R7 A10-7700K | DirectX: версии 11 | Место на диске: 1600 MB"
+        },
+        "trailer": "",
+        "assets": {
+            "logo": "beholder_logo.png",
+            "cover": "beholder.jpg",
+            "banner": "beholder_banner.jpg",
+            "screenshots": [
+                "beholder_screen_1.jpg",
+                "beholder_screen_2.jpg",
+                "beholder_screen_3.jpg",
+                "beholder_screen_4.jpg",
+                "beholder_screen_5.jpg",
+                "beholder_screen_6.jpg"
+            ]
+        }
+    },
+    {
+        "id": "game_beholder_2",
+        "steam_id": 761620,
+        "title": "Beholder 2",
+        "tier": "tier_indie",
+        "developer": "Alawar Stargaze (Warm Lamp Games)",
+        "publisher": "Alawar",
+        "release_date": "4 дек. 2018 г.",
+        "tags": [
+            "Dystopian",
+            "Strategy",
+            "Choices Matter",
+            "Political Sim",
+            "Simulation",
+            "Story Rich",
+            "Singleplayer",
+            "Political",
+            "Atmospheric",
+            "Multiple Endings",
+            "Dark",
+            "Politics",
+            "Addictive",
+            "Point & Click",
+            "2D",
+            "Lore-Rich",
+            "Indie",
+            "Adventure",
+            "Violent",
+            "Psychological Horror"
+        ],
+        "description": "Вы стажёр Министерства тоталитарного государства. Плетите интриги, шпионьте за начальством и пробирайтесь сквозь бюрократию в погоне за повышением. Или восстаньте против системы и разоблачите правительство. Выбор только за вами!",
+        "specs": {
+            "minimum": "Минимальные: | ОС *: Windows 7/8/10 (требуется 64-bit ОС) | Процессор: Intel Core 2 Quad Q6600 @ 2.4 GHz, AMD FX 8120 @ 3.1 GHz | Оперативная память: 4 GB ОЗУ | Видеокарта: NVIDIA GT 630 / 650m, AMD Radeon HD6570 или аналогичная | DirectX: версии 9.0c | Место на диске: 4 GB | Звуковая карта: 100% совместимая с DirectX 9.0c | Дополнительно: ДОПОЛНИТЕЛЬНЫЕ СИСТЕМНЫЕ ТРЕБОВАНИЯ: Верность Системе! Готовность служить Государству! Вера в непогрешимость Мудрого Вождя! Знание основ бюрократического дела.",
+            "recommended": "Рекомендованные: | ОС *: Windows 8/10 (требуется 64-bit ОС) | Процессор: Intel Core 2 Quad Q6600 @ 2.4 GHz, AMD FX 8120 @ 3.1 GHz | Оперативная память: 8 GB ОЗУ | Видеокарта: NVIDIA GTX 660, Radeon R9-270 | DirectX: версии 11 | Место на диске: 4 GB | Звуковая карта: 100% совместимая с DirectX 9.0c"
+        },
+        "trailer": "",
+        "assets": {
+            "logo": "beholder_2_logo.png",
+            "cover": "beholder_2.jpg",
+            "banner": "beholder_2_banner.jpg",
+            "screenshots": [
+                "beholder_2_screen_1.jpg",
+                "beholder_2_screen_2.jpg",
+                "beholder_2_screen_3.jpg",
+                "beholder_2_screen_4.jpg",
+                "beholder_2_screen_5.jpg",
+                "beholder_2_screen_6.jpg"
+            ]
+        }
+    },
+    {
+        "id": "game_beholder_3",
+        "steam_id": 1570070,
+        "title": "Beholder 3",
+        "tier": "tier_indie",
+        "developer": "Paintbucket Games",
+        "publisher": "Alawar",
+        "release_date": "3 мар. 2022 г.",
+        "tags": [
+            "Political Sim",
+            "Simulation",
+            "Dystopian",
+            "Strategy",
+            "Point & Click",
+            "Choose Your Own Adventure",
+            "2D",
+            "Atmospheric",
+            "Dark",
+            "Isometric",
+            "Management",
+            "Political",
+            "Dark Humor",
+            "Story Rich",
+            "LGBTQ+",
+            "Nonlinear",
+            "Multiple Endings",
+            "Choices Matter",
+            "Singleplayer",
+            "Indie"
+        ],
+        "description": "Вас спасла от тюрьмы сотрудница службы безопасности. Взамен избавьтесь от тех, кто стоит на пути её секретных планов и поднимитесь по карьерной лестнице, работая на двух работах и шпионя за арендаторами, служащими и начальством.",
+        "specs": {
+            "minimum": "Минимальные: | 64-разрядные процессор и операционная система | ОС: Windows 10 | Процессор: Intel Core i5 or equivalent | Оперативная память: 4 GB ОЗУ | Видеокарта: Nvidia GeForce GTX 960 or equivalent | Место на диске: 10 GB | Дополнительно: IMPORTANT REQUIREMENT: TO HAVE AN UNDENIABLE FAITH IN THE WISE LEADER!",
+            "recommended": "Рекомендованные: | 64-разрядные процессор и операционная система"
+        },
+        "trailer": "",
+        "assets": {
+            "logo": "beholder_3_logo.png",
+            "cover": "beholder_3.jpg",
+            "banner": "beholder_3_banner.jpg",
+            "screenshots": [
+                "beholder_3_screen_1.jpg",
+                "beholder_3_screen_2.jpg",
+                "beholder_3_screen_3.jpg",
+                "beholder_3_screen_4.jpg",
+                "beholder_3_screen_5.jpg",
+                "beholder_3_screen_6.jpg"
+            ]
+        }
+    },
+    {
+        "id": "game_beholder_conductor",
+        "steam_id": 2825530,
+        "title": "Beholder: Conductor",
+        "tier": "tier_indie",
+        "developer": "Alawar",
+        "publisher": "Alawar",
+        "release_date": "23 апр. 2025 г.",
+        "tags": [
+            "Political Sim",
+            "Dystopian",
+            "Choices Matter",
+            "Singleplayer",
+            "Indie",
+            "Story Rich",
+            "Point & Click",
+            "Simulation",
+            "Strategy",
+            "Political",
+            "Puzzle",
+            "Investigation",
+            "Pixel Graphics",
+            "Multiple Endings",
+            "2D",
+            "Trains",
+            "Atmospheric",
+            "Dark",
+            "Choose Your Own Adventure",
+            "Management"
+        ],
+        "description": "Спин-офф серии Beholder. Станьте кондуктором поезда: контролируйте пассажиров, сообщайте об инцидентах и выполняйте важные поручения от Министерства, секретность которых зависит только от вашей лояльности. И помните: успех вашей миссии важен для вас самих!",
+        "specs": {
+            "minimum": "Минимальные: | ОС: Windows 10 64 bit | Процессор: Intel(R) Core(TM) i5-4440 CPU / AMD Ryzen 5 1600 | Оперативная память: 6 GB ОЗУ | Видеокарта: NVIDIA GeForce GTX960 / AMD Radeon RX550 / Intel HD Graphics 4600 | Место на диске: 6 GB | Дополнительно: Stay Hydrated",
+            "recommended": ""
+        },
+        "trailer": "",
+        "assets": {
+            "logo": "beholder_conductor_logo.png",
+            "cover": "beholder_conductor.jpg",
+            "banner": "beholder_conductor_banner.jpg",
+            "screenshots": [
+                "beholder_conductor_screen_1.jpg",
+                "beholder_conductor_screen_2.jpg",
+                "beholder_conductor_screen_3.jpg",
+                "beholder_conductor_screen_4.jpg",
+                "beholder_conductor_screen_5.jpg",
+                "beholder_conductor_screen_6.jpg"
+            ]
+        }
+    },
+    {
+        "id": "game_bendy_and_the_dark_revival",
+        "steam_id": 1063660,
+        "title": "Bendy and the Dark Revival",
+        "tier": "tier_indie",
+        "developer": "Joey Drew Studios",
+        "publisher": "Joey Drew Studios",
+        "release_date": "15 ноя. 2022 г.",
+        "tags": [
+            "Horror",
+            "Singleplayer",
+            "Action",
+            "First-Person",
+            "Survival Horror",
+            "Adventure",
+            "Indie",
+            "Cartoony",
+            "Story Rich",
+            "Dark",
+            "Puzzle",
+            "Survival",
+            "Action-Adventure",
+            "Sequel",
+            "Stealth",
+            "Combat",
+            "Atmospheric",
+            "Strategy",
+            "Great Soundtrack",
+            "Casual"
+        ],
+        "description": "Bendy and the Dark Revival® is a first-person survival horror game set in the creepiest cartoon studio to ever exist. Discover the truth. Escape the studio. Above all, fear the Ink Demon…and survive.",
+        "specs": {
+            "minimum": "Минимальные: | 64-разрядные процессор и операционная система | ОС: Windows 10 (64 bit) | Оперативная память: 8 GB ОЗУ | Видеокарта: 2GB VRAM GeForce GTX 1030, AMD RX 550 | DirectX: версии 11 | Место на диске: 15 GB",
+            "recommended": "Рекомендованные: | 64-разрядные процессор и операционная система | ОС: Windows 10 (64 bit) | Оперативная память: 16 GB ОЗУ | Видеокарта: 8GB VRAM GeForce RTX 2080, AMD Radeon VII | DirectX: версии 12 | Место на диске: 15 GB"
+        },
+        "trailer": "",
+        "assets": {
+            "logo": "bendy_and_the_dark_revival_logo.png",
+            "cover": "bendy_and_the_dark_revival.jpg",
+            "banner": "bendy_and_the_dark_revival_banner.jpg",
+            "screenshots": [
+                "bendy_and_the_dark_revival_screen_1.jpg",
+                "bendy_and_the_dark_revival_screen_2.jpg",
+                "bendy_and_the_dark_revival_screen_3.jpg",
+                "bendy_and_the_dark_revival_screen_4.jpg",
+                "bendy_and_the_dark_revival_screen_5.jpg",
+                "bendy_and_the_dark_revival_screen_6.jpg"
+            ]
+        }
+    },
+    {
+        "id": "game_bendy_and_the_ink_machine",
+        "steam_id": 622650,
+        "title": "Bendy and the Ink Machine",
+        "tier": "tier_indie",
+        "developer": "Joey Drew Studios",
+        "publisher": "Joey Drew Studios",
+        "release_date": "27 апр. 2017 г.",
+        "tags": [
+            "Horror",
+            "First-Person",
+            "Singleplayer",
+            "Puzzle",
+            "Cartoony",
+            "Cartoon",
+            "Survival Horror",
+            "Dark",
+            "Indie",
+            "Mystery",
+            "Story Rich",
+            "Action",
+            "Great Soundtrack",
+            "Atmospheric",
+            "Adventure",
+            "Psychological Horror",
+            "Violent",
+            "Funny",
+            "Cute",
+            "Survival"
+        ],
+        "description": "Bendy and the Ink Machine® is the first person puzzle action horror game that will forever ruin your childhood love of cartoons.",
+        "specs": {
+            "minimum": "Минимальные: | 64-разрядные процессор и операционная система | ОС: 10 | Процессор: 64 | Оперативная память: 8 GB ОЗУ | Видеокарта: 4GB Dedicated | DirectX: версии 12 | Место на диске: 2 GB",
+            "recommended": "Рекомендованные: | 64-разрядные процессор и операционная система"
+        },
+        "trailer": "",
+        "assets": {
+            "logo": "bendy_and_the_ink_machine_logo.png",
+            "cover": "bendy_and_the_ink_machine.jpg",
+            "banner": "bendy_and_the_ink_machine_banner.jpg",
+            "screenshots": [
+                "bendy_and_the_ink_machine_screen_1.jpg",
+                "bendy_and_the_ink_machine_screen_2.jpg",
+                "bendy_and_the_ink_machine_screen_3.jpg",
+                "bendy_and_the_ink_machine_screen_4.jpg",
+                "bendy_and_the_ink_machine_screen_5.jpg",
+                "bendy_and_the_ink_machine_screen_6.jpg"
+            ]
+        }
+    },
+    {
+        "id": "game_bendy_lone_wolf",
+        "steam_id": 3232610,
+        "title": "Bendy: Lone Wolf",
+        "tier": "tier_standard",
+        "developer": "Joey Drew Studios",
+        "publisher": "Joey Drew Studios",
+        "release_date": "15 авг. 2025 г.",
+        "tags": [
+            "Action Roguelike",
+            "Hack and Slash",
+            "Perma Death",
+            "Arcade",
+            "Horror",
+            "Action-Adventure",
+            "Roguelike",
+            "Top-Down",
+            "3D",
+            "Action",
+            "Psychological Horror",
+            "Story Rich",
+            "Controller",
+            "Cartoony",
+            "Hand-drawn",
+            "Dark Fantasy",
+            "Tactical",
+            "Thriller",
+            "Atmospheric",
+            "Mystery"
+        ],
+        "description": "Bendy: Lone Wolf™ will tests your ability to survive against ever increasing odds. Monsters and obstacles emerge from every direction as you journey into the rubberhose halls of the world's most evil animation studio. Every day is a challenge.",
+        "specs": {
+            "minimum": "Минимальные: | 64-разрядные процессор и операционная система | ОС: Windows 10 (64 bit) | Процессор: i5 | Оперативная память: 4 GB ОЗУ | Видеокарта: GTX 770 | DirectX: версии 11 | Место на диске: 2 GB",
+            "recommended": "Рекомендованные: | 64-разрядные процессор и операционная система"
+        },
+        "trailer": "",
+        "assets": {
+            "logo": "bendy_lone_wolf_logo.png",
+            "cover": "bendy_lone_wolf.jpg",
+            "banner": "bendy_lone_wolf_banner.jpg",
+            "screenshots": [
+                "bendy_lone_wolf_screen_1.jpg",
+                "bendy_lone_wolf_screen_2.jpg",
+                "bendy_lone_wolf_screen_3.jpg",
+                "bendy_lone_wolf_screen_4.jpg",
+                "bendy_lone_wolf_screen_5.jpg",
+                "bendy_lone_wolf_screen_6.jpg"
+            ]
+        }
+    },
+    {
+        "id": "game_bendy_secrets_of_the_machine",
+        "steam_id": 622630,
+        "title": "Bendy: Secrets of the Machine",
+        "tier": "tier_indie",
+        "developer": "Gent Corporation",
+        "publisher": "Joey Drew Studios",
+        "release_date": "14 апр. 2024 г.",
+        "tags": [
+            "Adventure",
+            "Indie",
+            "Horror",
+            "Casual",
+            "Puzzle",
+            "Cartoony",
+            "First-Person",
+            "Interactive Fiction",
+            "Cartoon",
+            "Singleplayer",
+            "Walking Simulator",
+            "Action",
+            "Dark",
+            "Stylized",
+            "Free to Play",
+            "Story Rich",
+            "Multiplayer",
+            "Exploration",
+            "Atmospheric",
+            "Mystery"
+        ],
+        "description": "Some things are better left forgotten.",
+        "specs": {
+            "minimum": "Минимальные: | 64-разрядные процессор и операционная система | ОС: Windows 10 (64 bit) | Процессор: Intel Core i5 | Оперативная память: 8 GB ОЗУ | Видеокарта: Nvidia GeForce GTX 1060 | AMD RX 580 | DirectX: версии 11 | Место на диске: 2 GB",
+            "recommended": "Рекомендованные: | 64-разрядные процессор и операционная система"
+        },
+        "trailer": "",
+        "assets": {
+            "logo": "bendy_secrets_of_the_machine_logo.png",
+            "cover": "bendy_secrets_of_the_machine.jpg",
+            "banner": "bendy_secrets_of_the_machine_banner.jpg",
+            "screenshots": [
+                "bendy_secrets_of_the_machine_screen_1.jpg",
+                "bendy_secrets_of_the_machine_screen_2.jpg",
+                "bendy_secrets_of_the_machine_screen_3.jpg",
+                "bendy_secrets_of_the_machine_screen_4.jpg",
+                "bendy_secrets_of_the_machine_screen_5.jpg"
+            ]
+        }
+    },
+    {
+        "id": "game_boris_and_the_dark_survival",
+        "steam_id": 1236990,
+        "title": "Boris and the Dark Survival",
+        "tier": "tier_indie",
+        "developer": "Joey Drew Studios",
+        "publisher": "Joey Drew Studios",
+        "release_date": "10 фев. 2020 г.",
+        "tags": [
+            "Action",
+            "Adventure",
+            "Indie",
+            "Horror",
+            "Strategy",
+            "Casual",
+            "Survival Horror",
+            "Survival",
+            "Singleplayer",
+            "Top-Down",
+            "Cartoony",
+            "Arcade",
+            "Roguelike",
+            "Dark",
+            "Action-Adventure",
+            "Atmospheric",
+            "Story Rich",
+            "Exploration",
+            "Third Person",
+            "Action Roguelike"
+        ],
+        "description": "A lone wolf struggles to survive the inky abyss of Joey Drew Studios in this top-down survival horror.",
+        "specs": {
+            "minimum": "Минимальные: | ОС *: Windows 7 and up | Процессор: i5 and up | Оперативная память: 4 GB ОЗУ | Видеокарта: GTX 770 and up | DirectX: версии 11 | Место на диске: 200 MB",
+            "recommended": ""
+        },
+        "trailer": "",
+        "assets": {
+            "logo": "boris_and_the_dark_survival_logo.png",
+            "cover": "boris_and_the_dark_survival.jpg",
+            "banner": "boris_and_the_dark_survival_banner.jpg",
+            "screenshots": [
+                "boris_and_the_dark_survival_screen_1.jpg",
+                "boris_and_the_dark_survival_screen_2.jpg",
+                "boris_and_the_dark_survival_screen_3.jpg",
+                "boris_and_the_dark_survival_screen_4.jpg",
+                "boris_and_the_dark_survival_screen_5.jpg",
+                "boris_and_the_dark_survival_screen_6.jpg"
+            ]
+        }
+    },
+    {
+        "id": "game_wall_world",
+        "steam_id": 2187290,
+        "title": "Wall World",
+        "tier": "tier_standard",
+        "developer": "Alawar",
+        "publisher": "Alawar",
+        "release_date": "5 апр. 2023 г.",
+        "tags": [
+            "Mining",
+            "Roguelite",
+            "Pixel Graphics",
+            "Tower Defense",
+            "Roguelike",
+            "Difficult",
+            "Strategy",
+            "Exploration",
+            "Procedural Generation",
+            "Mechs",
+            "Singleplayer",
+            "Management",
+            "Action-Adventure",
+            "Aliens",
+            "Action",
+            "Side Scroller",
+            "Combat",
+            "Sci-fi",
+            "2D",
+            "Resource Management"
+        ],
+        "description": "Исследуйте загадочный мир Стены на огромном робо-пауке: копайте шахты в поисках ценных ресурсов, улучшайте снаряжение для борьбы с полчищами монстров и открывайте экзотические биомы в перерывах между атаками. Сможете ли вы выжить и узнать тайны Мировой Стены?",
+        "specs": {
+            "minimum": "Минимальные: | 64-разрядные процессор и операционная система | ОС *: Windows 7 or later | Процессор: Intel Core i5 or equvalent | Оперативная память: 4 GB ОЗУ | Видеокарта: Nvidia GeForce GTX 650 or equvalent | Место на диске: 2 GB",
+            "recommended": "Рекомендованные: | 64-разрядные процессор и операционная система"
+        },
+        "trailer": "",
+        "assets": {
+            "logo": "wall_world_logo.png",
+            "cover": "wall_world.jpg",
+            "banner": "wall_world_banner.jpg",
+            "screenshots": [
+                "wall_world_screen_1.jpg",
+                "wall_world_screen_2.jpg",
+                "wall_world_screen_3.jpg",
+                "wall_world_screen_4.jpg",
+                "wall_world_screen_5.jpg",
+                "wall_world_screen_6.jpg"
+            ]
+        }
+    },
+    {
+        "id": "game_wall_world_2",
+        "steam_id": 3467710,
+        "title": "Wall World 2",
+        "tier": "tier_standard",
+        "developer": "Alawar",
+        "publisher": "Alawar",
+        "release_date": "11 ноя. 2025 г.",
+        "tags": [
+            "Roguelite",
+            "Mining",
+            "Pixel Graphics",
+            "Tower Defense",
+            "Roguelike",
+            "Exploration",
+            "Strategy",
+            "Procedural Generation",
+            "Action-Adventure",
+            "Management",
+            "Action",
+            "Aliens",
+            "Mechs",
+            "Combat",
+            "Side Scroller",
+            "Sci-fi",
+            "2D",
+            "Resource Management",
+            "Singleplayer",
+            "Adventure"
+        ],
+        "description": "Продолжение удивительного приключения в загадочном мире Стены. Отправьтесь внутрь Стены на своём робо-пауке: находите артефакты и технологии, улучшайте экзокостюм и паука, сразитесь с монстрами глубины и докопайтесь до правды!",
+        "specs": {
+            "minimum": "Минимальные: | ОС: Windows 10 64 bit | Процессор: Intel Core i5-6400 or analog | Оперативная память: 8 GB ОЗУ | Видеокарта: AMD Radeon RX 550 or NVIDIA GeForce GTX 960",
+            "recommended": "Рекомендованные: | ОС: Windows 10 64 bit | Процессор: Intel Core i5-6400 or analog | Оперативная память: 16 GB ОЗУ | Видеокарта: AMD Radeon RX 550 or NVIDIA GeForce GTX 960"
+        },
+        "trailer": "",
+        "assets": {
+            "logo": "wall_world_2_logo.png",
+            "cover": "wall_world_2.jpg",
+            "banner": "wall_world_2_banner.jpg",
+            "screenshots": [
+                "wall_world_2_screen_1.jpg",
+                "wall_world_2_screen_2.jpg",
+                "wall_world_2_screen_3.jpg",
+                "wall_world_2_screen_4.jpg",
+                "wall_world_2_screen_5.jpg",
+                "wall_world_2_screen_6.jpg"
+            ]
+        }
+    },
+    {
+        "id": "game_awaria",
+        "steam_id": 3274300,
+        "title": "Awaria",
+        "tier": "tier_indie",
+        "developer": "vanripper",
+        "publisher": "vanripper",
+        "release_date": "16 дек. 2024 г.",
+        "tags": [
+            "Cute",
+            "Free to Play",
+            "Bullet Hell",
+            "LGBTQ+",
+            "Action",
+            "2D",
+            "Female Protagonist",
+            "Indie",
+            "Top-Down",
+            "Singleplayer",
+            "Difficult",
+            "Romance",
+            "Time Management",
+            "Comedy",
+            "Funny",
+            "Anime",
+            "Arcade",
+            "Sexual Content",
+            "Psychological Horror",
+            "Horror"
+        ],
+        "description": "Awaria is a short game about working in haunted maintenance tunnels.",
+        "specs": {
+            "minimum": "Минимальные: | Место на диске: 500 MB",
+            "recommended": ""
+        },
+        "trailer": "",
+        "assets": {
+            "logo": "awaria_logo.png",
+            "cover": "awaria.jpg",
+            "banner": "awaria_banner.jpg",
+            "screenshots": [
+                "awaria_screen_1.jpg",
+                "awaria_screen_2.jpg",
+                "awaria_screen_3.jpg",
+                "awaria_screen_4.jpg",
+                "awaria_screen_5.jpg"
+            ]
+        }
+    },
+    {
+        "id": "game_helltaker",
+        "steam_id": 1289310,
+        "title": "Helltaker",
+        "tier": "tier_indie",
+        "developer": "vanripper",
+        "publisher": "vanripper",
+        "release_date": "11 мая. 2020 г.",
+        "tags": [
+            "Free to Play",
+            "Cute",
+            "Puzzle",
+            "Demons",
+            "Indie",
+            "Great Soundtrack",
+            "Anime",
+            "Singleplayer",
+            "Sexual Content",
+            "2D",
+            "Short",
+            "Comedy",
+            "Difficult",
+            "Adventure",
+            "Dating Sim",
+            "Funny",
+            "Hentai",
+            "Mature",
+            "Rhythm",
+            "Visual Novel"
+        ],
+        "description": "Helltaker is a short game about sharply dressed demon girls.",
+        "specs": {
+            "minimum": "Минимальные: | Место на диске: 350 MB",
+            "recommended": ""
+        },
+        "trailer": "",
+        "assets": {
+            "logo": "helltaker_logo.png",
+            "cover": "helltaker.jpg",
+            "banner": "helltaker_banner.jpg",
+            "screenshots": [
+                "helltaker_screen_1.jpg",
+                "helltaker_screen_2.jpg",
+                "helltaker_screen_3.jpg",
+                "helltaker_screen_4.jpg",
+                "helltaker_screen_5.jpg"
+            ]
+        }
+    },
+    {
+        "id": "game_apex_legends",
+        "steam_id": 1172470,
+        "title": "Apex Legends™",
+        "tier": "tier_aaa",
+        "developer": "Respawn",
+        "publisher": "Electronic Arts",
+        "release_date": "4 ноя. 2020 г.",
+        "tags": [
+            "Free to Play",
+            "Multiplayer",
+            "Battle Royale",
+            "FPS",
+            "Shooter",
+            "First-Person",
+            "PvP",
+            "Action",
+            "Hero Shooter",
+            "Team-Based",
+            "Tactical",
+            "Sci-fi",
+            "Co-op",
+            "Loot",
+            "Survival",
+            "Character Customization",
+            "Funny",
+            "Cyberpunk",
+            "Lore-Rich",
+            "Cinematic"
+        ],
+        "description": "Apex Legends — удостоенный наградами бесплатный геройский шутер от Respawn Entertainment. Освойте все тонкости игры за легендарных персонажей, число которых продолжает расти, и используйте их мощные умения в стратегии своего отряда. Это новое слово в геройских шутерах и «королевских битвах».",
+        "specs": {
+            "minimum": "Минимальные: | 64-разрядные процессор и операционная система | ОС: 64-bit Windows 10 | Процессор: AMD FX 4350 or Equivalent, Intel Core i3 6300 or Equivalent | Оперативная память: 6 GB ОЗУ | Видеокарта: AMD Radeon™ HD 7790 (2 GB), NVIDIA GeForce® GTX 950 | DirectX: версии 12 | Сеть: Широкополосное подключение к интернету | Место на диске: 75 GB | Дополнительно: ~3.8GB for 1 localized language",
+            "recommended": "Рекомендованные: | 64-разрядные процессор и операционная система | ОС: 64-bit Windows 10 | Процессор: Ryzen 5 CPU or Equivalent | Оперативная память: 8 GB ОЗУ | Видеокарта: AMD Radeon™ R9 290, NVIDIA GeForce® GTX 970 | DirectX: версии 12 | Сеть: Широкополосное подключение к интернету | Место на диске: 75 GB | Дополнительно: ~3.8GB for 1 localized language"
+        },
+        "trailer": "",
+        "assets": {
+            "logo": "apex_legends_logo.png",
+            "cover": "apex_legends.jpg",
+            "banner": "apex_legends_banner.jpg",
+            "screenshots": [
+                "apex_legends_screen_1.jpg",
+                "apex_legends_screen_2.jpg",
+                "apex_legends_screen_3.jpg",
+                "apex_legends_screen_4.jpg",
+                "apex_legends_screen_5.jpg",
+                "apex_legends_screen_6.jpg"
+            ]
+        }
+    },
+    {
+        "id": "game_battlefield_2042",
+        "steam_id": 1517290,
+        "title": "Battlefield™ 2042",
+        "tier": "tier_aaa",
+        "developer": "DICE",
+        "publisher": "Electronic Arts",
+        "release_date": "19 ноя. 2021 г.",
+        "tags": [
+            "FPS",
+            "Multiplayer",
+            "Shooter",
+            "Military",
+            "Singleplayer",
+            "War",
+            "Action",
+            "First-Person",
+            "Combat",
+            "Team-Based",
+            "PvP",
+            "Futuristic",
+            "Vehicular Combat",
+            "Modern",
+            "Destruction",
+            "Physics",
+            "Cinematic",
+            "Adventure",
+            "Hero Shooter",
+            "Casual"
+        ],
+        "description": "Battlefield™ 2042 — это шутер от первого лица, в котором серия возвращается к легендарным масштабным сражениям.",
+        "specs": {
+            "minimum": "Минимальные: | 64-разрядные процессор и операционная система | ОС: 64-bit Windows 10 | Процессор: AMD Ryzen 5 1600, Core i5 6600K | Оперативная память: 8 GB ОЗУ | Видеокарта: AMD Radeon RX 560,Nvidia GeForce GTX 1050 Ti | DirectX: версии 12 | Сеть: Широкополосное подключение к интернету | Место на диске: 100 GB | Звуковая карта: No recommendation",
+            "recommended": "Рекомендованные: | 64-разрядные процессор и операционная система | ОС: 64-bit Windows 10 | Процессор: AMD Ryzen 7 2700X, Intel Core i7 4790 | Оперативная память: 16 GB ОЗУ | Видеокарта: AMD Radeon RX 6600 XT, Nvidia GeForce RTX 3060 | DirectX: версии 12 | Сеть: Широкополосное подключение к интернету | Место на диске: 100 GB | Звуковая карта: No recommendation"
+        },
+        "trailer": "",
+        "assets": {
+            "logo": "battlefield_2042_logo.png",
+            "cover": "battlefield_2042.jpg",
+            "banner": "battlefield_2042_banner.jpg",
+            "screenshots": [
+                "battlefield_2042_screen_1.jpg",
+                "battlefield_2042_screen_2.jpg",
+                "battlefield_2042_screen_3.jpg",
+                "battlefield_2042_screen_4.jpg",
+                "battlefield_2042_screen_5.jpg",
+                "battlefield_2042_screen_6.jpg"
+            ]
+        }
+    },
+    {
+        "id": "game_counter_strike_2",
+        "steam_id": 730,
+        "title": "Counter-Strike 2",
+        "tier": "tier_aaa",
+        "developer": "Valve",
+        "publisher": "Valve",
+        "release_date": "21 авг. 2012 г.",
+        "tags": [
+            "FPS",
+            "Shooter",
+            "Multiplayer",
+            "Competitive",
+            "Action",
+            "Team-Based",
+            "eSports",
+            "Tactical",
+            "First-Person",
+            "PvP",
+            "Online Co-Op",
+            "Co-op",
+            "Strategy",
+            "Military",
+            "War",
+            "Difficult",
+            "Trading",
+            "Realistic",
+            "Fast-Paced",
+            "Moddable"
+        ],
+        "description": "Более двух десятилетий Counter-Strike служит примером первоклассной соревновательной игры, путь развития которой определяют миллионы игроков со всего мира. Теперь пришло время нового этапа — Counter-Strike 2.",
+        "specs": {
+            "minimum": "Минимальные: | ОС: Windows® 10 | Процессор: 4-потоковый процессор — Intel® Core™ i5 750 или лучше | Оперативная память: 8 GB ОЗУ | Видеокарта: с 1 ГБ памяти или больше, совместимая с DirectX 11 и поддерживающая Shader Model 5.0 | DirectX: версии 11 | Место на диске: 85 GB",
+            "recommended": ""
+        },
+        "trailer": "",
+        "assets": {
+            "logo": "counter_strike_2_logo.png",
+            "cover": "counter_strike_2.jpg",
+            "banner": "counter_strike_2_banner.jpg",
+            "screenshots": [
+                "counter_strike_2_screen_1.jpg",
+                "counter_strike_2_screen_2.jpg",
+                "counter_strike_2_screen_3.jpg",
+                "counter_strike_2_screen_4.jpg",
+                "counter_strike_2_screen_5.jpg",
+                "counter_strike_2_screen_6.jpg"
+            ]
+        }
+    },
+    {
+        "id": "game_farlight_84",
+        "steam_id": 1928420,
+        "title": "Farlight 84",
+        "tier": "tier_standard",
+        "developer": "Farlight Games",
+        "publisher": "Farlight Games",
+        "release_date": "21 сен. 2023 г.",
+        "tags": [
+            "Free to Play",
+            "Battle Royale",
+            "Multiplayer",
+            "Hero Shooter",
+            "Shooter",
+            "Third-Person Shooter",
+            "Vehicular Combat",
+            "Sci-fi",
+            "Third Person",
+            "MOBA",
+            "Massively Multiplayer",
+            "PvP",
+            "Survival",
+            "3D",
+            "Action",
+            "Adventure",
+            "Early Access",
+            "Post-apocalyptic",
+            "Futuristic",
+            "Character Customization"
+        ],
+        "description": "Hey Lightcatchers! Are you ready for massive 60-player shootouts? Enjoy fast-paced hero shooter action in Farlight 84!",
+        "specs": {
+            "minimum": "Минимальные: | ОС: 64-bit Windows 10 | Процессор: Intel Core i3-6300 or Equivalent | Оперативная память: 8 GB ОЗУ | Видеокарта: NVIDIA GeForce® GTX 660 or Equivalent | DirectX: версии 11 | Сеть: Широкополосное подключение к интернету | Место на диске: 50 GB",
+            "recommended": "Рекомендованные: | ОС: 64-bit Windows 10 | Процессор: Intel Core i5-6500, AMD Ryzen 5 1500x  or Equivalent | Оперативная память: 16 GB ОЗУ | Видеокарта: NVIDIA GeForce® GTX 1060 5G, AMD RX5500XT, Intel Arc A580  or Equivalent | DirectX: версии 11 | Сеть: Широкополосное подключение к интернету | Место на диске: 50 GB"
+        },
+        "trailer": "",
+        "assets": {
+            "logo": "farlight_84_logo.png",
+            "cover": "farlight_84.jpg",
+            "banner": "farlight_84_banner.jpg",
+            "screenshots": [
+                "farlight_84_screen_1.jpg",
+                "farlight_84_screen_2.jpg",
+                "farlight_84_screen_3.jpg",
+                "farlight_84_screen_4.jpg",
+                "farlight_84_screen_5.jpg",
+                "farlight_84_screen_6.jpg"
+            ]
+        }
+    },
+    {
+        "id": "game_fragpunk",
+        "steam_id": 2943650,
+        "title": "FragPunk",
+        "tier": "tier_aaa",
+        "developer": "Bad Guitar Studio",
+        "publisher": "NetEase Games",
+        "release_date": "6 мар. 2025 г.",
+        "tags": [
+            "Free to Play",
+            "FPS",
+            "Hero Shooter",
+            "Multiplayer",
+            "Action",
+            "Team-Based",
+            "Shooter",
+            "PvP",
+            "Futuristic",
+            "Stylized",
+            "Sci-fi",
+            "3D",
+            "Sexual Content",
+            "First-Person",
+            "Adventure",
+            "Combat",
+            "Cyberpunk",
+            "Online Co-Op",
+            "Co-op",
+            "Hentai"
+        ],
+        "description": "FragPunk — это захватывающий шутер 5 на 5 с уникальной особенностью: специальные фрагмент-карты позволяют на ходу менять правила боя, а потому каждая битва становится по-настоящему неповторимой. Готовьтесь показать свое мастерство!",
+        "specs": {
+            "minimum": "Минимальные: | 64-разрядные процессор и операционная система | ОС: Windows 10 64-bit or newer | Процессор: Intel Core i7-4790 or AMD Ryzen 3 3100 | Оперативная память: 8 GB ОЗУ | Видеокарта: Nvidia GeForce GTX 750 TI / AMD RX 550 / Intel Arc A380 | DirectX: версии 11 | Сеть: Широкополосное подключение к интернету | Место на диске: 60 GB | Звуковая карта: DirectSound card supported | Поддержка VR: Not Supported | Дополнительно: Note: Low quality, 1080p, 60fps",
+            "recommended": "Рекомендованные: | 64-разрядные процессор и операционная система | ОС: Windows 10 64-bit or newer | Процессор: Intel Core i7-10700K or AMD Ryzen 5 5600X | Оперативная память: 16 GB ОЗУ | Видеокарта: Nvidia GeForce RTX 3060 / AMD RX 5700XT / Intel Arc A750 | DirectX: версии 11 | Сеть: Широкополосное подключение к интернету | Место на диске: 60 GB | Звуковая карта: DirectSound card supported | Поддержка VR: Not Supported | Дополнительно: Note: Highest quality (Ray tracing off), 1440p, 144fps"
+        },
+        "trailer": "",
+        "assets": {
+            "logo": "fragpunk_logo.png",
+            "cover": "fragpunk.jpg",
+            "banner": "fragpunk_banner.jpg",
+            "screenshots": [
+                "fragpunk_screen_1.jpg",
+                "fragpunk_screen_2.jpg",
+                "fragpunk_screen_3.jpg",
+                "fragpunk_screen_4.jpg",
+                "fragpunk_screen_5.jpg",
+                "fragpunk_screen_6.jpg"
+            ]
+        }
+    },
+    {
+        "id": "game_marvel_rivals",
+        "steam_id": 2767030,
+        "title": "Marvel Rivals",
+        "tier": "tier_aaa",
+        "developer": "NetEase Games",
+        "publisher": "NetEase Games",
+        "release_date": "5 дек. 2024 г.",
+        "tags": [
+            "Free to Play",
+            "Multiplayer",
+            "Hero Shooter",
+            "Third-Person Shooter",
+            "Superhero",
+            "PvP",
+            "Action",
+            "Team-Based",
+            "Competitive",
+            "Shooter",
+            "Sexual Content",
+            "3D",
+            "Online Co-Op",
+            "Strategy",
+            "Third Person",
+            "Co-op",
+            "Sci-fi",
+            "FPS",
+            "Psychological Horror",
+            "MOBA"
+        ],
+        "description": "Marvel Rivals — это командный PVP-шутер, где супергерои сражаются плечом к плечу! Соберите команду мечты из героев Marvel, разработайте уникальные стратегии, объединив силы в невероятные командные навыки, и сразитесь на разрушаемых полях боя в постоянно развивающейся вселенной Marvel!",
+        "specs": {
+            "minimum": "Минимальные: | ОС: Windows 10 64-bit (1909 or newer) | Процессор: Intel Core i5-6600K or AMD Ryzen 5 1600X | Оперативная память: 16 GB ОЗУ | Видеокарта: NVIDIA GeForce GTX 1060 / AMD RX 580 / Intel Arc A380 | DirectX: версии 12 | Сеть: Широкополосное подключение к интернету | Место на диске: 70 GB | Дополнительно: We recommend you install the game on SSD drive for better experience.",
+            "recommended": "Рекомендованные: | ОС: Windows 10 64-bit (1909 or newer) | Процессор: Intel Core i5-10400 or AMD Ryzen 5 5600X | Оперативная память: 16 GB ОЗУ | Видеокарта: NVIDIA GeForce RTX 2060 (Super) / AMD RX 5700-XT / Intel Arc A750 | DirectX: версии 12 | Сеть: Широкополосное подключение к интернету | Место на диске: 70 GB | Дополнительно: We recommend you install the game on SSD drive for better experience."
+        },
+        "trailer": "",
+        "assets": {
+            "logo": "marvel_rivals_logo.png",
+            "cover": "marvel_rivals.jpg",
+            "banner": "marvel_rivals_banner.jpg",
+            "screenshots": [
+                "marvel_rivals_screen_1.jpg",
+                "marvel_rivals_screen_2.jpg",
+                "marvel_rivals_screen_3.jpg",
+                "marvel_rivals_screen_4.jpg",
+                "marvel_rivals_screen_5.jpg",
+                "marvel_rivals_screen_6.jpg"
+            ]
+        }
+    },
+    {
+        "id": "game_overwatch",
+        "steam_id": 2357570,
+        "title": "Overwatch®",
+        "tier": "tier_aaa",
+        "developer": "Blizzard Entertainment, Inc.",
+        "publisher": "Blizzard Entertainment, Inc.",
+        "release_date": "10 авг. 2023 г.",
+        "tags": [
+            "Free to Play",
+            "Hero Shooter",
+            "FPS",
+            "Multiplayer",
+            "Team-Based",
+            "MOBA",
+            "First-Person",
+            "Third-Person Shooter",
+            "Third Person",
+            "PvP",
+            "Competitive",
+            "Shooter",
+            "Action",
+            "Co-op",
+            "Sci-fi",
+            "Online Co-Op",
+            "PvE",
+            "Casual",
+            "Cinematic",
+            "Lore-Rich"
+        ],
+        "description": "Overwatch®: БУДУЩЕЕ, ЗА КОТОРОЕ СТОИТ БОРОТЬСЯ! Overwatch® — непрерывно развивающаяся бесплатная динамичная командная игра с постоянной поддержкой в ярком мире будущего, где каждый матч представляет собой поистине потрясающий бой 5 на 5 или 6 на 6.",
+        "specs": {
+            "minimum": "Минимальные: | 64-разрядные процессор и операционная система | ОС: Windows® 10 64-bit с последним пакетом обновлений) | Процессор: Intel® Core™ i3 или AMD Phenom™ X3 8650 | Оперативная память: 6 GB ОЗУ | Видеокарта: Серия NVIDIA® GeForce® GTX 600, серия AMD Radeon™ HD 7000 | DirectX: версии 11 | Сеть: Широкополосное подключение к интернету | Место на диске: 50 GB",
+            "recommended": "Рекомендованные: | 64-разрядные процессор и операционная система | ОС: Windows® 10 64-bit с последним пакетом обновлений) | Процессор: Intel® Core™ i7 или AMD Ryzen™ 5 | Оперативная память: 8 GB ОЗУ | Видеокарта: NVIDIA® GeForce® GTX 1060/ GeForce® GTX 1650 или AMD R9 380/AMD RX 6400 или Intel® Arc™ A770 | DirectX: версии 11 | Сеть: Широкополосное подключение к интернету | Место на диске: 50 GB"
+        },
+        "trailer": "",
+        "assets": {
+            "logo": "overwatch_logo.png",
+            "cover": "overwatch.jpg",
+            "banner": "overwatch_banner.jpg",
+            "screenshots": [
+                "overwatch_screen_1.jpg",
+                "overwatch_screen_2.jpg",
+                "overwatch_screen_3.jpg",
+                "overwatch_screen_4.jpg",
+                "overwatch_screen_5.jpg",
+                "overwatch_screen_6.jpg"
+            ]
+        }
+    },
+    {
+        "id": "game_pubg_battlegrounds",
+        "steam_id": 578080,
+        "title": "PUBG: BATTLEGROUNDS",
+        "tier": "tier_standard",
+        "developer": "PUBG Corporation",
+        "publisher": "KRAFTON, Inc.",
+        "release_date": "21 дек. 2017 г.",
+        "tags": [
+            "Survival",
+            "Shooter",
+            "Battle Royale",
+            "Multiplayer",
+            "FPS",
+            "PvP",
+            "Third-Person Shooter",
+            "Action",
+            "Online Co-Op",
+            "Tactical",
+            "Co-op",
+            "First-Person",
+            "Strategy",
+            "Early Access",
+            "Competitive",
+            "Third Person",
+            "Team-Based",
+            "Difficult",
+            "Simulation",
+            "Stealth"
+        ],
+        "description": "PUBG: BATTLEGROUNDS — культовый шутер, пробудивший интерес к жанру «королевская битва», теперь бесплатный! Высаживайтесь на разные карты, добывайте уникальное оружие и припасы и постарайтесь выжить в постоянно сужающейся зоне, где опасность подстерегает вас за каждым углом.",
+        "specs": {
+            "minimum": "Минимальные: | 64-разрядные процессор и операционная система | ОС: 64-bit Windows 10 | Процессор: Intel Core i5-4430 / AMD FX-6300 | Оперативная память: 8 GB ОЗУ | Видеокарта: NVIDIA GeForce GTX 960 2GB / AMD Radeon R7 370 2GB | DirectX: версии 11 | Сеть: Широкополосное подключение к интернету | Место на диске: 40 GB",
+            "recommended": "Рекомендованные: | 64-разрядные процессор и операционная система | ОС: 64-bit Windows 10 | Процессор: Intel Core i5-6600K / AMD Ryzen 5 1600 | Оперативная память: 16 GB ОЗУ | Видеокарта: NVIDIA GeForce GTX 1060 3GB / AMD Radeon RX 580 4GB | DirectX: версии 11 | Сеть: Широкополосное подключение к интернету | Место на диске: 50 GB"
+        },
+        "trailer": "",
+        "assets": {
+            "logo": "pubg_battlegrounds_logo.png",
+            "cover": "pubg_battlegrounds.jpg",
+            "banner": "pubg_battlegrounds_banner.jpg",
+            "screenshots": [
+                "pubg_battlegrounds_screen_1.jpg",
+                "pubg_battlegrounds_screen_2.jpg",
+                "pubg_battlegrounds_screen_3.jpg",
+                "pubg_battlegrounds_screen_4.jpg",
+                "pubg_battlegrounds_screen_5.jpg",
+                "pubg_battlegrounds_screen_6.jpg"
+            ]
+        }
+    },
+    {
+        "id": "game_strinova",
+        "steam_id": 1282270,
+        "title": "Strinova",
+        "tier": "tier_aaa",
+        "developer": "iDreamSky",
+        "publisher": "iDreamSky",
+        "release_date": "21 ноя. 2024 г.",
+        "tags": [
+            "Free to Play",
+            "Anime",
+            "Third-Person Shooter",
+            "Hero Shooter",
+            "FPS",
+            "Shooter",
+            "Multiplayer",
+            "PvP",
+            "Sexual Content",
+            "Action",
+            "Third Person",
+            "Team-Based",
+            "eSports",
+            "Online Co-Op",
+            "Female Protagonist",
+            "3D",
+            "Co-op",
+            "Real Time Tactics",
+            "Casual",
+            "2D"
+        ],
+        "description": "Strinova — тактический соревновательный шутер от третьего лица в стиле аниме. Переключайтесь между трехмерной и двухмерной формами и наслаждайтесь необычной игрой с уникальной тактической системой стрельбы.",
+        "specs": {
+            "minimum": "Минимальные: | 64-разрядные процессор и операционная система | ОС *: Windows 7/8/10/11 64bit | Процессор: Intel Core i3-4170 | Оперативная память: 4 GB ОЗУ | Видеокарта: Nvidia GeForce GT 730, AMD R7 240 | DirectX: версии 11 | Сеть: Широкополосное подключение к интернету | Место на диске: 25 GB | Звуковая карта: DirectX 11 sound device",
+            "recommended": "Рекомендованные: | 64-разрядные процессор и операционная система | ОС *: Windows 7/8/10/11 64bit | Процессор: Intel Core i5-7400 | Оперативная память: 8 GB ОЗУ | Видеокарта: Nvidia GeForce GTX 1050Ti,AMD Radeon R7 370 | DirectX: версии 11 | Сеть: Широкополосное подключение к интернету | Место на диске: 25 GB | Звуковая карта: DirectX 11 sound device"
+        },
+        "trailer": "",
+        "assets": {
+            "logo": "strinova_logo.png",
+            "cover": "strinova.jpg",
+            "banner": "strinova_banner.jpg",
+            "screenshots": [
+                "strinova_screen_1.jpg",
+                "strinova_screen_2.jpg",
+                "strinova_screen_3.jpg",
+                "strinova_screen_4.jpg",
+                "strinova_screen_5.jpg",
+                "strinova_screen_6.jpg"
+            ]
+        }
+    },
+    {
+        "id": "game_the_finals",
+        "steam_id": 2073850,
+        "title": "THE FINALS",
+        "tier": "tier_standard",
+        "developer": "Embark Studios",
+        "publisher": "Embark Studios",
+        "release_date": "7 дек. 2023 г.",
+        "tags": [
+            "Destruction",
+            "Free to Play",
+            "FPS",
+            "Multiplayer",
+            "Shooter",
+            "PvP",
+            "Team-Based",
+            "Competitive",
+            "Action",
+            "First-Person",
+            "Arena Shooter",
+            "Tactical",
+            "Character Customization",
+            "Online Co-Op",
+            "Combat",
+            "Co-op",
+            "Class-Based",
+            "Atmospheric",
+            "Battle Royale",
+            "Realistic"
+        ],
+        "description": "Играйте в THE FINALS, знаменитую бесплатную шоу-игру! Сражайтесь вместе с товарищами по команде на виртуальных аренах, меняйте их и уничтожайте! Разработайте собственный стиль игры в этом боевике от первого лица, победите во всех турнирах и увенчайте себя славой!",
+        "specs": {
+            "minimum": "Минимальные: | ОС: Windows 10 or later 64-bit (latest update) | Процессор: Intel Core i5-6600K or AMD Ryzen R5 1600 processor | Оперативная память: 12 GB ОЗУ | Видеокарта: NVIDIA GeForce GTX 1050 Ti or AMD Radeon RX 580 | DirectX: версии 12",
+            "recommended": "Рекомендованные: | ОС: Windows 10 or later 64-bit (latest update) | Процессор: Intel Core i5-9600K or AMD Ryzen 5 3600 processor | Оперативная память: 16 GB ОЗУ | Видеокарта: NVIDIA GeForce RTX 2070 or AMD Radeon RX 5700 XT | DirectX: версии 12"
+        },
+        "trailer": "",
+        "assets": {
+            "logo": "the_finals_logo.png",
+            "cover": "the_finals.jpg",
+            "banner": "the_finals_banner.jpg",
+            "screenshots": [
+                "the_finals_screen_1.jpg",
+                "the_finals_screen_2.jpg",
+                "the_finals_screen_3.jpg",
+                "the_finals_screen_4.jpg",
+                "the_finals_screen_5.jpg"
+            ]
+        }
+    },
+    {
+        "id": "game_alan_wake",
+        "steam_id": 108710,
+        "title": "Alan Wake",
+        "tier": "tier_aaa",
+        "developer": "Remedy Entertainment",
+        "publisher": "Remedy Entertainment",
+        "release_date": "16 фев. 2012 г.",
+        "tags": [
+            "Action",
+            "Horror",
+            "Third Person",
+            "Story Rich",
+            "Adventure",
+            "Thriller",
+            "Atmospheric",
+            "Singleplayer",
+            "Psychological Horror",
+            "Great Soundtrack",
+            "Mystery",
+            "Episodic",
+            "Third-Person Shooter",
+            "Supernatural",
+            "Dark",
+            "Cinematic",
+            "Narration",
+            "Survival Horror",
+            "Shooter",
+            "Survival"
+        ],
+        "description": "A Dark Presence stalks the small town of Bright Falls, pushing Alan Wake to the brink of sanity in his fight to unravel the mystery and save his love.",
+        "specs": {
+            "minimum": "Минимальные: | ОС: Windows XP с пакетом обновления 2 | Процессор: двухъядерный, Intel (2 ГГц) или AMD (2,8 ГГц) | Оперативная память: 2 ГБ | Видеокарта: с 512 МБ видеопамяти, совместимая с DirectX 10 | DirectX®: 9.0c | Жесткий диск: 8 ГБ свободного места | Звуковая карта: совместимая с DirectX 9.0c",
+            "recommended": "Рекомендуемые: | ОС: Windows 7 | Процессор: четырехъядерный, Intel (2,66 ГГц) или AMD (3,2 ГГц) | Оперативная память: 4 ГБ | Видеокарта: с 1 ГБ видеопамяти, совместимая с DirectX версии 10 и выше | DirectX®: 10 | Жесткий диск: 8 ГБ свободного места | Звуковая карта: совместимая с DirectX 9.0c"
+        },
+        "trailer": "",
+        "assets": {
+            "logo": "alan_wake_logo.png",
+            "cover": "alan_wake.jpg",
+            "banner": "alan_wake_banner.jpg",
+            "screenshots": [
+                "alan_wake_screen_1.jpg",
+                "alan_wake_screen_2.jpg",
+                "alan_wake_screen_3.jpg",
+                "alan_wake_screen_4.jpg",
+                "alan_wake_screen_5.jpg",
+                "alan_wake_screen_6.jpg"
+            ]
+        }
+    },
+    {
+        "id": "game_buckshot_roulette",
+        "steam_id": 2835570,
+        "title": "Buckshot Roulette",
+        "tier": "tier_indie",
+        "developer": "Mike Klubnika",
+        "publisher": "CRITICAL REFLEX",
+        "release_date": "4 апр. 2024 г.",
+        "tags": [
+            "Multiplayer",
+            "Gambling",
+            "Dark",
+            "Horror",
+            "First-Person",
+            "Strategy",
+            "Singleplayer",
+            "Indie",
+            "3D",
+            "Psychological",
+            "Puzzle",
+            "Psychological Horror",
+            "Blood",
+            "Experimental",
+            "Action",
+            "Roguelike",
+            "Simulation",
+            "Surreal",
+            "FPS",
+            "Roguelite"
+        ],
+        "description": "Сыграйте в русскую рулетку с дробовиком 12-го калибра. Играют четверо. Остается один. Поставьте на кон свою жизнь. Удачи.",
+        "specs": {
+            "minimum": "Минимальные: | 64-разрядные процессор и операционная система | ОС: Windows 10 | Процессор: Intel Core i3 | Оперативная память: 2 GB ОЗУ | Видеокарта: Relatively modern dedicated graphics card (Vulkan support required) | Место на диске: 500 MB | Дополнительно: Vulkan support required",
+            "recommended": "Рекомендованные: | 64-разрядные процессор и операционная система | ОС: Windows 10 | Процессор: Intel Core i5 | Оперативная память: 4 GB ОЗУ | Видеокарта: Relatively modern dedicated graphics card (Vulkan support required) | Место на диске: 500 MB | Дополнительно: Vulkan support required"
+        },
+        "trailer": "",
+        "assets": {
+            "logo": "buckshot_roulette_logo.png",
+            "cover": "buckshot_roulette.jpg",
+            "banner": "buckshot_roulette_banner.jpg",
+            "screenshots": [
+                "buckshot_roulette_screen_1.jpg",
+                "buckshot_roulette_screen_2.jpg",
+                "buckshot_roulette_screen_3.jpg",
+                "buckshot_roulette_screen_4.jpg",
+                "buckshot_roulette_screen_5.jpg",
+                "buckshot_roulette_screen_6.jpg"
+            ]
+        }
+    },
+    {
+        "id": "game_sky_children_of_the_light",
+        "steam_id": 2325290,
+        "title": "Sky: Children of the Light",
+        "tier": "tier_standard",
+        "developer": "thatgamecompany",
+        "publisher": "thatgamecompany",
+        "release_date": "10 апр. 2024 г.",
+        "tags": [
+            "Early Access",
+            "Cozy",
+            "Multiplayer",
+            "Open World",
+            "Adventure",
+            "Exploration",
+            "Cute",
+            "Online Co-Op",
+            "Massively Multiplayer",
+            "Atmospheric",
+            "Puzzle",
+            "Emotional",
+            "Wholesome",
+            "Casual",
+            "Character Customization",
+            "Family Friendly",
+            "Fantasy",
+            "Stylized",
+            "Sandbox",
+            "Puzzle Platformer"
+        ],
+        "description": "Потрясающее приключение в открытом мире ждёт вас! Исследуйте волшебные миры, возвращайте утраченный свет и создавайте безмолвную связь с игроками со всего мира. Выполняйте задания и разгадывайте загадки сезонных событий, прославляющих доброту, любознательность и дружбу.",
+        "specs": {
+            "minimum": "Минимальные: | 64-разрядные процессор и операционная система | ОС: Windows 10 64-bit, build 1903+ (10.0.18362) | Процессор: Intel i5-6400 or AMD FX 8310 | Оперативная память: 8 GB ОЗУ | Видеокарта: Nvidia GeForce GTX 1030 or AMD Radeon RX 560 | Сеть: Широкополосное подключение к интернету | Место на диске: 3 GB | Дополнительно: Vulkan 1.2 Driver. GPU must have at least 2048 MB of VRAM.",
+            "recommended": "Рекомендованные: | 64-разрядные процессор и операционная система | ОС: Windows 10 64-bit, build 1903+ (10.0.18362) | Процессор: Intel i5-8400 or AMD Ryzen 5 1600 | Оперативная память: 8 GB ОЗУ | Видеокарта: Nvidia GeForce GTX 1060 or AMD Radeon RX 580 | Сеть: Широкополосное подключение к интернету | Место на диске: 3 GB | Дополнительно: Vulkan 1.3 Driver. GPU must have at least 2048 MB of VRAM."
+        },
+        "trailer": "",
+        "assets": {
+            "logo": "sky_children_of_the_light_logo.png",
+            "cover": "sky_children_of_the_light.jpg",
+            "banner": "sky_children_of_the_light_banner.jpg",
+            "screenshots": [
+                "sky_children_of_the_light_screen_1.jpg",
+                "sky_children_of_the_light_screen_2.jpg",
+                "sky_children_of_the_light_screen_3.jpg",
+                "sky_children_of_the_light_screen_4.jpg",
+                "sky_children_of_the_light_screen_5.jpg",
+                "sky_children_of_the_light_screen_6.jpg"
+            ]
+        }
+    },
+    {
+        "id": "game_karnaval_illyuziy",
+        "steam_id": 2796340,
+        "title": "Карнавал Иллюзий",
+        "tier": "tier_standard",
+        "developer": "KiZ",
+        "publisher": "KiZ",
+        "release_date": "11 июл. 2024 г.",
+        "tags": [
+            "Psychological Horror",
+            "2.5D",
+            "Cute",
+            "Stylized",
+            "RPG",
+            "Puzzle",
+            "Exploration",
+            "Story Rich",
+            "Free to Play",
+            "Hand-drawn",
+            "Visual Novel",
+            "Anime",
+            "Adventure",
+            "JRPG",
+            "Colorful",
+            "2D",
+            "Fantasy",
+            "Top-Down",
+            "Drama",
+            "Comedy"
+        ],
+        "description": "Заблудшая душа путешествует по причудливому, жуткому парку аттракционов, в стиле всплывающей книги. Погрузитесь в весёлые игры, встретьте интересных персонажей, попытайтесь избежать эрозии души и узнайте скрытые секреты парка. Это начало чарующего, но мрачного Карнавала Иллюзий.",
+        "specs": {
+            "minimum": "Минимальные: | 64-разрядные процессор и операционная система | ОС *: Windows 7 | Процессор: Intel Core i3-3240 | Оперативная память: 4 GB ОЗУ | Видеокарта: GeForce GTX 560 Ti | Место на диске: 5 GB",
+            "recommended": "Рекомендованные: | 64-разрядные процессор и операционная система | ОС: Windows 10 | Процессор: Intel Core i5-3470 | Оперативная память: 8 GB ОЗУ | Видеокарта: GeForce GTX 1050 | Место на диске: 5 GB"
+        },
+        "trailer": "",
+        "assets": {
+            "logo": "karnaval_illyuziy_logo.png",
+            "cover": "karnaval_illyuziy.jpg",
+            "banner": "karnaval_illyuziy_banner.jpg",
+            "screenshots": [
+                "karnaval_illyuziy_screen_1.jpg",
+                "karnaval_illyuziy_screen_2.jpg",
+                "karnaval_illyuziy_screen_3.jpg",
+                "karnaval_illyuziy_screen_4.jpg",
+                "karnaval_illyuziy_screen_5.jpg",
+                "karnaval_illyuziy_screen_6.jpg"
+            ]
+        }
+    },
+    {
+        "id": "game_atomic_heart",
+        "steam_id": 668580,
+        "title": "Atomic Heart",
+        "tier": "tier_aaa",
+        "developer": "Mundfish",
+        "publisher": "Focus Entertainment, 4Divinity",
+        "release_date": "20 фев. 2023 г.",
+        "tags": [
+            "Sexual Content",
+            "FPS",
+            "Horror",
+            "Singleplayer",
+            "Puzzle",
+            "Robots",
+            "Mystery",
+            "Action",
+            "Shooter",
+            "Sci-fi",
+            "First-Person",
+            "Open World",
+            "Action-Adventure",
+            "Alternate History",
+            "Exploration",
+            "Atmospheric",
+            "Gore",
+            "Cyberpunk",
+            "Action RPG",
+            "RPG"
+        ],
+        "description": "Погрузитесь в безумную и прекрасную техноутопию, где вас на каждом шагу поджидает смерть. Выполните порученное вам задание, подстраиваясь под необычных противников, используя элементы окружения и улучшая свой арсенал. Узнайте правду — любой ценой!",
+        "specs": {
+            "minimum": "Минимальные: | 64-разрядные процессор и операционная система | ОС: Windows 10 (20H1 version or newer, 64-bit versions) | Процессор: AMD Ryzen 3 1200 or Intel Core i5-2500 | Оперативная память: 8 GB ОЗУ | Видеокарта: 4 GB VRAM, AMD Radeon R9 380 or NVIDIA GeForce GTX 960 | DirectX: версии 12 | Место на диске: 90 GB | Дополнительно: 30 FPS, 1920x1080 in low",
+            "recommended": "Рекомендованные: | 64-разрядные процессор и операционная система | ОС: Windows 10 (20H1 version or newer, 64-bit versions) | Процессор: AMD Ryzen 5 2600X or Intel Core i7-7700K | Оперативная память: 16 GB ОЗУ | Видеокарта: 8 GB VRAM, AMD RX 6700 XT or NVIDIA GeForce RTX 2070 | DirectX: версии 12 | Место на диске: 90 GB | Дополнительно: SSD recommended, 60 FPS, 1920x1080 in ultra"
+        },
+        "trailer": "",
+        "assets": {
+            "logo": "atomic_heart_logo.png",
+            "cover": "atomic_heart.jpg",
+            "banner": "atomic_heart_banner.jpg",
+            "screenshots": [
+                "atomic_heart_screen_1.jpg",
+                "atomic_heart_screen_2.jpg",
+                "atomic_heart_screen_3.jpg",
+                "atomic_heart_screen_4.jpg",
+                "atomic_heart_screen_5.jpg",
+                "atomic_heart_screen_6.jpg"
+            ]
+        }
+    }
+]
