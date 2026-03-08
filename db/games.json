@@ -1,5 +1,94 @@
 [
     {
+        "id": "game_subnautica_2",
+        "steam_id": 1962700,
+        "title": "Subnautica 2",
+        "tier": "tier_standard",
+        "developer": "Unknown Worlds Entertainment",
+        "publisher": "KRAFTON, Inc.",
+        "release_date": "2026",
+        "tags": [
+            "Multiplayer",
+            "Underwater",
+            "Survival",
+            "Horror",
+            "Exploration",
+            "Co-op",
+            "Open World",
+            "Survival Horror",
+            "First-Person",
+            "Adventure",
+            "Atmospheric",
+            "Psychological Horror",
+            "Early Access",
+            "Sci-fi",
+            "Sandbox",
+            "Singleplayer",
+            "Action",
+            "3D",
+            "Casual",
+            "Choices Matter"
+        ],
+        "description": "Immerse yourself in a new adventure with Subnautica 2, an open-water survival game from the creators of the Subnautica series. Play alone or with friends as you explore alluring biomes and discover fascinating creatures. Craft vehicles, tools, and bases to survive this mysterious alien world.",
+        "trailer": "",
+        "assets": {
+            "cover": "subnautica_2.jpg",
+            "banner": "subnautica_2_banner.jpg",
+            "screenshots": [
+                "subnautica_2_screen_1.jpg",
+                "subnautica_2_screen_2.jpg",
+                "subnautica_2_screen_3.jpg",
+                "subnautica_2_screen_4.jpg",
+                "subnautica_2_screen_5.jpg"
+            ]
+        }
+    },
+    {
+        "id": "game_ill",
+        "steam_id": 1757350,
+        "title": "ILL",
+        "tier": "tier_aaa",
+        "developer": "Team Clout inc.",
+        "publisher": "Team Clout inc.",
+        "release_date": "Ещё не объявлена",
+        "tags": [
+            "Horror",
+            "Action",
+            "Shooter",
+            "First-Person",
+            "Survival Horror",
+            "Cinematic",
+            "Singleplayer",
+            "Survival",
+            "Psychological Horror",
+            "Story Rich",
+            "Violent",
+            "Gore",
+            "Adventure",
+            "Realistic",
+            "3D",
+            "Dark",
+            "Action-Adventure",
+            "FPS",
+            "Zombies",
+            "Lore-Rich"
+        ],
+        "description": "Реалистичный экшен-хоррор от первого лица, где вы окажетесь в мрачном форте, захваченном таинственной сущностью. Непредсказуемые монстры, правдоподобная система расчленения и реалистичная физика создадут атмосферу бесконечного ужаса.",
+        "trailer": "",
+        "assets": {
+            "cover": "ill.jpg",
+            "banner": "ill_banner.jpg",
+            "screenshots": [
+                "ill_screen_1.jpg",
+                "ill_screen_2.jpg",
+                "ill_screen_3.jpg",
+                "ill_screen_4.jpg",
+                "ill_screen_5.jpg",
+                "ill_screen_6.jpg"
+            ]
+        }
+    },
+    {
         "id": "game_portal_2",
         "steam_id": 620,
         "title": "Portal 2",
